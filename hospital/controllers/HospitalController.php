@@ -8,7 +8,7 @@ use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\CUtil;
-use app\models\CLogin;
+use app\models\Login4Hospital;
 
 
 class HospitalController extends Controller
@@ -67,7 +67,22 @@ class HospitalController extends Controller
 	
 	public function actionLoginin()
     {
-        echo "fuck!!!!!";
+		$username = CUtil::getRequestParam('req', 'username', '');
+		$password = CUtil::getRequestParam('req', 'password', '');
+		$b=Login4Hospital::loginIn($username,$password);
+		$ret=array();
+		$ret["username"]=$username ;
+		$ret["password"]=$password ;
+		if($b)
+		{
+			$ret["ret"]=0;
+		}
+		else
+		{
+			$ret["ret"]=1;
+			
+		}
+        print_r($ret);
     }
 	
 	

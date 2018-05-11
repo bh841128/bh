@@ -32,4 +32,13 @@ class CUtil {
         }
         return $data;
     }
+	
+	
+	 static public function setCookie($name,$value,$time=7200){
+		$cookie = new CHttpCookie($name, $value);
+		$cookie->expire = time() + $time; // 2 hours 
+		Yii::app()->request->cookies[$name] = $cookie;
+		 
+	 }
+	
 }
