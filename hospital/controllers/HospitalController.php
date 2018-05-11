@@ -8,6 +8,8 @@ use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\CUtil;
+use app\models\CLogin;
+
 
 class HospitalController extends Controller
 {
