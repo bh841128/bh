@@ -58,17 +58,7 @@ class HospitalController extends Controller
         ];
     }
 
-    /**
-     * Displays homepage.
-     *
-     * @return string
-     */
-    public function actionHelloWorld()
-    {
-        Yii::error("asfasdfasdfasdfasdf");
-        Yii::getLogger()->log("bbbbbbb", Logger::LEVEL_TRACE, "hospital");
-        echo "Hello World!!!!!";
-    }
+  
 	
 
      public function actionGetManager()
@@ -123,15 +113,6 @@ class HospitalController extends Controller
     }
 	
 	
-	public function actionListSessions()
-    {
-		$aaa = CUtil::getRequestParam('get', 'aaa', '2');
-		echo "aaa = $aaa".PHP_EOL;
-		$sql = "select * from session";
-		$connection = Yii::$app->db;
-		$command = $connection->createCommand($sql);
-		$records = $command->queryAll();
-		print_r($records);
-    }
+	
 
 }
