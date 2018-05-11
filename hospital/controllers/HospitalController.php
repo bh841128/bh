@@ -64,6 +64,13 @@ class HospitalController extends Controller
     {
         echo "Hello World!!!!!";
     }
+	
+	public function actionLoginin()
+    {
+        echo "fuck!!!!!";
+    }
+	
+	
 	public function actionListSessions()
     {
 		$aaa = CUtil::getRequestParam('get', 'aaa', '2');
