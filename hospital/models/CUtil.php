@@ -4,7 +4,7 @@ namespace app\models;
 
 use Yii;
 use app\models\CError;
-
+use yii\log\Logger;
 
 class CUtil {
     static public function getRequestParam($type, $name, $default = 0) {
