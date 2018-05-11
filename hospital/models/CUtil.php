@@ -34,11 +34,16 @@ class CUtil {
     }
 	
 	
-	 static public function setCookie($name,$value,$time=7200){
-		$cookie = new CHttpCookie($name, $value);
-		$cookie->expire = time() + $time; // 2 hours 
-		Yii::app()->request->cookies[$name] = $cookie;
-		 
+	 static public function setCookie($name,$value,$expire=7200){
+		 $cookie = new \yii\web\Cookie();
+		$cookie -> name = "$name";        //cookie的名称
+		$cookie -> expire = time() + $expire;	   //存活的时间
+		$cookie -> httpOnly = true;		   //无法通过js读取cookie
+		$cookie -> value = "$value";	   //cookie的值
+var_dump($cookie);
+echo "123";
+
+		\Yii::$app->response->getCookies()->add($cookie);
      }
      
      static public function logFile($msg, $level = Logger::LEVEL_TRACE, $category="hospital"){

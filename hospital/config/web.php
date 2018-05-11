@@ -16,9 +16,9 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'fua;e@#$1fj987xxfDD',
         ],
-        'cache' => [
-            'class' => 'yii\caching\FileCache',
-        ],
+        //'cache' => [
+        //    'class' => 'yii\caching\FileCache',
+        //],
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
@@ -39,12 +39,12 @@ $config = [
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning', 'trace', 'info'],
-                    'logFile' => '@app/runtime/logs/error.log',
+                    'logFile' => '@app/runtime/logs/import.log',
                 ],
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['trace', 'info'],
-                    'logFile' => '@app/runtime/logs/access.log',
+                    'logFile' => '@app/runtime/logs/run.log',
                 ],
                /* [
                     'class' => 'yii\log\FileTarget',

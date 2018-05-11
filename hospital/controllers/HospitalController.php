@@ -62,27 +62,31 @@ class HospitalController extends Controller
      */
     public function actionHelloWorld()
     {
+        CUtil::setCookie("aaa","2222");
         echo "Hello World!!!!!";
     }
+	
+	public function actionCheckLogin()
+    {
+		$username = CUtil::getRequestParam('cookie', 'username', '');
+		$skey = CUtil::getRequestParam('cookie', 'skey', '');
+		
+		//echo("===$username  $skey    ");
+		$ret=Login4Hospital::checkLogin($username,$skey);
+		
+        return json_encode($ret);
+    }
+	
 	
 	public function actionLoginin()
     {
 		$username = CUtil::getRequestParam('req', 'username', '');
 		$password = CUtil::getRequestParam('req', 'password', '');
-		$b=Login4Hospital::loginIn($username,$password);
-		$ret=array();
-		$ret["username"]=$username ;
-		$ret["password"]=$password ;
-		if($b)
-		{
-			$ret["ret"]=0;
-		}
-		else
-		{
-			$ret["ret"]=1;
-			
-		}
-        print_r($ret);
+		$ret=Login4Hospital::loginIn($username,$password);
+		
+		
+		
+        return json_encode($ret);
     }
 	
 	
