@@ -11,6 +11,8 @@ use app\models\CUtil;
 use app\models\Login4Hospital;
 use yii\log\Logger;
 
+define("NOLOGIN", 1);
+
 
 class HospitalController extends Controller
 {
@@ -68,6 +70,35 @@ class HospitalController extends Controller
         echo "Hello World!!!!!";
     }
 	
+
+     public function actionGetManager()
+    {
+        $username = CUtil::getRequestParam('request', 'username', '');
+        $skey = CUtil::getRequestParam('cookie', 'skey', '');
+        $ret=Login4Hospital::checkLogin($username,$skey);
+        CUtil::logFile("====".print_r($ret,true));
+        if($ret["ret"]!=0){
+            $ret["ret"]=NOLOGIN;
+            $ret["msg"]="not login";
+            return json_encode($ret);
+        }
+        $ret=Login4Hospital::getManager($username);
+        
+        return json_encode($ret);
+    }
+
+    public function actionModpwd()
+    {
+        $username = CUtil::getRequestParam('request', 'username', '');
+        $newpassword = CUtil::getRequestParam('request', 'newpassword', '');
+        $oldpassword = CUtil::getRequestParam('request', 'oldpassword', '');
+        
+        //echo("===$username  $skey    ");
+        $ret=Login4Hospital::modpassword($username,$oldpassword,$newpassword);
+        
+        return json_encode($ret);
+    }
+
 	public function actionCheckLogin()
     {
 		$username = CUtil::getRequestParam('cookie', 'username', '');

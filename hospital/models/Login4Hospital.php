@@ -26,7 +26,63 @@ class Login4Hospital {
 	 }
 	
 	
-	
+     static public function modpassword($username,$oldpassword,$newpassword)
+	 {
+		 $ret=array(
+		   "ret"=>0,
+		   
+		   "msg"=>""
+		);
+		$now=time(0);
+        $newpwd=Login4Hospital::getPass4S($username,$newpassword);
+        $oldpwd=Login4Hospital::getPass4S($username,$oldpassword);
+		$sql = "update hospital_manager set password=:newpassword  where username=:username and password=:oldpassword ";
+		$args=array(':username'=>$username,':newpassword'=>$newpwd,":oldpassword"=>$oldpwd);
+		CUtil::logFile("$username     $newpassword $oldpassword  $newpwd   $oldpwd");
+		
+		$connection = Yii::$app->db;
+		$command = $connection->createCommand($sql,$args);
+		$records = $command->execute();
+		if($records!=1){
+			$ret["ret"]=1;
+			$ret["msg"]="update err!";			
+			return $ret;
+		}
+		CUtil::logFile("=====$records");
+		$sql = "delete  from session where username=:username  ";
+		$args=array(':username'=>$username);
+		$command = $connection->createCommand($sql,$args);
+		$records = $command->execute();
+
+		return $ret;
+	 }
+
+	 static public function getManager($username)
+	 {
+		 $ret=array(
+		   "ret"=>0,
+		   
+		   "msg"=>""
+		);
+
+
+
+		$now=time(0);
+		$sql = "select * from hospital_manager where username=:username and status=0";
+		$args=array(':username'=>$username);
+		CUtil::logFile("$username  ");
+		
+		$connection = Yii::$app->db;
+		$command = $connection->createCommand($sql,$args);
+		$records = $command->queryAll();
+		if(count($records)!=1){
+			$ret["ret"]=1;
+						
+			return $ret;
+		}
+		$ret["msg"]=$records[0];
+		 return $ret;
+	 }
 	
      static public function checkLogin($username,$skey)
 	 {
@@ -94,7 +150,7 @@ class Login4Hospital {
 			CUtil::setCookie("skey",$skey);
 		}
 		else {
-			$ret["ret"]=1;
+			$ret["ret"]=2;
 			return $ret;
 		}
 		
