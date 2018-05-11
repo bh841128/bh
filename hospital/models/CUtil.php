@@ -39,6 +39,10 @@ class CUtil {
 		$cookie->expire = time() + $time; // 2 hours 
 		Yii::app()->request->cookies[$name] = $cookie;
 		 
-	 }
+     }
+     
+     static public function logFile($msg, $level = Logger::LEVEL_TRACE, $category="hospital"){
+        Yii::getLogger()->log($msg, $level,$category);
+     }
 	
 }

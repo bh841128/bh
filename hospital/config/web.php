@@ -38,8 +38,19 @@ $config = [
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
+                    'levels' => ['error', 'warning', 'trace', 'info'],
+                    'logFile' => '@app/runtime/logs/error.log',
                 ],
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['trace', 'info'],
+                    'logFile' => '@app/runtime/logs/access.log',
+                ],
+               /* [
+                    'class' => 'yii\log\FileTarget',
+                    'categories' => ['basket'],
+                    'logFile' => '@app/runtime/logs/basket.log',
+                ],*/
             ],
         ],
         'db' => $db,
