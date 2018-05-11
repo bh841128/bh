@@ -35,18 +35,17 @@ class CUtil {
 	
 	
 	 static public function setCookie($name,$value,$expire=7200){
-		 $cookie = new \yii\web\Cookie();
-		$cookie -> name = "$name";        //cookie的名称
-		$cookie -> expire = time() + $expire;	   //存活的时间
-		$cookie -> httpOnly = true;		   //无法通过js读取cookie
-		$cookie -> value = "$value";	   //cookie的值
-var_dump($cookie);
-echo "123";
-
-		\Yii::$app->response->getCookies()->add($cookie);
+		$cookies = Yii::$app->response->cookies;
+ 
+		$cookies->add(new \yii\web\Cookie([
+			'name' => "$name",
+			'value' => "$value",
+			'expire'=>time()+$expire
+		]));
      }
      
-     static public function logFile($msg, $level = Logger::LEVEL_TRACE, $category="hospital"){
+     static public function logFile($msg, $level = Logger::LEVEL_ERROR, $category="hospital"){
+        Yii::$app->log->traceLevel = 0;
         Yii::getLogger()->log($msg, $level,$category);
      }
 	

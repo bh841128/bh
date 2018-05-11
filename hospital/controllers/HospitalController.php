@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\CUtil;
 use app\models\Login4Hospital;
+use yii\log\Logger;
 
 
 class HospitalController extends Controller
@@ -62,7 +63,8 @@ class HospitalController extends Controller
      */
     public function actionHelloWorld()
     {
-        CUtil::setCookie("aaa","2222");
+        Yii::error("asfasdfasdfasdfasdf");
+        Yii::getLogger()->log("bbbbbbb", Logger::LEVEL_TRACE, "hospital");
         echo "Hello World!!!!!";
     }
 	

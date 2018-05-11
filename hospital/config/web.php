@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('PRC'); 
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
@@ -14,6 +15,7 @@ $config = [
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
+            'enableCookieValidation' => false,
             'cookieValidationKey' => 'fua;e@#$1fj987xxfDD',
         ],
         //'cache' => [
@@ -34,17 +36,14 @@ $config = [
             'useFileTransport' => true,
         ],
         'log' => [
-            'traceLevel' => YII_DEBUG ? 3 : 0,
+            'traceLevel' => YII_DEBUG ? 0 : 0,
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning', 'trace', 'info'],
-                    'logFile' => '@app/runtime/logs/import.log',
-                ],
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['trace', 'info'],
-                    'logFile' => '@app/runtime/logs/run.log',
+                    'categories' => ['hospital'],
+                    'logFile' => '@app/runtime/logs/hospital.log',
+                    'logVars' => [],
                 ],
                /* [
                     'class' => 'yii\log\FileTarget',
