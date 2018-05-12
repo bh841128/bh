@@ -92,7 +92,7 @@ status  1:正常 2:上传  3：删除
 		   
 		   "msg"=>""
 		);
-
+         CUtil::logFile("=====$page   $hospital_id   $size");
 		
         $sql = "select * from patientInfo where hospital_id=:hospital_id and ";
 		$args=array(":hospital_id"=>$hospital_id);
@@ -104,27 +104,24 @@ status  1:正常 2:上传  3：删除
 			
 		}
 		
-		if(!isset($filter["end_time"])){
+		if(array_key_exists("end_time",$filter)){
 			$sql=$sql." uploadtime<=:end_time  and ";
 			$args[":end_time"]=$filter["end_time"];
 		}
-		if(!isset($filter["start_time"])){
+		if(array_key_exists("start_time",$filter)){
 			$sql=$sql." uploadtime>=:start_time   ";
 			$args[":start_time"]=$filter["start_time"];
 		}else{
 			$sql=$sql." uploadtime>=0 ";
 		}
+		
 		$page=$page<1?1:$page;
 		$sql=$sql." limit ".($page-1)*$size.",".$size;
         CUtil::logFile("=====$sql  ".print_r($args,true));
 		$connection = Yii::$app->db;
 		$command = $connection->createCommand($sql,$args);
 		$records = $command->queryAll();
-		if(count($records)!=1){
-			$ret["ret"]=1;
-						
-			return $ret;
-		}
+		
 		$ret["msg"]=$records;
 		return $ret;
 

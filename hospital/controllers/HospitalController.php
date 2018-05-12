@@ -263,7 +263,7 @@ class HospitalController extends Controller
 		}
 		
 		CUtil::logFile("$page,$hospital_id===$size=".print_r($filter,true));
-        $ret=Patient4Hospital::getPatientList($page,$hospital_id,$filter,$size=10);
+        $ret=Patient4Hospital::getPatientList($page,$hospital_id,$filter,$size);
         if($ret["ret"]!=0){
             $ret["ret"]=NODATA;
             $ret["msg"]="no data";
