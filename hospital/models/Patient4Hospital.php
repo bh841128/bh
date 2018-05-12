@@ -109,11 +109,13 @@ status  1:正常 2:上传  3：删除
 			$args[":end_time"]=$filter["end_time"];
 		}
 		if(!isset($filter["start_time"])){
-			$sql=$sql." uploadtime>=:start_time  ";
+			$sql=$sql." uploadtime>=:start_time   ";
 			$args[":start_time"]=$filter["start_time"];
 		}else{
 			$sql=$sql." uploadtime>=0 ";
 		}
+		$page=$page<1?1:$page;
+		$sql=$sql." limit ".($page-1)*$size.",".$size;
         CUtil::logFile("=====$sql  ".print_r($args,true));
 		$connection = Yii::$app->db;
 		$command = $connection->createCommand($sql,$args);
@@ -127,5 +129,32 @@ status  1:正常 2:上传  3：删除
 		return $ret;
 
 	 }
+	 
+	 
+	 
+	  static public function insertPatientInfo($patientInfo){
+     	$ret=array(
+		   "ret"=>0,
+		   "msg"=>""
+		);
+		
+		$now=time(0);
+		$sql="";
+		$args="";
+		
+		CUtil::logFile("=====$sql  ".print_r($args,true));
+		
+     	$connection = Yii::$app->db;
+		$command = $connection->createCommand($sql,$args);
+		$records = $command->execute();
+		if($records!=1){
+			$ret["ret"]=1;
+			$ret["msg"]="insert err!";		
+			CUtil::logFile("=====$records  ");			
+			return $ret;
+		}
+		return $ret;
+
+     }
 
 }

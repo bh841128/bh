@@ -198,7 +198,7 @@ class HospitalController extends Controller
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
 		//登录
         $ret=Login4Hospital::checkLogin($username,$skey);
-        CUtil::logFile("====".print_r($ret,true));
+        //CUtil::logFile("====".print_r($ret,true));
         if($ret["ret"]!=0){
             $ret["ret"]=NOLOGIN;
             $ret["msg"]="not login";
@@ -268,5 +268,31 @@ class HospitalController extends Controller
         }
         return json_encode($ret);
     }
+	
+	public function actionInsertPatient()
+    {
+		$username = CUtil::getRequestParam('cookie', 'username', '');
+        $skey = CUtil::getRequestParam('cookie', 'skey', '');
+		//登录
+        $ret=Login4Hospital::checkLogin($username,$skey);
+        //CUtil::logFile("====".print_r($ret,true));
+        if($ret["ret"]!=0){
+            $ret["ret"]=NOLOGIN;
+            $ret["msg"]="not login";
+			CUtil::logFile("not login====".print_r($ret,true));
+            return json_encode($ret);
+        }
+		//获取管理人员信息
+		$ret=Login4Hospital::getManager($username);
+         if($ret["ret"]!=0){
+            $ret["ret"]=NOACCESS;
+            $ret["msg"]="no ACCESS";
+			CUtil::logFile("not login====".print_r($ret,true));
+            return json_encode($ret);
+        }
+		
+		
+		 return json_encode($ret);
+	}
 
 }
