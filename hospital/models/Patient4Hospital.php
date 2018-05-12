@@ -33,13 +33,13 @@ class Patient4Hospital {
 	 }
 
 	 
-	//status  0:正常 1:上传  2：删除
+	//status  1:正常 2:上传  3：删除
      static public function setPatientStatusByIds($ids,$hospital_id,$status,$manager_id){
      	$ret=array(
 		   "ret"=>0,
 		   "msg"=>""
 		);
-		if($status!=1 && $status!=2){
+		if($status!=2 && $status!=3){
 			$ret["ret"]=100;
 			$ret["msg"]="args err!";
 			return $ret;
@@ -52,11 +52,11 @@ class Patient4Hospital {
 		$sql="";
 		$args="";
 		if($status==2){
-			$sql="update patientInfo  set status=:status ,lastmod_manager_id=:lastmod_manager_id,lastmodtime=:lastmodtime where  hospital_id=:hospital_id and id in ($instr) and status=0  ";
+			$sql="update patientInfo  set status=:status ,lastmod_manager_id=:lastmod_manager_id,lastmodtime=:lastmodtime where  hospital_id=:hospital_id and id in ($instr) and status=1  ";
 			$args=array(':status'=>$status,':hospital_id'=>$hospital_id,":lastmod_manager_id"=>$manager_id,":lastmodtime"=>$now);
 		}
-		else {
-		    $sql="update patientInfo  set status=:status ,lastmod_manager_id=:lastmod_manager_id,lastmodtime=:lastmodtime, uploadtime=:uploadtime where  hospital_id=:hospital_id and id in ($instr) and status=0  ";
+		else {//3
+		    $sql="update patientInfo  set status=:status ,lastmod_manager_id=:lastmod_manager_id,lastmodtime=:lastmodtime, uploadtime=:uploadtime where  hospital_id=:hospital_id and id in ($instr) and status=1  ";
 			$args=array(':status'=>$status,':hospital_id'=>$hospital_id,":lastmod_manager_id"=>$manager_id,":lastmodtime"=>$now,":uploadtime"=>$now);
 	
 		}
@@ -80,9 +80,12 @@ class Patient4Hospital {
 	 /*
 	 
 	 
+http://112.74.105.107/hospital/get-patient-list?page=1&size=8&sexy=1&name=ddg&medical_id=gfhfg&relate_name=fghfg&relate_iphone=13590149774&status=1&start_time=0&end_time=99999999
+
+status  1:正常 2:上传  3：删除 
 	 
 	 */
-      static public function getPatientList($page,$hospital_id,$filter,$size=10)
+     static public function getPatientList($page,$hospital_id,$filter,$size=10)
 	 {
 		 $ret=array(
 		   "ret"=>0,
@@ -90,15 +93,28 @@ class Patient4Hospital {
 		   "msg"=>""
 		);
 
-      
-
-
-/*
 		
-		$sql = "select * from patientInfo where id=:id";
-		$args=array(':id'=>$id);
-		CUtil::logFile("=====$id  ");
+        $sql = "select * from patientInfo where hospital_id=:hospital_id and ";
+		$args=array(":hospital_id"=>$hospital_id);
+		foreach ($filter as $key => $value) {  
+			if($key!="start_time"&&$key!="end_time"){
+				$sql=$sql." $key=:".$key."  and ";
+				$args[":".$key]=$value;
+			}
+			
+		}
 		
+		if(!isset($filter["end_time"])){
+			$sql=$sql." uploadtime<=:end_time  and ";
+			$args[":end_time"]=$filter["end_time"];
+		}
+		if(!isset($filter["start_time"])){
+			$sql=$sql." uploadtime>=:start_time  ";
+			$args[":start_time"]=$filter["start_time"];
+		}else{
+			$sql=$sql." uploadtime>=0 ";
+		}
+        CUtil::logFile("=====$sql  ".print_r($args,true));
 		$connection = Yii::$app->db;
 		$command = $connection->createCommand($sql,$args);
 		$records = $command->queryAll();
@@ -107,9 +123,9 @@ class Patient4Hospital {
 						
 			return $ret;
 		}
-		$ret["msg"]=$records[0];
-		return $ret;*/
+		$ret["msg"]=$records;
 		return $ret;
+
 	 }
 
 }

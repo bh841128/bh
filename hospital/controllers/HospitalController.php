@@ -158,7 +158,7 @@ class HospitalController extends Controller
         return json_encode($ret);
     }
 	
-	//status  0:正常 1:上传  2：删除
+	//status  1:正常 2:上传  3：删除
 	public function actionSetPatientsStatus()
     {
         $username = CUtil::getRequestParam('cookie', 'username', '');
@@ -249,11 +249,13 @@ class HospitalController extends Controller
 		if(CUtil::getRequestParam('request', 'end_time', 0)!=0){
 			$filter["end_time"]=CUtil::getRequestParam('request', 'end_time', 0);
 		}
-		if(CUtil::getRequestParam('request', 'status', 10)==1||
-		   CUtil::getRequestParam('request', 'status', 10)==2||
-		   CUtil::getRequestParam('request', 'status', 10)==0)
+		
+		if(CUtil::getRequestParam('request', 'status',0)==1||
+		   CUtil::getRequestParam('request', 'status',0)==2||
+		   CUtil::getRequestParam('request', 'status',0)==3)
 		{
-			$filter["status"]=CUtil::getRequestParam('request', 'status', 10);
+			
+			$filter["status"]=CUtil::getRequestParam('request', 'status', 0);
 		}
 		
 		CUtil::logFile("$page,$hospital_id===$size=".print_r($filter,true));
