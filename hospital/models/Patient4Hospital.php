@@ -138,8 +138,16 @@ status  1:正常 2:上传  3：删除
 		   "msg"=>""
 		);
 		
-		$now=time(0);
-		$sql="insert into  patientInfo (hospital_id,medical_id,name,nation,birthday,province,city,distinct,address,reason,isSupply,relate_text,`status`,lastmod_manager_id,sexy,createtime,uploadtime,lastmodtime,create_manager_id) values(:hospital_id,:medical_id,:name,:nation,:birthday,:province,:city,:distinct,:address,:reason,:isSupply,:relate_text,:status,:lastmod_manager_id,:sexy,:createtime,:uploadtime,:lastmodtime,:create_manager_id) ";
+		
+		$sql="";
+		if($patientInfo[":isSupply"]!=0){
+			$sql="insert into  patientInfo (hospital_id,medical_id,name,nation,birthday,reason,isSupply,relate_text,`status`,lastmod_manager_id,sexy,createtime,uploadtime,lastmodtime,create_manager_id) values(:hospital_id,:medical_id,:name,:nation,:birthday,:reason,:isSupply,:relate_text,:status,:lastmod_manager_id,:sexy,:createtime,:uploadtime,:lastmodtime,:create_manager_id) ";
+
+		}
+		else{
+			$sql="insert into  patientInfo (hospital_id,medical_id,name,nation,birthday,province,city,district,address,relate_text,`status`,lastmod_manager_id,sexy,createtime,uploadtime,lastmodtime,create_manager_id,isSupply) values(:hospital_id,:medical_id,:name,:nation,:birthday,:province,:city,:district,:address,:relate_text,:status,:lastmod_manager_id,:sexy,:createtime,:uploadtime,:lastmodtime,:create_manager_id,:isSupply) ";
+
+		}
 
 		CUtil::logFile("=====$sql  ".print_r($patientInfo,true));
 		
@@ -156,15 +164,40 @@ status  1:正常 2:上传  3：删除
 
     }
 
-	static public function updatePatientInfo($patientInfo){
+	static public function updatePatientInfo($id,$patientInfo){
      	$ret=array(
 		   "ret"=>0,
 		   "msg"=>""
 		);
 		
-		$now=time(0);
-		$sql="replace into  patientInfo (id,hospital_id,medical_id,name,nation,birthday,province,city,distinct,address,reason,isSupply,relate_text,`status`,lastmod_manager_id,sexy,createtime,uploadtime,lastmodtime,create_manager_id) values(:id,:hospital_id,:medical_id,:name,:nation,:birthday,:province,:city,:distinct,:address,:reason,:isSupply,:relate_text,:status,:lastmod_manager_id,:sexy,:createtime,:uploadtime,:lastmodtime,:create_manager_id) ";
+		/*
 
+[:lastmod_manager_id] => 1
+    [:lastmodtime] => 1526151032
+    [:medical_id] => 345435
+    [:sexy] => 1
+    [:name] => 黄刚
+    [:nation] => 汉
+    [:birthday] => 19841128
+    [:isSupply] => 1
+    [:reason] => 不给
+    [:relate_text] => fdgdf
+		*/
+        
+
+		$sql="update   patientInfo set ";
+		foreach($patientInfo as $key => $value  ){
+			$sql=$sql." ".substr($key, 1)."=".$key.",";
+
+		}
+		$sql=$sql." create_manager_id=create_manager_id where id=".intval($id);
+        CUtil::logFile("=====$sql  ");
+		
+		
+		
+        
+
+       
 		CUtil::logFile("=====$sql  ".print_r($patientInfo,true));
 		
      	$connection = Yii::$app->db;

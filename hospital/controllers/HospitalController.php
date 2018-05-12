@@ -299,9 +299,9 @@ class HospitalController extends Controller
 		$patientInfo=array();
 		$now=time(0);
 		CUtil::logFile("222222====".print_r($ret,true));
-		$patientInfo[":hospital_id"]=$ret["msg"]["hospital_id"];
-		$patientInfo[":create_manager_id"]=$ret["msg"]["id"];
-		$patientInfo[":lastmod_manager_id"]=$ret["msg"]["id"];
+		$patientInfo[":hospital_id"]=intval($ret["msg"]["hospital_id"]);
+		$patientInfo[":create_manager_id"]=intval($ret["msg"]["id"]);
+		$patientInfo[":lastmod_manager_id"]=intval($ret["msg"]["id"]);
 		$patientInfo[":status"]=1;
 		$patientInfo[":createtime"]=$now;
 		$patientInfo[":lastmodtime"]=$now;
@@ -309,8 +309,8 @@ class HospitalController extends Controller
 		
 		$argErr=false;
 		
-		if(CUtil::getRequestParam('request', 'medical_id', 0)!=0){
-			$patientInfo[":medical_id"]=CUtil::getRequestParam('request', 'medical_id', 0);
+		if(CUtil::getRequestParam('request', 'medical_id', "")!=""){
+			$patientInfo[":medical_id"]=CUtil::getRequestParam('request', 'medical_id', "");
 		}
 		else{
 			$argErr=true; 
@@ -353,13 +353,14 @@ class HospitalController extends Controller
 		else{//提供地址就得他妈的得有
 			if(CUtil::getRequestParam('request', 'province', "")!=""&&
 				CUtil::getRequestParam('request', 'city', "")!=""&&
-				CUtil::getRequestParam('request', 'distinct', "")!=""&&
+				CUtil::getRequestParam('request', 'district', "")!=""&&
 				CUtil::getRequestParam('request', 'address', "")!=""
 			   )
 			{//不提供就要有reason
+                $patientInfo[":isSupply"]=0;
 				$patientInfo[":province"]=CUtil::getRequestParam('request', 'province', "");
 				$patientInfo[":city"]=CUtil::getRequestParam('request', 'city', "");
-				$patientInfo[":distinct"]=CUtil::getRequestParam('request', 'distinct', "");
+				$patientInfo[":district"]=CUtil::getRequestParam('request', 'district', "");
 				$patientInfo[":address"]=CUtil::getRequestParam('request', 'address', "");
 			}
 			else{
@@ -423,34 +424,33 @@ class HospitalController extends Controller
 		
 		
 		$patientInfo=array();
-		$record=$result["msg"];
-		foreach ($record as $key => $value) {  
-			$patientInfo[":".$key]=$value;
-		}
+		
 		
 			//:hospital_id,:medical_id,:name,:nation,:birthday,:province,:city,:distinct,:address,:reason,:isSupply,:relate_text,
 		//:status,:lastmod_manager_id,:sexy,:createtime,:uploadtime,:lastmodtime,:create_manager_id
 		
 		$now=time(0);
-		CUtil::logFile("1111111====".print_r($patientInfo,true));
 		
+		//$patientInfo[":id"]=$id;
+
 		$patientInfo[":lastmod_manager_id"]=$ret["msg"]["id"];
 		$patientInfo[":lastmodtime"]=$now;
+
 		
 		
 		//$patientInfo[":hospital_id"]=$ret["msg"]["hospital_id"];
 		//$patientInfo[":create_manager_id"]=$ret["msg"]["id"];
 		//$patientInfo[":status"]=1;
 		//$patientInfo[":createtime"]=$now;
-		$patientInfo[":lastmodtime"]=$now;
+		
 		//$patientInfo[":uploadtime"]=0;
 		
 		$argErr=false;
 		
 		
 		
-		if(CUtil::getRequestParam('request', 'medical_id', 0)!=0){
-			$patientInfo[":medical_id"]=CUtil::getRequestParam('request', 'medical_id', 0);
+		if(CUtil::getRequestParam('request', 'medical_id', "")!=""){
+			$patientInfo[":medical_id"]=CUtil::getRequestParam('request', 'medical_id', "");
 		}
 		else{
 			$argErr=true; 
@@ -493,13 +493,13 @@ class HospitalController extends Controller
 		else{//提供地址就得他妈的得有
 			if(CUtil::getRequestParam('request', 'province', "")!=""&&
 				CUtil::getRequestParam('request', 'city', "")!=""&&
-				CUtil::getRequestParam('request', 'distinct', "")!=""&&
+				CUtil::getRequestParam('request', 'district', "")!=""&&
 				CUtil::getRequestParam('request', 'address', "")!=""
 			   )
 			{//不提供就要有reason
 				$patientInfo[":province"]=CUtil::getRequestParam('request', 'province', "");
 				$patientInfo[":city"]=CUtil::getRequestParam('request', 'city', "");
-				$patientInfo[":distinct"]=CUtil::getRequestParam('request', 'distinct', "");
+				$patientInfo[":district"]=CUtil::getRequestParam('request', 'district', "");
 				$patientInfo[":address"]=CUtil::getRequestParam('request', 'address', "");
 			}
 			else{
@@ -517,7 +517,7 @@ class HospitalController extends Controller
             return json_encode($ret);
 		}
 		CUtil::logFile("ARGS OK====".print_r($patientInfo,true));
-		$ret=Patient4Hospital::updatePatientInfo($patientInfo);
+		$ret=Patient4Hospital::updatePatientInfo($id,$patientInfo);
 		if($ret["ret"]!=0){
             $ret["ret"]=UPDATEERR;
             $ret["msg"]=$patientInfo;
