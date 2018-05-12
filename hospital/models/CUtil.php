@@ -32,8 +32,15 @@ class CUtil {
         }
         return $data;
     }
-	
-	
+	static public function checkMobile($str) 
+	{ 
+		if(preg_match("/^1[34578]{1}\d{9}$/",$str)){  
+			return true;  
+		}else{  
+			return false;  
+		}  
+	} 
+		
 	 static public function setCookie($name,$value,$expire=7200){
 		$cookies = Yii::$app->response->cookies;
  

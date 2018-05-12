@@ -128,6 +128,7 @@ class HospitalController extends Controller
         $username = CUtil::getRequestParam('cookie', 'username', '');
         $id = CUtil::getRequestParam('request', 'id', 0);
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
+		//登录
         $ret=Login4Hospital::checkLogin($username,$skey);
         CUtil::logFile("====".print_r($ret,true));
         if($ret["ret"]!=0){
@@ -136,7 +137,8 @@ class HospitalController extends Controller
 			CUtil::logFile("not login====".print_r($ret,true));
             return json_encode($ret);
         }
-		//登录
+		
+		//获取管理人员信息
 		$ret=Login4Hospital::getManager($username);
          if($ret["ret"]!=0){
             $ret["ret"]=NOACCESS;
@@ -145,7 +147,7 @@ class HospitalController extends Controller
             return json_encode($ret);
         }
 		
-		//获取管理人员信息
+		
         $ret=Patient4Hospital::getPatientById($id,$ret["msg"]["hospital_id"]);
         if($ret["ret"]!=0){
             $ret["ret"]=NODATA;
@@ -189,5 +191,80 @@ class HospitalController extends Controller
         return json_encode($ret);
     }
 
+	
+	public function actionGetPatientList()
+    {
+        $username = CUtil::getRequestParam('cookie', 'username', '');
+        $skey = CUtil::getRequestParam('cookie', 'skey', '');
+		//登录
+        $ret=Login4Hospital::checkLogin($username,$skey);
+        CUtil::logFile("====".print_r($ret,true));
+        if($ret["ret"]!=0){
+            $ret["ret"]=NOLOGIN;
+            $ret["msg"]="not login";
+			CUtil::logFile("not login====".print_r($ret,true));
+            return json_encode($ret);
+        }
+		//获取管理人员信息
+		$ret=Login4Hospital::getManager($username);
+         if($ret["ret"]!=0){
+            $ret["ret"]=NOACCESS;
+            $ret["msg"]="no ACCESS";
+			CUtil::logFile("not login====".print_r($ret,true));
+            return json_encode($ret);
+        }
+		
+		$page = CUtil::getRequestParam('request', 'page', 0);
+		$size = CUtil::getRequestParam('request', 'size', 0);
+		$size = $size==0?10:$size;
+		$status = CUtil::getRequestParam('request', 'status', 0);
+		$hospital_id = $ret["msg"]["hospital_id"];
+		
+		$filter=array();
+		if(CUtil::getRequestParam('request', 'name', "")!=""){
+			$filter["name"]=CUtil::getRequestParam('request', 'name', "");
+		}
+		if(CUtil::getRequestParam('request', 'medical_id', "")!=""){
+			$filter["medical_id"]=CUtil::getRequestParam('request', 'medical_id', "");
+		}
+		if(CUtil::getRequestParam('request', 'sexy', 0)==1||
+		   CUtil::getRequestParam('request', 'sexy', 0)==2 )
+		{
+			$filter["sexy"]=CUtil::getRequestParam('request', 'sexy', 0);
+		}
+		
+		if(CUtil::getRequestParam('request', 'relate_name', "")!=""){
+			$filter["relate_name"]=CUtil::getRequestParam('request', 'relate_name', "");
+		}
+		if(CUtil::getRequestParam('request', 'relate_iphone', "")!=""&&
+		    CUtil::checkMobile(CUtil::getRequestParam('request', 'relate_iphone', ""))){
+			$filter["relate_iphone"]=CUtil::getRequestParam('request', 'relate_iphone', "");
+		}
+		
+		if(CUtil::getRequestParam('request', 'start_time', 0)!=0){
+			$filter["start_time"]=CUtil::getRequestParam('request', 'start_time', 0);
+		}
+		
+			
+		if(CUtil::getRequestParam('request', 'end_time', 0)!=0){
+			$filter["end_time"]=CUtil::getRequestParam('request', 'end_time', 0);
+		}
+		if(CUtil::getRequestParam('request', 'status', 10)==1||
+		   CUtil::getRequestParam('request', 'status', 10)==2||
+		   CUtil::getRequestParam('request', 'status', 10)==0)
+		{
+			$filter["status"]=CUtil::getRequestParam('request', 'status', 10);
+		}
+		
+		CUtil::logFile("$page,$hospital_id===$size=".print_r($filter,true));
+        $ret=Patient4Hospital::getPatientList($page,$hospital_id,$filter,$size=10);
+        if($ret["ret"]!=0){
+            $ret["ret"]=NODATA;
+            $ret["msg"]="no data";
+			CUtil::logFile("not login====".print_r($ret,true));
+            return json_encode($ret);
+        }
+        return json_encode($ret);
+    }
 
 }
