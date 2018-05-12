@@ -14,7 +14,8 @@ use yii\log\Logger;
 define("NOLOGIN", 1);
 define("NODATA", 2);
 define("NOACCESS", 3);
-
+define("ARGSERR", 4);
+define("INSERTERR", 5);
 
 class HospitalController extends Controller
 {
@@ -290,9 +291,117 @@ class HospitalController extends Controller
 			CUtil::logFile("not login====".print_r($ret,true));
             return json_encode($ret);
         }
+		//:hospital_id,:medical_id,:name,:nation,:birthday,:province,:city,:distinct,:address,:reason,:isSupply,:relate_name,:relation,:relate_iphone,:relate_iphone1,
+		//:relate_iphone2,:status,:lastmod_manager_id,:sexy,:createtime,:uploadtime,:lastmodtime,:create_manager_id
+		$patientInfo=array();
+		$now=time(0);
+		CUtil::logFile("222222====".print_r($ret,true));
+		$patientInfo[":hospital_id"]=$ret["msg"]["hospital_id"];
+		$patientInfo[":create_manager_id"]=$ret["msg"]["id"];
+		$patientInfo[":lastmod_manager_id"]=$ret["msg"]["id"];
+		$patientInfo[":status"]=1;
+		$patientInfo[":createtime"]=$now;
+		$patientInfo[":lastmodtime"]=$now;
+		$patientInfo[":uploadtime"]=0;
 		
+		$argErr=false;
 		
-		 return json_encode($ret);
+		if(CUtil::getRequestParam('request', 'medical_id', 0)!=0){
+			$patientInfo[":medical_id"]=CUtil::getRequestParam('request', 'medical_id', 0);
+		}
+		else{
+			$argErr=true; 
+		}
+		
+		if(CUtil::getRequestParam('request', 'sexy', 0)!=0){
+			$patientInfo[":sexy"]=CUtil::getRequestParam('request', 'sexy', 0);
+		}
+		else{
+			$argErr=true; 
+		}
+		
+		if(CUtil::getRequestParam('request', 'name', "")!=""){
+			$patientInfo[":name"]=CUtil::getRequestParam('request', 'name', "");
+		}
+		else{
+			$argErr=true; 
+		}
+		if(CUtil::getRequestParam('request', 'nation', "")!=""){
+			$patientInfo[":nation"]=CUtil::getRequestParam('request', 'nation', "");
+		}
+		else{
+			$argErr=true; 
+		}
+		if(CUtil::getRequestParam('request', 'birthday', "")!=""){
+			$patientInfo[":birthday"]=CUtil::getRequestParam('request', 'birthday', "");
+		}
+		else{
+			$argErr=true; 
+		}
+		if(CUtil::getRequestParam('request', 'isSupply', 0)!=0){//不提供啦
+			$patientInfo[":isSupply"]=CUtil::getRequestParam('request', 'isSupply', 0);
+			if(CUtil::getRequestParam('request', 'reason', "")!=""){//不提供就要有reason
+				$patientInfo[":reason"]=CUtil::getRequestParam('request', 'reason', "");
+			}
+			else{
+				$argErr=true; 
+			}
+		}
+		else{//提供地址就得他妈的得有
+			if(CUtil::getRequestParam('request', 'province', "")!=""&&
+				CUtil::getRequestParam('request', 'city', "")!=""&&
+				CUtil::getRequestParam('request', 'distinct', "")!=""&&
+				CUtil::getRequestParam('request', 'address', "")!=""
+			   )
+			{//不提供就要有reason
+				$patientInfo[":province"]=CUtil::getRequestParam('request', 'province', "");
+				$patientInfo[":city"]=CUtil::getRequestParam('request', 'city', "");
+				$patientInfo[":distinct"]=CUtil::getRequestParam('request', 'distinct', "");
+				$patientInfo[":address"]=CUtil::getRequestParam('request', 'address', "");
+			}
+			else{
+				$argErr=true; 
+			}
+			
+		}
+		if(CUtil::getRequestParam('request', 'relate_name', "")!=""){
+			$patientInfo[":relate_name"]=CUtil::getRequestParam('request', 'relate_name', "");
+		}
+		else{
+			$argErr=true; 
+		}
+		
+		if(CUtil::getRequestParam('request', 'relation', 0)!=0){
+			$patientInfo[":relation"]=CUtil::getRequestParam('request', 'relation', 0);
+		}
+		else{
+			$argErr=true; 
+		}
+		
+		if(CUtil::getRequestParam('request', 'relate_iphone', "")!=""){
+			$patientInfo[":relate_iphone"]=CUtil::getRequestParam('request', 'relate_iphone', "");
+		}
+		else{
+			$argErr=true; 
+		}
+		$patientInfo[":relate_iphone1"]=CUtil::getRequestParam('request', 'relate_iphone1', "");
+		$patientInfo[":relate_iphone2"]=CUtil::getRequestParam('request', 'relate_iphone2', "");
+		
+		if($argErr==true){
+			$ret["ret"]=ARGSERR;
+            $ret["msg"]=$patientInfo;
+			CUtil::logFile("ARGSERR====".print_r($patientInfo,true));
+            return json_encode($ret);
+		}
+		CUtil::logFile("ARGS OK====".print_r($patientInfo,true));
+		$ret=Patient4Hospital::insertPatientInfo($patientInfo);
+		if($ret["ret"]!=0){
+            $ret["ret"]=INSERTERR;
+            $ret["msg"]=$patientInfo;
+			CUtil::logFile("INSERTERR====".print_r($ret,true));
+            return json_encode($ret);
+        }
+		return json_encode($ret);
 	}
 
 }
