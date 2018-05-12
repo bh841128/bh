@@ -139,7 +139,7 @@ status  1:正常 2:上传  3：删除
 		);
 		
 		$now=time(0);
-		$sql="insert into  patientInfo (hospital_id,medical_id,name,nation,birthday,province,city,distinct,address,reason,isSupply,relate_name,relation,relate_iphone,relate_iphone1,relate_iphone2,`status`,lastmod_manager_id,sexy,createtime,uploadtime,lastmodtime,create_manager_id) values(:hospital_id,:medical_id,:name,:nation,:birthday,:province,:city,:distinct,:address,:reason,:isSupply,:relate_name,:relation,:relate_iphone,:relate_iphone1,:relate_iphone2,:status,:lastmod_manager_id,:sexy,:createtime,:uploadtime,:lastmodtime,:create_manager_id) ";
+		$sql="insert into  patientInfo (hospital_id,medical_id,name,nation,birthday,province,city,distinct,address,reason,isSupply,relate_text,`status`,lastmod_manager_id,sexy,createtime,uploadtime,lastmodtime,create_manager_id) values(:hospital_id,:medical_id,:name,:nation,:birthday,:province,:city,:distinct,:address,:reason,:isSupply,:relate_text,:status,:lastmod_manager_id,:sexy,:createtime,:uploadtime,:lastmodtime,:create_manager_id) ";
 
 		CUtil::logFile("=====$sql  ".print_r($patientInfo,true));
 		
@@ -154,16 +154,16 @@ status  1:正常 2:上传  3：删除
 		}
 		return $ret;
 
-     }
+    }
 
-	 static public function updatePatientInfo($patientInfo){
+	static public function updatePatientInfo($patientInfo){
      	$ret=array(
 		   "ret"=>0,
 		   "msg"=>""
 		);
 		
 		$now=time(0);
-		$sql="replace into  patientInfo (id,hospital_id,medical_id,name,nation,birthday,province,city,distinct,address,reason,isSupply,relate_name,relation,relate_iphone,relate_iphone1,relate_iphone2,`status`,lastmod_manager_id,sexy,createtime,uploadtime,lastmodtime,create_manager_id) values(:id,:hospital_id,:medical_id,:name,:nation,:birthday,:province,:city,:distinct,:address,:reason,:isSupply,:relate_name,:relation,:relate_iphone,:relate_iphone1,:relate_iphone2,:status,:lastmod_manager_id,:sexy,:createtime,:uploadtime,:lastmodtime,:create_manager_id) ";
+		$sql="replace into  patientInfo (id,hospital_id,medical_id,name,nation,birthday,province,city,distinct,address,reason,isSupply,relate_text,`status`,lastmod_manager_id,sexy,createtime,uploadtime,lastmodtime,create_manager_id) values(:id,:hospital_id,:medical_id,:name,:nation,:birthday,:province,:city,:distinct,:address,:reason,:isSupply,:relate_text,:status,:lastmod_manager_id,:sexy,:createtime,:uploadtime,:lastmodtime,:create_manager_id) ";
 
 		CUtil::logFile("=====$sql  ".print_r($patientInfo,true));
 		

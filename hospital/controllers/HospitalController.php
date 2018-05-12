@@ -294,8 +294,8 @@ class HospitalController extends Controller
 			CUtil::logFile("not login====".print_r($ret,true));
             return json_encode($ret);
         }
-		//:hospital_id,:medical_id,:name,:nation,:birthday,:province,:city,:distinct,:address,:reason,:isSupply,:relate_name,:relation,:relate_iphone,:relate_iphone1,
-		//:relate_iphone2,:status,:lastmod_manager_id,:sexy,:createtime,:uploadtime,:lastmodtime,:create_manager_id
+		//:hospital_id,:medical_id,:name,:nation,:birthday,:province,:city,:distinct,:address,:reason,:isSupply,:relate_text,
+		//:status,:lastmod_manager_id,:sexy,:createtime,:uploadtime,:lastmodtime,:create_manager_id
 		$patientInfo=array();
 		$now=time(0);
 		CUtil::logFile("222222====".print_r($ret,true));
@@ -367,28 +367,8 @@ class HospitalController extends Controller
 			}
 			
 		}
-		if(CUtil::getRequestParam('request', 'relate_name', "")!=""){
-			$patientInfo[":relate_name"]=CUtil::getRequestParam('request', 'relate_name', "");
-		}
-		else{
-			$argErr=true; 
-		}
 		
-		if(CUtil::getRequestParam('request', 'relation', 0)!=0){
-			$patientInfo[":relation"]=CUtil::getRequestParam('request', 'relation', 0);
-		}
-		else{
-			$argErr=true; 
-		}
-		
-		if(CUtil::getRequestParam('request', 'relate_iphone', "")!=""){
-			$patientInfo[":relate_iphone"]=CUtil::getRequestParam('request', 'relate_iphone', "");
-		}
-		else{
-			$argErr=true; 
-		}
-		$patientInfo[":relate_iphone1"]=CUtil::getRequestParam('request', 'relate_iphone1', "");
-		$patientInfo[":relate_iphone2"]=CUtil::getRequestParam('request', 'relate_iphone2', "");
+		$patientInfo[":relate_text"]=CUtil::getRequestParam('request', 'relate_text', "");
 		
 		if($argErr==true){
 			$ret["ret"]=ARGSERR;
@@ -428,27 +408,46 @@ class HospitalController extends Controller
 			CUtil::logFile("not login====".print_r($ret,true));
             return json_encode($ret);
         }
-		//:id,:hospital_id,:medical_id,:name,:nation,:birthday,:province,:city,:distinct,:address,:reason,:isSupply,:relate_name,:relation,:relate_iphone,:relate_iphone1,
-		//:relate_iphone2,:status,:lastmod_manager_id,:sexy,:createtime,:uploadtime,:lastmodtime,:create_manager_id
+		
+		//拉取数据by id
+		$id=CUtil::getRequestParam('request', 'id', 0);
+		
+		$result=Patient4Hospital::getPatientById($id,$ret["msg"]["hospital_id"]);
+		if($result["ret"]!=0){
+			CUtil::logFile("NODATA====".print_r($result,true));
+            $result["ret"]=NODATA;
+            $result["msg"]="NODATA";
+            return json_encode($result);
+        }
+		
+		
+		
 		$patientInfo=array();
+		$record=$result["msg"];
+		foreach ($record as $key => $value) {  
+			$patientInfo[":".$key]=$value;
+		}
+		
+			//:hospital_id,:medical_id,:name,:nation,:birthday,:province,:city,:distinct,:address,:reason,:isSupply,:relate_text,
+		//:status,:lastmod_manager_id,:sexy,:createtime,:uploadtime,:lastmodtime,:create_manager_id
+		
 		$now=time(0);
-		CUtil::logFile("222222====".print_r($ret,true));
-		$patientInfo[":hospital_id"]=$ret["msg"]["hospital_id"];
-		$patientInfo[":create_manager_id"]=$ret["msg"]["id"];
+		CUtil::logFile("1111111====".print_r($patientInfo,true));
+		
 		$patientInfo[":lastmod_manager_id"]=$ret["msg"]["id"];
-		$patientInfo[":status"]=1;
-		$patientInfo[":createtime"]=$now;
 		$patientInfo[":lastmodtime"]=$now;
-		$patientInfo[":uploadtime"]=0;
+		
+		
+		//$patientInfo[":hospital_id"]=$ret["msg"]["hospital_id"];
+		//$patientInfo[":create_manager_id"]=$ret["msg"]["id"];
+		//$patientInfo[":status"]=1;
+		//$patientInfo[":createtime"]=$now;
+		$patientInfo[":lastmodtime"]=$now;
+		//$patientInfo[":uploadtime"]=0;
 		
 		$argErr=false;
 		
-		if(CUtil::getRequestParam('request', 'id', 0)!=0){
-			$patientInfo[":id"]=CUtil::getRequestParam('request', 'id', 0);
-		}
-		else{
-			$argErr=true; 
-		}
+		
 		
 		if(CUtil::getRequestParam('request', 'medical_id', 0)!=0){
 			$patientInfo[":medical_id"]=CUtil::getRequestParam('request', 'medical_id', 0);
@@ -508,28 +507,8 @@ class HospitalController extends Controller
 			}
 			
 		}
-		if(CUtil::getRequestParam('request', 'relate_name', "")!=""){
-			$patientInfo[":relate_name"]=CUtil::getRequestParam('request', 'relate_name', "");
-		}
-		else{
-			$argErr=true; 
-		}
 		
-		if(CUtil::getRequestParam('request', 'relation', 0)!=0){
-			$patientInfo[":relation"]=CUtil::getRequestParam('request', 'relation', 0);
-		}
-		else{
-			$argErr=true; 
-		}
-		
-		if(CUtil::getRequestParam('request', 'relate_iphone', "")!=""){
-			$patientInfo[":relate_iphone"]=CUtil::getRequestParam('request', 'relate_iphone', "");
-		}
-		else{
-			$argErr=true; 
-		}
-		$patientInfo[":relate_iphone1"]=CUtil::getRequestParam('request', 'relate_iphone1', "");
-		$patientInfo[":relate_iphone2"]=CUtil::getRequestParam('request', 'relate_iphone2', "");
+		$patientInfo[":relate_text"]=CUtil::getRequestParam('request', 'relate_text', "");
 		
 		if($argErr==true){
 			$ret["ret"]=ARGSERR;
