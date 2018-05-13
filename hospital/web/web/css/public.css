@@ -1,3 +1,42 @@
+::-webkit-input-placeholder {
+    color: #ccc;
+    font-weight: 400;
+}
+
+/* Firefox 4-18 */
+:-moz-placeholder {
+    color: #ccc;
+    font-weight: 400;
+}
+
+/* Firefox 19-50 */
+::-moz-placeholder {
+    color: #ccc;
+    font-weight: 400;
+}
+
+/* - Internet Explorer 10–11
+   - Internet Explorer Mobile 10-11 */
+:-ms-input-placeholder {
+    color: #ccc !important;
+    font-weight: 400 !important;
+}
+
+/* Edge (also supports ::-webkit-input-placeholder) */
+::-ms-input-placeholder {
+    color: #ccc;
+    font-weight: 400;
+}
+
+/* CSS Pseudo-Elements Level 4 Editor's Draft */
+::placeholder {
+    color: #ccc;
+    font-weight: 400;
+}
+
+
+
+
 .nav .open>a, .nav .open>a:focus, .nav .open>a:hover{
 	background-color:white;
 }

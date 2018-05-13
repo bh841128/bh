@@ -207,11 +207,22 @@ function showErrorTooltip(input_ele, msg){
 }
 ////////////////////////////////////////////////////////////
 function initIEPlaceholder(){
+	if (!isIE()){
+		return;
+	}
 	$("input").each(function(){
 		var place_hoder = $(this).attr("placeholder");
 		if (!place_hoder){
 			return;
 		}
-		$(this).placeholder(place_hoder);
+		$(this).placeholder();
 	})
+}
+
+function isIE(){
+	var ua = navigator.userAgent.toLowerCase();
+	if (ua.match(/msie/)){
+		return true;
+	}
+	return false;
 }
