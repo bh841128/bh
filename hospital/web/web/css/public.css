@@ -138,6 +138,28 @@
     
 }
 
+.login-wrapper2 .btn-primary{
+    background-color:rgb(85,173,220);
+    border-color:rgb(85,173,220);
+    width:280px;
+    font-size:18px;
+}
+
+.navbar-custom-menu.login{
+    padding-right:30px;
+    padding-top:10px;
+}
+.navbar-custom-menu.login button{
+    background-color:rgb(85,173,220);
+    border-color:rgb(85,173,220);
+    width:150px;
+}
+
+.main-header{
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
 
 
 
