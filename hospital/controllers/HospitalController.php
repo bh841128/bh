@@ -704,26 +704,47 @@ class HospitalController extends Controller
 		
 		$result=Patient4Hospital::getPatientById($record[":patient_id"],$ret["msg"]["hospital_id"]);
         if($result["ret"]!=0){
-            $ret["ret"]=NODATA;
-            $ret["msg"]="no data";
-			CUtil::logFile("not login====".print_r($ret,true));
+            $ret["ret"]=PATINTIDERR;
+            $ret["msg"]=$result;
+			CUtil::logFile("getPatientById PATINTIDERR !!====".print_r($ret,true));
             return json_encode($ret);
         }
-		
+		CUtil::logFile("ARGSERR no patient_id====".print_r($result,true));
 		$now=time(0);
 		CUtil::logFile("222222====".print_r($ret,true));
 		$record[":hospital_id"]=intval($ret["msg"]["hospital_id"]);
-		$record[":patient_id"]=intval();
-		$record[":patient_name"]=intval();
-		$record[":medical_id"]=intval();
+		$record[":patient_id"]=intval($result["msg"]["id"]);
+		$record[":patient_name"]=$result["msg"]["name"];
+		$record[":medical_id"]=$result["msg"]["medical_id"];
 		$record[":manager_id"]=intval($ret["msg"]["id"]);
 		$record[":lastmodify_manager_id"]=intval($ret["msg"]["id"]);
-		$record[":status"]=1;
 		$record[":createtime"]=$now;
-		$record[":lastmodtime"]=$now;
-		$record[":uploadtime"]=0;
+		$record[":lastmodifytime"]=$now;
+		$argErr=false;
+		if(CUtil::getRequestParam('request', 'hospitalization_in_time', 0)!=0){
+			$record["hospitalization_in_time"]=CUtil::getRequestParam('request', 'hospitalization_in_time', 0);
+		}else{
+			$argErr=true;
+		}
+		if(CUtil::getRequestParam('request', 'operation_time', 0)!=0){
+			$record["operation_time"]=CUtil::getRequestParam('request', 'operation_time', 0);
+		}else{
+			$argErr=true;
+		}
 		
-	
+		if(CUtil::getRequestParam('request', 'hospitalization_out_time', 0)!=0){
+			$record["hospitalization_out_time"]=CUtil::getRequestParam('request', 'hospitalization_out_time', 0);
+		}else{
+			$argErr=true;
+		}
+		if($argErr==true){
+			$ret["ret"]=ARGSERR;
+            $ret["msg"]=$record;
+			CUtil::logFile("ARGSERR====".print_r($record,true));
+            return json_encode($ret);
+		}
+		
+		
 		CUtil::logFile("ARGS OK====".print_r($record,true));
 		$ret=HospitalizedRecord::insertRecordInfo($record);
 		if($ret["ret"]!=0){

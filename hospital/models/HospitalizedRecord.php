@@ -185,14 +185,25 @@ class HospitalizedRecord {
 	}
 	 
 	
-	  static public function insertRecordInfo($record){
+	static public function insertRecordInfo($record){
      	$ret=array(
 		   "ret"=>0,
 		   "msg"=>""
 		);
+		//patient_id,patient_name,hospitalization_in_time,operation_time,hospitalization_out_time,operation_before_info,operation_info,operation_after_info,hospitalization_out_info,createtime,lastmodifytime,hospital_id,manager_id,lastmodify_manager_id,uploadtime,status,medical_id
+		/*
+		$record[":hospital_id"]=intval($ret["msg"]["hospital_id"]);
+		$record[":patient_id"]=intval($result["id"]);
+		$record[":patient_name"]=$result["name"];
+		$record[":medical_id"]=$result["medical_id"];
+		$record[":manager_id"]=intval($ret["msg"]["id"]);
+		$record[":lastmodify_manager_id"]=intval($ret["msg"]["id"]);
+		$record[":createtime"]=$now;
+		$record[":lastmodifytime"]=$now;
 		
-		
-		$sql="insert into  hospitalized_record (hospital_id,medical_id,name,nation,birthday,reason,isSupply,relate_text,`status`,lastmod_manager_id,sexy,createtime,uploadtime,lastmodtime,create_manager_id) values(:hospital_id,:medical_id,:name,:nation,:birthday,:reason,:isSupply,:relate_text,:status,:lastmod_manager_id,:sexy,:createtime,:uploadtime,:lastmodtime,:create_manager_id) ";
+		*/
+		$sql="insert into  hospitalized_record (patient_id,patient_name,hospitalization_in_time,operation_time,hospitalization_out_time,operation_before_info,operation_info,operation_after_info,hospitalization_out_info,createtime,lastmodifytime,hospital_id,manager_id,lastmodify_manager_id,uploadtime,status,medical_id) values ";
+		$sql=$sql."(:patient_id,:patient_name,:hospitalization_in_time,:operation_time,:hospitalization_out_time,'','','','',:createtime,:lastmodifytime,:hospital_id,:manager_id,:lastmodify_manager_id,0,1,:medical_id)";
 		CUtil::logFile("=====$sql  ".print_r($record,true));
 		try{
      	$connection = Yii::$app->db;
