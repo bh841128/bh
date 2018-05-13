@@ -75,6 +75,19 @@
     <script type="text/javascript">
         $('input[name=login_name]').placeholder('请输入用户名');
         $('input[name=login_pwd]').placeholder('请输入密码');
+        
+        function showErrorTooltip(input_ele, msg){
+            input_ele.tooltip({
+                "trigger":"manual",
+                "placement":"right",
+                "title":msg
+            });
+            input_ele.tooltip('show');
+            input_ele.one( "focus", function() {
+                input_ele.tooltip('hide');
+            });
+        }
+        showErrorTooltip($('input[name=login_name]'),"请输入用户名");
     </script>
     </div>
 
