@@ -238,6 +238,30 @@
     </div>
     <!-- ./wrapper -->
 
+    <!--   modals   -->
+      <!--    login  frame -->
+  <div id="id_login_frame" class="modal login_modal" style="z-index:10000">
+        <form class="modal-content animate">
+          <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+      
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+              
+            <button type="submit">Login</button>
+            <label>
+              <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+          </div>
+      
+          <div class="container" style="background-color:#f1f1f1">
+            <button type="button" class="cancelbtn">Cancel</button>
+          </div>
+        </form>
+      </div>
+      <!-- end login frame -->
+    <!--   /modals  -->
 
     <script src="./lib/jquery.min.js"></script>
     <script src="./lib/jquery.cookie.js"></script>
@@ -252,7 +276,7 @@
         initDatePicker("input[tag='datepicker']");
         initMinzu($("select[tag='minzu']"));
         initAddress($("div[tag='address']"));
-
+        //$('#id_login_frame').modal()
     </script>
     </div>
 

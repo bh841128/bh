@@ -101,6 +101,44 @@
 }
 
 
+.copyright {
+    clear: both;
+    text-align: center;
+    font-size: 14px;
+}
+
+.login-wrapper{
+    margin-left:auto;
+    margin-right:auto;
+    background-image: url(../img/login.png); 
+    background-repeat: no-repeat;
+    background-position: 50px 60px; 
+    height:500px;
+    padding-left:320px;
+    padding-top:200px;
+}
+
+.login-wrapper .control-table td{
+    height:40px;
+}
+
+.login-wrapper2{
+    background-color:rgb(174,220,240);
+    width:340px;
+    padding:10px;
+}
+
+.login-wrapper3{
+    background-color:white;
+    padding:10px;
+}
+
+.login-wrapper2 .form-control {
+    width:300px;
+    
+}
+
+
 
 
 
