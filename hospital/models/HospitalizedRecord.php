@@ -58,11 +58,11 @@ class HospitalizedRecord {
 		$now=time(0);
 		$sql="";
 		$args="";
-		if($status==2){
-			$sql="update hospitalized_record  set status=:status ,lastmodify_manager_id=:lastmodify_manager_id,lastmodifytime=:lastmodifytime where  hospital_id=:hospital_id and id in ($instr) and status=1  ";
+		if($status==3){
+			$sql="update hospitalized_record  set status=:status ,lastmodify_manager_id=:lastmodify_manager_id,lastmodifytime=:lastmodifytime where  hospital_id=:hospital_id and id in ($instr) and status=1   ";
 			$args=array(':status'=>$status,':hospital_id'=>$hospital_id,":lastmodify_manager_id"=>$manager_id,":lastmodifytime"=>$now);
 		}
-		else {//3
+		else {//2
 		    $sql="update hospitalized_record  set status=:status ,lastmodify_manager_id=:lastmodify_manager_id,lastmodifytime=:lastmodifytime, uploadtime=:uploadtime where  hospital_id=:hospital_id and id in ($instr) and status=1  ";
 			$args=array(':status'=>$status,':hospital_id'=>$hospital_id,":lastmodify_manager_id"=>$manager_id,":lastmodifytime"=>$now,":uploadtime"=>$now);
 	
