@@ -188,6 +188,47 @@
     border-right: 5px solid #ebccd1;
 }
 
+.errormsg .alert{
+    padding:5px;
+}
+
+.errormsg .msg-wrap {
+    min-height: 23px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: auto!important;
+}
+
+.errormsg .msg-error {
+    position: relative;
+    background: #ffebeb;
+    color: #e4393c;
+    border: 1px solid #faccc6;
+    padding: 3px 10px 3px 40px;
+    line-height: 15px;
+    height: auto;
+    
+}
+
+.errormsg .msg-error b {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    display: block;
+    margin-top: -8px;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+    background: url(../img/pwd-icons-new.png) -104px -49px no-repeat;
+}
+.errormsg{
+    text-align:left;
+    visibility: hidden
+}
+.errormsg.error_active{
+    visibility:visible;
+}
+
 
 
 
