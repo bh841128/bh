@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="./lib/adminlte/css/AdminLTE.min.css">
     <link rel="stylesheet" href="./lib/datetimepicker/bootstrap-datetimepicker.min.css">
 
+    <link rel="stylesheet" href="./lib/datatable/datatables.bootstrap.css">
+
     <link rel="stylesheet" href="./css/public.css">
 </head>
 
@@ -101,15 +103,15 @@
             <!-- Main content -->
             <section class="content container-fluid">
                 <ul class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <li class="active">
+                    <li class="">
                         <a class="nav-item nav-link" id="nav-tab-jibenziliao" data-toggle="tab" href="#tab-jibenziliao" role="tab" aria-selected="true">基本资料</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a class="nav-item nav-link" id="nav-tab-zhuyuanjilu" data-toggle="tab" href="#tab-zhuyuanjilu" role="tab" aria-selected="true">住院记录</a>
                     </li>
                 </ul>
                 <div class="tab-content">
-                    <div class="tab-pane form-step fade active in" id="tab-jibenziliao" role="tabpanel" aria-labelledby="nav-tab-jibenziliao">
+                    <div class="tab-pane form-step fade" id="tab-jibenziliao" role="tabpanel" aria-labelledby="nav-tab-jibenziliao">
                         <section class="content-header">
                             <div class="gray-font" style="font-size:18px;">
                                 <table>
@@ -180,6 +182,30 @@
                             </div>
                         </section>
                     </div>
+                    <div class="tab-pane form-step fade active in" id="tab-zhuyuanjilu" role="tabpanel" aria-labelledby="nav-tab-zhuyuanjilu">
+                        <div class="box-body table-responsive">
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>序号</th>
+                                        <th>入院日期</th>
+                                        <th>出院日期</th>
+                                        <th>手术日期</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>2018-05-10</td>
+                                        <td>2018-05-10</td>
+                                        <td>2018-05-10</td>
+                                        <td><input type="checkbox"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </section>
             <!-- /.content -->
@@ -196,12 +222,24 @@
     <script src="./lib/adminlte/js/adminlte.min.js"></script>
     <script src="./lib/moment-with-locales.min.js"></script>
     <script src="./lib/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="./lib/datatable/datatables.min.js"></script>
+    <script src="./lib/datatable/datatables.bootstrap.js"></script>
     <script src="./js/public.js"></script>
     <script src="./js/address.js"></script>
     <script type="text/javascript">
         initDatePicker("input[tag='datepicker']");
         initMinzu($("select[tag='minzu']"));
         initAddress($("div[tag='address']"));
+
+        $('#example2').dataTable({
+                    "bPaginate": true,
+                    "bLengthChange": false,
+                    "bFilter": false,
+                    "bSort": true,
+                    "bInfo": true,
+                    "bAutoWidth": false,
+                    "bInfo":false
+                });
     </script>
     </div>
 

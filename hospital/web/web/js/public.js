@@ -149,7 +149,34 @@ function getAddressJsonByName(json, name){
 	}
 	return null;
 }
-
+/////////////////////////////////////////////////////
 function getRadioValue(radioName){
 	return $("input[name='"+radioName+"']:checked").val();
 }
+
+function setRadioChecked(radioName, valeChecked){
+	var radios = document.getElementsByName(radioName);
+    for (var j = 0; j < radios.length; j++) {
+        if (radios[j].value == valeChecked) {
+            radios[j].checked = true;
+            break;
+        }
+    }
+}
+
+function getCheckboxChecked(control_checkbox){
+	if (control_checkbox.checked){
+		return 1;
+	}
+	return 0;
+}
+
+function setCheckboxChecked(control_checkbox, checked){
+	if (checked){
+		control_checkbox.checked = true;
+	}
+	else{
+		control_checkbox.checked = false;
+	}
+}
+/////////////////////////////////////////////////////
