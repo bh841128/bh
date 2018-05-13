@@ -152,7 +152,7 @@ class HospitalizedRecord {
 			}
 			
 		}
-		/*
+		
 		if(array_key_exists("end_time",$filter)){
 			$sql=$sql." uploadtime<=:end_time  and ";
 			$args[":end_time"]=$filter["end_time"];
@@ -163,7 +163,7 @@ class HospitalizedRecord {
 		}else{
 			$sql=$sql." uploadtime>=0 ";
 		}
-		*/
+		
 		$page=$page<1?1:$page;
 		$sql=$sql." limit ".($page-1)*$size.",".$size;
         CUtil::logFile("=====$sql  ".print_r($args,true));
