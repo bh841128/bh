@@ -83,7 +83,7 @@ class HospitalizedRecord {
 		
 		
 		
-		if($records!=1){
+		if($records==0){
 			$ret["ret"]=1;
 			$ret["msg"]="update err!";		
 			CUtil::logFile("=====$records  ");			

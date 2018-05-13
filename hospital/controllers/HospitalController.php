@@ -9,6 +9,7 @@ use yii\filters\VerbFilter;
 use app\models\CUtil;
 use app\models\Login4Hospital;
 use app\models\Patient4Hospital;
+use app\models\HospitalizedRecord;
 use yii\log\Logger;
 
 define("NOLOGIN", 1);
@@ -527,4 +528,75 @@ class HospitalController extends Controller
         }
 		return json_encode($ret);
 	}
+	
+	
+	
+	public function actionGetRecord()
+    {
+        $username = CUtil::getRequestParam('cookie', 'username', '');
+        $id = CUtil::getRequestParam('request', 'id', 0);
+        $skey = CUtil::getRequestParam('cookie', 'skey', '');
+		//登录
+        $ret=Login4Hospital::checkLogin($username,$skey);
+        CUtil::logFile("====".print_r($ret,true));
+        if($ret["ret"]!=0){
+            $ret["ret"]=NOLOGIN;
+            $ret["msg"]="not login";
+			CUtil::logFile("not login====".print_r($ret,true));
+            return json_encode($ret);
+        }
+		
+		//获取管理人员信息
+		$ret=Login4Hospital::getManager($username);
+         if($ret["ret"]!=0){
+            $ret["ret"]=NOACCESS;
+            $ret["msg"]="no ACCESS";
+			CUtil::logFile("not login====".print_r($ret,true));
+            return json_encode($ret);
+        }
+		
+		
+        $ret=HospitalizedRecord::getRecordById($id,$ret["msg"]["hospital_id"]);
+        if($ret["ret"]!=0){
+            $ret["ret"]=NODATA;
+            $ret["msg"]="no data";
+			CUtil::logFile("not login====".print_r($ret,true));
+            return json_encode($ret);
+        }
+        return json_encode($ret);
+    }
+	
+	
+	//status  1:正常 2:上传  3：删除
+	public function actionSetRecordsStatus()
+    {
+        $username = CUtil::getRequestParam('cookie', 'username', '');
+        $ids = CUtil::getRequestParam('request', 'ids', "");
+		$status = CUtil::getRequestParam('request', 'status', 0);
+        $skey = CUtil::getRequestParam('cookie', 'skey', '');
+		//登录
+        $ret=Login4Hospital::checkLogin($username,$skey);
+        if($ret["ret"]!=0){
+            $ret["ret"]=NOLOGIN;
+            $ret["msg"]="not login";
+			CUtil::logFile("not login====".print_r($ret,true));
+            return json_encode($ret);
+        }
+		//获取管理人员信息
+		$ret=Login4Hospital::getManager($username);
+         if($ret["ret"]!=0){
+            $ret["ret"]=NOACCESS;
+            $ret["msg"]="no ACCESS";
+			CUtil::logFile("not login====".print_r($ret,true));
+            return json_encode($ret);
+        }
+		
+		$idarray=explode(",",$ids);
+        $ret=HospitalizedRecord::setRecordStatusByIds($idarray,$ret["msg"]["hospital_id"],$status,$ret["msg"]["id"]);
+        if($ret["ret"]!=0){
+            CUtil::logFile("setRecordStatusByIds err====".print_r($ret,true));
+            return json_encode($ret);
+        }
+        return json_encode($ret);
+    }
 }
