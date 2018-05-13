@@ -1,0 +1,1265 @@
+html, body {
+	height: 100%;
+	background-color: #f9f9f9;
+}
+
+.head {
+	border-bottom: #c1c1c1 1px solid;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#414443', endColorstr='#282828', GradientType=0);
+	background: #414443;
+	border-top: #101111 1px solid;
+	box-shadow: 0 0 1px #EAEAEA;
+	height: auto;
+
+}
+
+.TopMenuBar {
+	padding-left: 165px;
+	overflow: hidden;
+	vertical-align: middle;
+	font-size: 14px;
+	height: 48px;
+	color: #CCCCCC;
+	font-size: 13px;
+	z-index: 1000;
+	position: relative;
+
+	background-image: url(../images/top_logo.png);
+	background-repeat: no-repeat;
+	background-position: 30px center;
+
+}
+
+.TopMenu {
+	margin: 0px;
+}
+
+.TopMenu li, .TopUser li {
+	position: relative;
+	padding: 0px;
+	vertical-align: top;
+	display: inline-block;
+	float: left;
+	font-weight: 400;
+}
+
+
+.TopMenu a {
+	height: 48px;
+	display: block;
+	cursor: pointer;
+	text-decoration: none !important;
+	color: #CCCCCC !important;
+	vertical-align: middle;
+}
+
+.TopMenu a:hover, .TopMenu a:focus {
+	background-color: #333;
+}
+
+.TopMenu .MenuItem {
+	position: relative;
+	border-left: 1px solid transparent;
+	border-right: 1px solid transparent;
+	padding-left: 15px;
+	padding-right: 15px;
+	display: block;
+	vertical-align: middle;
+	margin-top: 13px;
+}
+
+.TopMenu .ActiveItemFlag {
+	display: block;
+	border-top: transparent 2px solid;
+}
+
+.TopMenu .ActiveItem {
+	background-color: #222222 !important;
+}
+
+.TopMenu .ActiveItem .ActiveItemFlag {
+	border-top-color: #dd4b39 !important;
+}
+
+.TopMenu .ActiveItem .MenuItem {
+	font-weight: 700 !important;
+	color: #FFFFFF !important;
+}
+
+.MenuIcon {
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+.MenuLabel {
+	vertical-align: middle;
+	margin-top: 1px;
+}
+
+.content {
+	width: 780px;
+	margin: 0px auto;
+	padding-top: 26px;
+}
+
+.mod_list {
+	BORDER-BOTTOM: #838383 1px solid;
+	BORDER-LEFT: #c3c3c3 1px solid;
+	BACKGROUND-COLOR: #fff;
+	BORDER-TOP: #e6e6e6 1px solid;
+	BORDER-RIGHT: #c3c3c3 1px solid;
+	_width: 780px;
+	border-radius: 8px;
+	box-shadow: 0 1px 3px #DFDFDF;
+	position: relative;
+}
+
+.mod_list .hd {
+	BORDER-BOTTOM: #aaa 1px solid;
+	FILTER: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F2F2F2', endColorstr='#D5D5D5', GradientType=0);
+	LINE-HEIGHT: 39px;
+	padding-left: 11px;
+	BACKGROUND: #f2f2f2;
+	HEIGHT: 40px;
+	border-radius: 8px 8px 0 0;
+	font-size: 16px;
+}
+
+.mod_list .hd H2 {
+	/*BORDER-LEFT: #fff 1px solid;*/ FONT-FAMILY: "寰蒋闆呴粦"; FLOAT: left; COLOR: #3b3b3b; FONT-SIZE: 18px; FONT-WEIGHT: normal; text-shadow: 0 1px 1px #fff;
+	margin: 10px 0 10px;
+}
+
+.mod_list .hd .breadcrumb {
+	font-family: "寰蒋闆呴粦";
+	float: left;
+	color: #3b3b3b;
+	/*font-size: 18px;*/
+	/*text-shadow: 0 1px 1px #fff;*/
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+	border-radius: 0;
+}
+
+.mod_list .bd {
+	min-height: 480px;
+}
+
+table {
+	table-layout: fixed;
+}
+
+.dataTable {
+	width: 100%;
+	border-radius: 0 0 8px 8px;
+}
+
+.dataTable {
+	WIDTH: 100%; border-radius: 0 0 8px 8px;
+	table-layout:fixed;
+}
+.dataTable TH {
+	text-align: center;
+	background: #404342;
+	height: 29px;
+	color: #fff;
+	font-size: 13px;
+	font-weight: bold;
+	border: 1px solid #303332;
+	border-top: 2px solid transparent;
+	border-bottom: 0;
+}
+table th:first-child {
+	border-left: 0;
+}
+.dataTable .th_s1 {
+	BORDER-LEFT: 0px; BORDER-TOP-COLOR: #f58000
+}
+.dataTable .th_s2 {
+	BORDER-TOP-COLOR: #34b3f1
+}
+.dataTable .th_s3 {
+	BORDER-TOP-COLOR: #a6cd12
+}
+.dataTable .th_s4 {
+	BORDER-TOP-COLOR: #fac600
+}
+.dataTable TD {
+	TEXT-ALIGN: center;
+	BACKGROUND-COLOR: #fff;
+	HEIGHT: 33px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #eee;
+}
+.dataTable .last_first {
+	border-radius: 0 0 0 8px
+}
+.dataTable .last_last {
+	border-radius: 0 0 8px 0
+}
+.dataTable .btns {
+	MARGIN: 0px 3px
+}
+.dataTable TH .small {
+	COLOR: #777; FONT-SIZE: 12px; FONT-WEIGHT: 100; text-shadow: 0 1px 1px #000
+}
+
+.dataTable TBODY TD {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 12px;
+	text-align: left;
+	padding-left: 20px;
+	line-height: 20px;
+	vertical-align: middle;
+	word-wrap: break-all;
+	word-break: normal;
+  	overflow:hidden;
+  	word-wrap:break-word;
+}
+
+.dataTable TBODY TR:HOVER TD {
+	background-color: #FFFFA4;
+}
+
+.special TABLE TBODY TR TD:HOVER {
+	background-color: #FF0000;
+	cursor:pointer
+}
+
+.special TABLE TBODY TR TD .hand:HOVER {
+	cursor:pointer
+}
+
+.special TABLE TD {
+	#TEXT-ALIGN: center;
+	BACKGROUND-COLOR: #fff;
+	HEIGHT: 33px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #000;
+}
+.special TABLE TBODY TD {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 12px;
+	text-align: center;
+	padding-left: 0px;#蹇呴』鍐欙紝涓嶅啓浼氬彈 TABLE TBODY TD鐨勫奖鍝�
+	line-height: 20px;
+	vertical-align: middle;
+	word-wrap: break-all;
+	word-break: normal;
+  	overflow:hidden;
+  	word-wrap:break-word;
+}
+
+.ImgButton {
+	margin-top: 3px;
+	margin-right: 5px;
+	cursor: pointer;
+	display: inline;
+}
+
+fieldset {
+	margin-top: 15px;
+	font-size: 13px;
+}
+
+fieldset legend {
+	display: none;
+}
+
+fieldset > p {
+	padding: 10px 20px;
+	border-radius: 5px;
+	border: 1px dashed #fff;
+}
+
+fieldset > p:hover {
+	border-color: #999;
+}
+
+fieldset > p label {
+	display: inline-block;
+	width: 80px;
+	color: #333;
+	font-weight: bold;
+}
+
+pre {
+	font-family: Tahoma, Geneva, sans-serif;
+}
+
+td a {
+	font-weight: bold;
+	color: #0055AA;
+}
+
+td a:hover {
+	color: #0078AE;
+}
+
+.TopInfo {
+	position: absolute;
+	right: 20px;
+	top: 13px;
+	width: 300px;
+	display: block;
+	text-align: right;
+	line-height: 20px;
+	vertical-align: middle;
+}
+
+.TopInfo .UserLogo {
+	vertical-align: middle;
+	margin-right: 5px;
+    width: 24px;
+    height: 24px;
+}
+
+.TopInfo .LoginUser {
+	font-size: 10px;
+	vertical-align: middle;
+	color: #999999;
+}
+
+
+.MainContainer {
+	position: relative;
+}
+
+.MainContainer .LeftContainer {
+	position: absolute;
+	left: 0;
+	top: 0;
+	margin-left: 0;
+	width: 150px;
+	padding-top: 40px;
+}
+
+.MainContainer .MiddleContainer {
+	position: relative;
+	margin: 20px;
+	padding: 0;
+	min-width: 954px;
+}
+
+.MainContainer .LeftContainer + .MiddleContainer {
+	margin-left: 165px;
+}
+
+.LeftMenu li {
+	text-align: right;
+}
+
+.LeftMenu li a {
+	font-family: "寰蒋闆呴粦";
+	line-height: 30px;
+	font-size: 16px;
+	text-decoration: none;
+	color: #333333;
+	padding: 2px 10px;
+}
+
+.LeftMenu li a:hover, .LeftMenu li .ActiveItem {
+	border-radius: 3px;
+	background-color: #3077ED;
+	color: #FFFFFF;
+}
+
+.SearchResultTips {
+	font-size: 12px;
+	color: #666666;
+}
+
+.SearchResultList {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	font-size: 12pt;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 20px;
+	margin-left: 35px;
+}
+
+.SearchResultList li {
+	margin-bottom: 20px;
+}
+
+.SearchResultList a {
+	color: #0066CC;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+.SearchResultList a:hover {
+	text-decoration: underline;
+}
+
+.SearchResultList li img {
+	vertical-align: middle;
+	margin-right: 10px;
+}
+
+.SearchItemDetail {
+	font-size: 10pt;
+	color: #999999;
+	margin-left: 26px;
+	margin-top: 3px;
+	line-height: 18px;
+}
+
+.SearchItemDetail a {
+	color:#0099CC;
+	line-height: 18px;
+}
+
+.ToolBar {
+	position: absolute;
+	right: 10px;
+	/*text-align: right;*/
+	top: 0;
+}
+
+.ToolbarBtn {
+	border: #dcdcdc 1px solid;
+	vertical-align: middle;
+	height: 18px;
+	line-height: 15px;
+	min-width: 60px;
+	text-align: center;
+	cursor: pointer;
+	BACKGROUND-COLOR: #f5f5f5;
+	MARGIN: 0px 5px;
+	COLOR: #999999;
+	FONT-SIZE: 11px;
+	border-radius: 2px;
+}
+
+.ToolbarBtn:hover {
+	border: #0F64E3 1px solid;
+	BACKGROUND-COLOR: #1A73F7;
+	COLOR: #ffffff;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1)
+}
+
+.ToolbarBlueBtn {
+	BACKGROUND-COLOR: #0A85C5;
+	color: #ffffff;
+	border: #0459B7 1px solid;
+}
+
+.ToolbarRedBtn {
+	BACKGROUND-COLOR: #BC1C48;
+	color: #ffffff;
+	border: #802420 1px solid;
+}
+
+.addResBtn {
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	position: relative;
+	line-height: 18px;
+	text-indent: 0px;
+}
+
+.PublicDialog {
+	position: absolute;
+	background-color: #FFF;
+	border-radius: 6px;
+	padding: 5px;
+	z-index: 1001;
+	visibility: hidden;
+}
+
+.PublicDialog iframe {
+	margin: 0px;
+	border: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.PublicDialog .CloseButton {
+	position: absolute;
+	top: -15px;
+	right: -15px;
+	width: 24px;
+	height: 24px;
+	background-image: url(../images/close.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: pointer;
+}
+
+.PublicDialog .CloseLoading {
+	position: absolute;
+	top: -15px;
+	right: -15px;
+	width: 24px;
+	height: 24px;
+	background-image: url(../images/loading.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: pointer;
+}
+
+.PublicDialog .CloseButton:hover {
+	background-image: url(../images/close_hl.png);
+}
+
+.DialogTitle {
+	background-color: #8F8F8F;
+	color: #fff;
+	line-height: 30px;
+	vertical-align: middle;
+	padding-left: 20px;
+	font-size: 16px;
+	border-radius: 3px;
+	margin-bottom: 15px;
+
+	FONT-FAMILY: "寰蒋闆呴粦";
+	text-shadow: 0 1px 1px #000;
+}
+
+.LoadingTips {
+	background-image: url(../images/coffee.png);
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	padding: 5px;
+	padding-left: 35px;
+	line-height: 20px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #fff;
+	position: absolute;
+	z-index: 99999;
+	background-color: #0088CC;
+	border-radius: 3px;
+}
+
+.DialogMemo {
+	font-family: "骞煎渾";
+	color: #999999;
+	padding-left: 20px;
+	margin-bottom: 10px;
+	font-size: 14px;
+}
+
+.DialogMemo a {
+	color: #999999;
+	text-decoration: none
+}
+
+.DialogMessage {
+	font-size: 12px;
+	line-height: 20px;
+	vertical-align: middle;
+	padding-left: 20px;
+	border-radius: 3px;
+	background-color: yellow;
+	color: #FF3300;
+	border: 1px #CCCCCC solid;
+}
+
+.FormFields {
+	list-style: none;
+	margin: 0px;
+	padding: 0px 80px;
+	font-size: 13px;
+	color:#333333;
+	width: 510px;
+}
+
+.FormButtons {
+	margin: 0px 80px;
+	padding: 10px;
+}
+
+.FormFields > li {
+	list-style: none;
+	padding: 10px;
+	border: #fff 2px solid;
+	border-radius: 3px;
+}
+
+.FormFields > li:hover {
+	border: #CCCCCC 2px dotted;
+	background-color:#FFFFCC;
+}
+
+.FormFields .FiledTitle {
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.FormFields .HiddenField {
+	display: none;
+}
+
+.HiddenField .FiledTitle {
+	color: #666;
+}
+
+.FormButton {
+	border: 0px;
+	line-height: 24px;
+	vertical-align: middle;
+	min-width: 60px;
+	text-align: center;
+	cursor: pointer;
+	border-radius: 3px;
+	background-color: #DCDDDF;
+	color: #666;
+	font-weight: bold;
+	font-size: 12px;
+	margin-right: 10px;
+	padding: 0px 5px;
+}
+
+.FormButton:hover {
+	color: #fff;
+	background-color: #37678E;
+}
+
+.FormTips {
+	font-size: 8pt;
+	color: #999999;
+}
+
+.FormError {
+	font-size: 8pt;
+	color: red;
+}
+
+.PageMask {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-color:#A2C0DA;
+	-moz-opacity:0.3;
+	opacity:0.3;
+	filter:alpha(opacity=30);
+	z-index: 1000;
+}
+
+
+.DialogMask {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-color:#FFFFFF;
+	-moz-opacity:0.7;
+	opacity:0.7;
+	filter:alpha(opacity=70);
+	z-index: 2000;
+}
+
+.DialogProcess {
+	background: url(../images/process.gif) center bottom no-repeat;
+	position: absolute;
+	padding-bottom: 18px;
+	top: 0px;
+	left: 0px;
+	width: 300px;
+	z-index: 2001;
+	line-height: 20px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #339900;
+	text-align: center;
+}
+
+.DialogSearch {
+}
+
+.DialogSearchInput {
+	padding: 0px;
+	padding-left: 18px;
+	vertical-align: middle;
+	color:#666666;
+	line-height:18px;
+	height: 20px;
+	border: 1px solid #4682B4;
+	border-radius: 3px;
+	font-size: 8pt;
+	background-image: url(../images/search.gif);
+	background-repeat: no-repeat;
+	background-position: 3px center;
+}
+
+.DialogSearchBtn {
+	border: 0px;
+	height: 22px;
+	line-height: 18px;
+	vertical-align: middle;
+	text-align: center;
+	cursor: pointer;
+	border-radius: 3px;
+	background-color: #4682B4;
+	color: #EEE;
+	font-weight: bold;
+	font-size: 8pt;
+}
+
+.DialogSearchBtn:hover {
+	color: #fff;
+}
+
+.DialogTopBarLeft {
+	color: #666;
+	font-size: 12px;
+	text-align: left;
+	line-height: 18px;
+}
+
+.DialogTopBar {
+	color: #666;
+	font-size: 12px;
+	padding-right: 20px;
+	text-align: right;
+	line-height: 18px;
+}
+
+.DialogTopBar span {
+	vertical-align: middle;
+}
+
+.DialogTopBar input {
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+.DialogButtons {
+	padding: 5px 15px;
+	text-align: right;
+}
+
+.IconList {
+	margin: 10px;
+	margin-bottom: 20px;
+}
+
+.IconList .IconListItem {
+	display: inline-block;
+	zoom:1;
+	*display:inline;
+	width: 236px;
+	height: 76px;
+	padding: 8px;
+	padding-left: 78px;
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	border-radius: 3px;
+	font-family: "寰蒋闆呴粦";
+	cursor: default;
+	margin-bottom: 3px;
+	margin-right: 3px;
+	vertical-align: top;
+}
+
+.IconList .IconListItem:hover {
+	background-color: #FD9D06;
+}
+
+.IconList .IconPkg {
+	background-image: url(../images/icon_pkg.png);
+}
+
+.IconList .IconPkg:hover {
+	background-image: url(../images/icon_pkg_hover.png);
+}
+
+.IconList .IconConf {
+	background-image: url(../images/icon_conf.png);
+}
+
+.IconList .IconConf:hover {
+	background-image: url(../images/icon_conf_hover.png);
+}
+
+.IconList .IconFile {
+	background-image: url(../images/icon_file.png);
+}
+
+.IconList .IconFile:hover {
+	background-image: url(../images/icon_file_hover.png);
+}
+
+.IconList .IconShell {
+	background-image: url(../images/icon_shell.png);
+}
+
+.IconList .IconShell:hover {
+	background-image: url(../images/icon_shell_hover.png);
+}
+
+.IconList .IconP {
+	background-image: url(../images/icon_p.png);
+}
+
+.IconList .IconP:hover {
+	background-image: url(../images/icon_p_hover.png);
+}
+
+.IconList .IconL5 {
+	background-image: url(../images/icon_l5.png);
+}
+
+.IconList .IconL5:hover {
+	background-image: url(../images/icon_l5_hover.png);
+}
+
+
+.IconList .IconRs {
+	background-image: url(../images/icon_rs.png);
+}
+
+.IconList .IconRs:hover {
+	background-image: url(../images/icon_rs_hover.png);
+}
+.IconList .IconVm {
+	background-image: url(../images/icon_vm.png);
+}
+
+.IconList .IconVm:hover {
+	background-image: url(../images/icon_vm_hover.png);
+}
+
+.IconList .IconRes {
+	background-image: url(../images/icon_res.png);
+}
+
+.IconList .IconRes:hover {
+	background-image: url(../images/icon_res_hover.png);
+}
+
+.IconList .IconCpu {
+	background-image: url(../images/icon_cpu.png);
+}
+
+.IconList .IconCpu:hover {
+	background-image: url(../images/icon_cpu_hover.png);
+}
+
+.IconList .IconFlow {
+	background-image: url(../images/icon_flow.png);
+}
+
+.IconList .IconFlow:hover {
+	background-image: url(../images/icon_flow_hover.png);
+}
+
+.IconList .IconMem {
+	background-image: url(../images/icon_mem.png);
+}
+
+.IconList .IconMem:hover {
+	background-image: url(../images/icon_mem_hover.png);
+}
+
+.IconList .IconPps {
+	background-image: url(../images/icon_pps.png);
+}
+
+.IconList .IconPps:hover {
+	background-image: url(../images/icon_pps_hover.png);
+}
+
+.IconList .IconBase {
+	background-image: url(../images/icon_base.png);
+}
+
+.IconList .IconBase:hover {
+	background-image: url(../images/icon_base_hover.png);
+}
+
+.IconList .IconTcp {
+	background-image: url(../images/icon_tcp.png);
+}
+
+.IconList .IconTcp:hover {
+	background-image: url(../images/icon_tcp_hover.png);
+}
+
+.IconList .IconDisk {
+	background-image: url(../images/icon_disk.png);
+}
+
+.IconList .IconDisk:hover {
+	background-image: url(../images/icon_disk_hover.png);
+}
+
+.IconList .IconListItem {
+	position: relative;
+}
+
+.IconList .IconListWarningItem {
+}
+
+.IconList .IconListItem .Title {
+	color: #648A9F;
+	font-size: 14px;
+	font-weight: bold;
+	vertical-align: middle;
+	width: 150px;
+	overflow: hidden;
+	margin: 3px 0px;
+	cursor: pointer;
+	height: 19px;
+	text-overflow: ellipsis;
+}
+
+.IconList .IconListItem .Title:hover {
+	text-decoration:underline;
+}
+
+.IconList .IconListItem:hover .Title {
+	color: #ffffff;
+}
+
+.IconList .IconListItem:hover .Title span {
+	vertical-align: middle;
+}
+
+.IconList .IconListItem .Description {
+	color: #999;
+	font-size: 12px;
+	line-height: 16px;
+	height: 32px;
+	width: 150px;
+	overflow: hidden;
+	vertical-align: middle;
+	word-break: break-all;
+}
+
+.IconList .IconListItem .ResWarning {
+	padding-left: 15px;
+	background-image: url(../images/warning.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	width: 140px;
+}
+
+.IconList .IconListItem .ResOk {
+	padding-left: 15px;
+	background-image: url(../images/ok.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	width: 140px;
+}
+
+.IconList .IconListItem:hover .ResOk {
+	background-image: url(../images/ok_white.png);
+}
+
+.IconList .IconListItem .ItemToolbar {
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+	min-width: 80px;
+	border-radius: 3px;
+	display: none;
+	text-align: right;
+}
+
+.IconList .IconListItem:hover .ItemToolbar {
+	display: block;
+}
+
+.IconList .IconListItem .ItemToolbar > li {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	min-width: 16px;
+	height: 18px;
+	border: 1px solid #fff;
+	border-radius: 3px;
+	margin-left: 5px;
+	cursor: pointer;
+	color: #fff;
+	line-height: 14px;
+	vertical-align: middle;
+	font-size: 11px;
+	padding: 1px 3px;
+}
+
+.IconList .IconListItem .ItemToolbar > li:hover {
+	background-color: #3D78BB;
+}
+
+.IconList .IconListItem:hover .Description {
+	color: #f6f6f6;
+}
+
+.IconList .IconReadOnly {
+	cursor: normal !important;
+}
+
+.IconList .IconReadOnly:hover {
+	background-color: #ccc !important;
+}
+
+.IconList .IconReadOnly:hover .Title {
+	color: #888 !important;
+}
+
+.IconList .IconReadOnly:hover .Description {
+	color: #999 !important;
+}
+
+.IconList .ListSeperator {
+	font-family: "寰蒋闆呴粦";
+	font-size: 16px;
+	color:#aaa;
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 1px;
+	padding-left: 10px;
+	padding-bottom: 5px;
+	border-bottom: 1px dashed #aaa;
+}
+
+.IconList .deviceSelect {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+
+.groupCheckbox, .listGroupCheckbox {
+	margin-right: 5px;
+}
+
+.ResCount {
+	color: #FFFFFF;
+	background-color: #63A7FA;
+	line-height: 12px;
+	margin-left: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+	border-radius: 3px;
+	font-size: 10px;
+	font-weight: bold;
+	font-family: system;
+}
+
+.ResCountCopy {
+	color: #FFFFFF;
+	background-color: #63A7FA;
+	line-height: 12px;
+	margin-left: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+	border-radius: 3px;
+	font-size: 10px;
+	font-weight: bold;
+	font-family: system;
+	cursor:pointer;
+}
+
+.AlertTips {
+	text-align: center;
+	padding-top: 160px;
+	color: #999;
+	font-size: 18px;
+	font-family: "寰蒋闆呴粦";
+	background-image: url(../images/icon_alert.png);
+	background-position: center 50px;
+	background-repeat: no-repeat;
+}
+
+.InfoTips {
+	padding: 3px;
+	border: 1px solid #F8DC59;
+	background-color: #FDF0B6;
+	font-size: 12px;
+	text-align: center;
+	margin: 3px;
+	color: #888;
+	background-image: url(../images/icon_info.png);
+	background-position: 5px center;
+	background-repeat: no-repeat;
+}
+
+/*
+.InfoTips:hover {
+	background-color: #F9DE5E;
+	color: #333;
+}
+*/
+
+a { text-decoration:none;  color:#428bca;font-family: "Microsoft YaHei"; }
+
+.TopSearchText  {
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	vertical-align: middle;
+	text-align: left;
+	width: 200px;
+	padding: 3px;
+	height: 16px;
+	background-color: #fff;
+	margin: 0px;
+	border: 1px solid #999;
+	border-right: 0px;
+	*position: relative;
+}
+
+.TopSearchText input {
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	height: 16px;
+	line-height: 16px;
+	font-size: 12px;
+	width: 178px;
+	color: #666;
+	outline: none;
+}
+
+.TopSearchBtn {
+	width: 24px;
+	height: 24px;
+	background-image: url(../images/icon_search.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-color: #999;
+	cursor: pointer;
+	margin: 0px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+.TopSearchBtn:hover {
+	background-color: #666;
+}
+
+.DialogTable {
+	margin-top: 20px;
+}
+
+.DialogTable thead td, .DialogTable thead th {
+	border: 0px;
+	border-bottom: 1px solid #999;
+	color: #569FF9;
+	font-size: 12px;
+	font-weight: bold;
+	height: 20px;
+	text-align: left;
+	background-color: #fff;
+	padding: 3px 10px;
+}
+
+.DialogTable tbody td {
+	border: 0px;
+	color: #888;
+	padding-left: 10px;
+}
+
+.DialogTable .VipColumn {
+	font-weight: bold;
+}
+.button1 {
+    color: #FFFFFF;
+    background-color: #336699;
+    border-width: 1px;
+    border-style: solid;
+    border-top-color: #CCCCCC;
+    border-right-color: #336699;
+    border-bottom-color: #336699;
+    border-left-color: #CCCCCC;
+}
+
+.NavSeperator {
+	margin: 3px 3px;
+}
+
+.DeviceCount {
+	color: #ffffff;
+	background-color: #F85B0E;
+	line-height: 15px;
+	margin-left: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+	border-radius: 3px;
+	font-weight: bold;
+}
+
+.PageInfo .badge {
+	background-color: #f85b0e;
+	color: #fff;
+	margin-left: 4px;
+	padding: 4px 7px;
+}
+
+.TableSeperator, .dataTable .TableSeperator {
+	font-family: "寰蒋闆呴粦";
+	font-size: 16px;
+	color:#aaa;
+	padding: 5px 0px 0px 10px;
+	background-color: #f6f6f6;
+}
+
+.CopyRight {
+    text-align: center;
+    color: #999999;
+    font-size: 12px;
+    line-height: 20px;
+    width: 100%;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.popover.popover-xl {
+	max-width: 500px;
+}
+
+.del-div{width: 30px;height: 30px;position: absolute;border-radius:15px;right: -5px;top:-5px;background-color: #e52a3a;text-align: center;cursor: pointer;}
+.del-icon{color: #fff;font-size:18px;position:absolute;top:2px;left:10px;}
+.grid-item{position: relative;overflow: visible !important;}
+
+.top-button{height: 25px;}
+.top-button a{float: right;margin: 0 10px;}
+
+.item-label{font-size: 16px;margin: 5px;display: inline-block;cursor: pointer;}
+.item-label span{margin-right: 10px;}
+
+.popover {max-width: none}
+.popover-close {border:  0px solid #FFFFFF;background-color: transparent;padding: 0px 7px;color: #B5B5B5;}
+.popover-close:hover {color: #333;}
+.popover-close:focus {outline: none !important;}
+.popover-close:active {-webkit-box-shadow: none!important;box-shadow: none!important;  }
+
+.icon-container{height:290px;width:319px;margin: 20px 0 20px 20px;}
+.icon-container ul{list-style: none;}
+.icon-container ul li{float: left;padding: 10px;cursor: pointer;width: 45px;text-align: center;}
+.icon-container ul li{float: left;padding: 10px;cursor: pointer;width: 45px;text-align: center;}
+.icon-container ul li:hover{background-color: #333;color: #fff}
+.icon-container ul li i{font-size: 18px;}
+
+.edit-icon{font-size: 35px;line-height: 150px;font-weight: 100;margin: 0 5px;position: relative}
+
+.grid-edit:hover .fa-plus{left: 0!important;}
+.grid-edit:hover .fa-times{right: 0!important;}
+
+.float-layout-background{display: none; position: absolute;z-index: 5555;width: 100%;height: 100%;background:none rgba(0, 0, 0, 0.7);top:0px}
+.float-layout-background .next{border: 1px solid #fff;color: #fff;padding: 0 5px;float: right; cursor: pointer;font-family: "Microsoft YaHei";}
+
+.float-layout-close{font-size: 40px;float: right;cursor: pointer;color: #FFF;width: 40px;height: 40px;text-align: center}
+.float-layout-first{background-color: #000;width: 400px; height: 200px;margin: 200px auto;padding: 20px;}
+.float-layout-first h1{color: #fff;font-size: 25px;text-align: center;font-family: "Microsoft YaHei";}
+.float-layout-first p{color: #fff;font-size: 15px;font-family: "Microsoft YaHei";}
+
+.float-layout-second{background-color: #000;width: 400px; height: 100px;padding: 20px;position: relative;}
+.float-layout-second p{color: #fff;font-size: 20px;font-family: "Microsoft YaHei";}
+
+.float-layout-third{background-color: #000;width: 400px; height: 100px;padding: 20px;position: relative;}
+.float-layout-third p{color: #fff;font-size: 20px;font-family: "Microsoft YaHei";}
+
+.jiantou{font-size: 0;height: 0;border: 20px solid rgba(0, 0, 0, 0);position: absolute;}
+.jiantou-left{  border-right: 20px solid rgba(0, 0, 0, 1);}
+.jiantou-right{  border-left: 20px solid rgba(0, 0, 0, 1);}
+.jiantou-top{  border-bottom: 20px solid rgba(0, 0, 0, 1);}
+.jiantou-bottom{  border-top: 20px solid rgba(0, 0, 0, 1);}
