@@ -101,6 +101,66 @@
 }
 
 
+.copyright {
+    clear: both;
+    text-align: center;
+    font-size: 14px;
+}
+
+.login-wrapper{
+    margin-left:auto;
+    margin-right:auto;
+    background-image: url(../img/login.png); 
+    background-repeat: no-repeat;
+    background-position: 150px 100px; 
+    height:500px;
+    padding-left:700px;
+    padding-top:100px;
+}
+
+.login-wrapper .control-table td{
+    height:40px;
+}
+
+.login-wrapper2{
+    background-color:rgb(174,220,240);
+    width:340px;
+    padding:10px;
+}
+
+.login-wrapper3{
+    background-color:white;
+    padding:10px;
+}
+
+.login-wrapper2 .form-control {
+    width:300px;
+    
+}
+
+.login-wrapper2 .btn-primary{
+    background-color:rgb(85,173,220);
+    border-color:rgb(85,173,220);
+    width:280px;
+    font-size:18px;
+}
+
+.navbar-custom-menu.login{
+    padding-right:30px;
+    padding-top:10px;
+}
+.navbar-custom-menu.login button{
+    background-color:rgb(85,173,220);
+    border-color:rgb(85,173,220);
+    width:150px;
+}
+
+.main-header{
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+
 
 
 
