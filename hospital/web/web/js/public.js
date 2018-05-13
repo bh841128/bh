@@ -194,11 +194,15 @@ function showErrorMsg(errmsg_wraper, errmsg){
 	errmsg_wraper.find(".msg-error").html(errmsg);
 	errmsg_wraper.addClass("error_active");
 }
-function showErrorTooltip(input_ele, msg){
+function showErrorTooltip(input_ele){
+	var tooltip_msg = input_ele.attr("tooltip_msg");
+	if (!tooltip_msg || tooltip_msg == ""){
+		return;
+	}
 	input_ele.tooltip({
 		"trigger":"manual",
 		"placement":"right",
-		"title":msg
+		"title":tooltip_msg
 	});
 	input_ele.tooltip('show');
 	input_ele.one( "focus", function() {
@@ -225,4 +229,10 @@ function isIE(){
 		return true;
 	}
 	return false;
+}
+///////////////////////////////////////////////////////////////////
+function getTrimInputValue(input_control){
+	var value = input_control.val();
+	value = value.replace(/^\s+|\s+$/);
+	return value;
 }
