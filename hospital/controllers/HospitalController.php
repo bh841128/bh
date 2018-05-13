@@ -450,13 +450,6 @@ class HospitalController extends Controller
 		
 		
 		
-		if(CUtil::getRequestParam('request', 'medical_id', "")!=""){
-			$patientInfo[":medical_id"]=CUtil::getRequestParam('request', 'medical_id', "");
-		}
-		else{
-			$argErr=true; 
-		}
-		
 		if(CUtil::getRequestParam('request', 'sexy', 0)!=0){
 			$patientInfo[":sexy"]=CUtil::getRequestParam('request', 'sexy', 0);
 		}
@@ -464,12 +457,7 @@ class HospitalController extends Controller
 			$argErr=true; 
 		}
 		
-		if(CUtil::getRequestParam('request', 'name', "")!=""){
-			$patientInfo[":name"]=CUtil::getRequestParam('request', 'name', "");
-		}
-		else{
-			$argErr=true; 
-		}
+		
 		if(CUtil::getRequestParam('request', 'nation', "")!=""){
 			$patientInfo[":nation"]=CUtil::getRequestParam('request', 'nation', "");
 		}

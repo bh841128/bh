@@ -205,9 +205,9 @@ status  1:正常 2:上传  3：删除
 
 [:lastmod_manager_id] => 1
     [:lastmodtime] => 1526151032
-    [:medical_id] => 345435
+   
     [:sexy] => 1
-    [:name] => 黄刚
+    
     [:nation] => 汉
     [:birthday] => 19841128
     [:isSupply] => 1
