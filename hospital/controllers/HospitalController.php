@@ -501,6 +501,7 @@ class HospitalController extends Controller
 				$patientInfo[":city"]=CUtil::getRequestParam('request', 'city', "");
 				$patientInfo[":district"]=CUtil::getRequestParam('request', 'district', "");
 				$patientInfo[":address"]=CUtil::getRequestParam('request', 'address', "");
+				$patientInfo[":isSupply"]=0;
 			}
 			else{
 				$argErr=true; 

@@ -12,7 +12,6 @@ class Patient4Hospital {
 	 {
 		 $ret=array(
 		   "ret"=>0,
-		   
 		   "msg"=>""
 		);
 		
@@ -93,7 +92,7 @@ class Patient4Hospital {
 		}
 		return $ret;
 
-     }
+    }
 
 	 
 	 
@@ -222,7 +221,7 @@ status  1:正常 2:上传  3：删除
 			$sql=$sql." ".substr($key, 1)."=".$key.",";
 
 		}
-		$sql=$sql." create_manager_id=create_manager_id where id=".intval($id);
+		$sql=$sql." create_manager_id=create_manager_id where id=".intval($id)."  and status=1";
         CUtil::logFile("=====$sql  ");
 		
 		
