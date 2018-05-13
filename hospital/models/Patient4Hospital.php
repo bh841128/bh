@@ -195,14 +195,13 @@ status  1:正常 2:上传  3：删除
 
     }
 
-	static public function updatePatientInfo($id,$patientInfo){
+	static public function updatePatientInfo($id,$patientInfo,$hospital_id){
      	$ret=array(
 		   "ret"=>0,
 		   "msg"=>""
 		);
 		
 		/*
-
 [:lastmod_manager_id] => 1
     [:lastmodtime] => 1526151032
    
@@ -214,22 +213,15 @@ status  1:正常 2:上传  3：删除
     [:reason] => 不给
     [:relate_text] => fdgdf
 		*/
-        
-
+		
 		$sql="update   patientInfo set ";
 		foreach($patientInfo as $key => $value  ){
 			$sql=$sql." ".substr($key, 1)."=".$key.",";
 
 		}
-		$sql=$sql." create_manager_id=create_manager_id where id=".intval($id)."  and status=1";
-        
-		
-		
-        
-
-       
+		$sql=$sql." create_manager_id=create_manager_id where id=".intval($id)."  and status=1  and hospital_id=$hospital_id ";   
 		CUtil::logFile("=====$sql  ".print_r($patientInfo,true));
-		
+
 		try{
      	$connection = Yii::$app->db;
 		$command = $connection->createCommand($sql,$patientInfo);

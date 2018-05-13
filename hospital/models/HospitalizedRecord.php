@@ -94,7 +94,7 @@ class HospitalizedRecord {
     }
 	
 	
-	static public function setRecordText($id,$arrText){
+	static public function setRecordText($id,$arrText,$hospital_id){
      	$ret=array(
 		   "ret"=>0,
 		   "msg"=>""
@@ -107,7 +107,7 @@ class HospitalizedRecord {
 			$sql=$sql." ".substr($key, 1)."=".$key.",";
 
 		}
-		$sql=$sql." lastmodifytime=$now where   id =$id and status=1";
+		$sql=$sql." lastmodifytime=$now where   id =$id and status=1  and hospital_id=$hospital_id ";
 		CUtil::logFile("=====$sql  ".print_r($arrText,true));
 		try{
      	$connection = Yii::$app->db;
@@ -182,9 +182,38 @@ class HospitalizedRecord {
 		$ret["msg"]=$records;
 		return $ret;
 
-	 }
+	}
 	 
+	
+	  static public function insertRecordInfo($record){
+     	$ret=array(
+		   "ret"=>0,
+		   "msg"=>""
+		);
+		
+		
+		$sql="insert into  hospitalized_record (hospital_id,medical_id,name,nation,birthday,reason,isSupply,relate_text,`status`,lastmod_manager_id,sexy,createtime,uploadtime,lastmodtime,create_manager_id) values(:hospital_id,:medical_id,:name,:nation,:birthday,:reason,:isSupply,:relate_text,:status,:lastmod_manager_id,:sexy,:createtime,:uploadtime,:lastmodtime,:create_manager_id) ";
+		CUtil::logFile("=====$sql  ".print_r($record,true));
+		try{
+     	$connection = Yii::$app->db;
+		$command = $connection->createCommand($sql,$record);
+		$result = $command->execute();
+		}catch(\Exception $ex){
+			$ret["ret"]=2;
+			$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
+			CUtil::logFile("===== ".$ret["msg"]);			
+			return $ret;
+		}
+		
+		if($result!=1){
+			$ret["ret"]=1;
+			$ret["msg"]="insert err!";		
+			CUtil::logFile("=====$result  ");			
+			return $ret;
+		}
+		return $ret;
 
+    }
 
 
 }

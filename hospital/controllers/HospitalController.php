@@ -18,7 +18,7 @@ define("NOACCESS", 3);
 define("ARGSERR", 4);
 define("INSERTERR", 5);
 define("UPDATEERR", 6);
-
+define("PATINTIDERR", 7);
 
 
 class HospitalController extends Controller
@@ -421,15 +421,8 @@ class HospitalController extends Controller
             $result["msg"]="NODATA";
             return json_encode($result);
         }
-		
-		
-		
+
 		$patientInfo=array();
-		
-		
-			//:hospital_id,:medical_id,:name,:nation,:birthday,:province,:city,:distinct,:address,:reason,:isSupply,:relate_text,
-		//:status,:lastmod_manager_id,:sexy,:createtime,:uploadtime,:lastmodtime,:create_manager_id
-		
 		$now=time(0);
 		
 		//$patientInfo[":id"]=$id;
@@ -437,18 +430,7 @@ class HospitalController extends Controller
 		$patientInfo[":lastmod_manager_id"]=$ret["msg"]["id"];
 		$patientInfo[":lastmodtime"]=$now;
 
-		
-		
-		//$patientInfo[":hospital_id"]=$ret["msg"]["hospital_id"];
-		//$patientInfo[":create_manager_id"]=$ret["msg"]["id"];
-		//$patientInfo[":status"]=1;
-		//$patientInfo[":createtime"]=$now;
-		
-		//$patientInfo[":uploadtime"]=0;
-		
 		$argErr=false;
-		
-		
 		
 		if(CUtil::getRequestParam('request', 'sexy', 0)!=0){
 			$patientInfo[":sexy"]=CUtil::getRequestParam('request', 'sexy', 0);
@@ -456,8 +438,7 @@ class HospitalController extends Controller
 		else{
 			$argErr=true; 
 		}
-		
-		
+
 		if(CUtil::getRequestParam('request', 'nation', "")!=""){
 			$patientInfo[":nation"]=CUtil::getRequestParam('request', 'nation', "");
 		}
@@ -507,7 +488,7 @@ class HospitalController extends Controller
             return json_encode($ret);
 		}
 		CUtil::logFile("ARGS OK====".print_r($patientInfo,true));
-		$ret=Patient4Hospital::updatePatientInfo($id,$patientInfo);
+		$ret=Patient4Hospital::updatePatientInfo($id,$patientInfo,$ret["msg"]["hospital_id"]);
 		if($ret["ret"]!=0){
             $ret["ret"]=UPDATEERR;
             $ret["msg"]=$patientInfo;
@@ -609,7 +590,7 @@ class HospitalController extends Controller
 		if(CUtil::getRequestParam('request', 'hospitalization_out_info', "")!=""){
 			$arrText[":hospitalization_out_info"]=CUtil::getRequestParam('request', 'hospitalization_out_info', "");
 		}
-        $ret=HospitalizedRecord::setRecordText($id,$arrText);
+        $ret=HospitalizedRecord::setRecordText($id,$arrText,$ret["msg"]["hospital_id"]);
         if($ret["ret"]!=0){
             CUtil::logFile("setRecordText err====".print_r($ret,true));
             return json_encode($ret);
@@ -685,5 +666,73 @@ class HospitalController extends Controller
         return json_encode($ret);
     }
 	
+	
+	public function actionInsertRecord()
+    {
+		$username = CUtil::getRequestParam('cookie', 'username', '');
+        $skey = CUtil::getRequestParam('cookie', 'skey', '');
+		//登录
+        $ret=Login4Hospital::checkLogin($username,$skey);
+        //CUtil::logFile("====".print_r($ret,true));
+        if($ret["ret"]!=0){
+            $ret["ret"]=NOLOGIN;
+            $ret["msg"]="not login";
+			CUtil::logFile("not login====".print_r($ret,true));
+            return json_encode($ret);
+        }
+		//获取管理人员信息
+		$ret=Login4Hospital::getManager($username);
+         if($ret["ret"]!=0){
+            $ret["ret"]=NOACCESS;
+            $ret["msg"]="no ACCESS";
+			CUtil::logFile("not login====".print_r($ret,true));
+            return json_encode($ret);
+        }
+		
+		
+		$record=array();
+		
+		if(CUtil::getRequestParam('request', 'patient_id', 0)!=0){
+			$record[":patient_id"]=CUtil::getRequestParam('request', 'patient_id', 0);
+		}
+		else{
+			$ret["ret"]=ARGSERR;
+            $ret["msg"]="no patient_id";
+			CUtil::logFile("ARGSERR no patient_id====".print_r($record,true));
+            return json_encode($ret);
+		}
+		
+		$result=Patient4Hospital::getPatientById($record[":patient_id"],$ret["msg"]["hospital_id"]);
+        if($result["ret"]!=0){
+            $ret["ret"]=NODATA;
+            $ret["msg"]="no data";
+			CUtil::logFile("not login====".print_r($ret,true));
+            return json_encode($ret);
+        }
+		
+		$now=time(0);
+		CUtil::logFile("222222====".print_r($ret,true));
+		$record[":hospital_id"]=intval($ret["msg"]["hospital_id"]);
+		$record[":patient_id"]=intval();
+		$record[":patient_name"]=intval();
+		$record[":medical_id"]=intval();
+		$record[":manager_id"]=intval($ret["msg"]["id"]);
+		$record[":lastmodify_manager_id"]=intval($ret["msg"]["id"]);
+		$record[":status"]=1;
+		$record[":createtime"]=$now;
+		$record[":lastmodtime"]=$now;
+		$record[":uploadtime"]=0;
+		
+	
+		CUtil::logFile("ARGS OK====".print_r($record,true));
+		$ret=HospitalizedRecord::insertRecordInfo($record);
+		if($ret["ret"]!=0){
+            $ret["ret"]=INSERTERR;
+            $ret["msg"]=$record;
+			CUtil::logFile("INSERTERR====".print_r($ret,true));
+            return json_encode($ret);
+        }
+		return json_encode($ret);
+	}
 	
 }
