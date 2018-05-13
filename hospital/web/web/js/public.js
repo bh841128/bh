@@ -191,7 +191,7 @@ function hideAllErrorMsgs(){
 	$(".errormsg").removeClass("error_active");
 }
 function showErrorMsg(errmsg_wraper, errmsg){
-	errmsg_wraper.find(".msg-error").html(errmsg);
+	errmsg_wraper.find(".msg-error").html('<b></b>'+errmsg);
 	errmsg_wraper.addClass("error_active");
 }
 function showErrorTooltip(input_ele){
