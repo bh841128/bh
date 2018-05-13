@@ -595,6 +595,20 @@ class HospitalController extends Controller
 		
 		$arrText=array();
 		$arrText[":lastmodify_manager_id"]=$ret["msg"]["id"];
+		
+		
+		if(CUtil::getRequestParam('request', 'hospitalization_in_time', 0)!=0){
+			$arrText[":hospitalization_in_time"]=CUtil::getRequestParam('request', 'hospitalization_in_time', 0);
+		}
+		if(CUtil::getRequestParam('request', 'operation_time', 0)!=0){
+			$arrText[":operation_time"]=CUtil::getRequestParam('request', 'operation_time', 0);
+		}
+		if(CUtil::getRequestParam('request', 'hospitalization_out_time', 0)!=0){
+			$arrText[":hospitalization_out_time"]=CUtil::getRequestParam('request', 'hospitalization_out_time', 0);
+		}
+		
+		
+		
 	    if(CUtil::getRequestParam('request', 'operation_info', "")!=""){
 			$arrText[":operation_info"]=CUtil::getRequestParam('request', 'operation_info', "");
 		}
