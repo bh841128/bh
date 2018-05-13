@@ -568,10 +568,10 @@ class HospitalController extends Controller
 	
 	
 	//status  1:正常 2:上传  3：删除
-	public function actionSetRecordsStatus()
+	public function actionSetRecordText()
     {
         $username = CUtil::getRequestParam('cookie', 'username', '');
-        $ids = CUtil::getRequestParam('request', 'ids', "");
+        $id = CUtil::getRequestParam('request', 'id', 0);
 		$status = CUtil::getRequestParam('request', 'status', 0);
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
 		//登录
@@ -590,13 +590,31 @@ class HospitalController extends Controller
 			CUtil::logFile("not login====".print_r($ret,true));
             return json_encode($ret);
         }
+		//operation_before_info,operation_info,operation_after_info,hospitalization_out_info
 		
-		$idarray=explode(",",$ids);
-        $ret=HospitalizedRecord::setRecordStatusByIds($idarray,$ret["msg"]["hospital_id"],$status,$ret["msg"]["id"]);
+		
+		$arrText=array();
+		$arrText[":lastmodify_manager_id"]=$ret["msg"]["id"];
+	    if(CUtil::getRequestParam('request', 'operation_info', "")!=""){
+			$arrText[":operation_info"]=CUtil::getRequestParam('request', 'operation_info', "");
+		}
+		if(CUtil::getRequestParam('request', 'operation_before_info', "")!=""){
+			$arrText[":operation_before_info"]=CUtil::getRequestParam('request', 'operation_before_info', "");
+		}
+		if(CUtil::getRequestParam('request', 'operation_after_info', "")!=""){
+			$arrText[":operation_after_info"]=CUtil::getRequestParam('request', 'operation_after_info', "");
+		}
+		if(CUtil::getRequestParam('request', 'hospitalization_out_info', "")!=""){
+			$arrText[":hospitalization_out_info"]=CUtil::getRequestParam('request', 'hospitalization_out_info', "");
+		}
+        $ret=HospitalizedRecord::setRecordText($id,$arrText);
         if($ret["ret"]!=0){
-            CUtil::logFile("setRecordStatusByIds err====".print_r($ret,true));
+            CUtil::logFile("setRecordText err====".print_r($ret,true));
             return json_encode($ret);
         }
         return json_encode($ret);
     }
+	
+	
+	
 }

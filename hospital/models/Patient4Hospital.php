@@ -222,8 +222,7 @@ status  1:正常 2:上传  3：删除
 
 		}
 		$sql=$sql." create_manager_id=create_manager_id where id=".intval($id)."  and status=1";
-        CUtil::logFile("=====$sql  ");
-		
+        
 		
 		
         

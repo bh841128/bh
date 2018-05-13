@@ -94,6 +94,46 @@ class HospitalizedRecord {
     }
 	
 	
+	static public function setRecordText($id,$arrText){
+     	$ret=array(
+		   "ret"=>0,
+		   "msg"=>""
+		);
+		$now=time(0);
+		
+		//operation_before_info,operation_info,operation_after_info,hospitalization_out_info
+		$sql="update hospitalized_record  set";
+		foreach($arrText as $key => $value  ){
+			$sql=$sql." ".substr($key, 1)."=".$key.",";
+
+		}
+		$sql=$sql." lastmodifytime=$now where   id =$id and status=1";
+		CUtil::logFile("=====$sql  ".print_r($arrText,true));
+		try{
+     	$connection = Yii::$app->db;
+		$command = $connection->createCommand($sql,$arrText);
+		$records = $command->execute();
+		}catch(\Exception $ex){
+			$ret["ret"]=2;
+			$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
+			CUtil::logFile("===== ".$ret["msg"]);			
+			return $ret;
+		}
+		
+		
+		
+		
+		if($records==0){
+			$ret["ret"]=1;
+			$ret["msg"]="update err!";		
+			CUtil::logFile("=====$records  ");			
+			return $ret;
+		}
+		return $ret;
+
+    }
+	
+	
 	 static public function getRecordList($page,$hospital_id,$filter,$size=10)
 	 {
 		 $ret=array(
