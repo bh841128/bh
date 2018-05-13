@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>中国少儿先天性心脏病外科手术数据库</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./lib/adminlte/css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./lib/adminlte/css/ionicons.min.css">
+    <link rel="stylesheet" href="./lib/adminlte/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="./lib/datetimepicker/bootstrap-datetimepicker.min.css">
+
+    <link rel="stylesheet" href="./css/public.css">
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="container-fluid" style="width:1200px;margin-left:auto;margin-right:auto">
+        <header class="main-header">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-left:0px;">
+                <a href="#" class="logo" style="width:500px">
+                    <img src="./img/top-banner.png" />
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle gray-font" style="font-size:18px" data-toggle="dropdown">中国医学科学院阜外医院
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu" style="min-width:10px">
+                                <li>
+                                    <a href="#" data-toggle="control-sidebar" title="Sign out">
+                                        <i class="fa fa-sign-out">修改密码</i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" data-toggle="control-sidebar" title="Sign out">
+                                        <i class="fa fa-power-off">退出</i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    </div>
+    <div style="width:100%;height:2px;background-color:RGB(50,160,220);margin-bottom:20px"></div>
+    <div class="wrapper" style="width:1200px;margin-left:auto;margin-right:auto">
+        <aside class="main-sidebar" style="padding-top:0px">
+            <section class="sidebar">
+                <ul class="sidebar-menu" data-widget="tree" id="sidebar-menu">
+                    <li class="treeview" style="margin-bottom:10px">
+                        <span class="gray-font" style="font-size:17px;font-weight:bold;">信息管理</span>
+                    </li>
+                    <li class="treeview">
+                        <div class="tree-btn-wrapper">
+                            <div class="btn gray-font tree-btn active">
+                                <span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;新增资料</div>
+                        </div>
+                    </li>
+                    <li class="treeview">
+                        <div class="tree-btn-wrapper">
+                            <div class="btn gray-font tree-btn">
+                                <span class="glyphicon glyphicon-upload"></span>&nbsp;&nbsp;上传资料</div>
+                        </div>
+                    </li>
+                    <li class="treeview">
+                        <div class="tree-btn-wrapper">
+                            <div class="btn gray-font tree-btn">
+                                <span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;数据查询</div>
+                        </div>
+                    </li>
+                    <li class="treeview">
+                        <div class="tree-btn-wrapper">
+                            <div class="btn gray-font tree-btn">
+                                <span class="glyphicon glyphicon-export"></span>&nbsp;&nbsp;数据导出</div>
+                        </div>
+                    </li>
+                    <li class="treeview" style="margin-bottom:10px;margin-top:10px">
+                        <span class="gray-font" style="font-size:17px;font-weight:bold;">数据统计</span>
+                    </li>
+                    <li class="treeview">
+                        <div class="tree-btn-wrapper">
+                            <div class="btn gray-font tree-btn">
+                                <span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;数据报表</div>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper" id="content-add" style="min-height:400px">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1 class="gray-font">新增资料</h1>
+            </section>
+            <!-- Main content -->
+            <section class="content container-fluid">
+                <ul class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <li class="active">
+                        <a class="nav-item nav-link" id="nav-tab-jibenziliao" data-toggle="tab" href="#tab-jibenziliao" role="tab" aria-selected="true">基本资料</a>
+                    </li>
+                    <li>
+                        <a class="nav-item nav-link" id="nav-tab-zhuyuanjilu" data-toggle="tab" href="#tab-zhuyuanjilu" role="tab" aria-selected="true">住院记录</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane form-step fade active in" id="tab-jibenziliao" role="tabpanel" aria-labelledby="nav-tab-jibenziliao">
+                        <section class="content-header">
+                            <div class="gray-font" style="font-size:18px;">
+                                <table>
+                                    <tr>
+                                        <td style="vertical-align:middle;">
+                                            <div class="circle"></div>
+                                        </td>
+                                        <td>患者基本资料</td>
+                                    </tr>
+                                </table>
+                                </span>
+                            </div>
+                        </section>
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <table class="control-table"><tr>
+                                    <td><div class="control-label control-label-100">病案号：</div></td><td><input type="text" class="form-control input-sm" placeholder="病案号"></td>
+                                    <td><div class="control-label control-label-100">姓名：</div></td><td><input type="text" class="form-control input-sm" placeholder="姓名"></td>
+                                    <td><div class="control-label control-label-100">性别：</div></td><td>
+                                        <lable class="radio-inline"><input type="radio" name="xingbie" value="1" checked>男</lable>
+                                        <lable class="radio-inline"><input type="radio" name="xingbie" value="2">女</lable></td>
+                                </tr></table>
+                            </div>
+                            <div class="form-group">
+                                <table class="control-table"><tr>
+                                    <td>
+                                        <div class="control-label control-label-100">民族：</div></td><td>
+                                        <select class="form-control input-sm" tag="minzu"></select>
+                                    </td>
+                                    <td><div class="control-label control-label-100">出生日期：</div></td>
+                                    <td>
+                                        <div class="input-group date">
+                                            <input type="text" class="form-control input-sm" tag="datepicker" style="width:160px">
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                        
+                                    </td>
+                                </tr></table>
+                            </div>
+                        </div>
+                        <div class="form-group" tag="address">
+                            <table class="control-table"><tr>
+                                    <td><div class="control-label control-label-100">详细地址：</div></td>
+                                    <td style="padding-left:5px"><select class="form-control input-sm" style="width:250px" tag="address-shengfen"></select></td>
+                                    <td style="padding-left:15px"><select class="form-control input-sm" style="width:250px" tag="address-chengshi"></select></td>
+                                    <td style="padding-left:15px"><select class="form-control input-sm" style="width:250px" tag="address-quxian"></select></td>
+                            </tr></table>
+                            <table class="control-table" style="margin-top:15px"><tr></tr>
+                                <td><div class="control-label control-label-100"></div></td>
+                                <td style="padding-left:5px"><input type="text" class="form-control input-sm" style="width:475px" placeholder="详细地址" tag="address-xiangxidizhi"></td>
+                                <td style="padding-left:35px"><div class="checkbox"><lable><input type="checkbox" tag="address-nodetail-checkbox">不能提供</lable></div></td>
+                                <td style="padding-left:15px"><input type="text" class="form-control input-sm" style="width:200px" placeholder="原因" tag="address-nodetail-yuanyi" disabled></td>
+                            </tr></table>
+                        </div>
+                        <section class="content-header">
+                            <div class="gray-font" style="font-size:18px;">
+                                <table>
+                                    <tr>
+                                        <td style="vertical-align:middle;">
+                                            <div class="circle"></div>
+                                        </td>
+                                        <td>联系人基本资料</td>
+                                    </tr>
+                                </table>
+                                </span>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+    </div>
+    <!-- ./wrapper -->
+
+
+    <script src="./lib/jquery.min.js"></script>
+    <script src="./lib/jquery.cookie.js"></script>
+    <script src="./lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./lib/adminlte/js/adminlte.min.js"></script>
+    <script src="./lib/moment-with-locales.min.js"></script>
+    <script src="./lib/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="./js/public.js"></script>
+    <script src="./js/address.js"></script>
+    <script type="text/javascript">
+        initDatePicker("input[tag='datepicker']");
+        initMinzu($("select[tag='minzu']"));
+        initAddress($("div[tag='address']"));
+    </script>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,216 @@
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover{
+	background-color:white;
+}
+
+.gray-font {
+    color:rgb(114, 114, 114);
+    font:Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif
+}
+
+.sidebar-menu{
+    margin-left:10px;
+    margin-top:10px;
+}
+
+.main-sidebar{
+    width:150px;
+}
+.content-wrapper{
+    margin-left:150px;
+}
+.tree-btn-wrapper{
+    margin-left:10px;
+    margin-right:5px;
+    text-align:left;
+}
+.tree-btn{
+    text-align:left;
+    
+    display: block;
+    margin:0px;
+    padding:0px;
+    width:100%;
+    line-height:30px;
+    border-radius: 3px;
+    padding-left:5px;
+}
+.tree-btn.active{
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+.circle{
+    width:14px;
+    height:14px;
+    background-color:rgb(173,217,240);
+    border-radius:50%;
+    margin-right:5px;
+    margin-top:auto;
+    margin-bottom:auto;
+
+}
+
+.form-horizontal{
+    margin-left:20px;
+    margin-right:20px;
+}
+.control-label{
+    padding-right:5px;
+    padding-left:20px;
+    padding-top:0px;
+}
+.control-label-100{
+    width:100px;
+}
+
+.form-horizontal .checkbox, .form-horizontal .checkbox-inline, .form-horizontal .radio, .form-horizontal .radio-inline{
+    padding-top:0px;
+}
+.form-horizontal .control-label{
+    padding-top:0px;
+}
+.control-grid{
+    padding-right:0px;
+    padding-left:0px;
+}
+
+.form-group{
+    margin-top:10px;
+}
+
+.no-padding-grid{
+    padding-right:0px;
+    padding-left:0px;
+}
+
+.form-control.input-sm{
+    width:200px;
+}
+.control-table td{
+    vertical-align: middle;
+}
+
+
+
+
+
+
+/* Full-width input fields */
+.login_modal input[type=text], .login_modal input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+.login_modal button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.login_modal button:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.login_modal .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.login_modal .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+.login_modal img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.login_modal .container {
+    padding: 16px;
+    width:100%;
+}
+
+.login_modal span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.login_modal.modal {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.login_modal .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 500px; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.login_modal .close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.login_modal .close:hover,
+.login_modal .close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.login_modal .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    .login_modal span.psw {
+       display: block;
+       float: none;
+    }
+    .login_modal .cancelbtn {
+       width: 100%;
+    }
+}

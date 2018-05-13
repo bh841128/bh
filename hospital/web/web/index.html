@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>包发布管理系统</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="./css/reset.css">
+
+  <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap-theme.min.css">
+
+  <link rel="stylesheet" href="./lib/adminlte/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./lib/adminlte/plugins/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="./lib/adminlte/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="./lib/adminlte/css/skin-blue.min.css">
+  <link rel="stylesheet" href="./lib/googlefont/gfont.css">
+
+  <link rel="stylesheet" href="./css/public.css">
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+
+    <!-- Main Header -->
+    <header class="main-header">
+
+      <!-- Logo -->
+      <a href="index2.html" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini">
+          <b>A</b>LT</span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg">
+          <b>包发布</b>管理系统</span>
+      </a>
+
+      <!-- Header Navbar -->
+      <nav class="navbar navbar-static-top" role="navigation">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
+        <!-- Navbar Right Menu -->
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+            <!-- User Account Menu -->
+            <li class="dropdown user user-menu">
+              <!-- Menu Toggle Button -->
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <!-- The user image in the navbar-->
+                <img src="./img/user2-160x160.jpg" class="user-image" alt="User Image">
+                <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                <span class="hidden-xs">Alexander Pierce</span>
+              </a>
+            </li>
+            <!-- Control Sidebar Toggle Button -->
+            <li>
+              <a href="#" data-toggle="control-sidebar" title="Sign out">
+                <i class="fa fa-sign-out"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+
+
+    <aside class="main-sidebar">
+      <section class="sidebar">
+
+        <!-- Sidebar Menu -->
+        <ul class="sidebar-menu" data-widget="tree" id="sidebar-menu">
+          <li class="header">HEADER</li>
+
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-link"></i>
+              <span>发布包管理</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu" id="menus">
+              <li>
+                <a href="?page=package-list.html">
+                  <i class="fa fa-line-chart"></i>版本列表</a>
+              </li>
+              <li>
+                <a href="?page=instance-list.html">
+                  <i class="fa fa-line-chart"></i>实例列表</a>
+              </li>
+              <li>
+                <a href="?page=task-list.html">
+                  <i class="fa fa-line-chart"></i>任务列表</a>
+              </li>
+              <li>
+                <a href="?page=new-package.html">
+                  <i class="fa fa-line-chart"></i>建新版本</a>
+              </li>
+              <li>
+                <a href="?page=auth-setting.html">
+                  <i class="fa fa-line-chart"></i>权限管理</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="active">
+            <a href="?page=package-history.html">
+              <i class="fa fa-link"></i>
+              <span>安装记录</span>
+            </a>
+          </li>
+          <li class="active">
+            <a href="?page=package-history.html">
+              <i class="fa fa-link"></i>
+              <span>统计信息</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          包发布管理系统
+          <small>包发布</small>
+        </h1>
+      </section>
+
+      <!-- Main content -->
+      <section class="content container-fluid" id="content_wrapper">
+
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+      <!-- To the right -->
+      <div class="pull-right hidden-xs">
+        Anything you want
+      </div>
+      <!-- Default to the left -->
+      <strong>Copyright &copy; 2016
+        <a href="#">Company</a>.</strong> All rights reserved.
+    </footer>
+  </div>
+  <!-- ./wrapper -->
+
+  <!--    login  frame -->
+  <div id="id_login_frame" class="modal login_modal">
+    <form class="modal-content animate">
+      <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+  
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+          
+        <button type="submit">Login</button>
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+      </div>
+  
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn">Cancel</button>
+      </div>
+    </form>
+  </div>
+  <!-- end login frame -->
+
+  <!-- jQuery 3 -->
+  <script src="./lib/jquery.min.js"></script>
+  <script src="./lib/jquery.cookie.js"></script>
+  <!-- Bootstrap 3.3.7 -->
+  <script src="./lib/bootstrap/js/tooltip.js"></script>
+  <script src="./lib/bootstrap/js/popover.js"></script>
+
+  <script src="./lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="./lib/underscore-min.js"></script>
+  <script src="./js/utils.js"></script>
+  <!-- AdminLTE App -->
+  <script src="./lib/adminlte/js/adminlte.min.js"></script>
+  <script src="./js/user.js"></script>
+  <script src="./js/pkg-create.js"></script>
+  <script type="text/javascript">
+    (function ($) {
+      $.QS = (function (a) {
+        if (a == "")
+          return {};
+        var b = {};
+        for (var i = 0; i < a.length; ++i) {
+          var p = a[i].split('=', 2);
+          if (p.length != 2)
+            continue;
+          b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+        }
+        return b;
+      })(window.location.search.substr(1).split('&'))
+    })(jQuery);
+
+    $(function () {
+
+      var page = "";
+      page = $.QS["page"] || "";
+      if (page == "")
+        page = "device-state.html";
+
+      if (!page.match(/\.html/)){
+        page += ".html";
+      }
+
+      //console.log("loading " + page);
+      $.get("./pages/" + page, function (html) {
+        $("#content_wrapper").html(html);
+      }, "html");
+
+      $("#menus a").each(function () {
+        this_ = $(this);
+        var link_page = this_.attr("href").replace(/.*page=/, '');
+        link_page = link_page.replace(/&.*/, '');
+        if (link_page == page) {
+          var large_menu = this_.parent().parent().parent();
+          large_menu.siblings().removeClass("active");
+          large_menu.addClass("active");
+          this_.parent().addClass("active");
+        }
+      });
+
+      $("#search-btn").click(function () {
+        var q = $("#search-text").val().trim();
+        $("#search-text").val(q);
+        if (q == "")
+          return;
+
+        $("#content_wrapper").load("list_host.html", false, function () {
+          $("#q").val(q);
+          Oversea.list_host(q);
+        });
+      });
+
+      $("#search-text").on('keyup', function () {
+        if (event.keyCode == 13) {
+          $("#search-btn").click();
+        }
+      });
+
+    });
+  </script>
+</body>
+
+</html>
