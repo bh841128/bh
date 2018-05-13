@@ -180,3 +180,38 @@ function setCheckboxChecked(control_checkbox, checked){
 	}
 }
 /////////////////////////////////////////////////////
+function hideAllErrorTips(){
+	hideAllErrorMsgs();
+	hideAllTooltips();
+}
+function hideAllTooltips(){
+	$("input[tooltip]").tooltip("hide");
+}
+function hideAllErrorMsgs(){
+	$(".errormsg").removeClass("error_active");
+}
+function showErrorMsg(errmsg_wraper, errmsg){
+	errmsg_wraper.find(".msg-error").html(errmsg);
+	errmsg_wraper.addClass("error_active");
+}
+function showErrorTooltip(input_ele, msg){
+	input_ele.tooltip({
+		"trigger":"manual",
+		"placement":"right",
+		"title":msg
+	});
+	input_ele.tooltip('show');
+	input_ele.one( "focus", function() {
+		input_ele.tooltip('hide');
+	});
+}
+////////////////////////////////////////////////////////////
+function initIEPlaceholder(){
+	$("input").each(function(){
+		var place_hoder = $(this).attr("placeholder");
+		if (!place_hoder){
+			return;
+		}
+		$(this).placeholder(place_hoder);
+	})
+}
