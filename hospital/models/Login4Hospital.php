@@ -40,9 +40,17 @@ class Login4Hospital {
 		$args=array(':username'=>$username,':newpassword'=>$newpwd,":oldpassword"=>$oldpwd);
 		CUtil::logFile("$username     $newpassword $oldpassword  $newpwd   $oldpwd");
 		
+		try{
 		$connection = Yii::$app->db;
 		$command = $connection->createCommand($sql,$args);
 		$records = $command->execute();
+		}catch(\Exception $ex){
+			$ret["ret"]=2;
+			$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
+			CUtil::logFile("===== ".$ret["msg"]);			
+			return $ret;
+		}
+		
 		if($records!=1){
 			$ret["ret"]=1;
 			$ret["msg"]="update err!";			
@@ -72,9 +80,17 @@ class Login4Hospital {
 		$args=array(':username'=>$username);
 		CUtil::logFile("$username  ");
 		
+		try{
 		$connection = Yii::$app->db;
 		$command = $connection->createCommand($sql,$args);
 		$records = $command->queryAll();
+		}catch(\Exception $ex){
+			$ret["ret"]=2;
+			$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
+			CUtil::logFile("===== ".$ret["msg"]);			
+			return $ret;
+		}
+		
 		if(count($records)!=1){
 			$ret["ret"]=1;
 						
@@ -96,9 +112,17 @@ class Login4Hospital {
 		$args=array(':username'=>$username,':skey'=>$skey,":now"=>$now);
 		CUtil::logFile("$username  $skey   $now   $sql");
 		
+		try{
 		$connection = Yii::$app->db;
 		$command = $connection->createCommand($sql,$args);
 		$records = $command->queryAll();
+		}catch(\Exception $ex){
+			$ret["ret"]=2;
+			$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
+			CUtil::logFile("===== ".$ret["msg"]);			
+			return $ret;
+		}
+		
 		if(count($records)!=1){
 			$ret["ret"]=1;
 						
@@ -125,9 +149,21 @@ class Login4Hospital {
 		$args=array(':username'=>$username,':pass'=>$pass);
 		//echo("$username  $password   $sql");
 		CUtil::logFile("$username  $password   $sql");
+		
+		try{
 		$connection = Yii::$app->db;
+		
+		
 		$command = $connection->createCommand($sql,$args);
 		$records = $command->queryAll();
+		}catch(\Exception $ex){
+			$ret["ret"]=2;
+			$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
+			CUtil::logFile("===== ".$ret["msg"]);			
+			return $ret;
+		}
+		
+		
 		if(count($records)!=1){
 			$ret["ret"]=1;
 			return $ret;
@@ -141,8 +177,17 @@ class Login4Hospital {
 			$ret["skey"]=$skey;
 			$args=array(':username'=>$username,':skey'=>$skey,":time"=>time(0));
 			$sql="replace into session (`username`,`skey`,`time`) values (:username,:skey,:time)";
+			
+			try{
 			$command = $connection->createCommand($sql,$args);
 			$count=$records = $command->execute();
+			}catch(\Exception $ex){
+				$ret["ret"]=2;
+				$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
+				CUtil::logFile("===== ".$ret["msg"]);			
+				return $ret;
+			}
+			
 			if($count==0){
 				CUtil::logFile("insert session err!! $sql  ".print_r($args,true));
 			}

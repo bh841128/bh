@@ -20,9 +20,18 @@ class Patient4Hospital {
 		$args=array(':id'=>$id,':hospital_id'=>$hospital_id);
 		CUtil::logFile("=====$id  ");
 		
+		try{
 		$connection = Yii::$app->db;
 		$command = $connection->createCommand($sql,$args);
 		$records = $command->queryAll();
+		}catch(\Exception $ex){
+			$ret["ret"]=2;
+			$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
+			CUtil::logFile("===== ".$ret["msg"]);			
+			return $ret;
+		}
+		
+		
 		if(count($records)!=1){
 			$ret["ret"]=1;
 						
@@ -62,9 +71,20 @@ class Patient4Hospital {
 		}
 		CUtil::logFile("=====$sql  ".print_r($args,true));
 		
+		try{
      	$connection = Yii::$app->db;
 		$command = $connection->createCommand($sql,$args);
 		$records = $command->execute();
+		}catch(\Exception $ex){
+			$ret["ret"]=2;
+			$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
+			CUtil::logFile("===== ".$ret["msg"]);			
+			return $ret;
+		}
+		
+		
+		
+		
 		if($records!=1){
 			$ret["ret"]=1;
 			$ret["msg"]="update err!";		
@@ -118,9 +138,17 @@ status  1:正常 2:上传  3：删除
 		$page=$page<1?1:$page;
 		$sql=$sql." limit ".($page-1)*$size.",".$size;
         CUtil::logFile("=====$sql  ".print_r($args,true));
+		
+		try{
 		$connection = Yii::$app->db;
 		$command = $connection->createCommand($sql,$args);
 		$records = $command->queryAll();
+		}catch(\Exception $ex){
+			$ret["ret"]=2;
+			$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
+			CUtil::logFile("===== ".$ret["msg"]);			
+			return $ret;
+		}
 		
 		$ret["msg"]=$records;
 		return $ret;
@@ -147,10 +175,17 @@ status  1:正常 2:上传  3：删除
 		}
 
 		CUtil::logFile("=====$sql  ".print_r($patientInfo,true));
-		
+		try{
      	$connection = Yii::$app->db;
 		$command = $connection->createCommand($sql,$patientInfo);
 		$records = $command->execute();
+		}catch(\Exception $ex){
+			$ret["ret"]=2;
+			$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
+			CUtil::logFile("===== ".$ret["msg"]);			
+			return $ret;
+		}
+		
 		if($records!=1){
 			$ret["ret"]=1;
 			$ret["msg"]="insert err!";		
@@ -197,9 +232,17 @@ status  1:正常 2:上传  3：删除
        
 		CUtil::logFile("=====$sql  ".print_r($patientInfo,true));
 		
+		try{
      	$connection = Yii::$app->db;
 		$command = $connection->createCommand($sql,$patientInfo);
 		$records = $command->execute();
+		}catch(\Exception $ex){
+			$ret["ret"]=2;
+			$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
+			CUtil::logFile("===== ".$ret["msg"]);			
+			return $ret;
+		}
+		
 		if($records!=1){
 			$ret["ret"]=1;
 			$ret["msg"]="update err!";		
