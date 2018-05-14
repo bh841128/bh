@@ -235,7 +235,7 @@ class HospitalizedRecord {
 		);
         
 		
-        $sql = "select  mon,count(*) as num  from  (SELECT uploadtime,from_unixtime(uploadtime) as `time` , date_format(from_unixtime(uploadtime) , '%Y') as `year`,date_format(from_unixtime(unix_timestamp()) , '%m')  as `mon` FROM hospitalized_record) as h  where year=$year group by mon; ";
+        $sql = "select hospital_id, mon,count(*) from  (SELECT hospital_id, uploadtime,from_unixtime(uploadtime) as `time` , date_format(from_unixtime(uploadtime) , '%Y') as `year`,date_format(from_unixtime(unix_timestamp()) , '%m')  as `mon` FROM hospitalized_record) as h  where year=$year group by  hospital_id,mon; ";
         CUtil::logFile("=====$sql  ");
 		
 		try{
