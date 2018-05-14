@@ -34,6 +34,10 @@
     font-weight: 400;
 }
 
+.red_star{
+    color:red;
+}
+
 
 
 
@@ -103,10 +107,27 @@
 .control-label-100{
     width:100px;
 }
+.control-label-110{
+    width:110px;
+}
+.control-label-150{
+    width:150px;
+}
+.control-label-180{
+    width:180px;
+}
 
 .form-horizontal .checkbox, .form-horizontal .checkbox-inline, .form-horizontal .radio, .form-horizontal .radio-inline{
     padding-top:0px;
 }
+.form-horizontal .checkbox{
+    position: relative;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top:5px;
+}
+
 .form-horizontal .control-label{
     padding-top:0px;
 }

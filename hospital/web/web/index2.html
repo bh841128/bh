@@ -103,15 +103,15 @@
             <!-- Main content -->
             <section class="content container-fluid" style="min-height:650px">
                 <ul class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <li class="">
+                    <li class="active">
                         <a class="nav-item nav-link" id="nav-tab-jibenziliao" data-toggle="tab" href="#tab-jibenziliao" role="tab" aria-selected="true">基本资料</a>
                     </li>
-                    <li class="active">
+                    <li class="">
                         <a class="nav-item nav-link" id="nav-tab-zhuyuanjilu" data-toggle="tab" href="#tab-zhuyuanjilu" role="tab" aria-selected="true">住院记录</a>
                     </li>
                 </ul>
                 <div class="tab-content">
-                    <div class="tab-pane form-step fade" id="tab-jibenziliao" role="tabpanel" aria-labelledby="nav-tab-jibenziliao">
+                    <div class="tab-pane form-step fade active in" id="tab-jibenziliao" role="tabpanel" aria-labelledby="nav-tab-jibenziliao">
                         <section class="content-header">
                             <div class="gray-font" style="font-size:18px;">
                                 <table>
@@ -153,21 +153,22 @@
                                     </td>
                                 </tr></table>
                             </div>
+                            <div class="form-group" tag="address">
+                                    <table class="control-table"><tr>
+                                            <td><div class="control-label control-label-100">详细地址：</div></td>
+                                            <td style="padding-left:5px"><select class="form-control input-sm" style="width:250px" tag="address-shengfen"></select></td>
+                                            <td style="padding-left:15px"><select class="form-control input-sm" style="width:250px" tag="address-chengshi"></select></td>
+                                            <td style="padding-left:15px"><select class="form-control input-sm" style="width:250px" tag="address-quxian"></select></td>
+                                    </tr></table>
+                                    <table class="control-table" style="margin-top:15px"><tr></tr>
+                                        <td><div class="control-label control-label-100"></div></td>
+                                        <td style="padding-left:5px"><input type="text" class="form-control input-sm" style="width:475px" placeholder="详细地址" tag="address-xiangxidizhi"></td>
+                                        <td style="padding-left:35px"><div class="checkbox"><lable><input type="checkbox" tag="address-nodetail-checkbox">不能提供</lable></div></td>
+                                        <td style="padding-left:15px"><input type="text" class="form-control input-sm" style="width:200px" placeholder="原因" tag="address-nodetail-yuanyi" disabled></td>
+                                    </tr></table>
+                                </div>
                         </div>
-                        <div class="form-group" tag="address">
-                            <table class="control-table"><tr>
-                                    <td><div class="control-label control-label-100">详细地址：</div></td>
-                                    <td style="padding-left:5px"><select class="form-control input-sm" style="width:250px" tag="address-shengfen"></select></td>
-                                    <td style="padding-left:15px"><select class="form-control input-sm" style="width:250px" tag="address-chengshi"></select></td>
-                                    <td style="padding-left:15px"><select class="form-control input-sm" style="width:250px" tag="address-quxian"></select></td>
-                            </tr></table>
-                            <table class="control-table" style="margin-top:15px"><tr></tr>
-                                <td><div class="control-label control-label-100"></div></td>
-                                <td style="padding-left:5px"><input type="text" class="form-control input-sm" style="width:475px" placeholder="详细地址" tag="address-xiangxidizhi"></td>
-                                <td style="padding-left:35px"><div class="checkbox"><lable><input type="checkbox" tag="address-nodetail-checkbox">不能提供</lable></div></td>
-                                <td style="padding-left:15px"><input type="text" class="form-control input-sm" style="width:200px" placeholder="原因" tag="address-nodetail-yuanyi" disabled></td>
-                            </tr></table>
-                        </div>
+                        
                         <section class="content-header">
                             <div class="gray-font" style="font-size:18px;">
                                 <table>
@@ -181,8 +182,34 @@
                                 </span>
                             </div>
                         </section>
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <table class="control-table"><tr>
+                                    <td><div class="control-label control-label-180">姓名：</div></td><td><input type="text" class="form-control input-sm" placeholder="姓名"></td>
+                                    <td><div class="control-label control-label-110">与患者关系：</div></td><td>
+                                        <lable class="radio-inline"><input type="radio" name="yuhuanzheguanxi" value="1" checked>父亲</lable>
+                                        <lable class="radio-inline"><input type="radio" name="yuhuanzheguanxi" value="2">母亲</lable>
+                                        <lable class="radio-inline"><input type="radio" name="yuhuanzheguanxi" value="3">其他</lable>
+                                    </td>
+                                </tr></table>
+                            </div>
+                            <div class="form-group">
+                                <table class="control-table"><tr></tr>
+                                    <td><div class="control-label control-label-180"><span class="red_star">*&nbsp;</span>联系电话：</div></td><td><input type="text" class="form-control input-sm" placeholder="联系人电话"></td>
+                                    <td style="padding-left:35px"><div class="checkbox"><lable><input type="checkbox">不能提供</lable></div></td>
+                                    <td style="padding-left:15px"><input type="text" class="form-control input-sm" style="width:200px" placeholder="原因" tag="address-nodetail-yuanyi" disabled></td>
+                                </tr></table>
+                                <table class="control-table"><tr></tr>
+                                    <td><div class="control-label control-label-180"><span class="red_star">*&nbsp;</span>联系人电话(号码二)：</div></td><td><input type="text" class="form-control input-sm" placeholder="联系人电话"></td>
+                                    <td style="padding-left:35px"><div class="checkbox"><lable><input type="checkbox">不能提供</lable></div></td>
+                                </tr></table>
+                            </div>
+                        </div>
+                        <div class="form-horizontal">
+                            <div style="text-align:center;margin-top:30px;"><button type="button" class="btn btn-primary" style="width:200px">保存信息</button></div>
+                        </div>
                     </div>
-                    <div class="tab-pane form-step fade active in" id="tab-zhuyuanjilu" role="tabpanel" aria-labelledby="nav-tab-zhuyuanjilu">
+                    <div class="tab-pane form-step fade" id="tab-zhuyuanjilu" role="tabpanel" aria-labelledby="nav-tab-zhuyuanjilu">
                         <div class="box-body table-responsive">
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
