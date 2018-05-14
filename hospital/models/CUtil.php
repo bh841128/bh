@@ -55,5 +55,22 @@ class CUtil {
         Yii::$app->log->traceLevel = 0;
         Yii::getLogger()->log($msg, $level,$category);
      }
+	 
+	 static public function createtable($list,$filename,$header=array(),$index = array()){    
+		header("Content-type:application/vnd.ms-excel");    
+		header("Content-Disposition:filename=".$filename.".xls");    
+		$teble_header = implode("\t",$header);  
+		$strexport = $teble_header."\r";  
+		foreach ($list as $row){    
+			foreach($index as $val){  
+				$strexport.=$row[$val]."\t";     
+			}  
+			$strexport.="\r";   
+	  
+		}    
+		$strexport=iconv('UTF-8',"GB2312//IGNORE",$strexport); 
+		//exit($strexport);		
+		return $strexport;     
+	}   
 	
 }

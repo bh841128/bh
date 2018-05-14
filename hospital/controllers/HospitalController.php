@@ -98,6 +98,7 @@ class HospitalController extends Controller
     {
 		$username = CUtil::getRequestParam('req', 'username', '');
 		$password = CUtil::getRequestParam('req', 'password', '');
+		
 		$ret=Login4Hospital::loginIn($username,$password);
 		
 		CUtil::logFile("not login====".print_r($ret,true));
@@ -856,4 +857,86 @@ class HospitalController extends Controller
 		
 	}
 	
+	
+	public function actionDownload()
+    {
+        $username = CUtil::getRequestParam('cookie', 'username', '');
+        $id = CUtil::getRequestParam('request', 'id', 0);
+        $skey = CUtil::getRequestParam('cookie', 'skey', '');
+		//登录
+        $ret=Login4Hospital::checkLogin($username,$skey);
+        CUtil::logFile("====".print_r($ret,true));
+        if($ret["ret"]!=0){
+            $ret["ret"]=NOLOGIN;
+            $ret["msg"]="not login";
+			CUtil::logFile("not login====".print_r($ret,true));
+            return json_encode($ret);
+        }
+		
+		//获取管理人员信息
+		$ret=Login4Hospital::getManager($username);
+         if($ret["ret"]!=0){
+            $ret["ret"]=NOACCESS;
+            $ret["msg"]="no ACCESS";
+			CUtil::logFile("not login====".print_r($ret,true));
+            return json_encode($ret);
+        }
+		
+		
+		
+		
+		$hospital_id = $ret["msg"]["hospital_id"];
+		
+		$filter=array();
+		if(CUtil::getRequestParam('request', 'patient_name', "")!=""){
+			$filter["patient_name"]=CUtil::getRequestParam('request', 'patient_name', "");
+		}
+		if(CUtil::getRequestParam('request', 'medical_id', "")!=""){
+			$filter["medical_id"]=CUtil::getRequestParam('request', 'medical_id', "");
+		}
+		
+		
+		
+		
+		if(CUtil::getRequestParam('request', 'start_time', 0)!=0){
+			$filter["start_time"]=CUtil::getRequestParam('request', 'start_time', 0);
+		}
+		
+			
+		if(CUtil::getRequestParam('request', 'end_time', 0)!=0){
+			$filter["end_time"]=CUtil::getRequestParam('request', 'end_time', 0);
+		}
+		
+		if(CUtil::getRequestParam('request', 'status',0)==1||
+		   CUtil::getRequestParam('request', 'status',0)==2||
+		   CUtil::getRequestParam('request', 'status',0)==3)
+		{
+			
+			$filter["status"]=CUtil::getRequestParam('request', 'status', 0);
+		}
+		
+		CUtil::logFile("$hospital_id===".print_r($filter,true));
+        $records=HospitalizedRecord::getRecordList(0,$hospital_id,$filter,0);
+        if($ret["ret"]!=0){
+            $ret["ret"]=NODATA;
+            $ret["msg"]=$records;
+			CUtil::logFile("not login====".print_r($records,true));
+            return json_encode($ret);
+        }
+		return json_encode($records);
+		
+		
+		
+		
+		/*
+		
+		$cash=array(array('username'=>"bh",'vipnum'=>0,'mobile'=>"13590149774"));
+		$filename = '提现记录'.date('YmdHis');  
+		$header = array('会员','编号','联系电话');  
+		$index = array('username','vipnum','mobile');  
+		$data=CUtil::createtable($cash,$filename,$header,$index); 
+       
+        
+        exit($data);*/
+    }
 }

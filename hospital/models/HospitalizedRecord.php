@@ -165,7 +165,9 @@ class HospitalizedRecord {
 		}
 		
 		$page=$page<1?1:$page;
-		$sql=$sql." limit ".($page-1)*$size.",".$size;
+		if($size>0){
+			$sql=$sql." limit ".($page-1)*$size.",".$size;
+		}
         CUtil::logFile("=====$sql  ".print_r($args,true));
 		
 		try{
