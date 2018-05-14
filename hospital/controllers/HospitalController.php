@@ -795,10 +795,65 @@ class HospitalController extends Controller
 		if($ret["ret"]!=0){
             $ret["ret"]=INSERTERR;
             $ret["msg"]=$year;
-			CUtil::logFile("INSERTERR====".print_r($ret,true));
+			CUtil::logFile("RecordsTable====".print_r($ret,true));
             return json_encode($ret);
         }
 		return json_encode($ret);
+	}
+	public function actionSetRecordsStatus()
+    {	
+		$username = CUtil::getRequestParam('cookie', 'username', '');
+        $skey = CUtil::getRequestParam('cookie', 'skey', '');
+		//登录
+        $ret=Login4Hospital::checkLogin($username,$skey);
+        //CUtil::logFile("====".print_r($ret,true));
+        if($ret["ret"]!=0){
+            $ret["ret"]=NOLOGIN;
+            $ret["msg"]="not login";
+			CUtil::logFile("not login====".print_r($ret,true));
+            return json_encode($ret);
+        }
+		//获取管理人员信息
+		$ret=Login4Hospital::getManager($username);
+         if($ret["ret"]!=0){
+            $ret["ret"]=NOACCESS;
+            $ret["msg"]="no ACCESS";
+			CUtil::logFile("not login====".print_r($ret,true));
+            return json_encode($ret);
+        }
+		$hospital_id=intval($ret["msg"]["hospital_id"]);
+		$manager_id=intval($ret["msg"]["id"]);
+		
+		$argErr=false;
+		$ids="";
+		$status=1;
+		if(CUtil::getRequestParam('request', 'ids', "")!=""){
+			$ids=CUtil::getRequestParam('request', 'ids', "");
+		}else{
+			$argErr=true;
+		}
+		if(CUtil::getRequestParam('request', 'status', 0)!=0){
+			$status=CUtil::getRequestParam('request', 'status', 0);
+		}else{
+			$argErr=true;
+		}
+		if($argErr==true){
+			$ret["ret"]=ARGSERR;
+            $ret["msg"]="$ids $status";
+			CUtil::logFile("ARGSERR====$ids $status");
+            return json_encode($ret);
+		}
+		$idarray=explode(",",$ids);
+		$ret=HospitalizedRecord::setRecordStatusByIds($idarray,$hospital_id,$status,$manager_id);
+		if($ret["ret"]!=0){
+            $ret["ret"]=INSERTERR;
+            
+			CUtil::logFile("RecordsTable====".print_r($ret,true));
+            return json_encode($ret);
+        }
+		return json_encode($ret);
+		
+		
 	}
 	
 }
