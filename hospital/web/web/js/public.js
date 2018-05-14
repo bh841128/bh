@@ -14,6 +14,13 @@ function initDatePicker(selector){
 	$('.input-group').find('.glyphicon-calendar').parent().on('click', function(){
 	$(this).siblings(selector).trigger('focus');});
 }
+function initDateTimePicker(selector){
+	var dateNow = formatDateNow();
+	$(selector).val(dateNow);
+	$(selector).datetimepicker({format: 'YYYY-MM-DD HH:mm:ss'});
+	$('.input-group').find('.glyphicon-calendar').parent().on('click', function(){
+	$(this).siblings(selector).trigger('focus');});
+}
 ///////////////////////////////////////
 function initMinzu(controls){
 	var nations = ["汉族","蒙古族","回族","藏族","维吾尔族","苗族","彝族","壮族","布依族","朝鲜族","满族","侗族","瑶族","白族","土家族",

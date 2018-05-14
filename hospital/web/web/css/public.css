@@ -58,6 +58,20 @@
     box-shadow: none;
  }
 
+ .btn_upload, .btn_notupload{
+     height:80px;
+     width:200px;
+     border-radius:0px;
+     font-size:16px;
+ }
+
+ .table-center>thead>tr>th{
+     text-align:center;
+ }
+
+ .btn_notupload{
+     background-color:rgb(50,160,220);
+ }
 
 .table>caption+thead>tr:first-child>td, .table>caption+thead>tr:first-child>th, .table>colgroup+thead>tr:first-child>td, .table>colgroup+thead>tr:first-child>th, .table>thead:first-child>tr:first-child>td, .table>thead:first-child>tr:first-child>th{
     border-top:1px solid #ddd;
