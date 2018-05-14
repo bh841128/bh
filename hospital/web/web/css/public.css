@@ -159,6 +159,9 @@
 .control-table.padding-10 td{
     padding-bottom:10px;
 }
+.control-table.padding-20 td{
+    padding-bottom:20px;
+}
 
 .table-responsive{
     overflow-x: hidden;
