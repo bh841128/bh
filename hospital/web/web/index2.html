@@ -385,10 +385,10 @@
                         </div>
                     </div>
             </section>
-            </div>
+        </div>
             <!-- /.content-wrapper -->
             <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper" id="content-add">
+            <div class="content-wrapper" id="content-zyjl">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1 class="gray-font">新增住院记录</h1>
@@ -402,13 +402,13 @@
                         <li class="">
                             <a class="nav-item nav-link" id="nav-tab-zyjl-shuqianxinxi" data-toggle="tab" href="#tab-zyjl-shuqianxinxi" role="tab" aria-selected="true">术前信息</a>
                         </li>
-                        <li class="active">
+                        <li class="">
                             <a class="nav-item nav-link" id="nav-tab-zyjl-shoushuxinxi" data-toggle="tab" href="#tab-zyjl-shoushuxinxi" role="tab" aria-selected="true">手术信息</a>
                         </li>
                         <li class="">
                             <a class="nav-item nav-link" id="nav-tab-zyjl-shuhouxinxi" data-toggle="tab" href="#tab-zyjl-shuhouxinxi" role="tab" aria-selected="true">术后信息</a>
                         </li>
-                        <li class="">
+                        <li class="active">
                             <a class="nav-item nav-link" id="nav-tab-zyjl-chuyuanziliao" data-toggle="tab" href="#tab-zyjl-chuyuanziliao" role="tab"
                                 aria-selected="true">出院资料</a>
                         </li>
@@ -896,7 +896,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane form-step fade active in" id="tab-zyjl-shoushuxinxi" role="tabpanel" aria-labelledby="nav-tab-zyjl-shoushuxinxi">
+                        <div class="tab-pane form-step fade" id="tab-zyjl-shoushuxinxi" role="tabpanel" aria-labelledby="nav-tab-zyjl-shoushuxinxi">
                             <section class="content-header">
                                 <div class="gray-font" style="font-size:18px;">
                                     <table>
@@ -1217,28 +1217,232 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                                <td>
-                                                    <div class="control-label" style="width:124px">单侧脑灌注：</div>
-                                                </td>
-                                                <td>
-                                                    <lable class="radio-inline">
-                                                        <input type="radio" name="dancenaoguanzhu" value="1" checked>是</lable>
-                                                    <lable class="radio-inline">
-                                                        <input type="radio" name="dancenaoguanzhu" value="2">否</lable>
-                                                </td>
-                                                <td>
-                                                    <div class="control-label" style="width:160px">单侧脑灌注时间：</div>
-                                                </td>
-                                                <td>
-                                                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
-                                                </td>
-                                                <td>
-                                                    <span>（分钟）</span>
-                                                </td>
-                                            </tr>
+                                            <td>
+                                                <div class="control-label" style="width:124px">单侧脑灌注：</div>
+                                            </td>
+                                            <td>
+                                                <lable class="radio-inline">
+                                                    <input type="radio" name="dancenaoguanzhu" value="1" checked>是</lable>
+                                                <lable class="radio-inline">
+                                                    <input type="radio" name="dancenaoguanzhu" value="2">否</lable>
+                                            </td>
+                                            <td>
+                                                <div class="control-label" style="width:160px">单侧脑灌注时间：</div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                                            </td>
+                                            <td>
+                                                <span>（分钟）</span>
+                                            </td>
+                                        </tr>
                                     </table>
                                 </div>
+                                <div class="form-horizontal">
+                                        <div style="text-align:center;margin-top:30px;">
+                                            <button type="button" class="btn btn-primary" style="width:100px">保存</button>&nbsp;&nbsp;
+                                            <button type="button" class="btn btn-primary" style="width:100px">上传</button>
+                                        </div>
+                                    </div>
                             </div>
+                        </div>
+                        <div class="tab-pane form-step fade" id="tab-zyjl-shuhouxinxi" role="tabpanel" aria-labelledby="nav-tab-zyjl-shuhouxinxi">
+                            <section class="content-header">
+                                <div class="gray-font" style="font-size:18px;">
+                                    <table>
+                                        <tr>
+                                            <td style="vertical-align:middle;">
+                                                <div class="circle"></div>
+                                            </td>
+                                            <td>术后信息</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </section>
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <table class="control-table padding-20">
+                                        <tr>
+                                            <td>
+                                                <div class="control-label" style="width:124px">术后住院时间：</div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                                            </td>
+                                            <td>
+                                                <span>（天）</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table class="control-table padding-20">
+                                        <tr>
+                                            <td>
+                                                <div class="control-label" style="width:154px">当天进出监护室内：</div>
+                                            </td>
+                                            <td>
+                                                <lable class="radio-inline">
+                                                    <input type="radio" name="dangtianjinchujianhushinei" value="1" checked>是</lable>
+                                                <lable class="radio-inline">
+                                                    <input type="radio" name="dangtianjinchujianhushinei" value="2">否</lable>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table class="control-table padding-20">
+                                        <tr>
+                                            <td>
+                                                <div class="control-label" style="width:124px">出监护室日期：</div>
+                                            </td>
+                                            <td>
+                                                <div class="input-group date">
+                                                    <input type="text" class="form-control input-sm" tag="datepicker" style="width:160px">
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="control-label" style="width:180px">术后监护室停留时间：</div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                                            </td>
+                                            <td>
+                                                <span>（天）</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table class="control-table padding-20">
+                                        <tr>
+                                            <td>
+                                                <div class="control-label" style="width:180px">累计有创辅助通气时间：</div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                                            </td>
+                                            <td>
+                                                <span>（天）</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table class="control-table padding-20">
+                                        <tr>
+                                            <td>
+                                                <div class="control-label" style="width:238px">围手术期血液制品输入（累计）：</div>
+                                            </td>
+                                            <td>
+                                                <lable class="radio-inline">
+                                                    <input type="radio" name="weishoushuqixueyezhipinshuru" value="1" checked>是</lable>
+                                                <lable class="radio-inline">
+                                                    <input type="radio" name="weishoushuqixueyezhipinshuru" value="2">否</lable>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table class="control-table padding-20">
+                                        <tr>
+                                            <td>
+                                                <div class="control-label" style="width:124px">红细胞：</div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                                            </td>
+                                            <td>
+                                                <span>（单位）</span>
+                                            </td>
+                                            <td>
+                                                <div class="control-label" style="width:124px">新鲜冰冻血浆：</div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                                            </td>
+                                            <td>
+                                                <span>（毫升）</span>
+                                            </td>
+                                            <td>
+                                                <div class="control-label" style="width:124px">血浆冷沉淀：</div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                                            </td>
+                                            <td>
+                                                <span>（单位）</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table class="control-table padding-20">
+                                        <tr>
+                                            <td>
+                                                <div class="control-label" style="width:124px">血小板：</div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                                            </td>
+                                            <td>
+                                                <span>（单位）</span>
+                                            </td>
+                                            <td>
+                                                <div class="control-label" style="width:124px">自体血：</div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                                            </td>
+                                            <td>
+                                                <span>（毫升）</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table class="control-table padding-20">
+                                        <tr>
+                                            <td>
+                                                <div class="control-label" style="width:124px">术后并发症：</div>
+                                            </td>
+                                            <td>
+                                                <lable class="radio-inline">
+                                                    <input type="radio" name="shuhoubingfazheng" value="1" checked>是</lable>
+                                                <lable class="radio-inline">
+                                                    <input type="radio" name="shuhoubingfazheng" value="2">否</lable>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table class="control-table padding-20">
+                                        <tr>
+                                            <td>
+                                                <div class="input-group" style="margin-left:38px">
+                                                    <select class="form-control input-sm" style="width:600px"></select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="input-group" style="margin-left:38px">
+                                                    <textarea class="form-control" style="width:600px" rows="5"></textarea>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table class="control-table padding-20">
+                                        <tr>
+                                            <td style="vertical-align:top">
+                                                <div class="control-label" style="width:80px">其他：</div>
+                                            </td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <textarea class="form-control" style="width:560px" rows="5"></textarea>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="form-horizontal">
+                                        <div style="text-align:center;margin-top:30px;">
+                                            <button type="button" class="btn btn-primary" style="width:100px">保存</button>&nbsp;&nbsp;
+                                            <button type="button" class="btn btn-primary" style="width:100px">上传</button>
+                                        </div>
+                                    </div>
+                            </div>
+
+                        </div>
+                        <div class="tab-pane form-step fade active in" id="tab-zyjl-chuyuanziliao" role="tabpanel" aria-labelledby="nav-tab-zyjl-chuyuanziliao">
+
                         </div>
                     </div>
                 </section>
