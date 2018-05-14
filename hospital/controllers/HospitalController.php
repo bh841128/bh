@@ -756,4 +756,49 @@ class HospitalController extends Controller
 		return json_encode($ret);
 	}
 	
+	public function actionRecordsTable()
+    {
+		$username = CUtil::getRequestParam('cookie', 'username', '');
+        $skey = CUtil::getRequestParam('cookie', 'skey', '');
+		//登录
+        $ret=Login4Hospital::checkLogin($username,$skey);
+        //CUtil::logFile("====".print_r($ret,true));
+        if($ret["ret"]!=0){
+            $ret["ret"]=NOLOGIN;
+            $ret["msg"]="not login";
+			CUtil::logFile("not login====".print_r($ret,true));
+            return json_encode($ret);
+        }
+		//获取管理人员信息
+		$ret=Login4Hospital::getManager($username);
+         if($ret["ret"]!=0){
+            $ret["ret"]=NOACCESS;
+            $ret["msg"]="no ACCESS";
+			CUtil::logFile("not login====".print_r($ret,true));
+            return json_encode($ret);
+        }
+		$argErr=false;
+		$year=0;
+		if(CUtil::getRequestParam('request', 'year', 0)!=0){
+			$year=CUtil::getRequestParam('request', 'year', 0);
+		}else{
+			$argErr=true;
+		}
+		if($argErr==true){
+			$ret["ret"]=ARGSERR;
+            
+			CUtil::logFile("ARGSERR====".print_r($ret,true));
+            return json_encode($ret);
+		}
+		CUtil::logFile("ARGS OK====".print_r($ret,true));
+		$ret=HospitalizedRecord::getRecordsTable($year);
+		if($ret["ret"]!=0){
+            $ret["ret"]=INSERTERR;
+            $ret["msg"]=$year;
+			CUtil::logFile("INSERTERR====".print_r($ret,true));
+            return json_encode($ret);
+        }
+		return json_encode($ret);
+	}
+	
 }

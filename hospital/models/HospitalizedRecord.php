@@ -26,7 +26,7 @@ class HospitalizedRecord {
 		}catch(\Exception $ex){
 			$ret["ret"]=2;
 			$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
-			CUtil::logFile("===== ".$ret["msg"]);			
+			CUtil::logFile("catch===== ".$ret["msg"]);			
 			return $ret;
 		}
 		
@@ -76,7 +76,7 @@ class HospitalizedRecord {
 		}catch(\Exception $ex){
 			$ret["ret"]=2;
 			$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
-			CUtil::logFile("===== ".$ret["msg"]);			
+			CUtil::logFile("catch ===== ".$ret["msg"]);			
 			return $ret;
 		}
 		
@@ -116,7 +116,7 @@ class HospitalizedRecord {
 		}catch(\Exception $ex){
 			$ret["ret"]=2;
 			$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
-			CUtil::logFile("===== ".$ret["msg"]);			
+			CUtil::logFile("catch===== ".$ret["msg"]);			
 			return $ret;
 		}
 		
@@ -175,7 +175,7 @@ class HospitalizedRecord {
 		}catch(\Exception $ex){
 			$ret["ret"]=2;
 			$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
-			CUtil::logFile("===== ".$ret["msg"]);			
+			CUtil::logFile("catch ===== ".$ret["msg"]);			
 			return $ret;
 		}
 		
@@ -212,7 +212,7 @@ class HospitalizedRecord {
 		}catch(\Exception $ex){
 			$ret["ret"]=2;
 			$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
-			CUtil::logFile("===== ".$ret["msg"]);			
+			CUtil::logFile("catch ===== ".$ret["msg"]);			
 			return $ret;
 		}
 		
@@ -225,6 +225,34 @@ class HospitalizedRecord {
 		return $ret;
 
     }
+	
+	static public function getRecordsTable($year)
+	{
+		$ret=array(
+		   "ret"=>0,
+		   
+		   "msg"=>""
+		);
+        
+		
+        $sql = "select  mon,count(*) as num  from  (SELECT uploadtime,from_unixtime(uploadtime) as `time` , date_format(from_unixtime(uploadtime) , '%Y') as `year`,date_format(from_unixtime(unix_timestamp()) , '%m')  as `mon` FROM hospitalized_record) as h  where year=$year group by mon; ";
+        CUtil::logFile("=====$sql  ");
+		
+		try{
+		$connection = Yii::$app->db;
+		$command = $connection->createCommand($sql);
+		$records = $command->queryAll();
+		}catch(\Exception $ex){
+			$ret["ret"]=2;
+			$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
+			CUtil::logFile("catch ===== ".$ret["msg"]);			
+			return $ret;
+		}
+		
+		$ret["msg"]=$records;
+		return $ret;
+
+	}
 
 
 }
