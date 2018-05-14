@@ -113,7 +113,7 @@
                                 <option value="2018">2018</option>
                             </select>
                         </div>
-                        <div class="report-chart-container" style="height:500px;border:1px solid blue;">
+                        <div class="report-chart-container" style="height:500px;" id="report-chart">
 
                         </div>
                         <div class="report-chart-footer" style="text-align:left;">
@@ -121,7 +121,7 @@
                                 <table class="control-table padding-20">
                                     <tr>
                                         <td>
-                                            <div style="padding-left:20px">
+                                            <div style="padding-left:200px">
                                                 <select class="form-control input-sm" style="width:150px">
                                                     <option value="医院">医院</option>
                                                 </select>
@@ -196,6 +196,8 @@
         <script src="./lib/jquery.cookie.js"></script>
         <script src="./lib/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="./lib/adminlte/js/adminlte.min.js"></script>
+        <script src="./lib/adminlte/js/raphael.min.js"></script>
+        <script src="./lib/adminlte/js/morris.min.js"></script>
         <script src="./lib/moment-with-locales.min.js"></script>
         <script src="./lib/datetimepicker/bootstrap-datetimepicker.min.js"></script>
 
@@ -206,7 +208,30 @@
             initDateTimePicker("input[tag='datetimepicker']");
             initMinzu($("select[tag='minzu']"));
             initAddress($("div[tag='address']"));
-        //$('#id_login_frame').modal()
+
+            var bar = new Morris.Bar({
+                element: 'report-chart',
+                resize: true,
+                data: [
+                    { y: '01月份', "阜外医院": 1000, "其他": 900 },
+                    { y: '02月份', "阜外医院": 100, "其他": 90 },
+                    { y: '03月份', "阜外医院": 200, "其他": 40 },
+                    { y: '04月份', "阜外医院": 200, "其他": 40 },
+                    { y: '05月份', "阜外医院": 2000, "其他": 400 },
+                    { y: '06月份', "阜外医院": 200, "其他": 40 },
+                    { y: '07月份', "阜外医院": 200, "其他": 40 },
+                    { y: '08月份', "阜外医院": 200, "其他": 40 },
+                    { y: '09月份', "阜外医院": 600, "其他": 220 },
+                    { y: '10月份', "阜外医院": 200, "其他": 40 },
+                    { y: '11月份', "阜外医院": 200, "其他": 40 },
+                    { y: '12月份', "阜外医院": 700, "其他": 240 }
+                ],
+                barColors: ['#00a65a', '#f56954'],
+                xkey: 'y',
+                ykeys: ['阜外医院', '其他'],
+                labels: ['阜外医院', '其他'],
+                hideHover: 'auto'
+            });
         </script>
     </div>
 
