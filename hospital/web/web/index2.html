@@ -127,48 +127,97 @@
                         </section>
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <table class="control-table"><tr>
-                                    <td><div class="control-label control-label-100">病案号：</div></td><td><input type="text" class="form-control input-sm" placeholder="病案号"></td>
-                                    <td><div class="control-label control-label-100">姓名：</div></td><td><input type="text" class="form-control input-sm" placeholder="姓名"></td>
-                                    <td><div class="control-label control-label-100">性别：</div></td><td>
-                                        <lable class="radio-inline"><input type="radio" name="xingbie" value="1" checked>男</lable>
-                                        <lable class="radio-inline"><input type="radio" name="xingbie" value="2">女</lable></td>
-                                </tr></table>
+                                <table class="control-table">
+                                    <tr>
+                                        <td>
+                                            <div class="control-label control-label-100">病案号：</div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control input-sm" placeholder="病案号">
+                                        </td>
+                                        <td>
+                                            <div class="control-label control-label-100">姓名：</div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control input-sm" placeholder="姓名">
+                                        </td>
+                                        <td>
+                                            <div class="control-label control-label-100">性别：</div>
+                                        </td>
+                                        <td>
+                                            <lable class="radio-inline">
+                                                <input type="radio" name="xingbie" value="1" checked>男</lable>
+                                            <lable class="radio-inline">
+                                                <input type="radio" name="xingbie" value="2">女</lable>
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
                             <div class="form-group">
-                                <table class="control-table"><tr>
-                                    <td>
-                                        <div class="control-label control-label-100">民族：</div></td><td>
-                                        <select class="form-control input-sm" tag="minzu"></select>
-                                    </td>
-                                    <td><div class="control-label control-label-100">出生日期：</div></td>
-                                    <td>
-                                        <div class="input-group date">
-                                            <input type="text" class="form-control input-sm" tag="datepicker" style="width:160px">
-                                            <span class="input-group-addon">
-                                                <span class="glyphicon glyphicon-calendar"></span>
-                                            </span>
-                                        </div>
-                                        
-                                    </td>
-                                </tr></table>
+                                <table class="control-table">
+                                    <tr>
+                                        <td>
+                                            <div class="control-label control-label-100">民族：</div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control input-sm" tag="minzu"></select>
+                                        </td>
+                                        <td>
+                                            <div class="control-label control-label-100">出生日期：</div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group date">
+                                                <input type="text" class="form-control input-sm" tag="datepicker" style="width:160px">
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
                             <div class="form-group" tag="address">
-                                    <table class="control-table"><tr>
-                                            <td><div class="control-label control-label-100">详细地址：</div></td>
-                                            <td style="padding-left:5px"><select class="form-control input-sm" style="width:250px" tag="address-shengfen"></select></td>
-                                            <td style="padding-left:15px"><select class="form-control input-sm" style="width:250px" tag="address-chengshi"></select></td>
-                                            <td style="padding-left:15px"><select class="form-control input-sm" style="width:250px" tag="address-quxian"></select></td>
-                                    </tr></table>
-                                    <table class="control-table" style="margin-top:15px"><tr></tr>
-                                        <td><div class="control-label control-label-100"></div></td>
-                                        <td style="padding-left:5px"><input type="text" class="form-control input-sm" style="width:475px" placeholder="详细地址" tag="address-xiangxidizhi"></td>
-                                        <td style="padding-left:35px"><div class="checkbox"><lable><input type="checkbox" tag="address-nodetail-checkbox">不能提供</lable></div></td>
-                                        <td style="padding-left:15px"><input type="text" class="form-control input-sm" style="width:200px" placeholder="原因" tag="address-nodetail-yuanyi" disabled></td>
-                                    </tr></table>
-                                </div>
+                                <table class="control-table">
+                                    <tr>
+                                        <td>
+                                            <div class="control-label control-label-100">详细地址：</div>
+                                        </td>
+                                        <td style="padding-left:5px">
+                                            <select class="form-control input-sm" style="width:250px" tag="address-shengfen"></select>
+                                        </td>
+                                        <td style="padding-left:15px">
+                                            <select class="form-control input-sm" style="width:250px" tag="address-chengshi"></select>
+                                        </td>
+                                        <td style="padding-left:15px">
+                                            <select class="form-control input-sm" style="width:250px" tag="address-quxian"></select>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table class="control-table" style="margin-top:15px">
+                                    <tr></tr>
+                                    <td>
+                                        <div class="control-label control-label-100"></div>
+                                    </td>
+                                    <td style="padding-left:5px">
+                                        <input type="text" class="form-control input-sm" style="width:475px" placeholder="详细地址"
+                                            tag="address-xiangxidizhi">
+                                    </td>
+                                    <td style="padding-left:35px">
+                                        <div class="checkbox">
+                                            <lable>
+                                                <input type="checkbox" tag="address-nodetail-checkbox">不能提供</lable>
+                                        </div>
+                                    </td>
+                                    <td style="padding-left:15px">
+                                        <input type="text" class="form-control input-sm" style="width:200px" placeholder="原因"
+                                            tag="address-nodetail-yuanyi" disabled>
+                                    </td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
-                        
+
                         <section class="content-header">
                             <div class="gray-font" style="font-size:18px;">
                                 <table>
@@ -184,34 +233,80 @@
                         </section>
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <table class="control-table"><tr>
-                                    <td><div class="control-label control-label-180">姓名：</div></td><td><input type="text" class="form-control input-sm" placeholder="姓名"></td>
-                                    <td><div class="control-label control-label-110">与患者关系：</div></td><td>
-                                        <lable class="radio-inline"><input type="radio" name="yuhuanzheguanxi" value="1" checked>父亲</lable>
-                                        <lable class="radio-inline"><input type="radio" name="yuhuanzheguanxi" value="2">母亲</lable>
-                                        <lable class="radio-inline"><input type="radio" name="yuhuanzheguanxi" value="3">其他</lable>
-                                    </td>
-                                </tr></table>
+                                <table class="control-table">
+                                    <tr>
+                                        <td>
+                                            <div class="control-label control-label-180">姓名：</div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control input-sm" placeholder="姓名">
+                                        </td>
+                                        <td>
+                                            <div class="control-label control-label-110">与患者关系：</div>
+                                        </td>
+                                        <td>
+                                            <lable class="radio-inline">
+                                                <input type="radio" name="yuhuanzheguanxi" value="1" checked>父亲</lable>
+                                            <lable class="radio-inline">
+                                                <input type="radio" name="yuhuanzheguanxi" value="2">母亲</lable>
+                                            <lable class="radio-inline">
+                                                <input type="radio" name="yuhuanzheguanxi" value="3">其他</lable>
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
                             <div class="form-group">
-                                <table class="control-table"><tr></tr>
-                                    <td><div class="control-label control-label-180"><span class="red_star">*&nbsp;</span>联系电话：</div></td><td><input type="text" class="form-control input-sm" placeholder="联系人电话"></td>
-                                    <td style="padding-left:35px"><div class="checkbox"><lable><input type="checkbox">不能提供</lable></div></td>
-                                    <td style="padding-left:15px"><input type="text" class="form-control input-sm" style="width:200px" placeholder="原因" tag="address-nodetail-yuanyi" disabled></td>
-                                </tr></table>
-                                <table class="control-table"><tr></tr>
-                                    <td><div class="control-label control-label-180"><span class="red_star">*&nbsp;</span>联系人电话(号码二)：</div></td><td><input type="text" class="form-control input-sm" placeholder="联系人电话"></td>
-                                    <td style="padding-left:35px"><div class="checkbox"><lable><input type="checkbox">不能提供</lable></div></td>
-                                </tr></table>
+                                <table class="control-table">
+                                    <tr></tr>
+                                    <td>
+                                        <div class="control-label control-label-180">
+                                            <span class="red_star">*&nbsp;</span>联系电话：</div>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control input-sm" placeholder="联系人电话">
+                                    </td>
+                                    <td style="padding-left:35px">
+                                        <div class="checkbox">
+                                            <lable>
+                                                <input type="checkbox">不能提供</lable>
+                                        </div>
+                                    </td>
+                                    <td style="padding-left:15px">
+                                        <input type="text" class="form-control input-sm" style="width:200px" placeholder="原因"
+                                            tag="address-nodetail-yuanyi" disabled>
+                                    </td>
+                                    </tr>
+                                </table>
+                                <table class="control-table">
+                                    <tr></tr>
+                                    <td>
+                                        <div class="control-label control-label-180">
+                                            <span class="red_star">*&nbsp;</span>联系人电话(号码二)：</div>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control input-sm" placeholder="联系人电话">
+                                    </td>
+                                    <td style="padding-left:35px">
+                                        <div class="checkbox">
+                                            <lable>
+                                                <input type="checkbox">不能提供</lable>
+                                        </div>
+                                    </td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                         <div class="form-horizontal">
-                            <div style="text-align:center;margin-top:30px;"><button type="button" class="btn btn-primary" style="width:200px">保存信息</button></div>
+                            <div style="text-align:center;margin-top:30px;">
+                                <button type="button" class="btn btn-primary" style="width:200px">保存信息</button>
+                            </div>
                         </div>
                     </div>
                     <div class="tab-pane form-step fade" id="tab-zhuyuanjilu" role="tabpanel" aria-labelledby="nav-tab-zhuyuanjilu">
                         <div class="form-horizontal">
-                                <div style="text-align:right;margin-top:10px;"><button type="button" class="btn btn-primary" style="width:110px;border-radius:20px">新增住院记录</button></div>
+                            <div style="text-align:right;margin-top:10px;">
+                                <button type="button" class="btn btn-primary" style="width:110px;border-radius:20px">新增住院记录</button>
+                            </div>
                         </div>
                         <div class="box-body table-responsive">
                             <table id="example2" class="table table-bordered table-hover">
@@ -231,169 +326,535 @@
                                         <td>2018-05-10</td>
                                         <td>2018-05-10</td>
                                         <td style="width:150px">
-                                            <button type="button" class="btn btn-link">详情</button>&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-link">删除</button>
+                                            <button type="button" class="btn btn-link">详情</button>&nbsp;&nbsp;&nbsp;
+                                            <button type="button" class="btn btn-link">删除</button>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                         <nav aria-label="Page navigation example" style="text-align:center">
-                                <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#">共8条</a></li>
-                                    <li class="page-item"><div style="position:relative;float:left;margin-left:5px;">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="page-link" href="#">共8条</a>
+                                </li>
+                                <li class="page-item">
+                                    <div style="position:relative;float:left;margin-left:5px;">
                                         <div class="input-group">
                                             <input type="text" class="form-control" style="width:50px">
                                         </div>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">跳转</a></li>
-                                    <li class="page-item"><a class="page-link" href="#" style="margin-left:5px">首页</a></li>
-                                    <li class="page-item"><a class="page-link" href="#" style="margin-left:5px">&lt;</a></li>
-                                    <li class="page-item"><a class="page-link" href="#" style="margin-left:5px">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#" style="margin-left:5px">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#" style="margin-left:5px">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#" style="margin-left:5px">...</a></li>
-                                    <li class="page-item"><a class="page-link" href="#" style="margin-left:5px">43</a></li>
-                                    <li class="page-item"><a class="page-link" href="#" style="margin-left:5px">44</a></li>
-                                    <li class="page-item"><a class="page-link" href="#" style="margin-left:5px">45</a></li>
-                                    <li class="page-item"><a class="page-link" href="#" style="margin-left:5px">&gt;</a></li>
-                                    <li class="page-item"><a class="page-link" href="#" style="margin-left:5px">尾页</a></li>
-                                    <li class="page-item"><a class="page-link" href="#" style="margin-left:5px">共45页</a></li>
-                                </ul>
-                          </nav>
-                    </div>
-                </div>
-            </section>
-        </div>
-        <!-- /.content-wrapper -->
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper" id="content-add">
-            <!-- Content Header (Page header) -->
-            <section class="content-header">
-                <h1 class="gray-font">新增住院记录</h1>
-            </section>
-            <!-- Main content -->
-            <section class="content container-fluid" style="min-height:650px">
-                <ul class="nav nav-tabs" id="nav-tab-xinzeng-zyjl" role="tablist">
-                    <li class="active">
-                        <a class="nav-item nav-link" id="nav-tab-zyjl-riqi" data-toggle="tab" href="#tab-zyjl-riqi" role="tab" aria-selected="true">日期</a>
-                    </li>
-                    <li class="">
-                        <a class="nav-item nav-link" id="nav-tab-zyjl-shuqianxinxi" data-toggle="tab" href="#tab-zyjl-shuqianxinxi" role="tab" aria-selected="true">术前信息</a>
-                    </li>
-                    <li class="">
-                        <a class="nav-item nav-link" id="nav-tab-zyjl-shoushuxinxi" data-toggle="tab" href="#tab-zyjl-shoushuxinxi" role="tab" aria-selected="true">手术信息</a>
-                    </li>
-                    <li class="">
-                        <a class="nav-item nav-link" id="nav-tab-zyjl-shuhouxinxi" data-toggle="tab" href="#tab-zyjl-shuhouxinxi" role="tab" aria-selected="true">术后信息</a>
-                    </li>
-                    <li class="">
-                        <a class="nav-item nav-link" id="nav-tab-zyjl-chuyuanziliao" data-toggle="tab" href="#tab-zyjl-chuyuanziliao" role="tab" aria-selected="true">出院资料</a>
-                    </li>
-                </ul>
-                <div class="tab-content" style="margin-top:20px">
-                    <div class="tab-pane form-step fade active in" id="tab-zyjl-riqi" role="tabpanel" aria-labelledby="nav-tab-zyjl-riqi">
-                        <div class="form-horizontal">
-                            <div class="form-group">
-                                <table class="control-table"><tr>
-                                    <td><div class="control-label control-label-100">入院日期：</div></td>
-                                    <td>
-                                        <div class="input-group date">
-                                            <input type="text" class="form-control input-sm" tag="datepicker" style="width:160px">
-                                            <span class="input-group-addon">
-                                                <span class="glyphicon glyphicon-calendar"></span>
-                                            </span>
-                                        </div>
-                                    </td>
-                                    <td><div class="control-label control-label-100">出院日期：</div></td>
-                                    <td>
-                                        <div class="input-group date">
-                                            <input type="text" class="form-control input-sm" tag="datepicker" style="width:160px">
-                                            <span class="input-group-addon">
-                                                <span class="glyphicon glyphicon-calendar"></span>
-                                            </span>
-                                        </div>
-                                    </td>
-                                    <td><div class="control-label control-label-100">手术日期：</div></td>
-                                    <td>
-                                        <div class="input-group date">
-                                            <input type="text" class="form-control input-sm" tag="datepicker" style="width:160px">
-                                            <span class="input-group-addon">
-                                                <span class="glyphicon glyphicon-calendar"></span>
-                                            </span>
-                                        </div>
-                                    </td>
-                                </tr></table>
-                            </div>
-                        </div>
-                        <div class="form-horizontal">
-                            <div style="text-align:center;margin-top:30px;">
-                                <button type="button" class="btn btn-primary" style="width:100px">保存</button>&nbsp;&nbsp;
-                                <button type="button" class="btn btn-primary" style="width:100px">上传</button>
-                            </div>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">跳转</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" style="margin-left:5px">首页</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" style="margin-left:5px">&lt;</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" style="margin-left:5px">1</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" style="margin-left:5px">2</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" style="margin-left:5px">3</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" style="margin-left:5px">...</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" style="margin-left:5px">43</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" style="margin-left:5px">44</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" style="margin-left:5px">45</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" style="margin-left:5px">&gt;</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" style="margin-left:5px">尾页</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" style="margin-left:5px">共45页</a>
+                                </li>
+                            </ul>
+                        </nav>
                         </div>
                     </div>
-                </div>
             </section>
-        </div>
-        <!-- /.content-wrapper -->
-    </div>
-    <!-- ./wrapper -->
-<!-- /.content -->
-<footer style="margin-top:20px">
-        <div class="copyright">
-            <p>保险业务经营许可证：269633000000800 小雨伞保险经纪有限公司：9112011608300716X9</p>
-            <p>版权所有 ©
-                <span id="footerYear">2018</span> 小雨伞保险经纪有限公司
-                <a href="http://www.miibeian.gov.cn" target="_blank" rel="nofollow">津ICP备17005385号-3</a>
-            </p>
-            <div>
-                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12019202000239" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-                    <img src="./img/beian.png" style="float:left;">
-                    <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">津公网安备 12019202000239号</p>
-                </a>
             </div>
+            <!-- /.content-wrapper -->
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper" id="content-add">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1 class="gray-font">新增住院记录</h1>
+                </section>
+                <!-- Main content -->
+                <section class="content container-fluid" style="min-height:650px">
+                    <ul class="nav nav-tabs" id="nav-tab-xinzeng-zyjl" role="tablist">
+                        <li class="">
+                            <a class="nav-item nav-link" id="nav-tab-zyjl-riqi" data-toggle="tab" href="#tab-zyjl-riqi" role="tab" aria-selected="true">日期</a>
+                        </li>
+                        <li class="active">
+                            <a class="nav-item nav-link" id="nav-tab-zyjl-shuqianxinxi" data-toggle="tab" href="#tab-zyjl-shuqianxinxi" role="tab" aria-selected="true">术前信息</a>
+                        </li>
+                        <li class="">
+                            <a class="nav-item nav-link" id="nav-tab-zyjl-shoushuxinxi" data-toggle="tab" href="#tab-zyjl-shoushuxinxi" role="tab" aria-selected="true">手术信息</a>
+                        </li>
+                        <li class="">
+                            <a class="nav-item nav-link" id="nav-tab-zyjl-shuhouxinxi" data-toggle="tab" href="#tab-zyjl-shuhouxinxi" role="tab" aria-selected="true">术后信息</a>
+                        </li>
+                        <li class="">
+                            <a class="nav-item nav-link" id="nav-tab-zyjl-chuyuanziliao" data-toggle="tab" href="#tab-zyjl-chuyuanziliao" role="tab"
+                                aria-selected="true">出院资料</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" style="margin-top:20px">
+                        <div class="tab-pane form-step fade" id="tab-zyjl-riqi" role="tabpanel" aria-labelledby="nav-tab-zyjl-riqi">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <table class="control-table">
+                                        <tr>
+                                            <td>
+                                                <div class="control-label control-label-100">入院日期：</div>
+                                            </td>
+                                            <td>
+                                                <div class="input-group date">
+                                                    <input type="text" class="form-control input-sm" tag="datepicker" style="width:160px">
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="control-label control-label-100">出院日期：</div>
+                                            </td>
+                                            <td>
+                                                <div class="input-group date">
+                                                    <input type="text" class="form-control input-sm" tag="datepicker" style="width:160px">
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="control-label control-label-100">手术日期：</div>
+                                            </td>
+                                            <td>
+                                                <div class="input-group date">
+                                                    <input type="text" class="form-control input-sm" tag="datepicker" style="width:160px">
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="form-horizontal">
+                                <div style="text-align:center;margin-top:30px;">
+                                    <button type="button" class="btn btn-primary" style="width:100px">保存</button>&nbsp;&nbsp;
+                                    <button type="button" class="btn btn-primary" style="width:100px">上传</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane form-step fade active in" id="tab-zyjl-shuqianxinxi" role="tabpanel" aria-labelledby="nav-tab-zyjl-shuqianxinxi">
+                            <section class="content-header">
+                                <div class="gray-font" style="font-size:18px;">
+                                    <table>
+                                        <tr>
+                                            <td style="vertical-align:middle;">
+                                                <div class="circle"></div>
+                                            </td>
+                                            <td>既往先心病信息</td>
+                                        </tr>
+                                    </table>
+                                    </span>
+                                </div>
+                            </section>
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <table class="control-table">
+                                        <tr>
+                                            <td>
+                                                <div class="control-label control-label-120">既往心脏病手术次数：</div>
+                                            </td>
+                                            <td>
+                                                <lable class="radio-inline">
+                                                    <input type="radio" name="zyjl-jiwangxinzangbingcishu" value="1" checked>1</lable>
+                                                <lable class="radio-inline">
+                                                    <input type="radio" name="zyjl-jiwangxinzangbingcishu" value="2">2</lable>
+                                                <lable class="radio-inline">
+                                                    <input type="radio" name="zyjl-jiwangxinzangbingcishu" value="3">3</lable>
+                                                <lable class="radio-inline">
+                                                    <input type="radio" name="zyjl-jiwangxinzangbingcishu" value="4">4</lable>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="form-group">
+                                    <table class="control-table">
+                                        <tr>
+                                            <td>
+                                                <div class="control-label control-label-120">既往心脏病手术时间：</div>
+                                            </td>
+                                            <td>
+                                                <div class="input-group date">
+                                                    <input type="text" class="form-control input-sm" tag="datepicker" style="width:160px">
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td style="padding-left:35px">
+                                                <div class="checkbox">
+                                                    <lable>
+                                                        <input type="checkbox" tag="address-nodetail-checkbox">不能提供</lable>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="control-label control-label-120">既往心脏病手术时间：</div>
+                                            </td>
+                                            <td>
+                                                <div class="input-group date">
+                                                    <input type="text" class="form-control input-sm" tag="datepicker" style="width:160px">
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td style="padding-left:35px">
+                                                <div class="checkbox">
+                                                    <lable>
+                                                        <input type="checkbox" tag="address-nodetail-checkbox">不能提供</lable>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="control-label control-label-120">既往心脏病手术时间：</div>
+                                            </td>
+                                            <td>
+                                                <div class="input-group date">
+                                                    <input type="text" class="form-control input-sm" tag="datepicker" style="width:160px">
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td style="padding-left:35px">
+                                                <div class="checkbox">
+                                                    <lable>
+                                                        <input type="checkbox" tag="address-nodetail-checkbox">不能提供</lable>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="control-label control-label-120">既往心脏病手术时间：</div>
+                                            </td>
+                                            <td>
+                                                <div class="input-group date">
+                                                    <input type="text" class="form-control input-sm" tag="datepicker" style="width:160px">
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td style="padding-left:35px">
+                                                <div class="checkbox">
+                                                    <lable>
+                                                        <input type="checkbox" tag="address-nodetail-checkbox">不能提供</lable>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table class="control-table">
+                                            <tr>
+                                                <td>
+                                                    <div class="control-label" style="width:165px">其他：</div>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control input-sm" style="width:400px">
+                                                    </div>
+                                                </td>
+                                                </tr>
+                                                </table>
+                                </div>
+                            </div>
+                            <section class="content-header">
+                                <div class="gray-font" style="font-size:18px;">
+                                    <table>
+                                        <tr>
+                                            <td style="vertical-align:middle;">
+                                                <div class="circle"></div>
+                                            </td>
+                                            <td>体格检查</td>
+                                        </tr>
+                                    </table>
+                                    </span>
+                                </div>
+                            </section>
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <table class="control-table padding-10">
+                                        <tr>
+                                            <td>
+                                                <div class="control-label control-label-150">身高：</div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control input-sm" style="width:100px" placeholder="身高">
+                                            </td>
+                                            <td>
+                                                <span>（厘米）</span>
+                                            </td>
+                                            <td>
+                                                <div class="control-label control-label-100">体重：</div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control input-sm" style="width:100px" placeholder="体重">
+                                            </td>
+                                            <td>
+                                                <span>（千克）</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table class="control-table padding-10">
+                                        <tr>
+                                            <td>
+                                                <div class="control-label control-label-150">术前血氧饱和度：</div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control input-sm" style="width:100px" placeholder="身高">
+                                            </td>
+                                            <td style="padding-left:35px">
+                                                    <div class="checkbox">
+                                                        <lable>
+                                                            <input type="checkbox" tag="address-nodetail-checkbox">不能提供</lable>
+                                                    </div>
+                                                </td>
+                                                <td style="padding-left:15px">
+                                                    <input type="text" class="form-control input-sm" style="width:400px" placeholder="输入原因"
+                                                        tag="address-nodetail-yuanyi" disabled>
+                                                </td>
+                                        </tr>
+                                    </table>
+                                    <table class="control-table padding-10">
+                                            <tr>
+                                                <td>
+                                                    <div class="control-label control-label-150">右上肢：</div>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                                                </td>
+                                                <td>
+                                                    <span>（%）</span>
+                                                </td>
+                                                <td>
+                                                    <div class="control-label control-label-80">左上肢：</div>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                                                </td>
+                                                <td>
+                                                    <span>（%）</span>
+                                                </td>
+                                                <td>
+                                                    <div class="control-label control-label-80">右下肢：</div>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                                                </td>
+                                                <td>
+                                                    <span>（%）</span>
+                                                </td>
+                                                <td>
+                                                    <div class="control-label control-label-80">左下肢：</div>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                                                </td>
+                                                <td>
+                                                    <span>（%）</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <table class="control-table padding-10">
+                                                <tr>
+                                                    <td>
+                                                        <div class="control-label control-label-150">术后血氧饱和度：</div>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control input-sm" style="width:100px" placeholder="身高">
+                                                    </td>
+                                                    <td style="padding-left:35px">
+                                                            <div class="checkbox">
+                                                                <lable>
+                                                                    <input type="checkbox" tag="address-nodetail-checkbox">不能提供</lable>
+                                                            </div>
+                                                        </td>
+                                                        <td style="padding-left:15px">
+                                                            <input type="text" class="form-control input-sm" style="width:400px" placeholder="输入原因"
+                                                                tag="address-nodetail-yuanyi" disabled>
+                                                        </td>
+                                                </tr>
+                                            </table>
+                                            <table class="control-table padding-10">
+                                                    <tr>
+                                                        <td>
+                                                            <div class="control-label control-label-150">右上肢：</div>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                                                        </td>
+                                                        <td>
+                                                            <span>（%）</span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="control-label control-label-80">左上肢：</div>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                                                        </td>
+                                                        <td>
+                                                            <span>（%）</span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="control-label control-label-80">右下肢：</div>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                                                        </td>
+                                                        <td>
+                                                            <span>（%）</span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="control-label control-label-80">左下肢：</div>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                                                        </td>
+                                                        <td>
+                                                            <span>（%）</span>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                </div>
+                            </div>
+                            <section class="content-header">
+                                <div class="gray-font" style="font-size:18px;">
+                                    <table>
+                                        <tr>
+                                            <td style="vertical-align:middle;">
+                                                <div class="circle"></div>
+                                            </td>
+                                            <td>专科检查</td>
+                                        </tr>
+                                    </table>
+                                    </span>
+                                </div>
+                            </section>
+                            <section class="content-header">
+                                <div class="gray-font" style="font-size:18px;">
+                                    <table>
+                                        <tr>
+                                            <td style="vertical-align:middle;">
+                                                <div class="circle"></div>
+                                            </td>
+                                            <td>术前诊断</td>
+                                        </tr>
+                                    </table>
+                                    </span>
+                                </div>
+                            </section>
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                </div>
+                            </div>
+                            <div class="form-horizontal">
+                                <div style="text-align:center;margin-top:30px;">
+                                    <button type="button" class="btn btn-primary" style="width:100px">保存</button>&nbsp;&nbsp;
+                                    <button type="button" class="btn btn-primary" style="width:100px">上传</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- /.content-wrapper -->
         </div>
-    </footer>
-    <!--   modals   -->
-      <!--    login  frame -->
-  <div id="id_login_frame" class="modal login_modal" style="z-index:10000">
-        <form class="modal-content animate">
-          <div class="container">
-            <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required>
-      
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
-              
-            <button type="submit">Login</button>
-            <label>
-              <input type="checkbox" checked="checked" name="remember"> Remember me
-            </label>
-          </div>
-      
-          <div class="container" style="background-color:#f1f1f1">
-            <button type="button" class="cancelbtn">Cancel</button>
-          </div>
-        </form>
-      </div>
-      <!-- end login frame -->
-    <!--   /modals  -->
+        <!-- ./wrapper -->
+        <!-- /.content -->
+        <footer style="margin-top:20px">
+            <div class="copyright">
+                <p>保险业务经营许可证：269633000000800 小雨伞保险经纪有限公司：9112011608300716X9</p>
+                <p>版权所有 ©
+                    <span id="footerYear">2018</span> 小雨伞保险经纪有限公司
+                    <a href="http://www.miibeian.gov.cn" target="_blank" rel="nofollow">津ICP备17005385号-3</a>
+                </p>
+                <div>
+                    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12019202000239" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+                        <img src="./img/beian.png" style="float:left;">
+                        <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">津公网安备 12019202000239号</p>
+                    </a>
+                </div>
+            </div>
+        </footer>
+        <!--   modals   -->
+        <!--    login  frame -->
+        <div id="id_login_frame" class="modal login_modal" style="z-index:10000">
+            <form class="modal-content animate">
+                <div class="container">
+                    <label for="uname">
+                        <b>Username</b>
+                    </label>
+                    <input type="text" placeholder="Enter Username" name="uname" required>
 
-    <script src="./lib/jquery.min.js"></script>
-    <script src="./lib/jquery.cookie.js"></script>
-    <script src="./lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="./lib/adminlte/js/adminlte.min.js"></script>
-    <script src="./lib/moment-with-locales.min.js"></script>
-    <script src="./lib/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+                    <label for="psw">
+                        <b>Password</b>
+                    </label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
 
-    <script src="./js/public.js"></script>
-    <script src="./js/address.js"></script>
-    <script type="text/javascript">
-        initDatePicker("input[tag='datepicker']");
-        initMinzu($("select[tag='minzu']"));
-        initAddress($("div[tag='address']"));
+                    <button type="submit">Login</button>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
+                </div>
+
+                <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" class="cancelbtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+        <!-- end login frame -->
+        <!--   /modals  -->
+
+        <script src="./lib/jquery.min.js"></script>
+        <script src="./lib/jquery.cookie.js"></script>
+        <script src="./lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="./lib/adminlte/js/adminlte.min.js"></script>
+        <script src="./lib/moment-with-locales.min.js"></script>
+        <script src="./lib/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+
+        <script src="./js/public.js"></script>
+        <script src="./js/address.js"></script>
+        <script type="text/javascript">
+            initDatePicker("input[tag='datepicker']");
+            initMinzu($("select[tag='minzu']"));
+            initAddress($("div[tag='address']"));
         //$('#id_login_frame').modal()
-    </script>
+        </script>
     </div>
 
 </body>
