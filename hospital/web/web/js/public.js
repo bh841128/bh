@@ -32,6 +32,44 @@ function initMinzu(controls){
         setSelectOptions(controls, nations);
     }
 }
+///////////////////////////////////////////////
+function initAsideMenu(){
+	$("#main-sidebar .tree-btn[page]").each(function(){
+		var m_this = this;
+		var page = $(this).attr("page");
+		this.onclick = function(){
+			gotoPage(page);
+		}
+	})
+}
+///////////////////////////////////////////////
+function initUserMenu(){
+	$("#user_login_menu a[tag='change_password']").click(function(){
+		onShowChangePwd();
+	})
+	$("#user_login_menu a[tag='signout']").click(function(){
+		onLogout();
+	})
+
+	$("input[tag]").one( "focus", function() {
+		hideAllErrorMsgs();
+	});
+}
+///////////////////////////////////////////////
+function initPage(){
+	initAsideMenu();
+	initUserMenu();
+	initDatePicker("input[tag='datepicker']");
+	initMinzu($("select[tag='minzu']"));
+	initAddress($("div[tag='address']"));
+
+	checkLogin(onCheckLoginRet);
+	function onCheckLoginRet(rsp){
+		if (rsp.ret != 0){
+			gotoLoginPage();
+		}
+	}
+}
 /////////////////////////////////////////
 function initAddress(controls){
 	var shengfens = getAddressJsonTopData(g_address_data);
@@ -301,19 +339,6 @@ function onChangePassword(old_password, new_password, callback){
 }
 
 ////////////////////////////////////////////////////////
-function initUserMenu(){
-	$("#user_login_menu a[tag='change_password']").click(function(){
-		onShowChangePwd();
-	})
-	$("#user_login_menu a[tag='signout']").click(function(){
-		onLogout();
-	})
-
-	$("input[tag]").one( "focus", function() {
-		hideAllErrorMsgs();
-	});
-}
-
 function onShowChangePwd(){
 	$( "#id_login_frame button[tag='ok']" ).off('click').on("click", function() {
 		onChangePwdSubmit();
@@ -357,19 +382,9 @@ function onChangePwdSubmit(){
 }
 
 function gotoLoginPage(){
-	window.location.href="/web/login.html";
+	gotoPage("login");
 }
-///////////////////////////////////////////////
-function initPage(){
-	initUserMenu();
-	initDatePicker("input[tag='datepicker']");
-	initMinzu($("select[tag='minzu']"));
-	initAddress($("div[tag='address']"));
 
-	checkLogin(onCheckLoginRet);
-	function onCheckLoginRet(rsp){
-		if (rsp.ret != 0){
-			gotoLoginPage();
-		}
-	}
+function gotoPage(page){
+	window.location.href="/"+page+".php";
 }

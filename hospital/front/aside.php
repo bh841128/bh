@@ -1,4 +1,4 @@
-<aside class="main-sidebar" style="padding-top:0px">
+<aside class="main-sidebar" style="padding-top:0px" id="main-sidebar">
     <section class="sidebar">
         <ul class="sidebar-menu" data-widget="tree" id="sidebar-menu">
             <li class="treeview" style="margin-bottom:10px">
@@ -6,25 +6,25 @@
             </li>
             <li class="treeview">
                 <div class="tree-btn-wrapper">
-                    <div class="btn gray-font tree-btn active">
+                    <div class="btn gray-font tree-btn active" page="index.php">
                         <span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;新增资料</div>
                 </div>
             </li>
             <li class="treeview">
                 <div class="tree-btn-wrapper">
-                    <div class="btn gray-font tree-btn">
+                    <div class="btn gray-font tree-btn" page="upload.php">
                         <span class="glyphicon glyphicon-upload"></span>&nbsp;&nbsp;上传资料</div>
                 </div>
             </li>
             <li class="treeview">
                 <div class="tree-btn-wrapper">
-                    <div class="btn gray-font tree-btn">
+                    <div class="btn gray-font tree-btn" page="query.php">
                         <span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;数据查询</div>
                 </div>
             </li>
             <li class="treeview">
                 <div class="tree-btn-wrapper">
-                    <div class="btn gray-font tree-btn">
+                    <div class="btn gray-font tree-btn" page="export.php">
                         <span class="glyphicon glyphicon-export"></span>&nbsp;&nbsp;数据导出</div>
                 </div>
             </li>
@@ -33,7 +33,7 @@
             </li>
             <li class="treeview">
                 <div class="tree-btn-wrapper">
-                    <div class="btn gray-font tree-btn">
+                    <div class="btn gray-font tree-btn" page="report.php">
                         <span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;数据报表</div>
                 </div>
             </li>
