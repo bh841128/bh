@@ -36,7 +36,6 @@ require_once(__DIR__."/../config/front_config.php");
                     </div>
             </section>
         </div>
-
         <div class="content-wrapper" id="content-zyjl" style="display:none">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
@@ -755,6 +754,10 @@ require_once(__DIR__."/../config/front_config.php");
         
         <script type="text/javascript">
             initPage();
+            $("#add-zhuyuanjilu").click(function(){
+                $("content-add").hide();
+                $("content-zyjl").show();
+            })
         </script>
     </div>
 

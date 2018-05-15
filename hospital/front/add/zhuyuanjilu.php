@@ -1,6 +1,6 @@
 <div class="form-horizontal">
         <div style="text-align:right;margin-top:10px;">
-            <button type="button" class="btn btn-primary" style="width:110px;border-radius:20px">新增住院记录</button>
+            <button type="button" class="btn btn-primary" style="width:110px;border-radius:20px" id="add-zhuyuanjilu">新增住院记录</button>
         </div>
     </div>
     <div class="box-body table-responsive">
