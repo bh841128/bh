@@ -9,8 +9,8 @@ require_once(__DIR__."/../config/front_config.php");
 
 <body class="hold-transition skin-blue sidebar-mini">
     <?php require(WEB_PAGE_PATH."header.php"); ?>
-    <div style="width:100%;height:2px;background-color:RGB(50,160,220);margin-bottom:20px"></div>
-    <div class="wrapper" style="width:1200px;margin-left:auto;margin-right:auto">
+    <div class="top-hr"></div>
+    <div class="wrapper top-wrapper">
         <?php require(WEB_PAGE_PATH."aside.php"); ?>
         <div class="content-wrapper" id="content-add">
             <!-- Content Header (Page header) -->

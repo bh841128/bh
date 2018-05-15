@@ -8,7 +8,7 @@ require_once(__DIR__."/../config/front_config.php");
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
-    <div class="container-fluid" style="width:1200px;margin-left:auto;margin-right:auto">
+    <div class="container-fluid  top-wrapper">
         <header class="main-header">
             <nav class="navbar navbar-static-top" role="navigation" style="margin-left:0px;margin-bottom:0px;">
                 <a href="#" class="logo" style="width:500px">

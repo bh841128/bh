@@ -335,6 +335,18 @@
     visibility:visible;
 }
 
+.top-wrapper{
+    width:1200px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.top-hr{
+    width:100%;
+    height:2px;
+    background-color:RGB(50,160,220);
+    margin-bottom:20px;
+}
+
 
 
 
