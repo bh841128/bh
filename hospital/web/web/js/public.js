@@ -14,6 +14,13 @@ function initDatePicker(selector){
 	$('.input-group').find('.glyphicon-calendar').parent().on('click', function(){
 	$(this).siblings(selector).trigger('focus');});
 }
+function initDateTimePicker(selector){
+	var dateNow = formatDateNow();
+	$(selector).val(dateNow);
+	$(selector).datetimepicker({format: 'YYYY-MM-DD HH:mm:ss'});
+	$('.input-group').find('.glyphicon-calendar').parent().on('click', function(){
+	$(this).siblings(selector).trigger('focus');});
+}
 ///////////////////////////////////////
 function initMinzu(controls){
 	var nations = ["汉族","蒙古族","回族","藏族","维吾尔族","苗族","彝族","壮族","布依族","朝鲜族","满族","侗族","瑶族","白族","土家族",
@@ -235,4 +242,23 @@ function getTrimInputValue(input_control){
 	var value = input_control.val();
 	value = value.replace(/^\s+|\s+$/);
 	return value;
+}
+////////////////////////////////////////////////////////////////////
+function ajaxRemoteRequest(action, data, callback){
+	var http_protocol = window.location.protocol;
+	var http_host     = window.location.host;
+	var action_url = http_protocol+"//"+http_host;
+
+	action_url = "http://112.74.105.107"
+	action_url += "/" + action;
+	$.ajax({
+		url: action_url,
+		cache: false,
+		type: "POST",
+		data: data,
+		dataType: "json",
+		success: function (rsp) {
+			callback(rsp);
+		}
+	});
 }

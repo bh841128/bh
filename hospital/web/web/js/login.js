@@ -13,6 +13,8 @@ function userLogin(){
 
 	/////////////////////////////////////////
 	function onLoginSubmit(){
+		ajaxRemoteRequest("hospital/loginin",{},onLoginRet);
+		return;
 		var login_name_control = $("input[name='login_name']");
 		var login_password_control = $("input[name='login_password']");
 		var errormsg_wrap = $(".errormsg");
@@ -27,8 +29,9 @@ function userLogin(){
 			showErrorMsg(errormsg_wrap, "密码不能为空");
 			return;
 		}
+		
 	}
-	function onLoginRet(){
-
+	function onLoginRet(rsp){
+		console.dir(rsp);
 	}
 }
