@@ -12,7 +12,7 @@ function userLogin(){
 	}
 
 	/////////////////////////////////////////
-	function onLogin(){
+	function onLoginSubmit(){
 		var login_name_control = $("input[name='login_name']");
 		var login_password_control = $("input[name='login_password']");
 		var errormsg_wrap = $(".errormsg");
@@ -27,12 +27,7 @@ function userLogin(){
 			showErrorMsg(errormsg_wrap, "密码不能为空");
 			return;
 		}
-		sendLoginInner(login_name_value, login_password_value);
-	}
-	function sendLoginInner(username, password){
-		//md5(md5($username)."".$password);
-		//var md5_pass = $.md5($.md5(username)+""+password);
-		ajaxRemoteRequest("hospital/loginin",{"username":username, "password":password},onLoginRet);
+		onLogin(login_name_value, login_password_value,onLoginRet);
 	}
 	function onLoginRet(rsp){
 		var ret = rsp.ret;
@@ -44,10 +39,4 @@ function userLogin(){
 		window.location.href="/web/index.html";
 	}
 	//////////////////////////////////////////////////////
-	this.checkLogin = function(){
-		ajaxRemoteRequest("hospital/check-login",{},onCheckLoginRet);
-	}
-	function onCheckLoginRet(rsp){
-		console.dir(rsp);
-	}
 }

@@ -270,7 +270,11 @@ function ajaxRemoteRequest(action, data, callback){
 }
 
 ////////////////////////////////////////////////////
-function checkLogin(){
-	var g_userLogin = new userLogin();
-    g_userLogin.checkLogin();
+function onLogin(username, password, callback){
+	//md5(md5($username)."".$password);
+	//var md5_pass = $.md5($.md5(username)+""+password);
+	ajaxRemoteRequest("hospital/loginin",{"username":username, "password":password},callback);
+}
+function checkLogin(callback){
+	ajaxRemoteRequest("hospital/check-login",{},onCheckLoginRet);
 }
