@@ -66,8 +66,8 @@ require_once(__DIR__."/../config/front_config.php");
         <?php require(WEB_PAGE_PATH."footer.php"); ?>
         <?php require(WEB_PAGE_PATH."login_modal.php"); ?>
         <?php require(WEB_PAGE_PATH."js.php"); ?>
-        <script src="./lib/adminlte/js/raphael.min.js"></script>
-        <script src="./lib/adminlte/js/morris.min.js"></script>
+        <script src="/web/lib/adminlte/js/raphael.min.js"></script>
+        <script src="/web/lib/adminlte/js/morris.min.js"></script>
         
         <script type="text/javascript">
             initPage();
