@@ -276,5 +276,5 @@ function onLogin(username, password, callback){
 	ajaxRemoteRequest("hospital/loginin",{"username":username, "password":password},callback);
 }
 function checkLogin(callback){
-	ajaxRemoteRequest("hospital/check-login",{},onCheckLoginRet);
+	ajaxRemoteRequest("hospital/check-login",{},callback);
 }

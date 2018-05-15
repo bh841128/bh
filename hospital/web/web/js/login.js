@@ -3,7 +3,7 @@ function userLogin(){
 		initIEPlaceholder();
 
 		$("button[tag='login_button']").click(function(){
-			onLogin();
+			onLoginSubmit();
 		})
 
 		$("input[name='login_name'],input[name='login_password']").one( "focus", function() {
