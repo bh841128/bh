@@ -23,7 +23,7 @@ require_once(__DIR__."/../config/front_config.php");
             <section class="content container-fluid" style="min-height:650px">
                 <div class="tab-content">
                     <div class="tab-pane form-step fade active in">
-                        <?php require(WEB_PAGE_PATH."query/query.php"); ?>
+                        <?php require(WEB_PAGE_PATH."upload/upload.php"); ?>
                     </div>
                 </div>
             </section>
