@@ -37,7 +37,11 @@ function initAsideMenu(){
 	$("#main-sidebar .tree-btn[page]").each(function(){
 		var m_this = this;
 		var page = $(this).attr("page");
+		var isActive = $(this).hasClass("active");
 		this.onclick = function(){
+			if (isActive){
+				return;
+			}
 			gotoPage(page);
 		}
 	})
