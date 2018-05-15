@@ -1637,7 +1637,7 @@
             initAddress($("div[tag='address']"));
         //$('#id_login_frame').modal()
 
-        checkLogin();
+        checkLogin(onCheckLoginRet);
         function onCheckLoginRet(rsp){
             if (rsp.ret != 0){
                 window.location.href="/web/login.html";
