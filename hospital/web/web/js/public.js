@@ -314,6 +314,10 @@ function initUserMenu(){
 	$("#user_login_menu a[tag='signout']").click(function(){
 		onLogout();
 	})
+
+	$("input[tag]").one( "focus", function() {
+		hideAllErrorMsgs();
+	});
 }
 
 function onShowChangePwd(){
