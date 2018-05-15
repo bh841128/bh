@@ -1639,7 +1639,9 @@
 
         checkLogin();
         function onCheckLoginRet(rsp){
-            console.dir(rsp);
+            if (rsp.ret != 0){
+                window.location.href="/web/login.html";
+            }
         }
         </script>
     </div>
