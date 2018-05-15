@@ -41,6 +41,6 @@ function userLogin(){
 			return;
 		}
 		//并跳转到主页面
-		window.location.href="/hospital/index.html";
+		window.location.href="/web/index.html";
 	}
 }
