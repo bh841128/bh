@@ -285,7 +285,7 @@ function onLogin(username, password, callback){
 function checkLogin(callback){
 	function checkLoginRet(rsp){
 		if (rsp.ret == 0){
-			g_global_data["username"] = rsp["username"];
+			g_global_data["username"] = rsp["msg"];
 		}
 		callback(rsp);
 	}
