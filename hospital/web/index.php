@@ -1,5 +1,5 @@
 <?php
-define("WEB_PAGE_PATH", __DIR__."/../front/");
+require_once(__DIR__."/../config/front_config.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,55 +21,10 @@ define("WEB_PAGE_PATH", __DIR__."/../front/");
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
-    <div class="container-fluid" style="width:1200px;margin-left:auto;margin-right:auto">
-        <?php require(WEB_PAGE_PATH."aside.php"); ?>
-    </div>
+    <?php require(WEB_PAGE_PATH."header.php"); ?>
     <div style="width:100%;height:2px;background-color:RGB(50,160,220);margin-bottom:20px"></div>
     <div class="wrapper" style="width:1200px;margin-left:auto;margin-right:auto">
-        <aside class="main-sidebar" style="padding-top:0px">
-            <section class="sidebar">
-                <ul class="sidebar-menu" data-widget="tree" id="sidebar-menu">
-                    <li class="treeview" style="margin-bottom:10px">
-                        <span class="gray-font" style="font-size:17px;font-weight:bold;">信息管理</span>
-                    </li>
-                    <li class="treeview">
-                        <div class="tree-btn-wrapper">
-                            <div class="btn gray-font tree-btn active">
-                                <span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;新增资料</div>
-                        </div>
-                    </li>
-                    <li class="treeview">
-                        <div class="tree-btn-wrapper">
-                            <div class="btn gray-font tree-btn">
-                                <span class="glyphicon glyphicon-upload"></span>&nbsp;&nbsp;上传资料</div>
-                        </div>
-                    </li>
-                    <li class="treeview">
-                        <div class="tree-btn-wrapper">
-                            <div class="btn gray-font tree-btn">
-                                <span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;数据查询</div>
-                        </div>
-                    </li>
-                    <li class="treeview">
-                        <div class="tree-btn-wrapper">
-                            <div class="btn gray-font tree-btn">
-                                <span class="glyphicon glyphicon-export"></span>&nbsp;&nbsp;数据导出</div>
-                        </div>
-                    </li>
-                    <li class="treeview" style="margin-bottom:10px;margin-top:10px">
-                        <span class="gray-font" style="font-size:17px;font-weight:bold;">数据统计</span>
-                    </li>
-                    <li class="treeview">
-                        <div class="tree-btn-wrapper">
-                            <div class="btn gray-font tree-btn">
-                                <span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;数据报表</div>
-                        </div>
-                    </li>
-                </ul>
-            </section>
-        </aside>
-
-        <!-- Content Wrapper. Contains page content -->
+        <?php require(WEB_PAGE_PATH."aside.php"); ?>
         <div class="content-wrapper" id="content-add" style="display:none">
             <!-- Content Header (Page header) -->
             <section class="content-header">
@@ -1551,78 +1506,8 @@ define("WEB_PAGE_PATH", __DIR__."/../front/");
             </div>
             <!-- /.content-wrapper -->
     </div>
-    <!-- ./wrapper -->
-        <!-- /.content -->
-        <footer style="margin-top:20px">
-            <div class="copyright">
-                <p>保险业务经营许可证：269633000000800 小雨伞保险经纪有限公司：9112011608300716X9</p>
-                <p>版权所有 ©
-                    <span id="footerYear">2018</span> 小雨伞保险经纪有限公司
-                    <a href="http://www.miibeian.gov.cn" target="_blank" rel="nofollow">津ICP备17005385号-3</a>
-                </p>
-                <div>
-                    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12019202000239" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-                        <img src="./img/beian.png" style="float:left;">
-                        <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">津公网安备 12019202000239号</p>
-                    </a>
-                </div>
-            </div>
-        </footer>
-        <!--   modals   -->
-        <!-- end login frame --> <!--    login  frame -->
-        <div id="id_login_frame" class="modal login_modal" tabindex="-1" role="dialog" style="z-index:10000">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content" style="width:335px;">
-                    <div class="modal-header">
-                            <h5 class="modal-title" style="text-align:center">修改密码</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="right:5px;width:30px">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="container">
-                        <div class="form-horizontal" style="margin:0px;">
-                            <table class="control-table padding-10">
-                                <tr>
-                                    <td>
-                                        <div class="control-label" style="text-align:left;padding-left:0px;">原始密码：</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="password" class="form-control input-sm" placeholder="原始密码" tag="old_password" required>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="control-label" style="text-align:left;padding-left:0px;">新密码(8-20位，包含数字和小写字母)：</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="password" class="form-control input-sm" placeholder="新密码" tag="new_password" required>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="control-label" style="text-align:left;padding-left:0px;">再次输入新密码：</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="password" class="form-control input-sm" placeholder="再次输入新密码" tag="new_password_again" required>
-                                    </td>
-                                </tr>
-                                <tr><td><div class="msg-wrap errormsg"><div class="msg-error"><b></b></div></div></td></tr>
-                                <tr><td style="text-align:center"><button type="button" class="btn btn-primary" tag="ok" style="width:100px;">保存</button></td></tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <!-- end login frame -->
-        <!--   /modals  -->
+        <?php require(WEB_PAGE_PATH."footer.php"); ?>
+        <?php require(WEB_PAGE_PATH."login_modal.php"); ?>
 
         <script src="./lib/jquery.min.js"></script>
         <script src="./lib/jquery.cookie.js"></script>
