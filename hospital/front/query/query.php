@@ -5,25 +5,28 @@
                 <div class="control-label" style="width:100px">姓名：</div>
             </td>
             <td>
-                <input type="text" class="form-control input-sm" style="width:120px" placeholder="" json-name="姓名">
+                <input type="text" class="form-control input-sm" style="width:120px" placeholder="" json-name="姓名" value="葡萄">
             </td>
             <td>
                 <div class="control-label" style="width:80px;padding-left:5px;">病案号：</div>
             </td>
             <td>
-                <input type="text" class="form-control input-sm" style="width:180px" placeholder="" json-name="病案号">
+                <input type="text" class="form-control input-sm" style="width:180px" placeholder="" json-name="病案号" value="182">
             </td>
             <td>
                 <div class="control-label" style="width:60px;padding-left:5px;">性别：</div>
             </td>
             <td>
-                <select class="form-control input-sm" style="width:148px" json-name="性别"></select>
+                <select class="form-control input-sm" style="width:148px" json-name="性别">
+                    <option value="男">男</option>
+                    <option value="女" selected>女</option>
+                </select>
             </td>
             <td>
                 <div class="control-label" style="width:70px;padding-left:5px;">联系人：</div>
             </td>
             <td>
-                <input type="text" class="form-control input-sm" style="width:150px" placeholder="" json-name="联系人">
+                <input type="text" class="form-control input-sm" style="width:150px" placeholder="" json-name="联系人" value="联系人ee">
             </td>
         </tr>
     </table>
@@ -33,7 +36,7 @@
                 <div class="control-label" style="width:100px;padding-left:5px;">联系电话：</div>
             </td>
             <td>
-                <input type="text" class="form-control input-sm" style="width:120px" placeholder="" json-name="联系电话">
+                <input type="text" class="form-control input-sm" style="width:120px" placeholder="" json-name="联系电话" value="136956">
             </td>
             <td>
                 <div class="control-label" style="width:80px;padding-left:5px;">上传时间：</div>
@@ -61,7 +64,10 @@
                 <div class="control-label" style="width:70px;padding-left:5px;">状态：</div>
             </td>
             <td>
-                <select class="form-control input-sm" style="width:150px" json-name="状态"></select>
+                <select class="form-control input-sm" style="width:150px" json-name="状态">
+                    <option value="未上传">未上传</option>
+                    <option value="已上传" selected>已上传</option>
+                </select>
             </td>
         </tr>
     </table>

@@ -14,7 +14,17 @@ function control_json(){
 
     /////将json值赋给节点
     this.setJson2Control = function(selector, json){
-
+        var tagName = selector.prop('tagName');
+        if (tagName == "SELECT"){
+            return selector.val();
+        }
+        if (tagName == "INPUT"){
+            var inputType = selector.attr("type");
+            if (inputType == "text"){
+                return selector.val();
+            }
+        }
+        return "";
     }
 
     /////////////////////////////////////////////////////////////////
