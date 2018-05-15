@@ -243,12 +243,6 @@ function getTrimInputValue(input_control){
 	value = value.replace(/^\s+|\s+$/);
 	return value;
 }
-///////////////////////////////////////////////////////////////////
-function setCookieExpireSeconds(name,value,expire_seconds){
-	var date = new Date();
-	date.setTime(date.getTime() + (expire_seconds * 1000));
-	$.cookie(name, value, { expires: date });
-}
 ////////////////////////////////////////////////////////////////////
 function ajaxRemoteRequest(action, data, callback){
 	var http_protocol = window.location.protocol;
@@ -364,4 +358,18 @@ function onChangePwdSubmit(){
 
 function gotoLoginPage(){
 	window.location.href="/web/login.html";
+}
+///////////////////////////////////////////////
+function initPage(){
+	initUserMenu();
+	initDatePicker("input[tag='datepicker']");
+	initMinzu($("select[tag='minzu']"));
+	initAddress($("div[tag='address']"));
+
+	checkLogin(onCheckLoginRet);
+	function onCheckLoginRet(rsp){
+		if (rsp.ret != 0){
+			gotoLoginPage();
+		}
+	}
 }
