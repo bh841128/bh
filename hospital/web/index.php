@@ -22,7 +22,7 @@ define("WEB_PAGE_PATH", __DIR__."../front/");
 
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="container-fluid" style="width:1200px;margin-left:auto;margin-right:auto">
-        <?php require(WEB_PAGE_PATH."aside.php"); ?>
+        <?php echo WEB_PAGE_PATH."aside.php"; require(WEB_PAGE_PATH."aside.php"); ?>
     </div>
     <div style="width:100%;height:2px;background-color:RGB(50,160,220);margin-bottom:20px"></div>
     <div class="wrapper" style="width:1200px;margin-left:auto;margin-right:auto">
