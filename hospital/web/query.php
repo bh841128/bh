@@ -33,7 +33,16 @@ require_once(__DIR__."/../config/front_config.php");
     </div>
     <?php require(WEB_PAGE_PATH."js.php"); ?>
     <script type="text/javascript">
+        function onQuery(){
+            var g_control_json = new control_json();
+            var query_json = g_control_json.parseControlJson($("#query_param_form"));
+            console.dir(query_json);
+        }
         initPage();
+        $("#content-query button[tag='query']").click(function(){
+            onQuery();
+        })
+
     </script>
 </body>
 

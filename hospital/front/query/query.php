@@ -1,29 +1,29 @@
-<div class="form-horizontal">
+<div class="form-horizontal" id="query_param_form">
     <table class="control-table padding-20">
         <tr>
             <td>
                 <div class="control-label" style="width:100px">姓名：</div>
             </td>
             <td>
-                <input type="text" class="form-control input-sm" style="width:120px" placeholder="">
+                <input type="text" class="form-control input-sm" style="width:120px" placeholder="" json-name="姓名">
             </td>
             <td>
                 <div class="control-label" style="width:80px;padding-left:5px;">病案号：</div>
             </td>
             <td>
-                <input type="text" class="form-control input-sm" style="width:180px" placeholder="">
+                <input type="text" class="form-control input-sm" style="width:180px" placeholder="" json-name="病案号">
             </td>
             <td>
                 <div class="control-label" style="width:60px;padding-left:5px;">性别：</div>
             </td>
             <td>
-                <select class="form-control input-sm" style="width:148px"></select>
+                <select class="form-control input-sm" style="width:148px" json-name="性别"></select>
             </td>
             <td>
                 <div class="control-label" style="width:70px;padding-left:5px;">联系人：</div>
             </td>
             <td>
-                <input type="text" class="form-control input-sm" style="width:150px" placeholder="">
+                <input type="text" class="form-control input-sm" style="width:150px" placeholder="" json-name="联系人">
             </td>
         </tr>
     </table>
@@ -68,7 +68,7 @@
 </div>
 <div class="form-horizontal">
     <div style="text-align:right;margin-top:10px;">
-        <button type="button" class="btn btn-primary" style="width:100px;border-radius:20px;">
+        <button type="button" class="btn btn-primary" tag="query" style="width:100px;border-radius:20px;">
             <span class="glyphicon glyphicon-search"></span>查询</button>
     </div>
 </div>
