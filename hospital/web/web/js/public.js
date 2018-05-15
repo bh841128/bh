@@ -280,7 +280,7 @@ function onLogin(username, password, callback){
 	}
 	//md5(md5($username)."".$password);
 	//var md5_pass = $.md5($.md5(username)+""+password);
-	ajaxRemoteRequest("hospital/loginin",{"username":username, "password":password},callback);
+	ajaxRemoteRequest("hospital/loginin",{"username":username, "password":password},loginRet);
 }
 function checkLogin(callback){
 	function checkLoginRet(rsp){
@@ -289,7 +289,7 @@ function checkLogin(callback){
 		}
 		callback(rsp);
 	}
-	ajaxRemoteRequest("hospital/check-login",{},callback);
+	ajaxRemoteRequest("hospital/check-login",{},checkLoginRet);
 }
 
 function onLogout(){
