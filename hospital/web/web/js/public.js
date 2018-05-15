@@ -243,6 +243,12 @@ function getTrimInputValue(input_control){
 	value = value.replace(/^\s+|\s+$/);
 	return value;
 }
+///////////////////////////////////////////////////////////////////
+function setCookieExpireSeconds(name,value,expire_seconds){
+	var date = new Date();
+	date.setTime(date.getTime() + (expire_seconds * 1000));
+	$.cookie(name, value, { expires: date });
+}
 ////////////////////////////////////////////////////////////////////
 function ajaxRemoteRequest(action, data, callback){
 	var http_protocol = window.location.protocol;
