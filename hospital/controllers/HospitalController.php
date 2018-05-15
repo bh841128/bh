@@ -98,10 +98,22 @@ class HospitalController extends Controller
         return json_encode($ret);
     }
 	
+	public function actionLoginOut()
+    {
+		$ret=array(
+		   "ret"=>0,
+		   "msg"=>""
+		);
+        header("Access-Control-Allow-Origin: *");
+		CUtil::setCookie("username","");
+		CUtil::setCookie("skey","");
+        return json_encode($ret);
+    }
+	
 	
 	public function actionLoginin()
     {
-        //header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Origin: *");
 		$username = CUtil::getRequestParam('req', 'username', '');
 		$password = CUtil::getRequestParam('req', 'password', '');
 		

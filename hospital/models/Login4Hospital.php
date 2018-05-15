@@ -128,7 +128,8 @@ class Login4Hospital {
 						
 			return $ret;
 		}
-		 return $ret;
+		$ret["msg"]=$username;
+		return $ret;
 	 }
 	 
 	 
