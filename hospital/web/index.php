@@ -91,11 +91,11 @@ require_once(__DIR__."/../config/front_config.php");
         
         <script type="text/javascript">
             function onJibenziliaoSave(){
-                var control_json = {};
+                var raw_json = {};
                 var g_control_json = new control_json();
-                control_json["患者基本资料"] = g_control_json.parseControlJson($("#huanzhe-jibenziliao"));
-                control_json["联系人基本资料"] = g_control_json.parseControlJson($("#lianxiren-jibenziliao"));
-                console.dir(control_json);
+                raw_json["患者基本资料"] = g_control_json.parseControlJson($("#huanzhe-jibenziliao"));
+                raw_json["联系人基本资料"] = g_control_json.parseControlJson($("#lianxiren-jibenziliao"));
+                console.dir(raw_json);
             }
 
             initPage();
