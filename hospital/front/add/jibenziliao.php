@@ -179,7 +179,7 @@
     </div>
 </div>
 <div class="form-horizontal">
-    <div style="text-align:center;margin-top:30px;">
-        <button type="button" class="btn btn-primary" style="width:200px">保存信息</button>
+    <div style="text-align:left;margin-top:30px;">
+        <button type="button" class="btn btn-primary" style="width:200px;margin-left:300px">保存信息</button>
     </div>
 </div>
