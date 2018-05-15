@@ -114,7 +114,7 @@
         </span>
     </div>
 </section>
-<div class="form-horizontal">
+<div class="form-horizontal" id="lianxiren-jibenziliao">
     <div class="form-group">
         <table class="control-table">
             <tr>
@@ -122,18 +122,18 @@
                     <div class="control-label control-label-180">姓名：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" placeholder="姓名">
+                    <input type="text" class="form-control input-sm" placeholder="姓名" json-name="姓名" value="联系人1+1">
                 </td>
                 <td>
                     <div class="control-label control-label-110">与患者关系：</div>
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="yuhuanzheguanxi" value="1" checked>父亲</lable>
+                        <input type="radio" name="yuhuanzheguanxi" value="1" checked json-name="与患者关系">父亲</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="yuhuanzheguanxi" value="2">母亲</lable>
+                        <input type="radio" name="yuhuanzheguanxi" value="2" json-name="与患者关系">母亲</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="yuhuanzheguanxi" value="3">其他</lable>
+                        <input type="radio" name="yuhuanzheguanxi" value="3" json-name="与患者关系">其他</lable>
                 </td>
             </tr>
         </table>
@@ -146,16 +146,16 @@
                     <span class="red_star">*&nbsp;</span>联系电话：</div>
             </td>
             <td>
-                <input type="text" class="form-control input-sm" placeholder="联系人电话">
+                <input type="text" class="form-control input-sm" placeholder="联系人电话" json-name="联系人电话" value="96325">
             </td>
             <td style="padding-left:35px">
                 <div class="checkbox">
                     <lable>
-                        <input type="checkbox">不能提供</lable>
+                        <input type="checkbox" value="1" json-name="联系人电话-不能提供">不能提供</lable>
                 </div>
             </td>
             <td style="padding-left:15px">
-                <input type="text" class="form-control input-sm" style="width:200px" placeholder="原因" tag="address-nodetail-yuanyi" disabled>
+                <input type="text" class="form-control input-sm" style="width:200px" placeholder="原因" tag="address-nodetail-yuanyi" disabled json-name="联系人电话-不能提供-原因">
             </td>
             </tr>
         </table>
@@ -166,12 +166,12 @@
                     <span class="red_star">*&nbsp;</span>联系人电话(号码二)：</div>
             </td>
             <td>
-                <input type="text" class="form-control input-sm" placeholder="联系人电话">
+                <input type="text" class="form-control input-sm" placeholder="联系人电话" json-name="联系人电话(号码二)" value="63333">
             </td>
             <td style="padding-left:35px">
                 <div class="checkbox">
                     <lable>
-                        <input type="checkbox">不能提供</lable>
+                        <input type="checkbox" value="1" json-name="联系人电话(号码二)-不能提供">不能提供</lable>
                 </div>
             </td>
             </tr>

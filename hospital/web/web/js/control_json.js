@@ -30,7 +30,7 @@ function control_json(){
             if (inputType == "text"){
                 return control.val();
             }
-            if (inputType == "radio"){
+            if (inputType == "radio" || inputType == "checkbox"){
                 if(!control.get(0).checked){
                     return null;
                 }
