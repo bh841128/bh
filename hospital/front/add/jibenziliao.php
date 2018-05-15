@@ -11,7 +11,7 @@
         </span>
     </div>
 </section>
-<div class="form-horizontal">
+<div class="form-horizontal" id="huanzhe-jibenziliao">
     <div class="form-group">
         <table class="control-table">
             <tr>
@@ -19,22 +19,22 @@
                     <div class="control-label control-label-100">病案号：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" placeholder="病案号">
+                    <input type="text" class="form-control input-sm" placeholder="病案号" json-name="病案号" value="263">
                 </td>
                 <td>
                     <div class="control-label control-label-100">姓名：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" placeholder="姓名">
+                    <input type="text" class="form-control input-sm" placeholder="姓名" json-name="姓名" value="1+1">
                 </td>
                 <td>
                     <div class="control-label control-label-100">性别：</div>
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="xingbie" value="1" checked>男</lable>
+                        <input type="radio" name="xingbie" value="男" checked json-name="性别">男</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="xingbie" value="2">女</lable>
+                        <input type="radio" name="xingbie" value="女" json-name="性别">女</lable>
                 </td>
             </tr>
         </table>
@@ -46,14 +46,14 @@
                     <div class="control-label control-label-100">民族：</div>
                 </td>
                 <td>
-                    <select class="form-control input-sm" tag="minzu"></select>
+                    <select class="form-control input-sm" tag="minzu" json-name="民族"></select>
                 </td>
                 <td>
                     <div class="control-label control-label-100">出生日期：</div>
                 </td>
                 <td>
                     <div class="input-group date">
-                        <input type="text" class="form-control input-sm" tag="datepicker" style="width:160px">
+                        <input type="text" class="form-control input-sm" tag="datepicker" style="width:160px" json-name="出生日期">
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
@@ -70,13 +70,13 @@
                     <div class="control-label control-label-100">详细地址：</div>
                 </td>
                 <td style="padding-left:5px">
-                    <select class="form-control input-sm" style="width:250px" tag="address-shengfen"></select>
+                    <select class="form-control input-sm" style="width:250px" tag="address-shengfen" json-name="省份"></select>
                 </td>
                 <td style="padding-left:15px">
-                    <select class="form-control input-sm" style="width:250px" tag="address-chengshi"></select>
+                    <select class="form-control input-sm" style="width:250px" tag="address-chengshi" json-name="城市"></select>
                 </td>
                 <td style="padding-left:15px">
-                    <select class="form-control input-sm" style="width:250px" tag="address-quxian"></select>
+                    <select class="form-control input-sm" style="width:250px" tag="address-quxian" json-name="区县"></select>
                 </td>
             </tr>
         </table>
@@ -86,16 +86,16 @@
                 <div class="control-label control-label-100"></div>
             </td>
             <td style="padding-left:5px">
-                <input type="text" class="form-control input-sm" style="width:475px" placeholder="详细地址" tag="address-xiangxidizhi">
+                <input type="text" class="form-control input-sm" style="width:475px" placeholder="详细地址" tag="address-xiangxidizhi" json-name="详细地址" value="地瓜山">
             </td>
             <td style="padding-left:35px">
                 <div class="checkbox">
                     <lable>
-                        <input type="checkbox" tag="address-nodetail-checkbox">不能提供</lable>
+                        <input type="checkbox" tag="address-nodetail-checkbox" json-name="详细地址-不能提供">不能提供</lable>
                 </div>
             </td>
             <td style="padding-left:15px">
-                <input type="text" class="form-control input-sm" style="width:200px" placeholder="原因" tag="address-nodetail-yuanyi" disabled>
+                <input type="text" class="form-control input-sm" style="width:200px" placeholder="原因" tag="address-nodetail-yuanyi" disabled json-name="详细地址-不能提供-原因">
             </td>
             </tr>
         </table>
@@ -180,6 +180,6 @@
 </div>
 <div class="form-horizontal">
     <div style="text-align:left;margin-top:40px;">
-        <button type="button" class="btn btn-primary" style="width:200px;margin-left:120px">保存信息</button>
+        <button type="button" class="btn btn-primary" style="width:200px;margin-left:120px" tag="jibenziliao-baocun">保存信息</button>
     </div>
 </div>

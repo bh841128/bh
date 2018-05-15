@@ -90,10 +90,19 @@ require_once(__DIR__."/../config/front_config.php");
         <?php require(WEB_PAGE_PATH."js.php"); ?>
         
         <script type="text/javascript">
+            function onJibenziliaoSave(){
+                var g_control_json = new control_json();
+                var query_json = g_control_json.parseControlJson($("#huanzhe-jibenziliao"));
+                console.dir(query_json);
+            }
+
             initPage();
             $("#add-zhuyuanjilu").click(function(){
                 $("#content-add").hide();
                 $("#content-zyjl").show();
+            })
+            $("#tab-jibenziliao button[tag='jibenziliao-baocun']").click(function(){
+                onJibenziliaoSave();
             })
         </script>
     </div>
