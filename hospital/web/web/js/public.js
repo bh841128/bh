@@ -243,3 +243,22 @@ function getTrimInputValue(input_control){
 	value = value.replace(/^\s+|\s+$/);
 	return value;
 }
+////////////////////////////////////////////////////////////////////
+function ajaxRemoteRequest(action, data, callback){
+	var http_protocol = window.location.protocol;
+	var http_host     = window.location.host;
+	var action_url = http_protocol+"//"+http_host;
+
+	action_url = "http://112.74.105.107"
+	action_url += "/" + action;
+	$.ajax({
+		url: action_url,
+		cache: false,
+		type: "POST",
+		data: data,
+		dataType: "json",
+		success: function (rsp) {
+			callback(rsp);
+		}
+	});
+}
