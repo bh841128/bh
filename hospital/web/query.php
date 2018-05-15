@@ -27,18 +27,14 @@ require_once(__DIR__."/../config/front_config.php");
                     </div>
                 </div>
             </section>
-            </div>
-            <!-- /.content-wrapper -->
         </div>
         <?php require(WEB_PAGE_PATH."footer.php"); ?>
         <?php require(WEB_PAGE_PATH."login_modal.php"); ?>
-        <?php require(WEB_PAGE_PATH."js.php"); ?>
-        
-        <script type="text/javascript">
-            initPage();
-        </script>
     </div>
-
+    <?php require(WEB_PAGE_PATH."js.php"); ?>
+    <script type="text/javascript">
+        initPage();
+    </script>
 </body>
 
 </html>
