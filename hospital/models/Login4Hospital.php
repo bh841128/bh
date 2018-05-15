@@ -108,7 +108,7 @@ class Login4Hospital {
 		   "msg"=>""
 		);
 		$now=time(0);
-		$sql = "select * from session where username=:username  and skey=:skey and time+7200>:now";
+		$sql = "select * from session where username=:username  and skey=:skey and time+172800>:now";
 		$args=array(':username'=>$username,':skey'=>$skey,":now"=>$now);
 		CUtil::logFile("$username  $skey   $now   $sql");
 		
