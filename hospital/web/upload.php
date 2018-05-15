@@ -20,7 +20,7 @@ require_once(__DIR__."/../config/front_config.php");
                 <h1 class="gray-font">上传资料</h1>
             </section>
             <!-- Main content -->
-            <section class="content container-fluid" style="min-height:650px">
+            <section class="content container-fluid main-container">
                 <div class="tab-content">
                     <div class="tab-pane form-step fade active in">
                         <?php require(WEB_PAGE_PATH."upload/upload.php"); ?>

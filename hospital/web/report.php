@@ -18,7 +18,7 @@ require_once(__DIR__."/../config/front_config.php");
                 <h1 class="gray-font">月报表</h1>
             </section>
             <!-- Main content -->
-            <section class="content container-fluid" style="min-height:650px">
+            <section class="content container-fluid main-container">
                 <div class="tab-content">
                     <?php require(WEB_PAGE_PATH."report/report.php"); ?>
                 </div>
