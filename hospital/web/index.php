@@ -12,7 +12,7 @@ require_once(__DIR__."/../config/front_config.php");
     <div style="width:100%;height:2px;background-color:RGB(50,160,220);margin-bottom:20px"></div>
     <div class="wrapper" style="width:1200px;margin-left:auto;margin-right:auto">
         <?php require(WEB_PAGE_PATH."aside.php"); ?>
-        <div class="content-wrapper" id="content-add" style="display:none">
+        <div class="content-wrapper" id="content-add">
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1 class="gray-font">新增资料</h1>
@@ -302,10 +302,9 @@ require_once(__DIR__."/../config/front_config.php");
                         </div>
                     </div>
             </section>
-            </div>
-            <!-- /.content-wrapper -->
-            <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper" id="content-zyjl">
+        </div>
+
+        <div class="content-wrapper" id="content-zyjl" style="display:none">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1 class="gray-font">新增住院记录</h1>
@@ -1490,8 +1489,6 @@ require_once(__DIR__."/../config/front_config.php");
                         </div>
                     </div>
                 </section>
-            </div>
-            <!-- /.content-wrapper -->
         </div>
         <?php require(WEB_PAGE_PATH."footer.php"); ?>
         <?php require(WEB_PAGE_PATH."login_modal.php"); ?>
