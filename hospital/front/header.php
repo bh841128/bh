@@ -2,7 +2,7 @@
     <header class="main-header">
         <nav class="navbar navbar-static-top" role="navigation" style="margin-left:0px;">
             <a href="#" class="logo" style="width:500px">
-                <img src="./img/top-banner.png" />
+                <img src="/web/img/top-banner.png" />
             </a>
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
