@@ -31,14 +31,14 @@
                             <a href="#" class="dropdown-toggle gray-font" style="font-size:18px" data-toggle="dropdown">中国医学科学院阜外医院
                                 <span class="caret"></span>
                             </a>
-                            <ul class="dropdown-menu" role="menu" style="min-width:10px">
+                            <ul class="dropdown-menu" role="menu" style="min-width:10px" id="user_login_menu">
                                 <li>
-                                    <a href="#" data-toggle="control-sidebar" title="Sign out">
+                                    <a href="#" data-toggle="control-sidebar" title="Sign out" tag="change_password">
                                         <i class="fa fa-sign-out">修改密码</i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" data-toggle="control-sidebar" title="Sign out">
+                                    <a href="#" data-toggle="control-sidebar" title="Sign out" tag="signout">
                                         <i class="fa fa-power-off">退出</i>
                                     </a>
                                 </li>
@@ -1635,7 +1635,6 @@
             initDatePicker("input[tag='datepicker']");
             initMinzu($("select[tag='minzu']"));
             initAddress($("div[tag='address']"));
-        //$('#id_login_frame').modal()
 
         checkLogin(onCheckLoginRet);
         function onCheckLoginRet(rsp){
@@ -1643,6 +1642,8 @@
                 window.location.href="/web/login.html";
             }
         }
+
+        initUserMenu();
         </script>
     </div>
 

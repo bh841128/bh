@@ -278,3 +278,26 @@ function onLogin(username, password, callback){
 function checkLogin(callback){
 	ajaxRemoteRequest("hospital/check-login",{},callback);
 }
+
+function onLogout(){
+	function onLogoutRet(rsp){
+		if (rsp.ret == 0){
+			window.location.href="/web/login.html";
+		}
+	}
+	ajaxRemoteRequest("hospital/login-out",{},onLogoutRet);
+}
+
+////////////////////////////////////////////////////////
+function initUserMenu(){
+	$("#user_login_menu a[tag='change_password']").click(function(){
+		onShowChangePwd();
+	})
+	$("#user_login_menu a[tag='signout']").click(function(){
+		onLogout();
+	})
+}
+
+function onShowChangePwd(){
+	$('#id_login_frame').modal();
+}
