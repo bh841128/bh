@@ -8,16 +8,16 @@ require_once(__DIR__."/../config/front_config.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>中国少儿先天性心脏病外科手术数据库</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./lib/adminlte/css/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./lib/adminlte/css/ionicons.min.css">
-    <link rel="stylesheet" href="./lib/adminlte/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="./lib/datetimepicker/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="./web/css/reset.css">
+    <link rel="stylesheet" href="./web/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./web/lib/adminlte/css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./web/lib/adminlte/css/ionicons.min.css">
+    <link rel="stylesheet" href="./web/lib/adminlte/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="./web/lib/datetimepicker/bootstrap-datetimepicker.min.css">
 
-    <link rel="stylesheet" href="./lib/datatable/datatables.bootstrap.css">
+    <link rel="stylesheet" href="./web/lib/datatable/datatables.bootstrap.css">
 
-    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./web/css/public.css">
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -1509,15 +1509,15 @@ require_once(__DIR__."/../config/front_config.php");
         <?php require(WEB_PAGE_PATH."footer.php"); ?>
         <?php require(WEB_PAGE_PATH."login_modal.php"); ?>
 
-        <script src="./lib/jquery.min.js"></script>
-        <script src="./lib/jquery.cookie.js"></script>
-        <script src="./lib/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="./lib/adminlte/js/adminlte.min.js"></script>
-        <script src="./lib/moment-with-locales.min.js"></script>
-        <script src="./lib/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+        <script src="./web/lib/jquery.min.js"></script>
+        <script src="./web/lib/jquery.cookie.js"></script>
+        <script src="./web/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="./web/lib/adminlte/js/adminlte.min.js"></script>
+        <script src="./web/lib/moment-with-locales.min.js"></script>
+        <script src="./web/lib/datetimepicker/bootstrap-datetimepicker.min.js"></script>
 
-        <script src="./js/public.js"></script>
-        <script src="./js/address.js"></script>
+        <script src="./web/js/public.js"></script>
+        <script src="./web/js/address.js"></script>
         <script type="text/javascript">
         function initPage(){
             initUserMenu();
