@@ -333,7 +333,8 @@ function onChangePwdSubmit(){
 			showErrorMsg(errormsg_wrap, "原始密码错误");
 			return;
 		}
-		$('#id_login_frame').modal('hide')
+		$('#id_login_frame').modal('hide');
+		gotoLoginPage();
 	}
 	var old_password_control = $("#id_login_frame input[tag='old_password']");
 	var new_password_control = $("#id_login_frame input[tag='new_password']");
@@ -359,4 +360,8 @@ function onChangePwdSubmit(){
 		return;
 	}
 	onChangePassword(old_password_value, new_password_value, onChangePasswordRet);
+}
+
+function gotoLoginPage(){
+	window.location.href="/web/login.html";
 }
