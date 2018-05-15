@@ -21,10 +21,6 @@ function initDateTimePicker(selector){
 	$('.input-group').find('.glyphicon-calendar').parent().on('click', function(){
 	$(this).siblings(selector).trigger('focus');});
 }
-
-function getCurrentPage(){
-	
-}
 ///////////////////////////////////////
 function initMinzu(controls){
 	var nations = ["汉族","蒙古族","回族","藏族","维吾尔族","苗族","彝族","壮族","布依族","朝鲜族","满族","侗族","瑶族","白族","土家族",
@@ -37,6 +33,15 @@ function initMinzu(controls){
     }
 }
 ///////////////////////////////////////////////
+function getCurrentPage(){
+	var page = window.location.pathname.replace(/.*\//,'');
+	page = page.replace(/\.php/,'');
+	if (page == ""){
+		page = "index";
+	}
+	return;
+}
+
 function initAsideMenu(){
 	$("#main-sidebar .tree-btn[page]").each(function(){
 		var m_this = this;
@@ -49,6 +54,8 @@ function initAsideMenu(){
 			gotoPage(page);
 		}
 	})
+	var page = getCurrentPage();
+	$("#main-sidebar .tree-btn[page='"+page+"']").addClass("active");
 }
 ///////////////////////////////////////////////
 function initUserMenu(){

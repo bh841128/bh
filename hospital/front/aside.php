@@ -6,7 +6,7 @@
             </li>
             <li class="treeview">
                 <div class="tree-btn-wrapper">
-                    <div class="btn gray-font tree-btn active" page="index">
+                    <div class="btn gray-font tree-btn" page="index">
                         <span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;新增资料</div>
                 </div>
             </li>
