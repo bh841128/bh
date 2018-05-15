@@ -7,7 +7,7 @@
     </p>
     <div>
         <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12019202000239" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-            <img src="./img/beian.png" style="float:left;">
+            <img src="/web/img/beian.png" style="float:left;">
             <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">津公网安备 12019202000239号</p>
         </a>
     </div>
