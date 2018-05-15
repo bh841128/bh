@@ -40,6 +40,7 @@ require_once(__DIR__."/../config/front_config.php");
 
         <?php require(WEB_PAGE_PATH."footer.php"); ?>
         <?php require(WEB_PAGE_PATH."js.php"); ?>
+        <script src="/web/js/login.js"></script>
         <script type="text/javascript">
             var g_userLogin = new userLogin();
             g_userLogin.init();
