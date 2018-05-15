@@ -755,8 +755,8 @@ require_once(__DIR__."/../config/front_config.php");
         <script type="text/javascript">
             initPage();
             $("#add-zhuyuanjilu").click(function(){
-                $("content-add").hide();
-                $("content-zyjl").show();
+                $("#content-add").hide();
+                $("#content-zyjl").show();
             })
         </script>
     </div>
