@@ -33,14 +33,14 @@
                 <div class="control-label" style="width:100px;padding-left:5px;">联系电话：</div>
             </td>
             <td>
-                <input type="text" class="form-control input-sm" style="width:120px" placeholder="">
+                <input type="text" class="form-control input-sm" style="width:120px" placeholder="" json-name="联系电话">
             </td>
             <td>
                 <div class="control-label" style="width:80px;padding-left:5px;">上传时间：</div>
             </td>
             <td>
                 <div class="input-group date">
-                    <input type="text" class="form-control input-sm" tag="datetimepicker" style="width:140px">
+                    <input type="text" class="form-control input-sm" tag="datetimepicker" style="width:140px" json-name="上传时间-开始">
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -51,7 +51,7 @@
             </td>
             <td>
                 <div class="input-group date">
-                    <input type="text" class="form-control input-sm" tag="datetimepicker" style="width:140px">
+                    <input type="text" class="form-control input-sm" tag="datetimepicker" style="width:140px" json-name="上传时间-结束">
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -61,7 +61,7 @@
                 <div class="control-label" style="width:70px;padding-left:5px;">状态：</div>
             </td>
             <td>
-                <select class="form-control input-sm" style="width:150px"></select>
+                <select class="form-control input-sm" style="width:150px" json-name="状态"></select>
             </td>
         </tr>
     </table>
