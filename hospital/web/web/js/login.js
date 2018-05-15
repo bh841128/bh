@@ -36,7 +36,7 @@ function userLogin(){
 			return;
 		}
 		//并跳转到主页面
-		window.location.href="/web/index.html";
+		gotoPage("index");
 	}
 	//////////////////////////////////////////////////////
 }
