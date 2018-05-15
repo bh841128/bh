@@ -329,7 +329,7 @@ function onShowChangePwd(){
 
 function onChangePwdSubmit(){
 	function onChangePasswordRet(rsp){
-		if (rsp != 0){
+		if (rsp.ret != 0){
 			showErrorMsg(errormsg_wrap, "原始密码错误");
 			return;
 		}
