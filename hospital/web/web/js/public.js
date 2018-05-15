@@ -39,7 +39,7 @@ function getCurrentPage(){
 	if (page == ""){
 		page = "index";
 	}
-	return;
+	return page;
 }
 
 function initAsideMenu(){
