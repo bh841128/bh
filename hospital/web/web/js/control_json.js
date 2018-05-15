@@ -5,7 +5,7 @@ function control_json(){
         selector.find("[json-name]").each(function(){
             var json_name = $(this).attr("json-name");
             var json_value = getInputValue($(this));
-            var input_value = {"json-name":json_name,"json_value":json_value};
+            var input_value = {"json_name":json_name,"json_value":json_value};
             input_values.push(input_value);
         })
         
@@ -30,5 +30,19 @@ function control_json(){
             }
         }
         return "";
+    }
+    function setInputValue(control,value){
+        var tagName = control.prop('tagName');
+        if (tagName == "SELECT"){
+            selectSelectByValue(control,value);
+            return;
+        }
+        if (tagName == "INPUT"){
+            var inputType = control.attr("type");
+            if (inputType == "text"){
+                control.val(value);
+                return;
+            }
+        }
     }
 }
