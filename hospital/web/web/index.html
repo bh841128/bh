@@ -1614,7 +1614,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="password" class="form-control input-sm" placeholder="原始密码" name="uname" required>
+                                        <input type="password" class="form-control input-sm" placeholder="原始密码" tag="old_password" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1624,7 +1624,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="password" class="form-control input-sm" placeholder="新密码" name="uname" required>
+                                        <input type="password" class="form-control input-sm" placeholder="新密码" tag="new_password" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1634,9 +1634,11 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="password" class="form-control input-sm" placeholder="再次输入新密码" name="uname" required>
+                                        <input type="password" class="form-control input-sm" placeholder="再次输入新密码" tag="new_password_again" required>
                                     </td>
                                 </tr>
+                                <tr><td><div class="msg-wrap errormsg"><div class="msg-error"><b></b></div></div></td></tr>
+                                <tr><td style="text-align:center"><button type="button" class="btn btn-primary" tag="ok" style="width:100px;">保存</button></td></tr>
                             </table>
                         </div>
                     </div>
@@ -1657,18 +1659,24 @@
         <script src="./js/public.js"></script>
         <script src="./js/address.js"></script>
         <script type="text/javascript">
+        function initPage(){
+            initUserMenu();
+            return;
             initDatePicker("input[tag='datepicker']");
             initMinzu($("select[tag='minzu']"));
             initAddress($("div[tag='address']"));
 
-        checkLogin(onCheckLoginRet);
-        function onCheckLoginRet(rsp){
-            if (rsp.ret != 0){
-                window.location.href="/web/login.html";
+            checkLogin(onCheckLoginRet);
+            function onCheckLoginRet(rsp){
+                if (rsp.ret != 0){
+                    window.location.href="/web/login.html";
+                }
             }
-        }
 
-        initUserMenu();
+            
+        }
+        initPage();
+            
         </script>
     </div>
 

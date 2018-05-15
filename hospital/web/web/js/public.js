@@ -270,12 +270,25 @@ function ajaxRemoteRequest(action, data, callback){
 }
 
 ////////////////////////////////////////////////////
+var g_global_data = {};
 function onLogin(username, password, callback){
+	function loginRet(rsp){
+		if (rsp.ret == 0){
+			g_global_data["username"] = rsp["username"];
+		}
+		callback(rsp);
+	}
 	//md5(md5($username)."".$password);
 	//var md5_pass = $.md5($.md5(username)+""+password);
 	ajaxRemoteRequest("hospital/loginin",{"username":username, "password":password},callback);
 }
 function checkLogin(callback){
+	function checkLoginRet(rsp){
+		if (rsp.ret == 0){
+			g_global_data["username"] = rsp["username"];
+		}
+		callback(rsp);
+	}
 	ajaxRemoteRequest("hospital/check-login",{},callback);
 }
 
@@ -286,6 +299,11 @@ function onLogout(){
 		}
 	}
 	ajaxRemoteRequest("hospital/login-out",{},onLogoutRet);
+}
+
+function onChangePassword(old_password, new_password, callback){
+	var username = g_global_data["username"];
+	ajaxRemoteRequest("hospital/modpwd",{},callback);
 }
 
 ////////////////////////////////////////////////////////
@@ -299,5 +317,42 @@ function initUserMenu(){
 }
 
 function onShowChangePwd(){
+	$( "#id_login_frame button[tag='ok']" ).off('click').on("click", function() {
+		onChangePwdSubmit();
+	});
 	$('#id_login_frame').modal();
+}
+
+function onChangePwdSubmit(){
+	function onChangePasswordRet(rsp){
+		if (rsp != 0){
+			showErrorMsg(errormsg_wrap, "原始密码错误");
+			return;
+		}
+		$('#id_login_frame').modal('hide')
+	}
+	var old_password_control = $("#id_login_frame input[tag='old_password']");
+	var new_password_control = $("#id_login_frame input[tag='new_password']");
+	var new_password_again_control = $("#id_login_frame input[tag='new_password_again']");
+	var errormsg_wrap = $("#id_login_frame .errormsg");
+	var old_password_value = old_password_control.val();
+	if (old_password_value == ""){
+		showErrorMsg(errormsg_wrap, "请输入原始密码");
+		return;
+	}
+	var new_password_value = new_password_control.val();
+	if (new_password_value == ""){
+		showErrorMsg(errormsg_wrap, "请输入新密码");
+		return;
+	}
+	var new_password_again_value = new_password_again_control.val();
+	if (new_password_again_value == ""){
+		showErrorMsg(errormsg_wrap, "请再次输入新密码");
+		return;
+	}
+	if (new_password_value != new_password_again_value){
+		showErrorMsg(errormsg_wrap, "再次输入的新密码不一致");
+		return;
+	}
+	onChangePassword(old_password_value, new_password_value);
 }
