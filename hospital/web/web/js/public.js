@@ -75,6 +75,7 @@ function initPage(){
 	initAsideMenu();
 	initUserMenu();
 	initDatePicker("input[tag='datepicker']");
+	initDateTimePicker("input[tag='datetimepicker']");
 	initMinzu($("select[tag='minzu']"));
 	initAddress($("div[tag='address']"));
 
