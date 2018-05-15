@@ -268,3 +268,9 @@ function ajaxRemoteRequest(action, data, callback){
 		}
 	});
 }
+
+////////////////////////////////////////////////////
+function checkLogin(){
+	var g_userLogin = new userLogin();
+    g_userLogin.checkLogin();
+}

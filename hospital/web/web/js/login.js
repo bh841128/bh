@@ -45,6 +45,9 @@ function userLogin(){
 	}
 	//////////////////////////////////////////////////////
 	this.checkLogin = function(){
-		
+		ajaxRemoteRequest("hospital/check-login",{},onCheckLoginRet);
+	}
+	function onCheckLoginRet(rsp){
+		console.dir(rsp);
 	}
 }
