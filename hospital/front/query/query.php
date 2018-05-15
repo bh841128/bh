@@ -2,28 +2,28 @@
     <table class="control-table padding-20">
         <tr>
             <td>
-                <div class="control-label" style="width:80px">姓名：</div>
+                <div class="control-label" style="width:100px">姓名：</div>
             </td>
             <td>
-                <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                <input type="text" class="form-control input-sm" style="width:120px" placeholder="">
             </td>
             <td>
-                <div class="control-label" style="width:70px;padding-left:5px;">病案号：</div>
+                <div class="control-label" style="width:80px;padding-left:5px;">病案号：</div>
             </td>
             <td>
-                <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                <input type="text" class="form-control input-sm" style="width:180px" placeholder="">
             </td>
             <td>
                 <div class="control-label" style="width:60px;padding-left:5px;">性别：</div>
             </td>
             <td>
-                <select class="form-control input-sm" style="width:100px"></select>
+                <select class="form-control input-sm" style="width:148px"></select>
             </td>
             <td>
                 <div class="control-label" style="width:70px;padding-left:5px;">联系人：</div>
             </td>
             <td>
-                <input type="text" class="form-control input-sm" style="width:270px" placeholder="">
+                <input type="text" class="form-control input-sm" style="width:150px" placeholder="">
             </td>
         </tr>
     </table>
@@ -58,10 +58,10 @@
                 </div>
             </td>
             <td>
-                <div class="control-label" style="width:60px;padding-left:5px;">状态：</div>
+                <div class="control-label" style="width:70px;padding-left:5px;">状态：</div>
             </td>
             <td>
-                <select class="form-control input-sm" style="width:100px"></select>
+                <select class="form-control input-sm" style="width:150px"></select>
             </td>
         </tr>
     </table>
