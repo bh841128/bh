@@ -303,7 +303,7 @@ function onLogout(){
 
 function onChangePassword(old_password, new_password, callback){
 	var username = g_global_data["username"];
-	ajaxRemoteRequest("hospital/modpwd",{},callback);
+	ajaxRemoteRequest("hospital/modpwd",{username:username,newpassword:new_password,oldpassword:old_password},callback);
 }
 
 ////////////////////////////////////////////////////////
@@ -358,5 +358,5 @@ function onChangePwdSubmit(){
 		showErrorMsg(errormsg_wrap, "再次输入的新密码不一致");
 		return;
 	}
-	onChangePassword(old_password_value, new_password_value);
+	onChangePassword(old_password_value, new_password_value, onChangePasswordRet);
 }
