@@ -101,7 +101,7 @@ class HospitalController extends Controller
 	
 	public function actionLoginin()
     {
-        header("Access-Control-Allow-Origin: *");
+        //header("Access-Control-Allow-Origin: *");
 		$username = CUtil::getRequestParam('req', 'username', '');
 		$password = CUtil::getRequestParam('req', 'password', '');
 		

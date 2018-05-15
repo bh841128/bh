@@ -43,4 +43,8 @@ function userLogin(){
 		//并跳转到主页面
 		window.location.href="/web/index.html";
 	}
+	//////////////////////////////////////////////////////
+	this.checkLogin = function(){
+		
+	}
 }
