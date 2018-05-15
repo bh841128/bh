@@ -72,6 +72,7 @@ class HospitalController extends Controller
 
     public function actionModpwd()
     {
+		header("Access-Control-Allow-Origin: *");
         $username = CUtil::getRequestParam('request', 'username', '');
         $newpassword = CUtil::getRequestParam('request', 'newpassword', '');
         $oldpassword = CUtil::getRequestParam('request', 'oldpassword', '');
@@ -84,6 +85,7 @@ class HospitalController extends Controller
 
 	public function actionCheckLogin()
     {
+		header("Access-Control-Allow-Origin: *");
 		$username = CUtil::getRequestParam('cookie', 'username', '');
 		$skey = CUtil::getRequestParam('cookie', 'skey', '');
 		
@@ -96,6 +98,7 @@ class HospitalController extends Controller
 	
 	public function actionLoginin()
     {
+		header("Access-Control-Allow-Origin: *");
 		$username = CUtil::getRequestParam('req', 'username', '');
 		$password = CUtil::getRequestParam('req', 'password', '');
 		
@@ -109,6 +112,7 @@ class HospitalController extends Controller
 	
     public function actionGetManager()
     {
+		header("Access-Control-Allow-Origin: *");
         $username = CUtil::getRequestParam('request', 'username', '');
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
         $ret=Login4Hospital::checkLogin($username,$skey);
@@ -131,6 +135,7 @@ class HospitalController extends Controller
 
 	public function actionGetPatient()
     {
+		header("Access-Control-Allow-Origin: *");
         $username = CUtil::getRequestParam('cookie', 'username', '');
         $id = CUtil::getRequestParam('request', 'id', 0);
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
@@ -167,6 +172,7 @@ class HospitalController extends Controller
 	//status  1:正常 2:上传  3：删除
 	public function actionSetPatientsStatus()
     {
+		header("Access-Control-Allow-Origin: *");
         $username = CUtil::getRequestParam('cookie', 'username', '');
         $ids = CUtil::getRequestParam('request', 'ids', "");
 		$status = CUtil::getRequestParam('request', 'status', 0);
@@ -200,6 +206,7 @@ class HospitalController extends Controller
 	
 	public function actionGetPatientList()
     {
+		header("Access-Control-Allow-Origin: *");
         $username = CUtil::getRequestParam('cookie', 'username', '');
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
 		//登录
@@ -277,6 +284,7 @@ class HospitalController extends Controller
 	
 	public function actionInsertPatient()
     {
+		header("Access-Control-Allow-Origin: *");
 		$username = CUtil::getRequestParam('cookie', 'username', '');
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
 		//登录
@@ -392,6 +400,7 @@ class HospitalController extends Controller
 
 	public function actionUpdatePatient()
     {
+		header("Access-Control-Allow-Origin: *");
 		$username = CUtil::getRequestParam('cookie', 'username', '');
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
 		//登录
@@ -503,6 +512,7 @@ class HospitalController extends Controller
 	
 	public function actionGetRecord()
     {
+		header("Access-Control-Allow-Origin: *");
         $username = CUtil::getRequestParam('cookie', 'username', '');
         $id = CUtil::getRequestParam('request', 'id', 0);
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
@@ -540,6 +550,7 @@ class HospitalController extends Controller
 	//status  1:正常 2:上传  3：删除
 	public function actionSetRecordText()
     {
+		header("Access-Control-Allow-Origin: *");
         $username = CUtil::getRequestParam('cookie', 'username', '');
         $id = CUtil::getRequestParam('request', 'id', 0);
 		$status = CUtil::getRequestParam('request', 'status', 0);
@@ -602,6 +613,7 @@ class HospitalController extends Controller
 	
 	public function actionGetRecordList()
     {
+		header("Access-Control-Allow-Origin: *");
         $username = CUtil::getRequestParam('cookie', 'username', '');
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
 		//登录
@@ -670,6 +682,7 @@ class HospitalController extends Controller
 	
 	public function actionInsertRecord()
     {
+		header("Access-Control-Allow-Origin: *");
 		$username = CUtil::getRequestParam('cookie', 'username', '');
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
 		//登录
@@ -759,6 +772,7 @@ class HospitalController extends Controller
 	
 	public function actionRecordsTable()
     {
+		header("Access-Control-Allow-Origin: *");
 		$username = CUtil::getRequestParam('cookie', 'username', '');
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
 		//登录
@@ -803,6 +817,7 @@ class HospitalController extends Controller
 	}
 	public function actionSetRecordsStatus()
     {	
+		header("Access-Control-Allow-Origin: *");
 		$username = CUtil::getRequestParam('cookie', 'username', '');
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
 		//登录
@@ -860,6 +875,7 @@ class HospitalController extends Controller
 	
 	public function actionDownload()
     {
+		header("Access-Control-Allow-Origin: *");
         $username = CUtil::getRequestParam('cookie', 'username', '');
         $id = CUtil::getRequestParam('request', 'id', 0);
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
