@@ -342,7 +342,7 @@ function checkLogin(callback){
 function onLogout(){
 	function onLogoutRet(rsp){
 		if (rsp.ret == 0){
-			window.location.href="/web/login.html";
+			gotoLoginPage("index");
 		}
 	}
 	ajaxRemoteRequest("hospital/login-out",{},onLogoutRet);
