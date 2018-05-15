@@ -88,7 +88,7 @@ require_once(__DIR__."/../config/front_config.php");
                     { y: '11月份', "阜外医院": 200, "其他": 40 },
                     { y: '12月份', "阜外医院": 700, "其他": 240 }
                 ],
-                barColors: ['#00a65a', '#f56954'],
+                barColors: ['rgb(86,187,251)', '#f56954'],
                 xkey: 'y',
                 ykeys: ['阜外医院', '其他'],
                 labels: ['阜外医院', '其他'],
