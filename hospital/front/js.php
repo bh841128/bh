@@ -5,3 +5,4 @@
 <script src="/web/lib/datetimepicker/bootstrap-datetimepicker.min.js"></script>
 <script src="/web/js/public.js"></script>
 <script src="/web/js/address.js"></script>
+<script src="/web/js/control_json.js"></script>
