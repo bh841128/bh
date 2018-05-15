@@ -129,11 +129,11 @@
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="yuhuanzheguanxi" value="1" checked json-name="与患者关系">父亲</lable>
+                        <input type="radio" name="yuhuanzheguanxi" value="父亲" checked json-name="与患者关系">父亲</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="yuhuanzheguanxi" value="2" json-name="与患者关系">母亲</lable>
+                        <input type="radio" name="yuhuanzheguanxi" value="母亲" json-name="与患者关系">母亲</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="yuhuanzheguanxi" value="3" json-name="与患者关系">其他</lable>
+                        <input type="radio" name="yuhuanzheguanxi" value="其他" json-name="与患者关系">其他</lable>
                 </td>
             </tr>
         </table>
