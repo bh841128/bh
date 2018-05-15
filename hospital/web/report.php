@@ -20,7 +20,7 @@ require_once(__DIR__."/../config/front_config.php");
             <!-- Main content -->
             <section class="content container-fluid" style="min-height:650px">
                 <div class="tab-content">
-                    <?php require(WEB_PAGE_PATH."export/export.php"); ?>
+                    <?php require(WEB_PAGE_PATH."report/report.php"); ?>
                 </div>
             </section>
         </div>
