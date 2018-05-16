@@ -32,17 +32,13 @@ require_once(__DIR__."/../config/front_config.php");
         <?php require(WEB_PAGE_PATH."login_modal.php"); ?>
     </div>
     <?php require(WEB_PAGE_PATH."js.php"); ?>
+    <script src="/web/js/query.js"></script>
     <script type="text/javascript">
-        function onQuery(){
-            var g_control_json = new control_json();
-            var query_json = g_control_json.parseControlJson($("#query_param_form"));
-            console.dir(query_json);
-        }
         initPage();
+        var g_hospital_query = new hospital_query();
         $("#content-query button[tag='query']").click(function(){
-            onQuery();
+            hospital_query.query_patient({});
         })
-
     </script>
 </body>
 
