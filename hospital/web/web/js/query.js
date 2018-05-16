@@ -75,9 +75,9 @@ function patient_query(){
     }
     function getOpertionHtml(data, operations){
         var arrHtmls = [];
-        for (var i = 0; i < operations.length; i++){
-            var o = operations[i];
-            var html = '<button type="button" class="btn btn-link" data-id="'+data["id"]+'" operation-type="'+operations[i]+'">'+operations[i]+'</button>';
+        var arrOperations = operations.split(",");
+        for (var i = 0; i < arrOperations.length; i++){
+            var html = '<button type="button" class="btn btn-link" data-id="'+data["id"]+'" operation-type="'+arrOperations[i]+'">'+arrOperations[i]+'</button>';
             arrHtmls.push(html);
         }
         return arrHtmls.join("&nbsp;&nbsp;");
