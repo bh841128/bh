@@ -63,13 +63,48 @@ function patient_query(){
                 var show_name = show_fields[f];
                 table_data[show_name] = getJsonValueByShowname(data[i], show_name);
             }
+            if (typeof data[i]["id"] != "undefined"){
+                table_data["id"] = data[i]["id"];
+            }
+            
             table_datas.push(table_data);
         }
         return table_datas;
     }
-    this.fillTable = function(data, options, table_wrapper, page_nav_wrapper){
-        var table_datas = getTableShowData(data, options.show_fields);
+    function getOpertionHtml(data, operations){
+
+    }
+    function getTableHtml(table_datas, options){
+        var table_html = '<table class="table table-bordered table-hover table-center" style="text-align:center">';
+        table_html += '<thead><tr>';
+        for (var i = 0; i < options.show_fields.length; i++){
+            table_html += '<th>'+options.show_fields[i]+'</th>';
+        }
+        if (typeof options.operations != ""){
+            table_html += '<th>操作</th>';
+        }
+        table_html += '</tr></thead>';
+        table_html += '<tbody>';
+        for (var d = 0; d < table_datas.length; d++){
+            var data = table_datas[d];
+            var record_html = '<tr>';
+            for (var i = 0; i < options.show_fields.length; i++){
+                var show_field = options.show_fields[i];
+                record_html += '<td>'+data[show_field]+'</td>';
+            }
+            if (typeof options.operations != ""){
+                table_html += '<td>'+getOpertionHtml(data,operations) +'</td>';
+            }
+            record_html += '</tr>';
+        }
+        table_html += '</tbody>';
+        table_html += '</table>'
+    }
+    this.fillTable = function(datas, options, table_wrapper, page_nav_wrapper){
+        var table_datas = getTableShowData(datas, options.show_fields);
         console.dir(table_datas);
+        var table_html = getTableHtml(table_datas, options);
+        table_wrapper.html(table_html);
         if (page_nav_wrapper){
             fillPageNav(options.total_num, options.page_size, options.cur_page, page_nav_wrapper);
         }
