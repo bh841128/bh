@@ -144,6 +144,7 @@ class HospitalController extends Controller
 			CUtil::logFile("not login====".print_r($ret,true));
             return json_encode($ret);
         }
+		$ret["msg"]["password"]="";
         return json_encode($ret);
     }
 
