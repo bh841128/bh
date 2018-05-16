@@ -81,7 +81,9 @@ function patient_query(){
         }
         else{
             arr_nav_pages.push(0);
-            
+            if (cur_page - 2 > 0){
+                
+            }
             if (cur_page - 1 > 0){
                 arr_nav_pages.push(cur_page - 1);
             }
