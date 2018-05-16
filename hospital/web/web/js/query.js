@@ -124,10 +124,24 @@ function patient_query(){
         }
         return ""+hospital_id;
     }
+    function getStatusName(status){
+        var status_map = [
+            {"name":"正常","id":"1"},
+            {"name":"上传","id":"2"},
+            {"name":"删除","id":"3"}
+        ];
+        for (var i = 0; i < status_map.length; i++){
+            if (status_map[i]["status"] == status){
+                return status_map[i]["name"];
+            }
+        }
+        return ""+status;
+    }
     this.fillTable = function(datas, options, table_wrapper, page_nav_wrapper){
         var table_datas = getTableShowData(datas, options.show_fields);
         for (var i = 0; i < table_datas.length; i++){
             table_datas[i]["医院"] = getHospitalName(table_datas[i]["医院"]);
+            table_datas[i]["状态"] = getStatusName(table_datas[i]["状态"]);
         }
         console.dir(table_datas);
         var table_html = getTableHtml(table_datas, options);
