@@ -299,7 +299,7 @@ function initIEPlaceholder(){
 			return;
 		}
 		try {
-			$(this).placeholder();
+			//$(this).placeholder();
 		}
 		catch(err) {
 		}

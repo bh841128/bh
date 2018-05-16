@@ -335,7 +335,7 @@
     visibility:visible;
 }
 
-.wrapper.top-wrapper{
+.wrapper.top-wrapper,.login-wrapper{
     width:1200px;
     margin-left:auto;
     margin-right:auto;
