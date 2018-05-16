@@ -88,24 +88,12 @@ require_once(__DIR__."/../config/front_config.php");
         <?php require(WEB_PAGE_PATH."footer.php"); ?>
         <?php require(WEB_PAGE_PATH."login_modal.php"); ?>
         <?php require(WEB_PAGE_PATH."js.php"); ?>
+        <script src="/web/js/add_record.js"></script>
         
         <script type="text/javascript">
-            function onJibenziliaoSave(){
-                var raw_json = {};
-                var g_control_json = new control_json();
-                raw_json["患者基本资料"] = g_control_json.parseControlJson($("#huanzhe-jibenziliao"));
-                raw_json["联系人基本资料"] = g_control_json.parseControlJson($("#lianxiren-jibenziliao"));
-                console.dir(raw_json);
-            }
-
             initPage();
-            $("#add-zhuyuanjilu").click(function(){
-                $("#content-add").hide();
-                $("#content-zyjl").show();
-            })
-            $("#tab-jibenziliao button[tag='jibenziliao-baocun']").click(function(){
-                onJibenziliaoSave();
-            })
+            var g_addRecord = new addRecord();
+            g_addRecord.init();
         </script>
     </div>
 

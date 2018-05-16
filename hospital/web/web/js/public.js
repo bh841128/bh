@@ -102,6 +102,7 @@ function initPage(){
 	initMinzu($("select[tag='minzu']"));
 	initAddress($("div[tag='address']"));
 	initUserMenu();
+	initIEPlaceholder();
 }
 /////////////////////////////////////////
 function initAddress(controls){
