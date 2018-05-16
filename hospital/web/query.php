@@ -37,7 +37,7 @@ require_once(__DIR__."/../config/front_config.php");
         initPage();
         var g_hospital_query = new hospital_query();
         $("#content-query button[tag='query']").click(function(){
-            hospital_query.query_patient({});
+            g_hospital_query.query_patient({});
         })
     </script>
 </body>
