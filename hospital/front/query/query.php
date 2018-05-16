@@ -96,21 +96,6 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>2018-05-10</td>
-                <td>2018-05-10</td>
-                <td>2018-05-10</td>
-                <td>2018-05-10</td>
-                <td>2018-05-10</td>
-                <td>2018-05-10</td>
-                <td>2018-05-10</td>
-                <td>2018-05-10</td>
-                <td>2018-05-10</td>
-                <td style="width:80px">
-                    <button type="button" class="btn btn-link">删除</button>
-                </td>
-            </tr>
         </tbody>
     </table>
 </div>
