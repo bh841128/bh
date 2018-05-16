@@ -77,7 +77,7 @@ function patient_query(){
         return '<button type="button" class="btn btn-link">删除</button>';
     }
     function getTableHtml(table_datas, options){
-        var table_html = '<table class="table table-bordered table-hover table-center" style="text-align:center">';
+        var table_html = '<table class="table table-bordered table-hover table-center table-query" style="text-align:center">';
         table_html += '<thead><tr>';
         for (var i = 0; i < options.show_fields.length; i++){
             table_html += '<th>'+options.show_fields[i]+'</th>';
