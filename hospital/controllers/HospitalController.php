@@ -329,11 +329,12 @@ class HospitalController extends Controller
 		$patientInfo[":uploadtime"]=0;
 		
 		$argErr=false;
-		
+		$arrArgErr=array();
 		if(CUtil::getRequestParam('request', 'medical_id', "")!=""){
 			$patientInfo[":medical_id"]=CUtil::getRequestParam('request', 'medical_id', "");
 		}
 		else{
+			$arrArgErr["medical_id"]=CUtil::getRequestParam('request', 'medical_id', "");
 			$argErr=true; 
 		}
 		
@@ -341,6 +342,7 @@ class HospitalController extends Controller
 			$patientInfo[":sexy"]=CUtil::getRequestParam('request', 'sexy', 0);
 		}
 		else{
+			$arrArgErr["sexy"]=CUtil::getRequestParam('request', 'sexy', 0);
 			$argErr=true; 
 		}
 		
@@ -348,26 +350,30 @@ class HospitalController extends Controller
 			$patientInfo[":name"]=CUtil::getRequestParam('request', 'name', "");
 		}
 		else{
+			$arrArgErr["name"]=CUtil::getRequestParam('request', 'name', "");
 			$argErr=true; 
 		}
 		if(CUtil::getRequestParam('request', 'nation', "")!=""){
 			$patientInfo[":nation"]=CUtil::getRequestParam('request', 'nation', "");
 		}
 		else{
+			$arrArgErr["nation"]=CUtil::getRequestParam('request', 'nation', "");
 			$argErr=true; 
 		}
 		if(CUtil::getRequestParam('request', 'birthday', "")!=""){
 			$patientInfo[":birthday"]=CUtil::getRequestParam('request', 'birthday', "");
 		}
 		else{
+			$arrArgErr["birthday"]=CUtil::getRequestParam('request', 'birthday', "");
 			$argErr=true; 
 		}
-		if(CUtil::getRequestParam('request', 'isSupply', 0)!=0){//不提供啦
+		if(CUtil::getRequestParam('request', 'isSupply', 0)==0){//不提供啦
 			$patientInfo[":isSupply"]=CUtil::getRequestParam('request', 'isSupply', 0);
 			if(CUtil::getRequestParam('request', 'reason', "")!=""){//不提供就要有reason
 				$patientInfo[":reason"]=CUtil::getRequestParam('request', 'reason', "");
 			}
 			else{
+				$arrArgErr["isSupply"]=CUtil::getRequestParam('request', 'isSupply', 0);
 				$argErr=true; 
 			}
 		}
@@ -383,8 +389,15 @@ class HospitalController extends Controller
 				$patientInfo[":city"]=CUtil::getRequestParam('request', 'city', "");
 				$patientInfo[":district"]=CUtil::getRequestParam('request', 'district', "");
 				$patientInfo[":address"]=CUtil::getRequestParam('request', 'address', "");
+				
+				
 			}
 			else{
+				$arrArgErr["isSupply"]=CUtil::getRequestParam('request', 'isSupply', 0);
+				$arrArgErr["province"]=CUtil::getRequestParam('request', 'province', "");
+				$arrArgErr["city"]=CUtil::getRequestParam('request', 'city', "");
+				$arrArgErr["district"]=CUtil::getRequestParam('request', 'district', "");
+				$arrArgErr["address"]=CUtil::getRequestParam('request', 'address', "");
 				$argErr=true; 
 			}
 			
@@ -394,8 +407,8 @@ class HospitalController extends Controller
 		
 		if($argErr==true){
 			$ret["ret"]=ARGSERR;
-            $ret["msg"]=$patientInfo;
-			CUtil::logFile("ARGSERR====".print_r($patientInfo,true));
+            $ret["msg"]=$arrArgErr;
+			CUtil::logFile("ARGSERR====".print_r($arrArgErr,true));
             return json_encode($ret);
 		}
 		CUtil::logFile("ARGS OK====".print_r($patientInfo,true));
@@ -471,7 +484,7 @@ class HospitalController extends Controller
 		else{
 			$argErr=true; 
 		}
-		if(CUtil::getRequestParam('request', 'isSupply', 0)!=0){//不提供啦
+		if(CUtil::getRequestParam('request', 'isSupply', 0)==0){//不提供啦
 			$patientInfo[":isSupply"]=CUtil::getRequestParam('request', 'isSupply', 0);
 			if(CUtil::getRequestParam('request', 'reason', "")!=""){//不提供就要有reason
 				$patientInfo[":reason"]=CUtil::getRequestParam('request', 'reason', "");
