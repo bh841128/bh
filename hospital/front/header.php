@@ -7,8 +7,7 @@
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle gray-font" style="font-size:18px" data-toggle="dropdown" id="user-menu-right-top">中国医学科学院阜外医院
-                            <span class="caret"></span>
+                        <a href="#" class="dropdown-toggle gray-font" style="font-size:18px" data-toggle="dropdown" id="user-menu-right-top"><span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu" style="min-width:10px" id="user_login_menu">
                             <li>

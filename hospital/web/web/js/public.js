@@ -75,10 +75,10 @@ function getManagerInfo(){
 		if (rsp.ret != 0){
 			return;
 		}
-		if (!rsp.hospital){
+		if (!rsp["msg"].hospital){
 			return;
 		}
-		var hospital_name = rsp.hospital["name"];
+		var hospital_name = rsp["msg"].hospital["name"];
 		$("#user-menu-right-top").html(hospital_name+'<span class="caret"></span>');
 	}
 	var username = g_global_data["username"];
