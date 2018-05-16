@@ -31,7 +31,8 @@ function addRecord(){
 		for (var data_name in json_map){
 			data_json[data_name] = getValueByJsonName(raw_json["患者基本资料"],json_map[data_name]);
 		}
-		data_json["relate_text"] = {};
+		var data_json_lianxiren = {"a":100};
+		data_json["relate_text"] = $.toJSON(data_json_lianxiren);
 		console.dir(data_json);
 		////////////////////////////////////////////////
 		////检查参数合法性
