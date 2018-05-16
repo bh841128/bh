@@ -50,7 +50,7 @@ function patient_query(){
             table_datas[i]["性别"] = getXingbieName(table_datas[i]["性别"]);
         }
         console.dir(table_datas);
-        var table_html = getTableHtml(table_datas, options);
+        var table_html = getTableHtml(table_datas, m_this.m_options);
         m_this.m_options.table_wrapper.html(table_html);
         if (m_this.m_options.page_nav_wrapper){
             fillPageNav(m_this.m_data.total_num, m_this.m_data.page_size, m_this.m_data.cur_page, m_this.m_options.page_nav_wrapper);
