@@ -51,7 +51,13 @@ function patient_query(){
     function getTableShowData(data, show_fields){
         var table_datas = [];
         for (var i = 0; i < data.length; i++){
-            data[i]["relate_text"] = eval('('+data[i]["relate_text"]+')');
+            try{
+                data[i]["relate_text"] = eval('('+data[i]["relate_text"]+')');
+            }
+            catch (err) {
+                data[i]["relate_text"] = {};
+            }
+            
             var table_data = {};
             for (var f = 0; f < show_fields.length; f++){
                 var show_name = show_fields[f];
