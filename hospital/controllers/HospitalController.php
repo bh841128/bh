@@ -524,7 +524,14 @@ class HospitalController extends Controller
 		}
 		
 		$patientInfo[":relate_text"]=CUtil::getRequestParam('request', 'relate_text', "");
-		
+		if(CUtil::getRequestParam('request', 'name', "")!=""){
+            $patientInfo[":name"]=CUtil::getRequestParam('request', 'name', "");
+        }
+        if(CUtil::getRequestParam('request', 'medical_id', "")!=""){
+            $patientInfo[":medical_id"]=CUtil::getRequestParam('request', 'medical_id', "");
+        }
+
+
 		if($argErr==true){
 			$ret["ret"]=ARGSERR;
             $ret["msg"]=$arrArgErr;
@@ -541,7 +548,7 @@ class HospitalController extends Controller
         }
 		$name=trim(CUtil::getRequestParam('request', 'name', ""));
 		$medical_id=trim(CUtil::getRequestParam('request', 'medical_id', ""));
-		Patient4Hospital::setPatientInfo4Record($id,$name,$medical_id);//修改病例中数据
+		HospitalizedRecord::setPatientInfo4Record($id,$name,$medical_id);//修改病例中数据
 		
 		return json_encode($ret);
 	}

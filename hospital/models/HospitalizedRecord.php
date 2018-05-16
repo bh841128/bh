@@ -145,10 +145,10 @@ class HospitalizedRecord {
 		}
 		$sql = "update hospitalized_record set  ";
 		if($name!=""){
-			$sql=$sql." patient_name=$name,";
+			$sql=$sql." patient_name='$name',";
 		}
 		if($medical_id!=""){
-			$sql=$sql." medical_id=$medical_id";
+			$sql=$sql." medical_id='$medical_id'";
 		}
 		
 		
@@ -220,7 +220,7 @@ class HospitalizedRecord {
 			return $ret;
 		}
 		$ret["msg"]=$records;
-		
+
 		try{
 		$connection = Yii::$app->db;
 		$command = $connection->createCommand($sql_count,$args);
