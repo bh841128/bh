@@ -74,7 +74,7 @@ function patient_query(){
                         '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">首页</a></li>' +
                         '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">&lt;</a></li>';
         for (var i = 0; i < total_page; i++){
-            navHtml += '';
+            navHtml += '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px" data-page="'+i+'">'+(i+1)+'</a></li>';
         }
         navHtml +=      '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">&gt;</a></li>' + 
                         '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">尾页</a></li>' + 
