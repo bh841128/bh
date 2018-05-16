@@ -137,12 +137,25 @@ function patient_query(){
         }
         return ""+status;
     }
+    function getXingbieName(xingbie){
+        var xingbie_map = [
+            {"name":"男","id":"1"},
+            {"name":"女","id":"2"}
+        ];
+        for (var i = 0; i < xingbie_map.length; i++){
+            if (xingbie_map[i]["id"] == xingbie){
+                return xingbie_map[i]["name"];
+            }
+        }
+        return ""+xingbie;
+    }
     this.fillTable = function(datas, options, table_wrapper, page_nav_wrapper){
         var table_datas = getTableShowData(datas, options.show_fields);
         for (var i = 0; i < table_datas.length; i++){
             table_datas[i]["医院"] = getHospitalName(table_datas[i]["医院"]);
             table_datas[i]["状态"] = getStatusName(table_datas[i]["状态"]);
             table_datas[i]["上传时间"] = timestampToString(table_datas[i]["上传时间"]);
+            table_datas[i]["性别"] = getXingbieName(table_datas[i]["性别"]);
         }
         console.dir(table_datas);
         var table_html = getTableHtml(table_datas, options);
