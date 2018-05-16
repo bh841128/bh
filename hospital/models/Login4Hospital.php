@@ -61,7 +61,7 @@ class Login4Hospital {
 		$args=array(':username'=>$username);
 		$command = $connection->createCommand($sql,$args);
 		$records = $command->execute();
-
+        
 		return $ret;
 	 }
 
