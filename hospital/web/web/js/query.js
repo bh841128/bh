@@ -30,6 +30,23 @@ function patient_query(){
     }
 
     function fillPageNav(total_num, page_size, cur_page, page_nav_wrapper){
+        var total_page = 0;
+        if (total_num > 0){
+            total_page = Math.ceil(total_num/page_size);
+        }
+         
+        var navHtml = '<ul class="pagination">'  +
+                        '<li class="page-item"><a class="page-link" href="#">共8条</a></li>' +
+                        '<li class="page-item"><div style="position:relative;float:left;margin-left:5px;"><div class="input-group"><input type="text" class="form-control" style="width:50px"></div></li>' +
+                        '<li class="page-item"><a class="page-link" href="#">跳转</a></li>' +
+                        '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">首页</a></li>' +
+                        '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">&lt;</a></li>';
+
+        navHtml +=      '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">&gt;</a></li>' + 
+                        '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">尾页</a></li>' + 
+                        '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">共'+total_page+'页</a></li>' + 
+                      '</ul>';
+        page_nav_wrapper.html(navHtml);
 
     }
     function getJsonValueByShowname(json, show_name){

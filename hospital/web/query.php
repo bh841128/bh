@@ -35,6 +35,7 @@ require_once(__DIR__."/../config/front_config.php");
     <script src="/web/js/query.js"></script>
     <script type="text/javascript">
         var g_patient_query = new patient_query();
+        var g_query_data = {};
         function onGotoPage(page){
 
         }
@@ -54,6 +55,10 @@ require_once(__DIR__."/../config/front_config.php");
                 "total_num":rsp.total,
                 "operations":"删除",
             }
+            g_query_data.page_size = options.page_size;
+            g_query_data.cur_page = options.cur_page;
+            g_query_data.total_num = options.total_num;
+
             g_patient_query.fillTable(data, options, $("#query-table-wrapper"), $("#query-page-nav"));
         }
         initPage();
