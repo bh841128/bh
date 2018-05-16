@@ -5,6 +5,7 @@ namespace app\models;
 use Yii;
 use app\models\CError;
 use app\models\CUtil;
+use app\models\hospital;
 
 
 class Login4Hospital {
@@ -83,7 +84,7 @@ class Login4Hospital {
 		try{
 		$connection = Yii::$app->db;
 		$command = $connection->createCommand($sql,$args);
-		$records = $command->queryAll();
+		$record = $command->queryOne();
 		}catch(\Exception $ex){
 			$ret["ret"]=2;
 			$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
@@ -91,12 +92,13 @@ class Login4Hospital {
 			return $ret;
 		}
 		
-		if(count($records)!=1){
+		if(empty($record)){
 			$ret["ret"]=1;
 						
 			return $ret;
 		}
-		$ret["msg"]=$records[0];
+		$record["hospital"] = Hospital::getHospitalById($record["hospital_id"]);
+		$ret["msg"]=$record;
 		 return $ret;
 	 }
 	
