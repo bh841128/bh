@@ -74,7 +74,13 @@ function patient_query(){
         return table_datas;
     }
     function getOpertionHtml(data, operations){
-        return '<button type="button" class="btn btn-link">删除</button>';
+        var arrHtmls = [];
+        for (var i = 0; i < operations.length; i++){
+            var o = operations[i];
+            var html = '<button type="button" class="btn btn-link" data-id="'+data["id"]+'" operation-type="'+operations[i]+'">'+operations[i]+'</button>';
+            arrHtmls.push(html);
+        }
+        return arrHtmls.join("&nbsp;&nbsp;");
     }
     function getTableHtml(table_datas, options){
         var table_html = '<table class="table table-bordered table-hover table-center table-query" style="text-align:center">';
