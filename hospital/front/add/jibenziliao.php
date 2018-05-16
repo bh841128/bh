@@ -32,9 +32,9 @@
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="xingbie" value="男" checked json-name="性别">男</lable>
+                        <input type="radio" name="xingbie" value="0" checked json-name="性别">男</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="xingbie" value="女" json-name="性别">女</lable>
+                        <input type="radio" name="xingbie" value="1" json-name="性别">女</lable>
                 </td>
             </tr>
         </table>
