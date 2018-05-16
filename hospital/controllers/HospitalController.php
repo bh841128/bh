@@ -537,6 +537,10 @@ class HospitalController extends Controller
 			CUtil::logFile("UPDATEERR====".print_r($ret,true));
             return json_encode($ret);
         }
+		$name=trim(CUtil::getRequestParam('request', 'name', ""));
+		$medical_id=trim(CUtil::getRequestParam('request', 'medical_id', ""));
+		Patient4Hospital::setPatientInfo4Record($id,$name,$medical_id);//修改病例中数据
+		
 		return json_encode($ret);
 	}
 	

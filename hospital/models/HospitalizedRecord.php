@@ -132,7 +132,42 @@ class HospitalizedRecord {
 		return $ret;
 
     }
-	
+	 static public function setPatientInfo4Record($patient_id,$name,$medical_id){
+		 
+		$ret=array(
+		   "ret"=>0,
+		   
+		   "msg"=>""
+		  
+		);
+		if($name==""&&$medical_id==""){
+			return $ret;
+		}
+		$sql = "update hospitalized_record set  ";
+		if($name!=""){
+			$sql=$sql." patient_name=$name,"
+		}
+		if($medical_id!=""){
+			$sql=$sql." medical_id=$medical_id"
+		}
+		
+		
+		$sql=$sql." where patient_id=$patient_id ";
+		CUtil::logFile("=====$sql  ");
+		try{
+     	$connection = Yii::$app->db;
+		$command = $connection->createCommand($sql);
+		$result = $command->execute();
+		}catch(\Exception $ex){
+			$ret["ret"]=0;
+			$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
+			CUtil::logFile("catch ===== ".$ret["msg"]);			
+			return $ret;
+		}
+		
+	    $ret["msg"]="setPatientInfo4Record num: $result";
+		return $ret;
+	 }
 	
 	 static public function getRecordList($page,$hospital_id,$filter,$size=10)
 	 {
