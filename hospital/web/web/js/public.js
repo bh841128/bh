@@ -75,7 +75,7 @@ function getManagerInfo(){
 		console.dir(rsp);
 	}
 	var username = g_global_data["username"];
-	ajaxRemoteRequest("hospital/get-manager",{username:username},callback);
+	ajaxRemoteRequest("hospital/get-manager",{username:username},getManagerInfoRet);
 }
 ///////////////////////////////////////////////
 function initPage(){
