@@ -15,22 +15,19 @@ function addRecord(){
 		raw_json["联系人基本资料"] = g_control_json.parseControlJson($("#lianxiren-jibenziliao"));
 		console.dir(raw_json);
 		/////////////////////////////////////////////////
-		var data_json = {};
-		var json_map = {
-			"medical_id":"病案号",
-			"sexy":"性别",
-			"name":"姓名",
-			"nation":"民族",
-			"isSupply":"详细地址-不能提供",
-			"reason":"详细地址-不能提供-原因",
-			"province":"省份",
-			"city":"城市",
-			"district":"区县",
-			"address":"详细地址",
-		};
-		for (var data_name in json_map){
-			data_json[data_name] = getValueByJsonName(raw_json["患者基本资料"],json_map[data_name]);
-		}
+		var json_map = [
+			{"name":"病案号","field":"medical_id"},
+			{"name":"性别","field":"sexy"},
+			{"name":"姓名","field":"name"},
+			{"name":"民族","field":"nation"},
+			{"name":"详细地址-不能提供","field":"isSupply", "default_value":0},
+			{"name":"详细地址-不能提供-原因","field":"reason"},
+			{"name":"省份","field":"province"},
+			{"name":"城市","field":"city"},
+			{"name":"区县","field":"district"},
+			{"name":"详细地址","field":"address"},
+		];
+		var data_json = getValuesByMap(raw_json["患者基本资料"], json_map);
 		var data_json_lianxiren = {"a":100};
 		data_json["relate_text"] = $.toJSON(data_json_lianxiren);
 		console.dir(data_json);

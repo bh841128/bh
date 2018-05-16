@@ -55,3 +55,28 @@ function control_json(){
     }
     /////////////////////////////////////////////////////////////////////////
 }
+
+function getValueByJsonName(jsonArrs, jsonName, defaultValue){
+	for (var i = 0; i < jsonArrs.length; i++){
+		if (jsonArrs[i]["json_name"] == jsonName){
+			return jsonArrs[i]["json_value"];
+		}
+	}
+	if (typeof defaultValue != "undefined"){
+		return defaultValue;
+	}
+	return null;
+}
+
+function getValuesByMap(raw_json, json_map){
+    var data_json = {};
+    for (var i = 0; i < json_map.length; i++){
+        if (typeof json_map[i]["default_value"] != "undefined"){
+            data_json[data_name] = getValueByJsonName(raw_json,json_map[data_name],json_map[i]["default_value"]);
+        }
+        else{
+            data_json[data_name] = getValueByJsonName(raw_json,json_map[data_name]);
+        }
+    }
+    return data_json;
+}
