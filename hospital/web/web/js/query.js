@@ -13,6 +13,7 @@ function patient_query(){
         "上传时间":"uploadtime",
         "状态":"status"
     }
+    
     this.query_patient = function(query_param, callback){
         function queryPatientRet(rsp){
             console.dir(rsp);
@@ -103,8 +104,31 @@ function patient_query(){
         table_html += '</table>'
         return table_html;
     }
+    function getHospitalName(hospital_id){
+        var hospitals = [
+            {"name":"中国医学科学院阜外医院","id":"1"},
+            {"name":"上海交通大学医学院附属上海儿童医学中心","id":"2"},
+            {"name":"复旦大学附属儿科医院","id":"3"},
+            {"name":"中南大学湘雅二医院","id":"4"},
+            {"name":"南京市儿童医院","id":"5"},
+            {"name":"青岛市妇女儿童医院","id":"6"},
+            {"name":"河南省人民医院","id":"7"},
+            {"name":"广州市妇女儿童医疗中心","id":"8"},
+            {"name":"中国人民解放军第四军医大学第一附属医院","id":"9"},
+            {"name":"中国人民解放军第三军医大学","id":"10"}
+        ];
+        for (var i = 0; i < hospitals.length; i++){
+            if (hospitals[i]["id"] == hospital_id){
+                return hospitals[i]["name"];
+            }
+        }
+        return ""+hospital_id;
+    }
     this.fillTable = function(datas, options, table_wrapper, page_nav_wrapper){
         var table_datas = getTableShowData(datas, options.show_fields);
+        for (var i = 0; i < table_datas.length; i++){
+            table_datas[i]["医院"] = getHospitalName(table_datas[i]["医院"]);
+        }
         console.dir(table_datas);
         var table_html = getTableHtml(table_datas, options);
         table_wrapper.html(table_html);
