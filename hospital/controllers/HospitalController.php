@@ -464,11 +464,12 @@ class HospitalController extends Controller
 		$patientInfo[":lastmodtime"]=$now;
 
 		$argErr=false;
-		
+		$arrArgErr=array();
 		if(CUtil::getRequestParam('request', 'sexy', 0)!=0){
 			$patientInfo[":sexy"]=CUtil::getRequestParam('request', 'sexy', 0);
 		}
 		else{
+			$arrArgErr["sexy"]=CUtil::getRequestParam('request', 'sexy', 0);
 			$argErr=true; 
 		}
 
@@ -476,12 +477,14 @@ class HospitalController extends Controller
 			$patientInfo[":nation"]=CUtil::getRequestParam('request', 'nation', "");
 		}
 		else{
+			$arrArgErr["nation"]=CUtil::getRequestParam('request', 'nation', "");
 			$argErr=true; 
 		}
 		if(CUtil::getRequestParam('request', 'birthday', "")!=""){
 			$patientInfo[":birthday"]=CUtil::getRequestParam('request', 'birthday', "");
 		}
 		else{
+			$arrArgErr["birthday"]=CUtil::getRequestParam('request', 'birthday', "");
 			$argErr=true; 
 		}
 		if(CUtil::getRequestParam('request', 'isSupply', 0)==0){//不提供啦
@@ -490,6 +493,7 @@ class HospitalController extends Controller
 				$patientInfo[":reason"]=CUtil::getRequestParam('request', 'reason', "");
 			}
 			else{
+				$arrArgErr["isSupply"]=CUtil::getRequestParam('request', 'isSupply', 0);
 				$argErr=true; 
 			}
 		}
@@ -507,6 +511,11 @@ class HospitalController extends Controller
 				$patientInfo[":isSupply"]=0;
 			}
 			else{
+				$arrArgErr["isSupply"]=CUtil::getRequestParam('request', 'isSupply', 0);
+				$arrArgErr["province"]=CUtil::getRequestParam('request', 'province', "");
+				$arrArgErr["city"]=CUtil::getRequestParam('request', 'city', "");
+				$arrArgErr["district"]=CUtil::getRequestParam('request', 'district', "");
+				$arrArgErr["address"]=CUtil::getRequestParam('request', 'address', "");
 				$argErr=true; 
 			}
 			
@@ -516,8 +525,8 @@ class HospitalController extends Controller
 		
 		if($argErr==true){
 			$ret["ret"]=ARGSERR;
-            $ret["msg"]=$patientInfo;
-			CUtil::logFile("ARGSERR====".print_r($patientInfo,true));
+            $ret["msg"]=$arrArgErr;
+			CUtil::logFile("ARGSERR====".print_r($arrArgErr,true));
             return json_encode($ret);
 		}
 		CUtil::logFile("ARGS OK====".print_r($patientInfo,true));
