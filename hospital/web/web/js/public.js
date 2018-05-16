@@ -432,3 +432,32 @@ function getJsonValue(json, name, default_value){
 	}
 	return null;
 }
+/////////////////////////////////////////////////////////////////////
+function timestampToString(timestamp){
+	var dt = new Date(timestamp * 1000);
+
+	var year  = dt.getFullYear();
+	var month = dt.getMonth()+1;
+	var day   = dt.getDate();
+    var hours = dt.getHours();
+    var minutes = dt.getMinutes();
+    var seconds = dt.getSeconds();
+
+    // the above dt.get...() functions return a single digit
+	// so I prepend the zero here when needed
+	if (month < 10) 
+	month = '0' + month;
+	 if (day < 10) 
+	 day = '0' + day;
+	 
+    if (hours < 10) 
+     hours = '0' + hours;
+
+    if (minutes < 10) 
+     minutes = '0' + minutes;
+
+    if (seconds < 10) 
+     seconds = '0' + seconds;
+
+    return year +"-"+month+"-"+day+" "+hours + ":" + minutes + ":" + seconds;
+}
