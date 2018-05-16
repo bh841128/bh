@@ -145,10 +145,10 @@ class HospitalizedRecord {
 		}
 		$sql = "update hospitalized_record set  ";
 		if($name!=""){
-			$sql=$sql." patient_name=$name,"
+			$sql=$sql." patient_name=$name,";
 		}
 		if($medical_id!=""){
-			$sql=$sql." medical_id=$medical_id"
+			$sql=$sql." medical_id=$medical_id";
 		}
 		
 		
@@ -177,8 +177,9 @@ class HospitalizedRecord {
 		   "msg"=>""
 		);
          CUtil::logFile("=====$page   $hospital_id   $size");
-		
-        $sql = "select * from hospitalized_record where hospital_id=:hospital_id and ";
+		$sql_data="select *";
+		$sql_count="select count(*) as num";
+        $sql = " from hospitalized_record where hospital_id=:hospital_id and ";
 		$args=array(":hospital_id"=>$hospital_id);
 		foreach ($filter as $key => $value) {  
 			if($key!="start_time"&&$key!="end_time"){
@@ -200,14 +201,29 @@ class HospitalizedRecord {
 		}
 		
 		$page=$page<1?1:$page;
-		if($size>0){
-			$sql=$sql." limit ".($page-1)*$size.",".$size;
+		if($size<=0){
+			$size=10;
 		}
-        CUtil::logFile("=====$sql  ".print_r($args,true));
+		$sql_data=$sql_data." ".$sql." limit ".($page-1)*$size.",".$size;
+		$sql_count=$sql_count." ".$sql;
+
+        CUtil::logFile("=====$sql_data $sql_count  ".print_r($args,true));
 		
 		try{
 		$connection = Yii::$app->db;
-		$command = $connection->createCommand($sql,$args);
+		$command = $connection->createCommand($sql_data,$args);
+		$records = $command->queryAll();
+		}catch(\Exception $ex){
+			$ret["ret"]=2;
+			$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
+			CUtil::logFile("catch ===== ".$ret["msg"]);			
+			return $ret;
+		}
+		$ret["msg"]=$records;
+		
+		try{
+		$connection = Yii::$app->db;
+		$command = $connection->createCommand($sql_count,$args);
 		$records = $command->queryAll();
 		}catch(\Exception $ex){
 			$ret["ret"]=2;
@@ -216,7 +232,15 @@ class HospitalizedRecord {
 			return $ret;
 		}
 		
-		$ret["msg"]=$records;
+		if(count($records)<1){
+			$ret["ret"]=1;
+			$ret["msg"]="select count err!";		
+			CUtil::logFile("=====  ".print_r($records,true));			
+			return $ret;
+		}
+        $ret["total"]=$records[0]["num"];
+
+		
 		return $ret;
 
 	}

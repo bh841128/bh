@@ -291,6 +291,8 @@ class HospitalController extends Controller
 			CUtil::logFile("not login====".print_r($ret,true));
             return json_encode($ret);
         }
+        $ret["page"]=$page;
+        $ret["size"]=$size;
         return json_encode($ret);
     }
 	
@@ -709,6 +711,8 @@ class HospitalController extends Controller
 			CUtil::logFile("not login====".print_r($ret,true));
             return json_encode($ret);
         }
+        $ret["page"]=$page;
+        $ret["size"]=$size;
         return json_encode($ret);
     }
 	

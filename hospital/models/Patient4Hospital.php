@@ -111,9 +111,11 @@ status  1:正常 2:上传  3：删除
 		   
 		   "msg"=>""
 		);
+		 
          CUtil::logFile("=====$page   $hospital_id   $size");
-		
-        $sql = "select * from patientInfo where hospital_id=:hospital_id and ";
+		$sql_data="select *";
+		$sql_count="select count(*) as num";
+        $sql =  " from patientInfo where hospital_id=:hospital_id and ";
 		$args=array(":hospital_id"=>$hospital_id);
 		foreach ($filter as $key => $value) {  
 			if($key!="start_time"&&$key!="end_time"){
@@ -135,12 +137,18 @@ status  1:正常 2:上传  3：删除
 		}
 		
 		$page=$page<1?1:$page;
-		$sql=$sql." limit ".($page-1)*$size.",".$size;
-        CUtil::logFile("=====$sql  ".print_r($args,true));
+		if($size<=0)
+		 	$size=10;
+		$sql_data=$sql_data."".$sql." limit ".($page-1)*$size.",".$size;
+        
+
+        $sql_count=$sql_count." ".$sql;
+        CUtil::logFile("=====$sql_data   $sql_count ".print_r($args,true));
 		
+
 		try{
 		$connection = Yii::$app->db;
-		$command = $connection->createCommand($sql,$args);
+		$command = $connection->createCommand($sql_data,$args);
 		$records = $command->queryAll();
 		}catch(\Exception $ex){
 			$ret["ret"]=2;
@@ -150,6 +158,24 @@ status  1:正常 2:上传  3：删除
 		}
 		
 		$ret["msg"]=$records;
+
+        try{
+		$connection = Yii::$app->db;
+		$command = $connection->createCommand($sql_count,$args);
+		$records = $command->queryAll();
+		}catch(\Exception $ex){
+			$ret["ret"]=2;
+			$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
+			CUtil::logFile("===== ".$ret["msg"]);			
+			return $ret;
+		}
+		if(count($records)<1){
+			$ret["ret"]=1;
+			$ret["msg"]="select count err!";		
+			CUtil::logFile("=====  ".print_r($records,true));			
+			return $ret;
+		}
+        $ret["total"]=$records[0]["num"];
 		return $ret;
 
 	 }
