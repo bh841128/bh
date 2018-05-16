@@ -93,7 +93,7 @@ function patient_query(){
                 record_html += '<td>'+data[show_field]+'</td>';
             }
             if (typeof options.operations != ""){
-                table_html += '<td>'+getOpertionHtml(data,options.operations) +'</td>';
+                record_html += '<td>'+getOpertionHtml(data,options.operations) +'</td>';
             }
             record_html += '</tr>';
         }
