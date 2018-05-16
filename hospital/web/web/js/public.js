@@ -422,3 +422,15 @@ function gotoLoginPage(){
 function gotoPage(page){
 	window.location.href="/"+page+".php";
 }
+/////////////////////////////////////////////////////////////////
+function getValueByJsonName(jsonArrs, jsonName, defaultValue){
+	for (var i = 0; i < jsonArrs.length; i++){
+		if (jsonArrs[i]["json_name"] == jsonName){
+			return jsonArrs[i]["json_value"];
+		}
+	}
+	if (typeof defaultValue != "undefined"){
+		return defaultValue;
+	}
+	return null;
+}
