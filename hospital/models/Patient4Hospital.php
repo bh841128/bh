@@ -164,7 +164,7 @@ status  1:正常 2:上传  3：删除
 		
 		
 		$sql="";
-		if($patientInfo[":isSupply"]!=0){
+		if($patientInfo[":isSupply"]==0){
 			$sql="insert into  patientInfo (hospital_id,medical_id,name,nation,birthday,reason,isSupply,relate_text,`status`,lastmod_manager_id,sexy,createtime,uploadtime,lastmodtime,create_manager_id) values(:hospital_id,:medical_id,:name,:nation,:birthday,:reason,:isSupply,:relate_text,:status,:lastmod_manager_id,:sexy,:createtime,:uploadtime,:lastmodtime,:create_manager_id) ";
 
 		}
