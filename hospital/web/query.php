@@ -34,10 +34,32 @@ require_once(__DIR__."/../config/front_config.php");
     <?php require(WEB_PAGE_PATH."js.php"); ?>
     <script src="/web/js/query.js"></script>
     <script type="text/javascript">
+        var g_patient_query = new patient_query();
+        function onGotoPage(page){
+
+        }
+        function onDeleteRecord(record_id){
+
+        }
+        function queryInfoRet(rsp){
+            if (rsp.ret != 0){
+                alert("查询失败，请稍候再试");
+                return;
+            }
+            var data = rsp.msg;
+            var options = {
+                "show_fields":["序号","病案号","姓名","性别", "出生日期", "联系人", "联系电话", "医院", "上传时间", "状态"],
+                "page_size":rsp.size,
+                "cur_page":rsp.page,
+                "total_num":rsp.total,
+                "operations":"删除",
+            }
+            g_patient_query.fillTable(data, options, $("#query-table-wrapper"), $("#query-page-nav"));
+        }
         initPage();
-        var g_hospital_query = new hospital_query();
+        
         $("#content-query button[tag='query']").click(function(){
-            g_hospital_query.query_patient({});
+            g_patient_query.query_patient({});
         })
     </script>
 </body>

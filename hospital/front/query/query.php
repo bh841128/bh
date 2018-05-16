@@ -78,7 +78,7 @@
             <span class="glyphicon glyphicon-search"></span>查询</button>
     </div>
 </div>
-<div class="box-body table-responsive">
+<div class="box-body table-responsive" id="query-table-wrapper">
     <table id="example2" class="table table-bordered table-hover table-center" style="text-align:center">
         <thead>
             <tr>
@@ -114,7 +114,7 @@
         </tbody>
     </table>
 </div>
-<nav aria-label="Page navigation example" style="text-align:center">
+<nav aria-label="Page navigation" style="text-align:center" id="query-page-nav">
     <ul class="pagination">
         <li class="page-item">
             <a class="page-link" href="#">共8条</a>

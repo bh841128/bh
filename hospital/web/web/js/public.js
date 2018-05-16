@@ -423,3 +423,12 @@ function gotoPage(page){
 	window.location.href="/"+page+".php";
 }
 /////////////////////////////////////////////////////////////////
+function getJsonValue(json, name, default_value){
+	if (typeof json[name] != "undefined"){
+		return json[name];
+	}
+	if (typeof default_value != "undefined"){
+		return default_value;
+	}
+	return null;
+}
