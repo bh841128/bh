@@ -99,6 +99,7 @@ function patient_query(){
         }
         table_html += '</tbody>';
         table_html += '</table>'
+        return table_html;
     }
     this.fillTable = function(datas, options, table_wrapper, page_nav_wrapper){
         var table_datas = getTableShowData(datas, options.show_fields);
