@@ -29,6 +29,10 @@ function patient_query(){
             }
             
             m_this.m_data = rsp;
+            m_this.m_data.page_size = rsp.size;
+            m_this.m_data.cur_page = rsp.page;
+            m_this.m_data.total_num = rsp.total;
+
             fillTable(rsp.msg);
         }
         if (typeof query_param["page"] == "undefined"){
