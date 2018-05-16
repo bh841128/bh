@@ -127,7 +127,7 @@ class HospitalController extends Controller
 	
     public function actionGetManager()
     {
-        $username = CUtil::getRequestParam('request', 'username', '');
+        $username = CUtil::getRequestParam('cookie', 'username', '');
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
         $ret=Login4Hospital::checkLogin($username,$skey);
         CUtil::logFile("====".print_r($ret,true));
