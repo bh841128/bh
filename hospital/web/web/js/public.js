@@ -70,21 +70,31 @@ function initUserMenu(){
 		hideAllErrorMsgs();
 	});
 }
+function getManagerInfo(){
+	function getManagerInfoRet(rsp){
+		console.dir(rsp);
+	}
+	var username = g_global_data["username"];
+	ajaxRemoteRequest("hospital/get-manager",{username:username},callback);
+}
 ///////////////////////////////////////////////
 function initPage(){
-	initAsideMenu();
-	initUserMenu();
-	initDatePicker("input[tag='datepicker']");
-	initDateTimePicker("input[tag='datetimepicker']");
-	initMinzu($("select[tag='minzu']"));
-	initAddress($("div[tag='address']"));
-
+	function initPageOther(){
+		getManagerInfo();
+	}
 	checkLogin(onCheckLoginRet);
 	function onCheckLoginRet(rsp){
 		if (rsp.ret != 0){
 			gotoLoginPage();
 		}
+		initPageOther();
 	}
+	initAsideMenu();
+	initDatePicker("input[tag='datepicker']");
+	initDateTimePicker("input[tag='datetimepicker']");
+	initMinzu($("select[tag='minzu']"));
+	initAddress($("div[tag='address']"));
+	initUserMenu();
 }
 /////////////////////////////////////////
 function initAddress(controls){
