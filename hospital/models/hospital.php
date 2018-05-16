@@ -24,7 +24,7 @@ class Hospital
 	public static function getHospitalById($id){
 		for ($i = 0; $i < count(self::$m_hospitals); $i++){
 			if (self::$m_hospitals[$i]["id"] == $id){
-				return self::$m_hospitals[$i]["id"];
+				return self::$m_hospitals[$i];
 			}
 		}
 		return false;
@@ -32,7 +32,7 @@ class Hospital
 	public static function getHospitalByName($name){
 		for ($i = 0; $i < count(self::$m_hospitals); $i++){
 			if (self::$m_hospitals[$i]["name"] == $name){
-				return self::$m_hospitals[$i]["name"];
+				return self::$m_hospitals[$i];
 			}
 		}
 		return false;
