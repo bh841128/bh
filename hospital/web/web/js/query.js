@@ -6,6 +6,7 @@ function patient_query(){
         "病案号":"medical_id",
         "姓名":"name",
         "性别":"sexy",
+        "出生日期":"birthday",
         "联系人":"relate_text.姓名",
         "联系电话":"relate_text.联系人电话",
         "医院":"hospital_id",
