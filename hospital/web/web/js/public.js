@@ -72,7 +72,14 @@ function initUserMenu(){
 }
 function getManagerInfo(){
 	function getManagerInfoRet(rsp){
-		console.dir(rsp);
+		if (rsp.ret != 0){
+			return;
+		}
+		if (!rsp.hospital){
+			return;
+		}
+		var hospital_name = rsp.hospital["name"];
+		$("#user-menu-right-top").html(hospital_name+'<span class="caret"></span>');
 	}
 	var username = g_global_data["username"];
 	ajaxRemoteRequest("hospital/get-manager",{username:username},getManagerInfoRet);
