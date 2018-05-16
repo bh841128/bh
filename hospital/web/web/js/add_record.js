@@ -35,5 +35,9 @@ function addRecord(){
 		////检查参数合法性
 		////////////////////////////////////////////////
 		//发送插入请求
+		ajaxRemoteRequest("hospital/insert-patient",data_json,onAddRecordRet);
+	}
+	function onAddRecordRet(rsp){
+		console.dir(rsp);
 	}
 }
