@@ -34,6 +34,9 @@ function control_json(){
                 if(!control.get(0).checked){
                     return null;
                 }
+                if (inputType == "checkbox"){
+                    return 1;
+                }
                 return control.get(0).value;
             }
         }

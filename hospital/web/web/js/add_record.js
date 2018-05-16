@@ -21,7 +21,7 @@ function addRecord(){
 			{"name":"姓名","field":"name"},
 			{"name":"民族","field":"nation"},
 			{"name":"出生日期","field":"birthday"},
-			{"name":"详细地址-不能提供","field":"isSupply", "default_value":0},
+			{"name":"详细地址-不能提供","field":"isNotSupply", "default_value":0},
 			{"name":"详细地址-不能提供-原因","field":"reason"},
 			{"name":"省份","field":"province"},
 			{"name":"城市","field":"city"},
@@ -29,6 +29,8 @@ function addRecord(){
 			{"name":"详细地址","field":"address"},
 		];
 		var data_json = getValuesByMap(raw_json["患者基本资料"], json_map);
+		data_json["isSupply"] = data_json["isNotSupply"]?0:1;
+		delete data_json["isNotSupply"];
 		var data_json_lianxiren = {"a":100};
 		data_json["relate_text"] = $.toJSON(data_json_lianxiren);
 		console.dir(data_json);
