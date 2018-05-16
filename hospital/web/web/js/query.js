@@ -49,7 +49,6 @@ function patient_query(){
         return value;
     }
     function getTableShowData(data, show_fields){
-        var show_fields = options.show_fields;
         var table_datas = [];
         for (var i = 0; i < data.length; i++){
             data[i]["relate_text"] = eval('('+data[i]["relate_text"]+')');
