@@ -83,3 +83,11 @@ function getValuesByMap(raw_json, json_map){
     }
     return data_json;
 }
+
+function arrayToJson(raw_json){
+    var data_json = {};
+    for (var i = 0; i < raw_json.length; i++){
+        data_json[raw_json[i]["json_name"]] = raw_json[i]["json_value"];
+    }
+    return data_json;
+}
