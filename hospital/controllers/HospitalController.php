@@ -177,7 +177,7 @@ class HospitalController extends Controller
         if($ret["ret"]!=0){
             $ret["ret"]=NODATA;
             $ret["msg"]="no data";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("no data====".print_r($ret,true));
             return json_encode($ret);
         }
         return json_encode($ret);
@@ -384,7 +384,7 @@ class HospitalController extends Controller
 				CUtil::getRequestParam('request', 'address', "")!=""
 			   )
 			{//不提供就要有reason
-                $patientInfo[":isSupply"]=0;
+                $patientInfo[":isSupply"]=1;
 				$patientInfo[":province"]=CUtil::getRequestParam('request', 'province', "");
 				$patientInfo[":city"]=CUtil::getRequestParam('request', 'city', "");
 				$patientInfo[":district"]=CUtil::getRequestParam('request', 'district', "");
@@ -508,7 +508,7 @@ class HospitalController extends Controller
 				$patientInfo[":city"]=CUtil::getRequestParam('request', 'city', "");
 				$patientInfo[":district"]=CUtil::getRequestParam('request', 'district', "");
 				$patientInfo[":address"]=CUtil::getRequestParam('request', 'address', "");
-				$patientInfo[":isSupply"]=0;
+				$patientInfo[":isSupply"]=1;
 			}
 			else{
 				$arrArgErr["isSupply"]=CUtil::getRequestParam('request', 'isSupply', 0);
