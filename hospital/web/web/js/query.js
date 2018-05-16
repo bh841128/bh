@@ -1,5 +1,8 @@
 function patient_query(){
     var m_this = this;
+    this.m_options = {};
+    this.m_data = {};
+    this.m_query_param = {};
     //"序号","病案号","姓名","性别", "出生日期", "联系人", "联系电话", "医院", "上传时间", "状态", "--操作,删除"
     this.map_showname_name = {
         "序号":"id",
@@ -14,10 +17,19 @@ function patient_query(){
         "状态":"status"
     }
     
-    this.query_patient = function(query_param, callback){
+    this.init = function(options){
+        m_this.m_options = options;
+    }
+    this.query_patient = function(query_param){
         function queryPatientRet(rsp){
             console.dir(rsp);
-            callback(rsp);
+            if (rsp.ret != 0){
+                alert("拉取数据错误，请稍候重试");
+                return;
+            }
+            
+            m_this.m_data = rsp;
+            fillTable(rsp.msg);
         }
         if (typeof query_param["page"] == "undefined"){
             query_param["page"] = 0;
@@ -25,8 +37,24 @@ function patient_query(){
         if (typeof query_param["size"] == "undefined"){
             query_param["size"] = 2;
         }
-        
-        ajaxRemoteRequest("hospital/get-patient-list",query_param,queryPatientRet);
+        m_this.m_query_param = query_param;
+
+        ajaxRemoteRequest("hospital/get-patient-list",m_this.m_query_param,queryPatientRet);
+    }
+    function fillTable(datas){
+        var table_datas = getTableShowData(datas, m_this.m_options.show_fields);
+        for (var i = 0; i < table_datas.length; i++){
+            table_datas[i]["医院"] = getHospitalName(table_datas[i]["医院"]);
+            table_datas[i]["状态"] = getStatusName(table_datas[i]["状态"]);
+            table_datas[i]["上传时间"] = timestampToString(table_datas[i]["上传时间"]);
+            table_datas[i]["性别"] = getXingbieName(table_datas[i]["性别"]);
+        }
+        console.dir(table_datas);
+        var table_html = getTableHtml(table_datas, options);
+        m_this.m_options.table_wrapper.html(table_html);
+        if (m_this.m_options.page_nav_wrapper){
+            fillPageNav(m_this.m_data.total_num, m_this.m_data.page_size, m_this.m_data.cur_page, m_this.m_options.page_nav_wrapper);
+        }
     }
 
     function fillPageNav(total_num, page_size, cur_page, page_nav_wrapper){
@@ -36,12 +64,14 @@ function patient_query(){
         }
          
         var navHtml = '<ul class="pagination">'  +
-                        '<li class="page-item"><a class="page-link" href="#">共8条</a></li>' +
+                        '<li class="page-item"><a class="page-link" href="#">共'+total_num+'条</a></li>' +
                         '<li class="page-item"><div style="position:relative;float:left;margin-left:5px;"><div class="input-group"><input type="text" class="form-control" style="width:50px"></div></li>' +
                         '<li class="page-item"><a class="page-link" href="#">跳转</a></li>' +
                         '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">首页</a></li>' +
                         '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">&lt;</a></li>';
-
+        for (var i = 0; i < total_page; i++){
+            navHtml += '';
+        }
         navHtml +=      '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">&gt;</a></li>' + 
                         '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">尾页</a></li>' + 
                         '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">共'+total_page+'页</a></li>' + 
@@ -171,21 +201,6 @@ function patient_query(){
             }
         }
         return ""+xingbie;
-    }
-    this.fillTable = function(datas, options, table_wrapper, page_nav_wrapper){
-        var table_datas = getTableShowData(datas, options.show_fields);
-        for (var i = 0; i < table_datas.length; i++){
-            table_datas[i]["医院"] = getHospitalName(table_datas[i]["医院"]);
-            table_datas[i]["状态"] = getStatusName(table_datas[i]["状态"]);
-            table_datas[i]["上传时间"] = timestampToString(table_datas[i]["上传时间"]);
-            table_datas[i]["性别"] = getXingbieName(table_datas[i]["性别"]);
-        }
-        console.dir(table_datas);
-        var table_html = getTableHtml(table_datas, options);
-        table_wrapper.html(table_html);
-        if (page_nav_wrapper){
-            fillPageNav(options.total_num, options.page_size, options.cur_page, page_nav_wrapper);
-        }
     }
 }
 

@@ -34,39 +34,19 @@ require_once(__DIR__."/../config/front_config.php");
     <?php require(WEB_PAGE_PATH."js.php"); ?>
     <script src="/web/js/query.js"></script>
     <script type="text/javascript">
-        var g_patient_query = new patient_query();
-        var g_query_data = {};
-        function onGotoPage(page){
-
-        }
-        function onDeleteRecord(record_id){
-
-        }
-        function queryInfoRet(rsp){
-            if (rsp.ret != 0){
-                alert("查询失败，请稍候再试");
-                return;
-            }
-            var data = rsp.msg;
-            var options = {
-                "show_fields":["序号","病案号","姓名","性别", "出生日期", "联系人", "联系电话", "医院", "上传时间", "状态"],
-                "page_size":rsp.size,
-                "cur_page":rsp.page,
-                "total_num":rsp.total,
-                "operations":"删除",
-            }
-            g_query_data.page_size = options.page_size;
-            g_query_data.cur_page = options.cur_page;
-            g_query_data.total_num = options.total_num;
-
-            g_patient_query.fillTable(data, options, $("#query-table-wrapper"), $("#query-page-nav"));
-        }
         initPage();
-        
+        var g_patient_query = new patient_query();
+        var options = {
+            "show_fields":["序号","病案号","姓名","性别", "出生日期", "联系人", "联系电话", "医院", "上传时间", "状态"],
+            "operations":"删除",
+            "table_wrapper":$("#query-table-wrapper"),
+            "page_nav_wrapper":$("#query-page-nav")
+        }
+        g_patient_query.init(options);
+
         $("#content-query button[tag='query']").click(function(){
-            g_patient_query.query_patient({}, queryInfoRet);
+            g_patient_query.query_patient({});
         })
-        g_patient_query.query_patient({}, queryInfoRet);
     </script>
 </body>
 
