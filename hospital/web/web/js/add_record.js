@@ -31,7 +31,7 @@ function addRecord(){
 		var data_json = getValuesByMap(raw_json["患者基本资料"], json_map);
 		data_json["isSupply"] = data_json["isNotSupply"]?0:1;
 		delete data_json["isNotSupply"];
-		var data_json_lianxiren = {"a":100};
+		var data_json_lianxiren = raw_json["联系人基本资料"];
 		data_json["relate_text"] = $.toJSON(data_json_lianxiren);
 		console.dir(data_json);
 		////////////////////////////////////////////////
