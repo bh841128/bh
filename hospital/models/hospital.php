@@ -1,6 +1,6 @@
 <?php
 namespace app\models;
-class Hospital extends \yii\base\BaseObject implements \yii\web\IdentityInterface
+class Hospital
 {
     public $id;
     public $username;
