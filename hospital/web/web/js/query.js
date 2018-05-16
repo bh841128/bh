@@ -73,8 +73,22 @@ function patient_query(){
                         '<li class="page-item"><a class="page-link" href="#">跳转</a></li>' +
                         '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">首页</a></li>' +
                         '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">&lt;</a></li>';
-        for (var i = 0; i < total_page; i++){
-            navHtml += '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px" data-page="'+i+'">'+(i+1)+'</a></li>';
+        var arr_nav_pages = [];
+        if (total_page <= 7){
+            for (var i = 0; i < total_page; i++){
+                arr_nav_pages.push(i);
+            }
+        }
+        else{
+            arr_nav_pages.push(0);
+
+            arr_nav_pages.push(cur_page);
+
+            arr_nav_pages.push(total_page - 1);
+        }
+        for (var i = 0; i < arr_nav_pages.length; i++){
+            var page = arr_nav_pages[i];
+            navHtml += '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px" data-page="'+page+'">'+(page+1)+'</a></li>';
         }
         navHtml +=      '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">&gt;</a></li>' + 
                         '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">尾页</a></li>' + 
