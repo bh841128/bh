@@ -96,6 +96,7 @@ function patient_query(){
                 record_html += '<td>'+getOpertionHtml(data,options.operations) +'</td>';
             }
             record_html += '</tr>';
+            table_html += record_html;
         }
         table_html += '</tbody>';
         table_html += '</table>'
