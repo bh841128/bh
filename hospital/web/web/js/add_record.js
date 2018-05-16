@@ -20,6 +20,7 @@ function addRecord(){
 			{"name":"性别","field":"sexy"},
 			{"name":"姓名","field":"name"},
 			{"name":"民族","field":"nation"},
+			{"name":"出生日期","field":"birthday"},
 			{"name":"详细地址-不能提供","field":"isSupply", "default_value":0},
 			{"name":"详细地址-不能提供-原因","field":"reason"},
 			{"name":"省份","field":"province"},
