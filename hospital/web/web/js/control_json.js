@@ -72,10 +72,10 @@ function getValuesByMap(raw_json, json_map){
     var data_json = {};
     for (var i = 0; i < json_map.length; i++){
         if (typeof json_map[i]["default_value"] != "undefined"){
-            data_json[data_name] = getValueByJsonName(raw_json,json_map[data_name],json_map[i]["default_value"]);
+            data_json[json_map[i]["field"]] = getValueByJsonName(raw_json,json_map[i]["name"],json_map[i]["default_value"]);
         }
         else{
-            data_json[data_name] = getValueByJsonName(raw_json,json_map[data_name]);
+            data_json[json_map[i]["field"]] = getValueByJsonName(raw_json,json_map[i]["name"]);
         }
     }
     return data_json;
