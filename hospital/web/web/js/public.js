@@ -298,7 +298,11 @@ function initIEPlaceholder(){
 		if (!place_hoder){
 			return;
 		}
-		$(this).placeholder();
+		try {
+			$(this).placeholder();
+		}
+		catch(err) {
+		}
 	})
 }
 
