@@ -35,18 +35,20 @@ require_once(__DIR__."/../config/front_config.php");
     <script src="/web/js/query.js"></script>
     <script type="text/javascript">
         initPage();
-        var g_patient_query = new patient_query();
+        
         var options = {
             "show_fields":["序号","病案号","姓名","性别", "出生日期", "联系人", "联系电话", "医院", "上传时间", "状态"],
             "operations":"删除",
             "table_wrapper":$("#query-table-wrapper"),
             "page_nav_wrapper":$("#query-page-nav")
         }
+        var g_patient_query = new patient_query();
         g_patient_query.init(options);
 
         $("#content-query button[tag='query']").click(function(){
             g_patient_query.query_patient({});
         })
+        g_patient_query.query_patient({});
     </script>
 </body>
 
