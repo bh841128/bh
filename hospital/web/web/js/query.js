@@ -131,7 +131,7 @@ function patient_query(){
             {"name":"删除","id":"3"}
         ];
         for (var i = 0; i < status_map.length; i++){
-            if (status_map[i]["status"] == status){
+            if (status_map[i]["id"] == status){
                 return status_map[i]["name"];
             }
         }
