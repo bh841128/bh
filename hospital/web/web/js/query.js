@@ -81,9 +81,17 @@ function patient_query(){
         }
         else{
             arr_nav_pages.push(0);
-
-            arr_nav_pages.push(cur_page);
-
+            
+            if (cur_page - 1 > 0){
+                arr_nav_pages.push(cur_page - 1);
+            }
+            if (cur_page > 0 && cur_page < total_page - 1){
+                arr_nav_pages.push(cur_page);
+            }
+            if (cur_page + 1 < total_page - 1){
+                arr_nav_pages.push(cur_page + 1);
+            }
+            
             arr_nav_pages.push(total_page - 1);
         }
         for (var i = 0; i < arr_nav_pages.length; i++){
