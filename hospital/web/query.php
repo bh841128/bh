@@ -46,9 +46,9 @@ require_once(__DIR__."/../config/front_config.php");
         g_patient_query.init(options);
 
         $("#content-query button[tag='query']").click(function(){
-            g_patient_query.query_patient({page:0,size:1});
+            g_patient_query.queryPatient({page:0,size:1});
         })
-        g_patient_query.query_patient({page:0,size:1});
+        g_patient_query.queryPatient({page:0,size:1});
     </script>
 </body>
 
