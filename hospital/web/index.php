@@ -61,7 +61,7 @@ require_once(__DIR__."/../config/front_config.php");
                                 aria-selected="true">出院资料</a>
                         </li>
                     </ul>
-                    <div class="tab-content" style="margin-top:20px">
+                    <div class="tab-content" style="margin-top:20px" id="zyjl-wraper">
                         <div class="tab-pane form-step fade active in" id="tab-zyjl-riqi" role="tabpanel" aria-labelledby="nav-tab-zyjl-riqi">
                             <?php require(WEB_PAGE_PATH."add/zhuyuanjilu/riqi.php"); ?>
                             <?php require(WEB_PAGE_PATH."add/zhuyuanjilu/save_upload.php"); ?>
@@ -91,22 +91,30 @@ require_once(__DIR__."/../config/front_config.php");
         <script src="/web/js/query.js"></script>
         <script src="/web/js/add_record.js"></script>
         <script type="text/javascript">
-        //g_operation_type  1 编辑 2 详情
+        //g_operation_type  1 编辑病人信息 2 详情 3 编辑住院记录
 <?php
     $g_patient_id = @intval($_REQUEST['patient_id']);
     if (empty($g_patient_id)) $g_patient_id = 0;
     $g_operation_type = @intval($_REQUEST['operation_type']);
     if (empty($g_operation_type)) $g_operation_type = 0;
+    $g_zyjl_id = @intval($_REQUEST['zyjl_id']);
+    if (empty($g_zyjl_id)) $g_zyjl_id = 0;
     echo "var g_patient_id = $g_patient_id;\n";
     echo "var g_operation_type = $g_operation_type;\n";
+    echo "var g_zyjl_id = $g_zyjl_id;\n";
 ?>
         </script>
         <script type="text/javascript">
             initPage();
+            //添加病人信息
             var g_addPatient = new addPatient();
-            g_addPatient.init(g_patient_id, g_operation_type);
+            g_addPatient.init();
+            //查询住院记录
+            var g_queryZhuyuanjilu = new queryZhuyuanjilu();
+            g_queryZhuyuanjilu.init();
+            //添加住院记录
             var g_addZhuyuanjilu = new addZhuyuanjilu();
-            g_addZhuyuanjilu.init(g_patient_id, g_operation_type);
+            g_addZhuyuanjilu.init();
         </script>
     </div>
 
