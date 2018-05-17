@@ -52,6 +52,13 @@ function control_json(){
         var tagName = control.prop('tagName');
         if (tagName == "SELECT"){
             selectSelectByValue(control,value);
+            var tag = control.attr("tag");
+            if (!tag){
+                return;
+            }
+            if (tag == "address-shengfen"){
+                control.trigger( "change" );
+            }
             return;
         }
         if (tagName == "INPUT"){
