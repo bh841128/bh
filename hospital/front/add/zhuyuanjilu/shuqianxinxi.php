@@ -20,7 +20,7 @@
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="zyjl-jiwangxinzangbingcishu" value="0" json-name="既往心脏病手术次数">0</lable>
+                        <input type="radio" name="zyjl-jiwangxinzangbingcishu" value="0" json-name="既往心脏病手术次数" checked>0</lable>
                     <lable class="radio-inline">
                         <input type="radio" name="zyjl-jiwangxinzangbingcishu" value="1" json-name="既往心脏病手术次数">1</lable>
                     <lable class="radio-inline">
@@ -35,7 +35,7 @@
     </div>
     <div class="form-group" id="jyxzbcs-wraper">
         <table class="control-table">
-            <tr tag="jyxzbcs">
+            <tr tag="jyxzbcs" style="display:none">
                 <td>
                     <div class="control-label control-label-120">既往心脏病手术时间：</div>
                 </td>
@@ -54,7 +54,7 @@
                     </div>
                 </td>
             </tr>
-            <tr tag="jyxzbcs">
+            <tr tag="jyxzbcs" style="display:none">
                 <td>
                     <div class="control-label control-label-120">既往心脏病手术时间：</div>
                 </td>
@@ -73,7 +73,7 @@
                     </div>
                 </td>
             </tr>
-            <tr tag="jyxzbcs">
+            <tr tag="jyxzbcs" style="display:none">
                 <td>
                     <div class="control-label control-label-120">既往心脏病手术时间：</div>
                 </td>
@@ -92,7 +92,7 @@
                     </div>
                 </td>
             </tr>
-            <tr tag="jyxzbcs">
+            <tr tag="jyxzbcs" style="display:none">
                 <td>
                     <div class="control-label control-label-120">既往心脏病手术时间：</div>
                 </td>

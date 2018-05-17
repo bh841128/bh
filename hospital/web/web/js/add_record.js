@@ -260,7 +260,6 @@ function addZhuyuanjilu(){
 				}
 				i++;
 			})
-			alert(value);
 		})
 	}
 }
