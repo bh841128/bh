@@ -150,6 +150,9 @@ function patient_query() {
                 page_item.attr("show_page", i+1);
                 page_item.find("a").html(i+1);
             }
+            for (var i = total_page; i < max_show_page; i++){
+                page_nav_wrapper.find("[page-index='"+i+"']").hide();
+            }
         }
     }
     function fillTable(data, options) {
