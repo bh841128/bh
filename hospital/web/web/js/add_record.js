@@ -157,6 +157,7 @@ function addZhuyuanjilu(){
 		$("#zyjl-wraper button[tag='zyjl-upload']").click(function(){
 			onUploadZhuyuanjilu();
 		})
+		initControlJwxzbch();
 		
 		if (g_patient_id > 0 && g_zyjl_id > 0){
 			if (g_operation_type == 3){
