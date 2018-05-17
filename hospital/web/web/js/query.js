@@ -118,6 +118,11 @@ function patient_query() {
 
         ajaxRemoteRequest(m_this.m_query_data_api, m_this.m_query_param, queryDataRet);
     }
+    function queryPageData(page_size, pageGo){
+        m_this.m_query_param.page = pageGo - 1;
+        m_this.m_query_param.size = page_size;
+        m_this.queryData(m_this.m_query_param);
+    }
     ////////////////////////////////////////////////////////////////////////////////////////////
     function initPageNav(page_nav_wrapper, options) {
         var navHtml = '<ul class="pagination">' +
@@ -206,7 +211,15 @@ function patient_query() {
             page_nav_wrapper.find("[page-index='"+i+"']").hide();
         }
 
-        page_nav_wrapper.find("a").click(function(){
+        page_nav_wrapper.find("a[tag]").click(function(){
+            var tag = $(this).attr("tag");
+            if (tag == "page_page"){
+                var pageGo = $(this).attr("show-page-no");
+                if (!pageGo || pageGo == cur_page){
+                    return false;
+                }
+                queryPageData(page_size, pageGo);
+            }
             return false;
         })
     }
