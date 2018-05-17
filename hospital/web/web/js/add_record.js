@@ -61,8 +61,29 @@ function addRecord(){
 	/////////////////////////////////////////////////////////////////////
 	function initPatientData(patient_id){
 		function onGetPatientDataRet(rsp){
-			console.dir(patient_id);
+			if (rsp.ret != 0){
+				m_patient_id = 0;
+				alert("读取数据失败，请稍候再试");
+				return;
+			}
+			var db_data = rsp.msg;
+			if (db_data.relate_text == ""){
+				db_data.relate_text = {};
+			}
+			else {
+				try {
+					db_data.relate_text = eval('(' + db_data.relate_text + ')');
+				}
+				catch (err) {
+					db_data.relate_text = {};
+				}
+			}
+			initInputsByData(db_data);
 		}
 		ajaxRemoteRequest("hospital/get-patient",{id:patient_id},onAddRecordRet);
+	}
+
+	function initInputsByData(db_data){
+		console.dir(db_data);
 	}
 }
