@@ -68,7 +68,8 @@ function control_json(){
                 return;
             }
             if (inputType == "checkbox"){
-                setCheckboxChecked(control,value);
+                setCheckboxChecked(control.get(0),value);
+                return;
             }
         }
     }
