@@ -19,8 +19,12 @@ function patient_query(){
     
     this.init = function(options){
         m_this.m_options = options;
+        if (typeof m_this.m_options["nav_page_num"] == "undefined"){
+            m_this.m_options["nav_page_num"] = 7;
+        }
+        initPageNav(m_this.m_options.page_nav_wrapper, m_this.m_options);
     }
-    this.query_patient = function(query_param){
+    this.queryPatient = function(query_param){
         function queryPatientRet(rsp){
             console.dir(rsp);
             if (rsp.ret != 0){
@@ -28,13 +32,14 @@ function patient_query(){
                 return;
             }
             
-            m_this.m_data = rsp;
             m_this.m_data.page_size = m_this.m_query_param.size;
             m_this.m_data.cur_page = rsp.page;
             m_this.m_data.total_num = rsp.total;
+            m_this.m_data.records = rsp.msg;
 
-            fillTable(rsp.msg);
+            fillTable(m_this.m_data, m_this.options);
         }
+
         if (typeof query_param["page"] == "undefined"){
             query_param["page"] = 0;
         }
@@ -42,11 +47,30 @@ function patient_query(){
             query_param["size"] = 2;
         }
         m_this.m_query_param = query_param;
-
+        
         ajaxRemoteRequest("hospital/get-patient-list",m_this.m_query_param,queryPatientRet);
     }
-    function fillTable(datas){
-        var table_datas = getTableShowData(datas, m_this.m_options.show_fields);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////
+    function initPageNav(page_nav_wrapper, options){
+        var navHtml = '<ul class="pagination">'  +
+                        '<li class="page-item"><a class="page-link" href="#">共'+total_num+'条</a></li>' +
+                        '<li class="page-item"><div style="position:relative;float:left;margin-left:5px;"><div class="input-group"><input type="text" class="form-control" style="width:50px"></div></li>' +
+                        '<li class="page-item"><a class="page-link" href="#">跳转</a></li>' +
+                        '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">首页</a></li>' +
+                        '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">&lt;</a></li>';
+        for (var i = 0; i < options.nav_page_num; i++){
+            navHtml += '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">'+(i+1)+'</a></li>';
+        }
+        navHtml +=      '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">&gt;</a></li>' + 
+                        '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">尾页</a></li>' + 
+                        '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">共'+total_page+'页</a></li>' + 
+                      '</ul>';
+        page_nav_wrapper.html(navHtml);                        
+    }
+
+    function fillTable(data, options){
+        var table_datas = getTableShowData(data.records, options.show_fields);
         for (var i = 0; i < table_datas.length; i++){
             table_datas[i]["医院"] = getHospitalName(table_datas[i]["医院"]);
             table_datas[i]["状态"] = getStatusName(table_datas[i]["状态"]);
@@ -54,59 +78,21 @@ function patient_query(){
             table_datas[i]["性别"] = getXingbieName(table_datas[i]["性别"]);
         }
         console.dir(table_datas);
-        var table_html = getTableHtml(table_datas, m_this.m_options);
-        m_this.m_options.table_wrapper.html(table_html);
-        if (m_this.m_options.page_nav_wrapper){
-            fillPageNav(m_this.m_data.total_num, m_this.m_data.page_size, m_this.m_data.cur_page, m_this.m_options.page_nav_wrapper);
+        var table_html = getTableHtml(table_datas, options);
+        options.table_wrapper.html(table_html);
+        if (options.page_nav_wrapper){
+            updatePageNav(data.total_num, data.page_size, data.cur_page, options.page_nav_wrapper);
         }
     }
 
-    function fillPageNav(total_num, page_size, cur_page, page_nav_wrapper){
+    function updatePageNav(total_num, page_size, cur_page, page_nav_wrapper){
         var total_page = 0;
         if (total_num > 0){
             total_page = Math.ceil(total_num/page_size);
         }
-         
-        var navHtml = '<ul class="pagination">'  +
-                        '<li class="page-item"><a class="page-link" href="#">共'+total_num+'条</a></li>' +
-                        '<li class="page-item"><div style="position:relative;float:left;margin-left:5px;"><div class="input-group"><input type="text" class="form-control" style="width:50px"></div></li>' +
-                        '<li class="page-item"><a class="page-link" href="#">跳转</a></li>' +
-                        '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">首页</a></li>' +
-                        '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">&lt;</a></li>';
-        var arr_nav_pages = [];
-        if (total_page <= 7){
-            for (var i = 0; i < total_page; i++){
-                arr_nav_pages.push(i);
-            }
-        }
-        else{
-            arr_nav_pages.push(0);
-            if (cur_page - 2 > 0){
-                
-            }
-            if (cur_page - 1 > 0){
-                arr_nav_pages.push(cur_page - 1);
-            }
-            if (cur_page > 0 && cur_page < total_page - 1){
-                arr_nav_pages.push(cur_page);
-            }
-            if (cur_page + 1 < total_page - 1){
-                arr_nav_pages.push(cur_page + 1);
-            }
-            
-            arr_nav_pages.push(total_page - 1);
-        }
-        for (var i = 0; i < arr_nav_pages.length; i++){
-            var page = arr_nav_pages[i];
-            navHtml += '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px" data-page="'+page+'">'+(page+1)+'</a></li>';
-        }
-        navHtml +=      '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">&gt;</a></li>' + 
-                        '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">尾页</a></li>' + 
-                        '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">共'+total_page+'页</a></li>' + 
-                      '</ul>';
-        page_nav_wrapper.html(navHtml);
-
+        
     }
+    ////////////////////////////////////////////////////////////////////////////////////////////////
     function getJsonValueByShowname(json, show_name){
         if (typeof m_this.map_showname_name[show_name] == "undefined"){
             return "";
