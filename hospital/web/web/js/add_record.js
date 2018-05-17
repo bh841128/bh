@@ -1,6 +1,20 @@
 function addRecord(){
 	var m_patient_id = 0;
 	var m_operation_type = 0;
+	var m_json_map = [
+		{"name":"病案号","field":"medical_id"},
+		{"name":"性别","field":"sexy"},
+		{"name":"姓名","field":"name"},
+		{"name":"民族","field":"nation"},
+		{"name":"出生日期","field":"birthday"},
+		{"name":"详细地址-不能提供","field":"isNotSupply", "default_value":0},
+		{"name":"详细地址-不能提供-原因","field":"reason"},
+		{"name":"省份","field":"province"},
+		{"name":"城市","field":"city"},
+		{"name":"区县","field":"district"},
+		{"name":"详细地址","field":"address"},
+	];
+
 	this.init = function(patient_id, operation_type){
 		m_patient_id = patient_id;
 		m_operation_type = operation_type;
@@ -24,20 +38,8 @@ function addRecord(){
 		raw_json["联系人基本资料"] = g_control_json.parseControlJson($("#lianxiren-jibenziliao"));
 		console.dir(raw_json);
 		/////////////////////////////////////////////////
-		var json_map = [
-			{"name":"病案号","field":"medical_id"},
-			{"name":"性别","field":"sexy"},
-			{"name":"姓名","field":"name"},
-			{"name":"民族","field":"nation"},
-			{"name":"出生日期","field":"birthday"},
-			{"name":"详细地址-不能提供","field":"isNotSupply", "default_value":0},
-			{"name":"详细地址-不能提供-原因","field":"reason"},
-			{"name":"省份","field":"province"},
-			{"name":"城市","field":"city"},
-			{"name":"区县","field":"district"},
-			{"name":"详细地址","field":"address"},
-		];
-		var data_json = getValuesByMap(raw_json["患者基本资料"], json_map);
+		
+		var data_json = getValuesByMap(raw_json["患者基本资料"], m_json_map);
 		data_json["isSupply"] = data_json["isNotSupply"]?0:1;
 		delete data_json["isNotSupply"];
 		var data_json_lianxiren = arrayToJson(raw_json["联系人基本资料"]);
@@ -85,5 +87,8 @@ function addRecord(){
 
 	function initInputsByData(db_data){
 		console.dir(db_data);
+		var data_json = getValuesByMapReverse(db_data, m_json_map);
+		console.dir(data_json);
+		
 	}
 }

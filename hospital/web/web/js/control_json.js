@@ -84,6 +84,19 @@ function getValuesByMap(raw_json, json_map){
     return data_json;
 }
 
+function getValuesByMapReverse(raw_json, json_map){
+    var data_json = {};
+    for (var i = 0; i < json_map.length; i++){
+        if (typeof json_map[i]["default_value"] != "undefined"){
+            data_json[json_map[i]["name"]] = getValueByJsonName(raw_json,json_map[i]["field"],json_map[i]["default_value"]);
+        }
+        else{
+            data_json[json_map[i]["name"]] = getValueByJsonName(raw_json,json_map[i]["field"]);
+        }
+    }
+    return data_json;
+}
+
 function arrayToJson(raw_json){
     var data_json = {};
     for (var i = 0; i < raw_json.length; i++){
