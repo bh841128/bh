@@ -224,6 +224,34 @@ function patient_query() {
                     }
                     queryPageData(page_size, pageGo);
                 }
+                if (tag == "goto_page_prev"){
+                    if (cur_page <= 1){
+                        return false;
+                    }
+                    queryPageData(page_size, cur_page - 1);
+                    return false;
+                }
+                if (tag == "goto_page_next"){
+                    if (cur_page >= total_page){
+                        return false;
+                    }
+                    queryPageData(page_size, cur_page + 1);
+                    return false;
+                }
+                if (tag == "goto_page_first"){
+                    if (cur_page == 1){
+                        return false;
+                    }
+                    queryPageData(page_size, 1);
+                    return false;
+                }
+                if (tag == "goto_page_last"){
+                    if (cur_page == total_page){
+                        return false;
+                    }
+                    queryPageData(page_size, total_page);
+                    return false;
+                }
                 return false;
             })
         })
