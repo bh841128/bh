@@ -93,6 +93,13 @@ function patient_query() {
         }
         if (operationType == "删除"){
             ajaxRemoteRequest("hospital/set-patients-status", {"ids":dataId+"","status":3}, onOperationRet);
+            return;
+        }
+        if (operationType == "编辑"){
+            $("#post_edit_form input[name='patient_id']").val(dataId);
+            $("#post_edit_form input[name='operation_type']").val(1);
+            $("#post_edit_form").submit();
+            return;
         }
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
