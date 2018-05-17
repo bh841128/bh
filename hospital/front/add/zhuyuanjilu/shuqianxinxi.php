@@ -371,7 +371,7 @@
                 <td style="padding-left:35px">
                     <div class="checkbox">
                         <lable>
-                            <input type="checkbox" tag="address-nodetail-checkbox">不能提供</lable>
+                            <input type="checkbox">不能提供</lable>
                     </div>
                 </td>
             </tr>
@@ -388,7 +388,7 @@
                 <td style="padding-left:35px">
                     <div class="checkbox">
                         <lable>
-                            <input type="checkbox" tag="address-nodetail-checkbox">不能提供</lable>
+                            <input type="checkbox">不能提供</lable>
                     </div>
                 </td>
             </tr>

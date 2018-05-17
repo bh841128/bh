@@ -140,7 +140,7 @@
     </div>
     <div class="form-group">
         <table class="control-table">
-            <tr></tr>
+            <tr>
             <td>
                 <div class="control-label control-label-180">
                     <span class="red_star">*&nbsp;</span>联系电话：</div>
@@ -151,7 +151,7 @@
             <td style="padding-left:35px">
                 <div class="checkbox">
                     <lable>
-                        <input type="checkbox" value="1" json-name="联系人电话-不能提供">不能提供</lable>
+                        <input type="checkbox" value="1" tag='address-nodetail-checkbox'" json-name="联系人电话-不能提供">不能提供</lable>
                 </div>
             </td>
             <td style="padding-left:15px">
