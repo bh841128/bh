@@ -100,54 +100,5 @@
     </table>
 </div>
 <nav aria-label="Page navigation" style="text-align:center" id="query-page-nav">
-    <ul class="pagination">
-        <li class="page-item">
-            <a class="page-link" href="#">共8条</a>
-        </li>
-        <li class="page-item">
-            <div style="position:relative;float:left;margin-left:5px;">
-                <div class="input-group">
-                    <input type="text" class="form-control" style="width:50px">
-                </div>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="#">跳转</a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="#" style="margin-left:5px">首页</a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="#" style="margin-left:5px">&lt;</a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="#" style="margin-left:5px">1</a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="#" style="margin-left:5px">2</a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="#" style="margin-left:5px">3</a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="#" style="margin-left:5px">...</a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="#" style="margin-left:5px">43</a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="#" style="margin-left:5px">44</a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="#" style="margin-left:5px">45</a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="#" style="margin-left:5px">&gt;</a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="#" style="margin-left:5px">尾页</a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="#" style="margin-left:5px">共45页</a>
-        </li>
-    </ul>
+    
 </nav>

@@ -37,7 +37,7 @@ function patient_query(){
             m_this.m_data.total_num = rsp.total;
             m_this.m_data.records = rsp.msg;
 
-            fillTable(m_this.m_data, m_this.options);
+            fillTable(m_this.m_data, m_this.m_options);
         }
 
         if (typeof query_param["page"] == "undefined"){
