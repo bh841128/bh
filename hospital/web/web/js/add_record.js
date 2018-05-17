@@ -182,7 +182,7 @@ function addZhuyuanjilu(){
 		var raw_json_operation_before_info = g_control_json.parseControlJson($("#tab-zyjl-shuqianxinxi"));
 		console.dir(raw_json_operation_before_info);
 		var data_json_operation_before_info = arrayToJson(raw_json_operation_before_info);
-		data_json.raw_json_operation_before_info = $.toJSON(data_json_operation_before_info);
+		data_json.operation_before_info = $.toJSON(data_json_operation_before_info);
 		console.dir(data_json_operation_before_info);
 		////////////////////////////////////////////////
 		////检查参数合法性
