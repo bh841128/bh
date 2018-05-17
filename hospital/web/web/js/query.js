@@ -83,6 +83,18 @@ function patient_query() {
         }
         return "" + xingbie;
     }
+    function onOperationClick(operationType, dataId){
+        function onOperationRet(rsp){
+            if (rsp.ret != 0){
+                alert("操作失败，请稍后再试");
+                return;
+            }
+            queryPageData(m_this.m_query_param.size, m_this.m_query_param.page);
+        }
+        if (operationType == "删除"){
+            ajaxRemoteRequest("hospital/set-patients-status", {"ids":dataId+"","status":3}, onOperationRet);
+        }
+    }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //接口
     this.init = function (options) {
@@ -325,6 +337,11 @@ function patient_query() {
         if (options.page_nav_wrapper) {
             updatePageNav(data.total_num, data.page_size, data.cur_page, options.page_nav_wrapper);
         }
+        options.table_wrapper.find("[operation-type]").each(function(){
+            var operationType = $(this).attr("operation-type");
+            var dataId   = $(this).attr("data-id");
+            onOperationClick(operationType, dataId);
+        })
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////
     function getJsonValueByShowname(json, show_name) {
