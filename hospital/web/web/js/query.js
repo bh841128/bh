@@ -104,7 +104,7 @@ function patient_query() {
                 m_this.m_data.records = [];
                 m_this.m_data.cur_page = 1;
                 m_this.m_data.total_num = 0;
-                alert("没有数据");
+                //alert("没有数据");
             }
             else{
                 m_this.m_data.page_size = m_this.m_query_param.size;

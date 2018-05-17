@@ -5,13 +5,13 @@
                 <div class="control-label" style="width:100px">姓名：</div>
             </td>
             <td>
-                <input type="text" class="form-control input-sm" style="width:120px" placeholder="" json-name="姓名" value="葡萄">
+                <input type="text" class="form-control input-sm" style="width:120px" placeholder="" json-name="姓名" value="">
             </td>
             <td>
                 <div class="control-label" style="width:80px;padding-left:5px;">病案号：</div>
             </td>
             <td>
-                <input type="text" class="form-control input-sm" style="width:180px" placeholder="" json-name="病案号" value="182">
+                <input type="text" class="form-control input-sm" style="width:180px" placeholder="" json-name="病案号" value="">
             </td>
             <td>
                 <div class="control-label" style="width:60px;padding-left:5px;">性别：</div>
@@ -26,7 +26,7 @@
                 <div class="control-label" style="width:70px;padding-left:5px;">联系人：</div>
             </td>
             <td>
-                <input type="text" class="form-control input-sm" style="width:150px" placeholder="" json-name="联系人" value="联系人ee">
+                <input type="text" class="form-control input-sm" style="width:150px" placeholder="" json-name="联系人" value="">
             </td>
         </tr>
     </table>
@@ -36,7 +36,7 @@
                 <div class="control-label" style="width:100px;padding-left:5px;">联系电话：</div>
             </td>
             <td>
-                <input type="text" class="form-control input-sm" style="width:120px" placeholder="" json-name="联系电话" value="136956">
+                <input type="text" class="form-control input-sm" style="width:120px" placeholder="" json-name="联系电话" value="">
             </td>
             <td>
                 <div class="control-label" style="width:80px;padding-left:5px;">上传时间：</div>
