@@ -431,5 +431,8 @@ function patient_query() {
 }
 
 function zhuyuanjilu_query(){
-
+    var m_patient_query = new patient_query();
+    this.init = function(){
+        m_patient_query.init();
+    }
 }

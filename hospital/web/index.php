@@ -88,6 +88,7 @@ require_once(__DIR__."/../config/front_config.php");
         <?php require(WEB_PAGE_PATH."footer.php"); ?>
         <?php require(WEB_PAGE_PATH."login_modal.php"); ?>
         <?php require(WEB_PAGE_PATH."js.php"); ?>
+        <script src="/web/js/query.js"></script>
         <script src="/web/js/add_record.js"></script>
         <script type="text/javascript">
         //g_operation_type  1 编辑 2 详情
