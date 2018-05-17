@@ -54,7 +54,7 @@ function patient_query(){
     ////////////////////////////////////////////////////////////////////////////////////////////
     function initPageNav(page_nav_wrapper, options){
         var navHtml = '<ul class="pagination">'  +
-                        '<li class="page-item"><a class="page-link" href="#">共'+total_num+'条</a></li>' +
+                        '<li class="page-item"><a class="page-link" href="#">共条</a></li>' +
                         '<li class="page-item"><div style="position:relative;float:left;margin-left:5px;"><div class="input-group"><input type="text" class="form-control" style="width:50px"></div></li>' +
                         '<li class="page-item"><a class="page-link" href="#">跳转</a></li>' +
                         '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">首页</a></li>' +
@@ -64,7 +64,7 @@ function patient_query(){
         }
         navHtml +=      '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">&gt;</a></li>' + 
                         '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">尾页</a></li>' + 
-                        '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">共'+total_page+'页</a></li>' + 
+                        '<li class="page-item"><a class="page-link" href="#" style="margin-left:5px">共页</a></li>' + 
                       '</ul>';
         page_nav_wrapper.html(navHtml);                        
     }
