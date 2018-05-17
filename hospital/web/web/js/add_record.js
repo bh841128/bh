@@ -88,6 +88,7 @@ function addRecord(){
 	function initInputsByData(db_data){
 		console.dir(db_data);
 		var data_json = getValuesByMapReverse(db_data, m_json_map);
+		data_json["详细地址-不能提供"] = db_data["isSupply"]==0?1:0;
 		console.dir(data_json);
 		var g_control_json = new control_json();
 		g_control_json.setJson2Control($("#huanzhe-jibenziliao"), data_json);
