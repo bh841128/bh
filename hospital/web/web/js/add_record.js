@@ -80,7 +80,7 @@ function addRecord(){
 			}
 			initInputsByData(db_data);
 		}
-		ajaxRemoteRequest("hospital/get-patient",{id:patient_id},onAddRecordRet);
+		ajaxRemoteRequest("hospital/get-patient",{id:patient_id},onGetPatientDataRet);
 	}
 
 	function initInputsByData(db_data){
