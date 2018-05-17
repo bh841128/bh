@@ -472,7 +472,7 @@ function timestampToString(timestamp){
 function getParentUntil(node, parentTagname){
 	var parentIter = node.parentNode;
 	while (parentIter.tagName != parentTagname){
-		parentIter = parentNode.parentNode;
+		parentIter = parentIter.parentNode;
 	}
 	return parentIter;
 }
