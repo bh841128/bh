@@ -252,6 +252,14 @@ function patient_query() {
                     queryPageData(page_size, total_page);
                     return false;
                 }
+                if (tag == "goto_page_button"){
+                    var gotoPage = parseInt(page_nav_wrapper.find("[tag='goto_page_input'] input").val());
+                    if (isNaN(gotoPage) || gotoPage == cur_page || gotoPage <= 0 || gotoPage > total_page){
+                        return false;
+                    }
+                    queryPageData(page_size, gotoPage);
+                    return false;
+                }
                 return false;
             })
         })
