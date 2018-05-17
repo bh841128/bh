@@ -179,9 +179,11 @@ function addZhuyuanjilu(){
 		data_json["operation_time"] = strDateToTimestap(data_json["operation_time"]);
 		
 		console.dir(data_json);
-		var raw_json_operation_before_info = g_control_json.parseControlJson($("#tab-zyjl-riqi"));
+		var raw_json_operation_before_info = g_control_json.parseControlJson($("#tab-zyjl-shuqianxinxi"));
 		console.dir(raw_json_operation_before_info);
-		
+		var data_json_operation_before_info = arrayToJson(raw_json_operation_before_info);
+		data_json.raw_json_operation_before_info = $.toJSON(data_json_operation_before_info);
+		console.dir(data_json_operation_before_info);
 		////////////////////////////////////////////////
 		////检查参数合法性
 		////////////////////////////////////////////////
@@ -222,17 +224,17 @@ function addZhuyuanjilu(){
 				return;
 			}
 			var db_data = rsp.msg;
-			/*if (db_data.relate_text == ""){
-				db_data.relate_text = {};
+			if (db_data.operation_before_info == ""){
+				db_data.operation_before_info = {};
 			}
 			else {
 				try {
-					db_data.relate_text = eval('(' + db_data.relate_text + ')');
+					db_data.operation_before_info = eval('(' + db_data.operation_before_info + ')');
 				}
 				catch (err) {
-					db_data.relate_text = {};
+					db_data.operation_before_info = {};
 				}
-			}*/
+			}
 			initInputsByData(db_data);
 		}
 		ajaxRemoteRequest("hospital/get-record",{id:zyjl_id},onGetZhuyuanjiluDataRet);
@@ -246,7 +248,7 @@ function addZhuyuanjilu(){
 		console.dir(data_json);
 		var g_control_json = new control_json();
 		g_control_json.setJson2Control($("#tab-zyjl-riqi"), data_json);
-		//g_control_json.setJson2Control($("#lianxiren-jibenziliao"), db_data.relate_text);
+		g_control_json.setJson2Control($("#tab-zyjl-shuqianxinxi"), db_data.operation_before_info);
 	}
 	///////////////////////////////////////////////////////
 	//既往心脏病手术次数
