@@ -1,4 +1,4 @@
-function addRecord(){
+function addPatient(){
 	var m_patient_id = 0;
 	var m_operation_type = 0;
 	var m_json_map = [
@@ -30,8 +30,6 @@ function addRecord(){
 				initPatientData(m_patient_id);
 			}
 		}
-
-		initZhuyuanjilu();
 	}
 	function onAddZhuyuanjilu(){
 		$("#content-add").hide();
@@ -119,6 +117,14 @@ function addRecord(){
 		g_control_json.setJson2Control($("#lianxiren-jibenziliao"), db_data.relate_text);
 	}
 	////////////////////////////////////////////////////////////////////////
+}
+
+function addZhuyuanjilu(){
+	this.init = function(patient_id, operation_type){
+		m_patient_id = patient_id;
+		m_operation_type = operation_type;
+		initZhuyuanjilu();
+	}
 	function initZhuyuanjilu(){
 		function onQueryZhuyuanjilu(){
 			if (m_patient_id <= 0){
@@ -126,7 +132,7 @@ function addRecord(){
 			}
 			g_zhuyuanjilu_query.queryData({"patient_id":m_patient_id});
 		}
-		
+
 		$('#nav-tab-zhuyuanjilu').on('shown.bs.tab', function (e) {
 			onQueryZhuyuanjilu();
 		});
@@ -138,6 +144,8 @@ function addRecord(){
 			"patient_id":m_patient_id
 		}
 		var g_zhuyuanjilu_query = new zhuyuanjilu_query();
-        g_zhuyuanjilu_query.init(options);
+		g_zhuyuanjilu_query.init(options);
+		
+		onQueryZhuyuanjilu();
 	}
 }

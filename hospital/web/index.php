@@ -103,8 +103,10 @@ require_once(__DIR__."/../config/front_config.php");
         </script>
         <script type="text/javascript">
             initPage();
-            var g_addRecord = new addRecord();
-            g_addRecord.init(g_patient_id, g_operation_type);
+            var g_addPatient = new addPatient();
+            g_addPatient.init(g_patient_id, g_operation_type);
+            var g_addZhuyuanjilu = new addZhuyuanjilu();
+            g_addZhuyuanjilu.init(g_patient_id, g_operation_type);
         </script>
     </div>
 
