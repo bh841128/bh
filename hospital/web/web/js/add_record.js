@@ -24,15 +24,14 @@ function addRecord(){
 		$("#tab-jibenziliao button[tag='jibenziliao-baocun']").click(function(){
 			onJibenziliaoSave();
 		})
-		$('#nav-tab-zhuyuanjilu').on('shown.bs.tab', function (e) {
-			var target = $(e.target).attr("href") // activated tab
-			alert(target);
-		});
+		
 		if (m_patient_id > 0){
 			if (m_operation_type > 0){
 				initPatientData(m_patient_id);
 			}
 		}
+
+		initZhuyuanjilu();
 	}
 	function onAddZhuyuanjilu(){
 		$("#content-add").hide();
@@ -118,5 +117,25 @@ function addRecord(){
 		var g_control_json = new control_json();
 		g_control_json.setJson2Control($("#huanzhe-jibenziliao"), data_json);
 		g_control_json.setJson2Control($("#lianxiren-jibenziliao"), db_data.relate_text);
+	}
+	////////////////////////////////////////////////////////////////////////
+	function initZhuyuanjilu(){
+		$('#nav-tab-zhuyuanjilu').on('shown.bs.tab', function (e) {
+			onQueryZhuyuanjilu();
+		});
+		var options = {
+            "show_fields":["序号","入院日期","出院日期","手术日期","上传时间", "状态"],
+            "operations":"详情,编辑,删除",
+            "table_wrapper":$("#query-table-wrapper"),
+            "page_nav_wrapper":$("#query-page-nav")
+		}
+		var g_zhuyuanjilu_query = new zhuyuanjilu_query();
+        g_zhuyuanjilu_query.init(options);
+	}
+	function onQueryZhuyuanjilu(){
+		if (m_patient_id <= 0){
+			return;
+		}
+		g_zhuyuanjilu_query.queryData({});
 	}
 }

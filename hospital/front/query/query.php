@@ -82,7 +82,7 @@
     </div>
 </div>
 <div class="box-body table-responsive" id="query-table-wrapper">
-    <table id="example2" class="table table-bordered table-hover table-center" style="text-align:center">
+    <table class="table table-bordered table-hover table-center" style="text-align:center">
         <thead>
             <tr>
                 <th>序号</th>

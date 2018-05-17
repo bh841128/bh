@@ -431,8 +431,40 @@ function patient_query() {
 }
 
 function zhuyuanjilu_query(){
+    var m_this = this;
+    var m_options = {};
     var m_patient_query = new patient_query();
-    this.init = function(){
-        m_patient_query.init();
+    var map_showname_name = {
+        "序号": "id",
+        "入院日期": "hospitalization_in_time",
+        "出院日期": "hospitalization_out_time",
+        "手术日期": "operation_time",
+        "上传时间": "uploadtime",
+        "状态": "status"
+    }
+    var map_query_param = [
+    ]
+    this.m_query_data_api = "hospital/get-record-list";
+    this.preProcessData = function(rawDatas) {
+    }
+    this.transData = function(table_datas) {
+    }
+    this.onOperationClick = function(operationType, dataId){
+        alert(operationType);
+    }
+    this.init = function(options){
+        m_options = options;
+        if (typeof m_options["page_size"] == "undefined"){
+            m_options["page_size"] = 10;
+        }
+        m_patient_query.init(m_options);
+        m_patient_query.map_showname_name = map_showname_name;
+        m_patient_query.map_query_param = map_query_param;
+        m_patient_query.preProcessData = m_this.preProcessData;
+        m_patient_query.transData = m_this.transData;
+        m_patient_query.onOperationClick = m_this.onOperationClick;
+    }
+    this.queryData = function (query_param){
+        return m_patient_query.queryData(query_param);
     }
 }
