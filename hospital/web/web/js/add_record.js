@@ -62,7 +62,7 @@ function addRecord(){
 		console.dir(rsp);
 		if (rsp.ret != 0){
 			alert("添加数据失败，请稍后再试");
-			reutrn;
+			return;
 		}
 		alert("添加成功");
 		m_operation_type = 1;
@@ -72,7 +72,7 @@ function addRecord(){
 		console.dir(rsp);
 		if (rsp.ret != 0){
 			alert("更新数据失败，请稍后再试");
-			reutrn;
+			return;
 		}
 		alert("更新成功");
 	}
