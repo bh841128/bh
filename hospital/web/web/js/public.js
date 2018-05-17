@@ -449,23 +449,33 @@ function timestampToString(timestamp){
     var minutes = dt.getMinutes();
     var seconds = dt.getSeconds();
 
-    // the above dt.get...() functions return a single digit
-	// so I prepend the zero here when needed
 	if (month < 10) 
-	month = '0' + month;
-	 if (day < 10) 
-	 day = '0' + day;
-	 
+		month = '0' + month;
+	if (day < 10) 
+	 	day = '0' + day;
     if (hours < 10) 
-     hours = '0' + hours;
-
+     	hours = '0' + hours;
     if (minutes < 10) 
-     minutes = '0' + minutes;
-
+     	minutes = '0' + minutes;
     if (seconds < 10) 
-     seconds = '0' + seconds;
+     	seconds = '0' + seconds;
 
     return year +"-"+month+"-"+day+" "+hours + ":" + minutes + ":" + seconds;
+}
+
+function timestampToDateString(timestamp){
+	var dt = new Date(timestamp * 1000);
+
+	var year  = dt.getFullYear();
+	var month = dt.getMonth()+1;
+	var day   = dt.getDate();
+
+	if (month < 10) 
+		month = '0' + month;
+	if (day < 10) 
+	 	day = '0' + day;
+	
+    return year +"-"+month+"-"+day;
 }
 
 function getParentUntil(node, parentTagname){

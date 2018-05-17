@@ -236,6 +236,9 @@ function addZhuyuanjilu(){
 	function initInputsByData(db_data){
 		console.dir(db_data);
 		var data_json = getValuesByMapReverse(db_data, m_json_map);
+		data_json["入院日期"] = timestampToDateString(data_json["入院日期"]);
+		data_json["出院日期"] = timestampToDateString(data_json["出院日期"]);
+		data_json["手术日期"] = timestampToDateString(data_json["手术日期"]);
 		console.dir(data_json);
 		var g_control_json = new control_json();
 		g_control_json.setJson2Control($("#tab-zyjl-riqi"), data_json);
