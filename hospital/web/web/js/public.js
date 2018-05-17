@@ -372,6 +372,9 @@ function onChangePassword(old_password, new_password, callback){
 	ajaxRemoteRequest("hospital/modpwd",{username:username,newpassword:new_password,oldpassword:old_password},callback);
 }
 
+function strDateToTimestap(sDate){
+	return parseInt(Date.parse(sDate)/1000);
+}
 ////////////////////////////////////////////////////////
 function onShowChangePwd(){
 	$( "#id_login_frame button[tag='ok']" ).off('click').on("click", function() {

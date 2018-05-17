@@ -123,6 +123,37 @@ function patient_query() {
         m_this.m_query_param.size = page_size;
         m_this.queryData(m_this.m_query_param);
     }
+    this.parseQueryParam = function(params_input_wrapper){
+        var raw_json = {};
+		var g_control_json = new control_json();
+        raw_json = g_control_json.parseControlJson(params_input_wrapper);
+        var json_map = [
+            {"name":"姓名","field":"name"},
+            {"name":"病案号","field":"medical_id"},
+            {"name":"性别","field":"sexy"},
+            {"name":"联系人","field":"relate_name"},
+            {"name":"联系电话","field":"relate_iphone"},
+            {"name":"上传时间-开始","field":"start_time"},
+            {"name":"上传时间-结束","field":"end_time"},
+            {"name":"状态","field":"status"}
+		];
+        var query_json_tmp = getValuesByMap(raw_json, json_map);
+        var query_json = {};
+        for (var x in query_json_tmp){
+            if (query_json_tmp[x] == null){
+                continue;
+            }
+            query_json[x] = query_json_tmp[x];
+        }
+        if (typeof query_json["start_time"] != "undefined"){
+            query_json["start_time"] = strDateToTimestap(query_json["start_time"]);
+        }
+        if (typeof query_json["end_time"] != "undefined"){
+            query_json["end_time"] = strDateToTimestap(query_json["end_time"]);
+        }
+        console.dir(query_json);
+        return query_json;
+    }
     ////////////////////////////////////////////////////////////////////////////////////////////
     function initPageNav(page_nav_wrapper, options) {
         var navHtml = '<ul class="pagination">' +
