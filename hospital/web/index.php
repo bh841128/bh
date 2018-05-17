@@ -1,4 +1,5 @@
 <?php
+use app\models\CUtil;
 require_once(__DIR__."/../config/front_config.php");
 ?>
 <!DOCTYPE html>
@@ -89,7 +90,14 @@ require_once(__DIR__."/../config/front_config.php");
         <?php require(WEB_PAGE_PATH."login_modal.php"); ?>
         <?php require(WEB_PAGE_PATH."js.php"); ?>
         <script src="/web/js/add_record.js"></script>
-        
+        <script type="text/javascript">
+<?php
+    $g_patient_id = intval(CUtil::getRequestParam('request', 'patient_id', 0));
+    $g_operation_type = intval(CUtil::getRequestParam('request', 'operation_type', 0));
+    echo "var g_patient_id = $g_patient_id;\n";
+    echo "var g_operation_type = $g_operation_type;\n";
+?>
+        </script>
         <script type="text/javascript">
             initPage();
             var g_addRecord = new addRecord();
