@@ -167,6 +167,7 @@ function patient_query() {
         }
 
         var show_pages = [];
+        var show_pages_2 = [];
         if (seed_page_left > 1){
             show_pages.push(1);
             seed_page_left++;
@@ -174,10 +175,16 @@ function patient_query() {
             seed_page_left++;
         }
         if (seed_page_right < total_page){
-            show_pages.push("...");
+            show_pages_2.push("...");
             seed_page_right--;
-            show_pages.push(total_page);
+            show_pages_2.push(total_page);
             seed_page_right--;
+        }
+        for (var i = seed_page_left; i <= seed_page_right; i++){
+            show_pages.push(i);
+        }
+        for (var i = 0; i < show_pages_2.length; i++){
+            show_pages.push(show_pages_2[i]);
         }
         for (var i = 0; i < show_pages.length; i++){
             var page = show_pages[i];
@@ -191,7 +198,7 @@ function patient_query() {
             page_item.find("a").html(page);
         }
 
-        for (var i = total_page; i < max_show_page; i++){
+        for (var i = show_pages.length; i < max_show_page; i++){
             page_nav_wrapper.find("[page-index='"+i+"']").hide();
         }
     }
