@@ -1,5 +1,9 @@
 function addRecord(){
-	this.init = function(){
+	var m_patient_id = 0;
+	var m_operation_type = 0;
+	this.init = function(patient_id, operation_type){
+		m_patient_id = patient_id;
+		m_operation_type = operation_type;
 		$("#add-zhuyuanjilu").click(function(){
 			$("#content-add").hide();
 			$("#content-zyjl").show();
@@ -7,6 +11,11 @@ function addRecord(){
 		$("#tab-jibenziliao button[tag='jibenziliao-baocun']").click(function(){
 			onJibenziliaoSave();
 		})
+		if (g_patient_id > 0){
+			if (g_operation_type == 1){
+				initPatientData(m_patient_id);
+			}
+		}
 	}
 	function onJibenziliaoSave(){
 		var raw_json = {};
@@ -42,5 +51,18 @@ function addRecord(){
 	}
 	function onAddRecordRet(rsp){
 		console.dir(rsp);
+		if (rsp.ret != 0){
+			alert("添加数据失败，请稍后再试");
+			reutrn;
+		}
+		m_operation_type = 1;
+		//m_patient_id = rsp.id;
+	}
+	/////////////////////////////////////////////////////////////////////
+	function initPatientData(patient_id){
+		function onGetPatientDataRet(rsp){
+			console.dir(patient_id);
+		}
+		ajaxRemoteRequest("hospital/get-patient",{id:patient_id},onAddRecordRet);
 	}
 }
