@@ -156,7 +156,7 @@
                     <div class="control-label control-label-100">体重：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="体重" json-name="体重">
+                    <input type="text" class="form-control input-sm" style="width:65px;padding-left:10px;" placeholder="体重" json-name="体重">
                 </td>
                 <td>
                     <span>（千克）</span>
