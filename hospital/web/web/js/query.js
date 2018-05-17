@@ -458,6 +458,7 @@ function zhuyuanjilu_query(){
             m_options["page_size"] = 10;
         }
         m_patient_query.init(m_options);
+        m_patient_query.m_query_data_api = m_this.m_query_data_api;
         m_patient_query.map_showname_name = map_showname_name;
         m_patient_query.map_query_param = map_query_param;
         m_patient_query.preProcessData = m_this.preProcessData;
