@@ -233,7 +233,7 @@ function getRadioValue(radioName){
 	return $("input[name='"+radioName+"']:checked").val();
 }
 
-function setRadioChecked(radioName, valeChecked){
+function setRadioCheckedByName(radioName, valeChecked){
 	var radios = document.getElementsByName(radioName);
     for (var j = 0; j < radios.length; j++) {
         if (radios[j].value == valeChecked) {
@@ -241,6 +241,10 @@ function setRadioChecked(radioName, valeChecked){
             break;
         }
     }
+}
+
+function setRadioChecked(control){
+	control.checked = true;
 }
 
 function getCheckboxChecked(control_checkbox){
