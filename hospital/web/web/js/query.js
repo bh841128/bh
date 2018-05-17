@@ -19,8 +19,18 @@ function patient_query() {
         "上传时间": "uploadtime",
         "状态": "status"
     }
+    this.map_query_param = [
+        {"name":"姓名","field":"name"},
+        {"name":"病案号","field":"medical_id"},
+        {"name":"性别","field":"sexy"},
+        {"name":"联系人","field":"relate_name"},
+        {"name":"联系电话","field":"relate_iphone"},
+        {"name":"上传时间-开始","field":"start_time"},
+        {"name":"上传时间-结束","field":"end_time"},
+        {"name":"状态","field":"status"}
+    ]
     this.m_query_data_api = "hospital/get-patient-list";
-    function preProcessData(rawDatas) {
+    this.preProcessData = function(rawDatas) {
         for (var i = 0; i < rawDatas.length; i++) {
             try {
                 rawDatas[i]["relate_text"] = eval('(' + rawDatas[i]["relate_text"] + ')');
@@ -30,7 +40,7 @@ function patient_query() {
             }
         }
     }
-    function transData(table_datas) {
+    this.transData = function(table_datas) {
         for (var i = 0; i < table_datas.length; i++) {
             table_datas[i]["医院"] = getHospitalName(table_datas[i]["医院"]);
             table_datas[i]["状态"] = getStatusName(table_datas[i]["状态"]);
@@ -38,6 +48,26 @@ function patient_query() {
             table_datas[i]["性别"] = getXingbieName(table_datas[i]["性别"]);
         }
     }
+    this.onOperationClick = function(operationType, dataId){
+        function onOperationRet(rsp){
+            if (rsp.ret != 0){
+                alert("操作失败，请稍后再试");
+                return;
+            }
+            queryPageData(m_this.m_query_param.size, m_this.m_query_param.page);
+        }
+        if (operationType == "删除"){
+            ajaxRemoteRequest("hospital/set-patients-status", {"ids":dataId+"","status":3}, onOperationRet);
+            return;
+        }
+        if (operationType == "编辑"){
+            $("#post_edit_form input[name='patient_id']").val(dataId);
+            $("#post_edit_form input[name='operation_type']").val(1);
+            $("#post_edit_form").submit();
+            return;
+        }
+    }
+    ///////////////////
     function getHospitalName(hospital_id) {
         var hospitals = [
             { "name": "中国医学科学院阜外医院", "id": "1" },
@@ -82,25 +112,6 @@ function patient_query() {
             }
         }
         return "" + xingbie;
-    }
-    function onOperationClick(operationType, dataId){
-        function onOperationRet(rsp){
-            if (rsp.ret != 0){
-                alert("操作失败，请稍后再试");
-                return;
-            }
-            queryPageData(m_this.m_query_param.size, m_this.m_query_param.page);
-        }
-        if (operationType == "删除"){
-            ajaxRemoteRequest("hospital/set-patients-status", {"ids":dataId+"","status":3}, onOperationRet);
-            return;
-        }
-        if (operationType == "编辑"){
-            $("#post_edit_form input[name='patient_id']").val(dataId);
-            $("#post_edit_form input[name='operation_type']").val(1);
-            $("#post_edit_form").submit();
-            return;
-        }
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //接口
@@ -155,16 +166,7 @@ function patient_query() {
         var raw_json = {};
 		var g_control_json = new control_json();
         raw_json = g_control_json.parseControlJson(params_input_wrapper);
-        var json_map = [
-            {"name":"姓名","field":"name"},
-            {"name":"病案号","field":"medical_id"},
-            {"name":"性别","field":"sexy"},
-            {"name":"联系人","field":"relate_name"},
-            {"name":"联系电话","field":"relate_iphone"},
-            {"name":"上传时间-开始","field":"start_time"},
-            {"name":"上传时间-结束","field":"end_time"},
-            {"name":"状态","field":"status"}
-		];
+        var json_map = m_this.map_query_param;
         var query_json_tmp = getValuesByMap(raw_json, json_map);
         var query_json = {};
         for (var x in query_json_tmp){
@@ -335,9 +337,9 @@ function patient_query() {
         })
     }
     function fillTable(data, options) {
-        preProcessData(data.records);
+        m_this.preProcessData(data.records);
         var table_datas = getTableShowData(data.records, options.show_fields);
-        transData(table_datas);
+        m_this.transData(table_datas);
         console.dir(table_datas);
         var table_html = getTableHtml(table_datas, options);
         options.table_wrapper.html(table_html);
@@ -348,7 +350,7 @@ function patient_query() {
             var operationType = $(this).attr("operation-type");
             var dataId   = $(this).attr("data-id");
             $(this).click(function(){
-                onOperationClick(operationType, dataId);
+                m_this.onOperationClick(operationType, dataId);
                 return false;
             })
             
@@ -428,3 +430,6 @@ function patient_query() {
     }
 }
 
+function zhuyuanjilu_query(){
+
+}
