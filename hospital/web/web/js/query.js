@@ -181,7 +181,6 @@ function patient_query() {
         page_nav_wrapper.html(navHtml);
     }
     function updatePageNav(total_num, page_size, cur_page, page_nav_wrapper) {
-        return;
         var total_page = 0;
         if (total_num > 0) {
             total_page = Math.ceil(total_num / page_size);
@@ -201,6 +200,7 @@ function patient_query() {
         var cur_show_page_num = 1;
         var seed_page_left  = seed_page;
         var seed_page_right = seed_page;
+        return;
         while (seed_page_right - seed_page_left + 1 < max_show_page){
             if (seed_page_left > 1){
                 seed_page_left--;
