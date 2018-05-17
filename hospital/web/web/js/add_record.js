@@ -19,17 +19,20 @@ function addRecord(){
 		m_patient_id = patient_id;
 		m_operation_type = operation_type;
 		$("#add-zhuyuanjilu").click(function(){
-			$("#content-add").hide();
-			$("#content-zyjl").show();
+			onAddZhuyuanjilu();
 		})
 		$("#tab-jibenziliao button[tag='jibenziliao-baocun']").click(function(){
 			onJibenziliaoSave();
 		})
 		if (m_patient_id > 0){
-			if (m_operation_type == 1){
+			if (m_operation_type > 0){
 				initPatientData(m_patient_id);
 			}
 		}
+	}
+	function onAddZhuyuanjilu(){
+		$("#content-add").hide();
+		$("#content-zyjl").show();
 	}
 	function onJibenziliaoSave(){
 		var raw_json = {};
@@ -97,6 +100,9 @@ function addRecord(){
 				}
 			}
 			initInputsByData(db_data);
+			if (m_operation_type == 2){
+				onAddZhuyuanjilu();
+			}
 		}
 		ajaxRemoteRequest("hospital/get-patient",{id:patient_id},onGetPatientDataRet);
 	}
