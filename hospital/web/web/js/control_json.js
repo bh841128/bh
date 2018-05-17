@@ -56,7 +56,7 @@ function control_json(){
             if (!tag){
                 return;
             }
-            if (tag == "address-shengfen"){
+            if (tag == "address-shengfen" || tag == "address-chengshi"){
                 control.trigger( "change" );
             }
             return;
