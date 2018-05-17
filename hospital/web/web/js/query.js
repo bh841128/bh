@@ -194,6 +194,8 @@ function patient_query() {
         for (var i = 0; i < show_pages.length; i++){
             var page = show_pages[i];
             var page_item = page_nav_wrapper.find("[page-index='"+i+"']")
+            page_item.removeClass("page-nav-dot");
+            page_item.removeClass("page-nav-cur");
             if (page == "..."){
                 page_item.addClass("page-nav-dot");
             }
