@@ -375,10 +375,6 @@ function onChangePassword(old_password, new_password, callback){
 	var username = g_global_data["username"];
 	ajaxRemoteRequest("hospital/modpwd",{username:username,newpassword:new_password,oldpassword:old_password},callback);
 }
-
-function strDateToTimestap(sDate){
-	return parseInt(Date.parse(sDate)/1000);
-}
 ////////////////////////////////////////////////////////
 function onShowChangePwd(){
 	$( "#id_login_frame button[tag='ok']" ).off('click').on("click", function() {
@@ -440,6 +436,9 @@ function getJsonValue(json, name, default_value){
 	return null;
 }
 /////////////////////////////////////////////////////////////////////
+function strDateToTimestap(sDate){
+	return parseInt(Date.parse(sDate)/1000);
+}
 function timestampToString(timestamp){
 	var dt = new Date(timestamp * 1000);
 
