@@ -359,6 +359,7 @@
 .pagination>li.page-nav-dot>a{
     border:none;
     cursor:default;
+    color:#666;
 }
 
 .pagination>li.page-nav-cur>a{
@@ -377,6 +378,7 @@
 {
     background-color:#fafafa;
     cursor:default;
+    color:#666;
 }
 
 
