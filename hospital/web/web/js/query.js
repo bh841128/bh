@@ -340,7 +340,11 @@ function patient_query() {
         options.table_wrapper.find("[operation-type]").each(function(){
             var operationType = $(this).attr("operation-type");
             var dataId   = $(this).attr("data-id");
-            onOperationClick(operationType, dataId);
+            $(this).click(function(){
+                onOperationClick(operationType, dataId);
+                return false;
+            })
+            
         })
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////
