@@ -111,10 +111,10 @@ function initAddress(controls){
 		var m_this = this;
 		$("input[tag='address-nodetail-checkbox'").change(function(){
 			if (this.checked){
-				$(this.parentNode.parentNode).find("input[tag='address-nodetail-yuanyi'").removeAttr("disabled");
+				$(getParentUntil(this, "LI")).find("input[tag='address-nodetail-yuanyi'").removeAttr("disabled");
 			}
 			else{
-				$(this.parentNode.parentNode).find("input[tag='address-nodetail-yuanyi'").attr("disabled","disabled");
+				$(getParentUntil(this, "LI")).find("input[tag='address-nodetail-yuanyi'").attr("disabled","disabled");
 			}
 		})
 		var address_shengfen = $(m_this).find("select[tag='address-shengfen']");
@@ -467,4 +467,12 @@ function timestampToString(timestamp){
      seconds = '0' + seconds;
 
     return year +"-"+month+"-"+day+" "+hours + ":" + minutes + ":" + seconds;
+}
+
+function getParentUntil(node, parentTagname){
+	var parentIter = node.parentNode;
+	while (parentIter.tagName != parentTagname){
+		parentIter = parentNode.parentNode;
+	}
+	return parentIter;
 }
