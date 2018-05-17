@@ -109,7 +109,7 @@ function patient_query() {
             }
             else{
                 m_this.m_data.page_size = query_param.size;
-                m_this.m_data.cur_page = parseInt(rsp.page) + 1;
+                m_this.m_data.cur_page = parseInt(rsp.page);
                 m_this.m_data.total_num = parseInt(rsp.total);
                 m_this.m_data.records = rsp.msg;
             }
@@ -118,7 +118,7 @@ function patient_query() {
         }
 
         if (typeof query_param["page"] == "undefined") {
-            query_param["page"] = 0;
+            query_param["page"] = 1;
         }
         if (typeof query_param["size"] == "undefined") {
             query_param["size"] = 10;
@@ -128,7 +128,7 @@ function patient_query() {
         ajaxRemoteRequest(m_this.m_query_data_api, m_this.m_query_param, queryDataRet);
     }
     function queryPageData(page_size, pageGo){
-        m_this.m_query_param.page = pageGo - 1;
+        m_this.m_query_param.page = pageGo;
         m_this.m_query_param.size = page_size;
         m_this.queryData(m_this.m_query_param);
     }
