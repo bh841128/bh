@@ -169,7 +169,7 @@
                     <div class="control-label control-label-150">术前血氧饱和度：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="术前血氧饱和度" json-name="术前血氧饱和度">
+                    <input type="text" class="form-control input-sm" style="width:120px" placeholder="术前血氧饱和度" json-name="术前血氧饱和度">
                 </td>
                 <td style="padding-left:35px">
                     <div class="checkbox">
@@ -228,7 +228,7 @@
                     <div class="control-label control-label-150">术后血氧饱和度：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="术后血氧饱和度" json-name="术后血氧饱和度">
+                    <input type="text" class="form-control input-sm" style="width:120px" placeholder="术后血氧饱和度" json-name="术后血氧饱和度">
                 </td>
                 <td style="padding-left:35px">
                     <div class="checkbox">
