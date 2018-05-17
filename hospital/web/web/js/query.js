@@ -192,48 +192,56 @@ function patient_query() {
         page_nav_wrapper.find("[tag='total_page'] a").html('共' + total_page + '页');
 
         var max_show_page = page_nav_wrapper.find("[tag='page_page']").length;
-        var seed_page = cur_page;
-        if (seed_page <= 0){
-            seed_page = 0;
+        if (total_page <= max_show_page){
+            for (var i = 1; i <= total_page; i++){
+                show_pages.push(i);
+            }
         }
-        if (seed_page > total_page){
-            seed_page = total_page;
-        }
-        
-        var cur_show_page_num = 1;
-        var seed_page_left  = seed_page;
-        var seed_page_right = seed_page;
-        while (seed_page_right - seed_page_left + 1 < max_show_page){
+        else{
+            var seed_page = cur_page;
+            if (seed_page <= 1){
+                seed_page = 1;
+            }
+            if (seed_page > total_page){
+                seed_page = total_page;
+            }
+            
+            var cur_show_page_num = 1;
+            var seed_page_left  = seed_page;
+            var seed_page_right = seed_page;
+            while (seed_page_right - seed_page_left + 1 < max_show_page){
+                if (seed_page_left > 1){
+                    seed_page_left--;
+                    cur_show_page_num++;
+                }
+                if (seed_page_right < total_page){
+                    seed_page_right++;
+                    cur_show_page_num++;
+                }
+            }
+    
+            var show_pages = [];
+            var show_pages_2 = [];
             if (seed_page_left > 1){
-                seed_page_left--;
-                cur_show_page_num++;
+                show_pages.push(1);
+                seed_page_left++;
+                show_pages.push("...");
+                seed_page_left++;
             }
             if (seed_page_right < total_page){
-                seed_page_right++;
-                cur_show_page_num++;
+                show_pages_2.push("...");
+                seed_page_right--;
+                show_pages_2.push(total_page);
+                seed_page_right--;
+            }
+            for (var i = seed_page_left; i <= seed_page_right; i++){
+                show_pages.push(i);
+            }
+            for (var i = 0; i < show_pages_2.length; i++){
+                show_pages.push(show_pages_2[i]);
             }
         }
-
-        var show_pages = [];
-        var show_pages_2 = [];
-        if (seed_page_left > 1){
-            show_pages.push(1);
-            seed_page_left++;
-            show_pages.push("...");
-            seed_page_left++;
-        }
-        if (seed_page_right < total_page){
-            show_pages_2.push("...");
-            seed_page_right--;
-            show_pages_2.push(total_page);
-            seed_page_right--;
-        }
-        for (var i = seed_page_left; i <= seed_page_right; i++){
-            show_pages.push(i);
-        }
-        for (var i = 0; i < show_pages_2.length; i++){
-            show_pages.push(show_pages_2[i]);
-        }
+        
         for (var i = 0; i < show_pages.length; i++){
             var page = show_pages[i];
             var page_item = page_nav_wrapper.find("[page-index='"+i+"']")
