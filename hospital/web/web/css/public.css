@@ -372,6 +372,13 @@
     cursor:default;
 }
 
+.pagination>li.nav-page-total>a,
+.pagination>li.page-nav-total>a:hover, .pagination>li.page-nav-total>a:active, .pagination>li.page-nav-total>a:focus
+{
+    cursor:default;
+}
+
+
 
 
 /* Full-width input fields */
