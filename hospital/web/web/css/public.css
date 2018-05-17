@@ -364,6 +364,10 @@
     border:none;
     color:red;
 }
+.pagination>li.page-nav-cur>a:hover, .pagination>li.page-nav-dot>a{
+    background-color:#fafafa;
+}
+
 
 
 /* Full-width input fields */
