@@ -49,16 +49,32 @@ function addRecord(){
 		////检查参数合法性
 		////////////////////////////////////////////////
 		//发送插入请求
-		ajaxRemoteRequest("hospital/insert-patient",data_json,onAddRecordRet);
+		if (m_patient_id > 0){
+			data_json["id"] = m_patient_id;
+			ajaxRemoteRequest("hospital/update-patient",data_json,onUpdatePatientRet);
+		}
+		else{
+			ajaxRemoteRequest("hospital/insert-patient",data_json,onAddPatientRet);
+		}
+		
 	}
-	function onAddRecordRet(rsp){
+	function onAddPatientRet(rsp){
 		console.dir(rsp);
 		if (rsp.ret != 0){
 			alert("添加数据失败，请稍后再试");
 			reutrn;
 		}
+		alert("添加成功");
 		m_operation_type = 1;
-		//m_patient_id = rsp.id;
+		m_patient_id = rsp.id;
+	}
+	function onUpdatePatientRet(rsp){
+		console.dir(rsp);
+		if (rsp.ret != 0){
+			alert("更新数据失败，请稍后再试");
+			reutrn;
+		}
+		alert("更新成功");
 	}
 	/////////////////////////////////////////////////////////////////////
 	function initPatientData(patient_id){
