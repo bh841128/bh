@@ -101,7 +101,7 @@ function patient_query() {
             }
 
             m_this.m_data.page_size = m_this.m_query_param.size;
-            m_this.m_data.cur_page = rsp.page;
+            m_this.m_data.cur_page = rsp.page + 1;
             m_this.m_data.total_num = rsp.total;
             m_this.m_data.records = rsp.msg;
 
@@ -144,15 +144,55 @@ function patient_query() {
         page_nav_wrapper.find("[tag='total_page'] a").html('共' + total_page + '页');
 
         var max_show_page = page_nav_wrapper.find("[tag='page_page']").length;
-        if (total_page <= max_show_page){
-            for (var i = 0; i < total_page; i++){
-                var page_item = page_nav_wrapper.find("[page-index='"+i+"']");
-                page_item.attr("show_page", i+1);
-                page_item.find("a").html(i+1);
+        var seed_page = cur_page;
+        if (seed_page <= 0){
+            seed_page = 0;
+        }
+        if (seed_page > total_page){
+            seed_page = total_page;
+        }
+        
+        var cur_show_page_num = 1;
+        var seed_page_left  = seed_page;
+        var seed_page_right = seed_page;
+        while (seed_page_right - seed_page_left + 1 < max_show_page){
+            if (seed_page_left > 1){
+                seed_page_left--;
+                cur_show_page_num++;
             }
-            for (var i = total_page; i < max_show_page; i++){
-                page_nav_wrapper.find("[page-index='"+i+"']").hide();
+            if (seed_page_right < total_page){
+                seed_page_right++;
+                cur_show_page_num++;
             }
+        }
+
+        var show_pages = [];
+        if (seed_page_left > 1){
+            show_pages.push(1);
+            seed_page_left++;
+            show_pages.push("...");
+            seed_page_left++;
+        }
+        if (seed_page_right < total_page){
+            show_pages.push("...");
+            seed_page_right--;
+            show_pages.push(total_page);
+            seed_page_right--;
+        }
+        for (var i = 0; i < show_pages.length; i++){
+            var page = show_pages[i];
+            var page_item = page_nav_wrapper.find("[page-index='"+i+"']")
+            if (page == "..."){
+                page_item.addClass("page-nav-dot");
+            }
+            else if (page == cur_page){
+                page_item.addClass("page-nav-cur");
+            }
+            page_item.html(page);
+        }
+
+        for (var i = total_page; i < max_show_page; i++){
+            page_nav_wrapper.find("[page-index='"+i+"']").hide();
         }
     }
     function fillTable(data, options) {
