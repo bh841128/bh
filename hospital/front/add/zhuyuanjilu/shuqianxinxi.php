@@ -153,10 +153,10 @@
                     <span>（厘米）</span>
                 </td>
                 <td>
-                    <div class="control-label control-label-100" style="padding-left:10px;">体重：</div>
+                    <div class="control-label control-label-100" style="padding-left:10px;width:65px;">体重：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:65px;" placeholder="体重" json-name="体重">
+                    <input type="text" class="form-control input-sm" placeholder="体重" json-name="体重">
                 </td>
                 <td>
                     <span>（千克）</span>
