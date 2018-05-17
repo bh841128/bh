@@ -358,13 +358,15 @@
 /*                  page nav    */
 .pagination>li.page-nav-dot>a{
     border:none;
+    cursor:pointer;
 }
 
 .pagination>li.page-nav-cur>a{
     border:none;
     color:red;
+    cursor:pointer;
 }
-.pagination>li.page-nav-cur>a:hover, .pagination>li.page-nav-dot>a{
+.pagination>li.page-nav-cur>a:hover, .pagination>li.page-nav-dot>a:hover{
     background-color:#fafafa;
     cursor:pointer;
 }
