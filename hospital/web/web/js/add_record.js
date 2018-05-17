@@ -24,7 +24,7 @@ function addRecord(){
 		$("#tab-jibenziliao button[tag='jibenziliao-baocun']").click(function(){
 			onJibenziliaoSave();
 		})
-		$('#nav-tab-zhuyuanjilu a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+		$('#nav-tab-zhuyuanjilu').on('shown.bs.tab', function (e) {
 			var target = $(e.target).attr("href") // activated tab
 			alert(target);
 		});
