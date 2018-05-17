@@ -23,10 +23,10 @@ function patient_query() {
     function preProcessData(rawDatas) {
         for (var i = 0; i < rawDatas.length; i++) {
             try {
-                data[i]["relate_text"] = eval('(' + rawDatas[i]["relate_text"] + ')');
+                rawDatas[i]["relate_text"] = eval('(' + rawDatas[i]["relate_text"] + ')');
             }
             catch (err) {
-                data[i]["relate_text"] = {};
+                rawDatas[i]["relate_text"] = {};
             }
         }
     }
