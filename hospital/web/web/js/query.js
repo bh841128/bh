@@ -205,6 +205,10 @@ function patient_query() {
         for (var i = show_pages.length; i < max_show_page; i++){
             page_nav_wrapper.find("[page-index='"+i+"']").hide();
         }
+
+        page_nav_wrapper.find("a").click(function(){
+            return false;
+        })
     }
     function fillTable(data, options) {
         preProcessData(data.records);
