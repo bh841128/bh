@@ -90,6 +90,7 @@ function patient_query() {
         if (typeof m_this.m_options["nav_page_num"] == "undefined") {
             m_this.m_options["nav_page_num"] = 7;
         }
+        initPageNav(m_this.m_options.page_nav_wrapper, m_this.m_options);
     }
     this.queryData = function (query_param) {
         function queryDataRet(rsp) {
@@ -100,14 +101,12 @@ function patient_query() {
             }
 
             m_this.m_data.page_size = m_this.m_query_param.size;
-            m_this.m_data.cur_page = rsp.page + 1;
-            m_this.m_data.total_num = rsp.total;
+            m_this.m_data.cur_page = parseInt(rsp.page) + 1;
+            m_this.m_data.total_num = parseInt(rsp.total);
             m_this.m_data.records = rsp.msg;
 
             fillTable(m_this.m_data, m_this.m_options);
         }
-
-        initPageNav(m_this.m_options.page_nav_wrapper, m_this.m_options);
 
         if (typeof query_param["page"] == "undefined") {
             query_param["page"] = 0;
@@ -206,6 +205,7 @@ function patient_query() {
             }
             
             page_item.find("a").html(page);
+            page_item.show();
         }
 
         for (var i = show_pages.length; i < max_show_page; i++){
