@@ -355,7 +355,15 @@
     padding:0px;
 }
 
+/*                  page nav    */
+.pagination>li>a.page-nav-dot{
+    border:none;
+}
 
+.pagination>li>a.page-nav-cur{
+    border:none;
+    color:red;
+}
 
 
 /* Full-width input fields */

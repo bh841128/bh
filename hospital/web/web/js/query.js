@@ -194,6 +194,8 @@ function patient_query() {
             }
             else if (page == cur_page){
                 page_item.addClass("page-nav-cur");
+            }
+            else{
                 page_item.attr("show-page-no", page);
             }
             
