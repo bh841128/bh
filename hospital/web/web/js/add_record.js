@@ -11,8 +11,8 @@ function addRecord(){
 		$("#tab-jibenziliao button[tag='jibenziliao-baocun']").click(function(){
 			onJibenziliaoSave();
 		})
-		if (g_patient_id > 0){
-			if (g_operation_type == 1){
+		if (m_patient_id > 0){
+			if (m_operation_type == 1){
 				initPatientData(m_patient_id);
 			}
 		}
