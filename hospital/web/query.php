@@ -52,7 +52,7 @@ require_once(__DIR__."/../config/front_config.php");
             g_patient_query.queryData(query_params);
         }
         
-        $("#datetimepicker").val("");
+        $("input [tag='datetimepicker']").val("");
         $("#content-query button[tag='query']").click(function(){
             queryDefaultPage();
         })
