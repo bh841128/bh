@@ -73,8 +73,8 @@ function patient_query(){
         if (total_num > 0){
             total_page = Math.ceil(total_num/page_size);
         }
-        page_nav_wrapper.find("[tag='total_num']").html('共'+total_num+'条');
-        page_nav_wrapper.find("[tag='total_page']").html('共'+total_page+'页');
+        page_nav_wrapper.find("[tag='total_num'] a").html('共'+total_num+'条');
+        page_nav_wrapper.find("[tag='total_page'] a").html('共'+total_page+'页');
     }
 
     function fillTable(data, options){
