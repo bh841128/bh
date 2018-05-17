@@ -74,7 +74,7 @@ function control_json(){
             }
             if (inputType == "radio"){
                 if (control.val() == value){
-                    setRadioChecked(control);
+                    setRadioChecked(control.get(0));
                     control.trigger( "change" );
                 }
                 
