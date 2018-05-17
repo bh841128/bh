@@ -67,6 +67,9 @@ function control_json(){
                 control.val(value);
                 return;
             }
+            if (inputType == "checkbox"){
+                setCheckboxChecked(control,value);
+            }
         }
     }
     /////////////////////////////////////////////////////////////////////////
