@@ -250,6 +250,16 @@ function addZhuyuanjilu(){
 	function initControlJwxzbch(){
 		$("#jyxzbcs-radio-wraper input[name='zyjl-jiwangxinzangbingcishu']").off('click').on("change", function(){
 			var value = getRadioValue($("#jyxzbcs-radio-wraper"), 'zyjl-jiwangxinzangbingcishu');
+			var i = 0;
+			$("#jyxzbcs-wraper [tag='jyxzbcs']").each(function(){
+				if (i >= value){
+					$(this).hide();
+				}
+				else{
+					$(this).show();
+				}
+				i++;
+			})
 			alert(value);
 		})
 	}
