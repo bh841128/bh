@@ -190,7 +190,7 @@ function addZhuyuanjilu(){
 		//发送插入请求
 		if (g_zyjl_id > 0){
 			data_json["id"] = g_zyjl_id;
-			ajaxRemoteRequest("hospital/update-record",data_json,onUpdateZhuyuanjiluRet);
+			ajaxRemoteRequest("hospital/set-record-text",data_json,onUpdateZhuyuanjiluRet);
 		}
 		else{
 			ajaxRemoteRequest("hospital/insert-record",data_json,onAddZhuyuanjiluRet);
