@@ -179,6 +179,9 @@ function addZhuyuanjilu(){
 		data_json["operation_time"] = strDateToTimestap(data_json["operation_time"]);
 		
 		console.dir(data_json);
+		var raw_json_operation_before_info = g_control_json.parseControlJson($("#tab-zyjl-riqi"));
+		console.dir(raw_json_operation_before_info);
+		
 		////////////////////////////////////////////////
 		////检查参数合法性
 		////////////////////////////////////////////////
