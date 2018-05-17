@@ -111,10 +111,10 @@ function initAddress(controls){
 		var m_this = this;
 		$("input[tag='address-nodetail-checkbox'").change(function(){
 			if (this.checked){
-				$("input[tag='address-nodetail-yuanyi'").removeAttr("disabled");
+				$(this.parentNode.parentNode).find("input[tag='address-nodetail-yuanyi'").removeAttr("disabled");
 			}
 			else{
-				$("input[tag='address-nodetail-yuanyi'").attr("disabled","disabled");
+				$(this.parentNode.parentNode).find("input[tag='address-nodetail-yuanyi'").attr("disabled","disabled");
 			}
 		})
 		var address_shengfen = $(m_this).find("select[tag='address-shengfen']");
