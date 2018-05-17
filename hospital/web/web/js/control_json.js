@@ -71,6 +71,16 @@ function getValueByJsonName(jsonArrs, jsonName, defaultValue){
 	return null;
 }
 
+function getValueByJsonKey(json, key, defaultValue){
+    if (typeof json[key] == "undefined"){
+        if (typeof defaultValue != "undefined"){
+            return defaultValue;
+        }
+        return null;
+    }
+	return json[key];
+}
+
 function getValuesByMap(raw_json, json_map){
     var data_json = {};
     for (var i = 0; i < json_map.length; i++){
@@ -88,10 +98,10 @@ function getValuesByMapReverse(raw_json, json_map){
     var data_json = {};
     for (var i = 0; i < json_map.length; i++){
         if (typeof json_map[i]["default_value"] != "undefined"){
-            data_json[json_map[i]["name"]] = getValueByJsonName(raw_json,json_map[i]["field"],json_map[i]["default_value"]);
+            data_json[json_map[i]["name"]] = getValueByJsonKey(raw_json,json_map[i]["field"],json_map[i]["default_value"]);
         }
         else{
-            data_json[json_map[i]["name"]] = getValueByJsonName(raw_json,json_map[i]["field"]);
+            data_json[json_map[i]["name"]] = getValueByJsonKey(raw_json,json_map[i]["field"]);
         }
     }
     return data_json;
