@@ -169,15 +169,14 @@ function addZhuyuanjilu(){
 		var raw_json = {};
 		var g_control_json = new control_json();
 		raw_json = g_control_json.parseControlJson($("#tab-zyjl-riqi"));
-		raw_json["入院日期"] = strDateToTimestap(raw_json["入院日期"]);
-		raw_json["出院日期"] = strDateToTimestap(raw_json["出院日期"]);
-		raw_json["手术日期"] = strDateToTimestap(raw_json["手术日期"]);
 		console.dir(raw_json);
 		/////////////////////////////////////////////////
 		var data_json = getValuesByMap(raw_json, m_json_map);
 		data_json["patient_id"] = g_patient_id;
+		data_json["hospitalization_in_time"] = strDateToTimestap(data_json["hospitalization_in_time"]);
+		data_json["hospitalization_out_time"] = strDateToTimestap(data_json["hospitalization_out_time"]);
+		data_json["operation_time"] = strDateToTimestap(data_json["operation_time"]);
 		
-		strDateToTimestap
 		console.dir(data_json);
 		////////////////////////////////////////////////
 		////检查参数合法性
