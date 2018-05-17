@@ -356,11 +356,11 @@
 }
 
 /*                  page nav    */
-.pagination>li>a.page-nav-dot{
+.pagination>li.page-nav-dot>a{
     border:none;
 }
 
-.pagination>li>a.page-nav-cur{
+.pagination>li.page-nav-cur>a{
     border:none;
     color:red;
 }
