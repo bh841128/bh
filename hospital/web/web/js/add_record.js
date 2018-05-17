@@ -89,6 +89,7 @@ function addRecord(){
 		console.dir(db_data);
 		var data_json = getValuesByMapReverse(db_data, m_json_map);
 		console.dir(data_json);
-		
+		var g_control_json = new control_json();
+		g_control_json.setJson2Control($("#huanzhe-jibenziliao"), data_json);
 	}
 }

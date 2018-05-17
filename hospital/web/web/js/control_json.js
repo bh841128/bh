@@ -16,7 +16,13 @@ function control_json(){
 
     /////将json值赋给节点
     this.setJson2Control = function(selector, json){
-        
+        selector.find("[json-name]").each(function(){
+            var json_name = $(this).attr("json-name");
+            if (typeof json[json_name] == "undefined"){
+                return;
+            }
+            setInputValue($(this),json[json_name]);
+        })
     }
 
     /////////////////////////////////////////////////////////////////
