@@ -181,6 +181,7 @@ function patient_query() {
         page_nav_wrapper.html(navHtml);
     }
     function updatePageNav(total_num, page_size, cur_page, page_nav_wrapper) {
+        return;
         var total_page = 0;
         if (total_num > 0) {
             total_page = Math.ceil(total_num / page_size);
