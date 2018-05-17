@@ -201,7 +201,7 @@ function patient_query() {
                 page_item.addClass("page-nav-cur");
             }
             else{
-                page_item.find("a").attr("show-page-no", page);
+                page_item.attr("show-page-no", page);
             }
             
             page_item.find("a").html(page);
@@ -211,10 +211,10 @@ function patient_query() {
             page_nav_wrapper.find("[page-index='"+i+"']").hide();
         }
 
-        page_nav_wrapper.find("a[tag]").each(function(){
+        page_nav_wrapper.find("li[tag]").each(function(){
             var tag = $(this).attr("tag");
             var pageGo = $(this).attr("show-page-no");
-            $(this).click(function(){
+            $(this).find("a").click(function(){
                 if (tag == "page_page"){
                     if (!pageGo || pageGo == cur_page){
                         return false;
