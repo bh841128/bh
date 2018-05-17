@@ -121,7 +121,7 @@ function patient_query() {
             query_param["page"] = 0;
         }
         if (typeof query_param["size"] == "undefined") {
-            query_param["size"] = 2;
+            query_param["size"] = 10;
         }
         m_this.m_query_param = query_param;
 

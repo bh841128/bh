@@ -48,7 +48,7 @@ require_once(__DIR__."/../config/front_config.php");
         function queryDefaultPage(){
             var query_params = g_patient_query.parseQueryParam($("#query_param_form"));
             query_params.page = 0;
-            query_params.size = 3;
+            query_params.size = 10;
             g_patient_query.queryData(query_params);
         }
         
