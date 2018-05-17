@@ -68,8 +68,8 @@
                 <select class="form-control input-sm" style="width:150px" json-name="状态">
                     <option value="">不限</option>
                     <option value="1">未上传</option>
-                    <option value="2" selected>已上传</option>
-                    <option value="3" selected>删除</option>
+                    <option value="2">已上传</option>
+                    <option value="3">删除</option>
                 </select>
             </td>
         </tr>
