@@ -237,7 +237,7 @@
                     </div>
                 </td>
                 <td style="padding-left:15px">
-                    <input type="text" class="form-control input-sm" tag="address-nodetail-yuanyi" style="width:400px" placeholder="输入原因" json-name="术后血氧饱和度-不能提供-原因">
+                    <input type="text" class="form-control input-sm" tag="address-nodetail-yuanyi" disabled style="width:400px" placeholder="输入原因" json-name="术后血氧饱和度-不能提供-原因">
                 </td>
             </tr>
         </table>
@@ -328,7 +328,7 @@
                     </div>
                 </td>
                 <td style="padding-left:15px">
-                    <input type="text" class="form-control input-sm" tag="address-nodetail-yuanyi" style="width:400px" placeholder="其他">
+                    <input type="text" class="form-control input-sm" tag="address-nodetail-yuanyi" disabled style="width:400px" placeholder="其他">
                 </td>
             </tr>
         </table>
