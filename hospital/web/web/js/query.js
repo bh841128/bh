@@ -118,7 +118,6 @@ function patient_query() {
 
         ajaxRemoteRequest(m_this.m_query_data_api, m_this.m_query_param, queryDataRet);
     }
-
     ////////////////////////////////////////////////////////////////////////////////////////////
     function initPageNav(page_nav_wrapper, options) {
         var navHtml = '<ul class="pagination">' +
@@ -128,7 +127,7 @@ function patient_query() {
             '<li class="page-item" tag="goto_page_first"><a class="page-link" href="#" style="margin-left:5px">首页</a></li>' +
             '<li class="page-item" tag="goto_page_prev"><a class="page-link" href="#" style="margin-left:5px">&lt;</a></li>';
         for (var i = 0; i < options.nav_page_num; i++) {
-            navHtml += '<li class="page-item" tag="page_num"><a class="page-link" href="#" style="margin-left:5px">' + (i + 1) + '</a></li>';
+            navHtml += '<li class="page-item" tag="page_page" page-index="'+i+'"><a class="page-link" href="#" style="margin-left:5px">' + (i + 1) + '</a></li>';
         }
         navHtml += '<li class="page-item" tag="goto_page_next"><a class="page-link" href="#" style="margin-left:5px">&gt;</a></li>' +
             '<li class="page-item" tag="goto_page_last"><a class="page-link" href="#" style="margin-left:5px">尾页</a></li>' +
@@ -143,8 +142,16 @@ function patient_query() {
         }
         page_nav_wrapper.find("[tag='total_num'] a").html('共' + total_num + '条');
         page_nav_wrapper.find("[tag='total_page'] a").html('共' + total_page + '页');
-    }
 
+        var max_show_page = page_nav_wrapper.find("[tag='page_page']").length;
+        if (total_page <= max_show_page){
+            for (var i = 0; i < total_page; i++){
+                var page_item = page_nav_wrapper.find("[page-index='"+i+"']");
+                page_item.attr("show_page", i+1);
+                page_item.find("a").html(i+1);
+            }
+        }
+    }
     function fillTable(data, options) {
         preProcessData(data.records);
         var table_datas = getTableShowData(data.records, options.show_fields);
