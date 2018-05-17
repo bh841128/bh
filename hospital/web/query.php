@@ -32,7 +32,7 @@ require_once(__DIR__."/../config/front_config.php");
         <?php require(WEB_PAGE_PATH."login_modal.php"); ?>
     </div>
     <div style="display:none;">
-        <form id="post_edit_form" method="POST" action"/index.php">
+        <form id="post_edit_form" method="POST" action="/index.php">
             <input type="hidden" name="patient_id" value="">
             <input type="hidden" name="operation_type" value="">
         </form>
