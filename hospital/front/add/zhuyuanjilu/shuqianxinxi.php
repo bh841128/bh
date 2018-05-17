@@ -147,7 +147,7 @@
                     <div class="control-label control-label-150">身高：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="身高">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="身高" json-name="身高">
                 </td>
                 <td>
                     <span>（厘米）</span>
@@ -156,7 +156,7 @@
                     <div class="control-label control-label-100">体重：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="体重">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="体重" json-name="体重">
                 </td>
                 <td>
                     <span>（千克）</span>
@@ -169,16 +169,16 @@
                     <div class="control-label control-label-150">术前血氧饱和度：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="身高">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="术前血氧饱和度" json-name="术前血氧饱和度">
                 </td>
                 <td style="padding-left:35px">
                     <div class="checkbox">
                         <lable>
-                            <input type="checkbox" tag="address-nodetail-checkbox">不能提供</lable>
+                            <input type="checkbox" tag="address-nodetail-checkbox" json-name="术前血氧饱和度-不能提供">不能提供</lable>
                     </div>
                 </td>
                 <td style="padding-left:15px">
-                    <input type="text" class="form-control input-sm" style="width:400px" placeholder="输入原因" tag="address-nodetail-yuanyi" disabled>
+                    <input type="text" class="form-control input-sm" style="width:400px" placeholder="输入原因" tag="address-nodetail-yuanyi" disabled json-name="术前血氧饱和度-不能提供-原因">
                 </td>
             </tr>
         </table>
@@ -188,7 +188,7 @@
                     <div class="control-label control-label-150">右上肢：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="右上肢" json-name="术前血氧饱和度-右上肢">
                 </td>
                 <td>
                     <span>（%）</span>
@@ -197,7 +197,7 @@
                     <div class="control-label control-label-80">左上肢：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="左上肢" json-name="术前血氧饱和度-左上肢">
                 </td>
                 <td>
                     <span>（%）</span>
@@ -206,7 +206,7 @@
                     <div class="control-label control-label-80">右下肢：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="右下肢" json-name="术前血氧饱和度-右下肢">
                 </td>
                 <td>
                     <span>（%）</span>
@@ -215,7 +215,7 @@
                     <div class="control-label control-label-80">左下肢：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="左下肢" json-name="术前血氧饱和度-左下肢">
                 </td>
                 <td>
                     <span>（%）</span>
@@ -228,16 +228,16 @@
                     <div class="control-label control-label-150">术后血氧饱和度：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="身高">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="术后血氧饱和度" json-name="术后血氧饱和度">
                 </td>
                 <td style="padding-left:35px">
                     <div class="checkbox">
                         <lable>
-                            <input type="checkbox" tag="address-nodetail-checkbox">不能提供</lable>
+                            <input type="checkbox" tag="address-nodetail-checkbox" json-name="术后血氧饱和度-不能提供">不能提供</lable>
                     </div>
                 </td>
                 <td style="padding-left:15px">
-                    <input type="text" class="form-control input-sm" style="width:400px" placeholder="输入原因">
+                    <input type="text" class="form-control input-sm" style="width:400px" placeholder="输入原因" placeholder="术后血氧饱和度" json-name="术后血氧饱和度-不能提供-原因">
                 </td>
             </tr>
         </table>
@@ -247,7 +247,7 @@
                     <div class="control-label control-label-150">右上肢：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="右上肢">
                 </td>
                 <td>
                     <span>（%）</span>
@@ -256,7 +256,7 @@
                     <div class="control-label control-label-80">左上肢：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="左上肢">
                 </td>
                 <td>
                     <span>（%）</span>
@@ -265,7 +265,7 @@
                     <div class="control-label control-label-80">右下肢：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="右下肢">
                 </td>
                 <td>
                     <span>（%）</span>
@@ -274,7 +274,7 @@
                     <div class="control-label control-label-80">左下肢：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="左下肢">
                 </td>
                 <td>
                     <span>（%）</span>
@@ -328,7 +328,7 @@
                     </div>
                 </td>
                 <td style="padding-left:15px">
-                    <input type="text" class="form-control input-sm" style="width:400px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:400px" placeholder="其他">
                 </td>
             </tr>
         </table>
@@ -355,7 +355,7 @@
                     <div class="control-label control-label-180">术前诊断：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:400px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:400px" placeholder="术前诊断">
                 </td>
             </tr>
         </table>
@@ -365,7 +365,7 @@
                     <div class="control-label control-label-180">出生胎龄：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="出生胎龄">
                 </td>
                 <td>
                     <span>（周）</span>
@@ -382,7 +382,7 @@
                     <div class="control-label control-label-180">出生体重：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="出生体重">
                 </td>
                 <td>
                     <span>（千克）</span>
