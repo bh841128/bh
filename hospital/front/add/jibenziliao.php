@@ -122,7 +122,7 @@
                     <div class="control-label control-label-180">姓名：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" placeholder="姓名" json-name="姓名" value="联系人1+1">
+                    <input type="text" class="form-control input-sm" placeholder="姓名" json-name="姓名" value="">
                 </td>
                 <td>
                     <div class="control-label control-label-110">与患者关系：</div>
