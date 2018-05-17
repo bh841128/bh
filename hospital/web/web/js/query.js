@@ -217,7 +217,7 @@ function patient_query() {
         page_nav_wrapper.find("li[tag]").each(function(){
             var tag = $(this).attr("tag");
             var pageGo = $(this).attr("show-page-no");
-            $(this).find("a").click(function(){
+            $(this).find("a").off('click').on("click", function(){
                 if (tag == "page_page"){
                     if (!pageGo || pageGo == cur_page){
                         return false;
