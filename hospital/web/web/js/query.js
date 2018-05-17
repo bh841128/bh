@@ -192,6 +192,7 @@ function patient_query() {
         page_nav_wrapper.find("[tag='total_page'] a").html('共' + total_page + '页');
 
         var max_show_page = page_nav_wrapper.find("[tag='page_page']").length;
+        var show_pages = [];
         if (total_page <= max_show_page){
             for (var i = 1; i <= total_page; i++){
                 show_pages.push(i);
@@ -220,7 +221,6 @@ function patient_query() {
                 }
             }
     
-            var show_pages = [];
             var show_pages_2 = [];
             if (seed_page_left > 1){
                 show_pages.push(1);
