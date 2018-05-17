@@ -188,7 +188,7 @@ function patient_query() {
             else if (page == cur_page){
                 page_item.addClass("page-nav-cur");
             }
-            page_item.html(page);
+            page_item.find("a").html(page);
         }
 
         for (var i = total_page; i < max_show_page; i++){
