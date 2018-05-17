@@ -149,7 +149,7 @@ function patient_query() {
         var query_json_tmp = getValuesByMap(raw_json, json_map);
         var query_json = {};
         for (var x in query_json_tmp){
-            if (query_json_tmp[x] == null){
+            if (query_json_tmp[x] == null || query_json_tmp[x] == ""){
                 continue;
             }
             query_json[x] = query_json_tmp[x];

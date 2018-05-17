@@ -18,8 +18,9 @@
             </td>
             <td>
                 <select class="form-control input-sm" style="width:148px" json-name="性别">
+                    <option value="">不限</option>
                     <option value="1">男</option>
-                    <option value="2" selected>女</option>
+                    <option value="2">女</option>
                 </select>
             </td>
             <td>

@@ -51,7 +51,8 @@ require_once(__DIR__."/../config/front_config.php");
             query_params.size = 3;
             g_patient_query.queryData(query_params);
         }
-
+        
+        $("#datetimepicker").val("");
         $("#content-query button[tag='query']").click(function(){
             queryDefaultPage();
         })
