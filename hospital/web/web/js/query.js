@@ -94,16 +94,24 @@ function patient_query() {
     }
     this.queryData = function (query_param) {
         function queryDataRet(rsp) {
+            
             console.dir(rsp);
-            if (rsp.ret != 0) {
+            if (rsp.ret != 0 && rsp.ret != 2) {
                 alert("拉取数据错误，请稍候重试");
                 return;
             }
-
-            m_this.m_data.page_size = m_this.m_query_param.size;
-            m_this.m_data.cur_page = parseInt(rsp.page) + 1;
-            m_this.m_data.total_num = parseInt(rsp.total);
-            m_this.m_data.records = rsp.msg;
+            if (rsp.ret == 2) {
+                m_this.m_data.records = [];
+                m_this.m_data.cur_page = 1;
+                m_this.m_data.total_num = 0;
+                alert("没有数据");
+            }
+            else{
+                m_this.m_data.page_size = m_this.m_query_param.size;
+                m_this.m_data.cur_page = parseInt(rsp.page) + 1;
+                m_this.m_data.total_num = parseInt(rsp.total);
+                m_this.m_data.records = rsp.msg;
+            }
 
             fillTable(m_this.m_data, m_this.m_options);
         }
