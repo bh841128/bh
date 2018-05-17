@@ -127,7 +127,8 @@ function addRecord(){
             "show_fields":["序号","入院日期","出院日期","手术日期","上传时间", "状态"],
             "operations":"详情,编辑,删除",
             "table_wrapper":$("#query-table-wrapper"),
-            "page_nav_wrapper":$("#query-page-nav")
+			"page_nav_wrapper":$("#query-page-nav"),
+			"patient_id":m_patient_id
 		}
 		var g_zhuyuanjilu_query = new zhuyuanjilu_query();
         g_zhuyuanjilu_query.init(options);
@@ -136,6 +137,6 @@ function addRecord(){
 		if (m_patient_id <= 0){
 			return;
 		}
-		g_zhuyuanjilu_query.queryData({});
+		g_zhuyuanjilu_query.queryData({"patient_id":m_patient_id});
 	}
 }
