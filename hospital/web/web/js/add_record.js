@@ -244,4 +244,12 @@ function addZhuyuanjilu(){
 		g_control_json.setJson2Control($("#tab-zyjl-riqi"), data_json);
 		//g_control_json.setJson2Control($("#lianxiren-jibenziliao"), db_data.relate_text);
 	}
+	///////////////////////////////////////////////////////
+	//既往心脏病手术次数
+	function initControlJwxzbch(){
+		$("#jyxzbcs-radio-wraper input[name='zyjl-jiwangxinzangbingcishu']").off('click').on("change", function(){
+			var value = getRadioValue($("#jyxzbcs-radio-wraper"), 'zyjl-jiwangxinzangbingcishu');
+			alert(value);
+		})
+	}
 }

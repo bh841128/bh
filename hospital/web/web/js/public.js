@@ -229,8 +229,8 @@ function getAddressJsonByName(json, name){
 	return null;
 }
 /////////////////////////////////////////////////////
-function getRadioValue(radioName){
-	return $("input[name='"+radioName+"']:checked").val();
+function getRadioValue(selector, radioName){
+	return selector.find("input[name='"+radioName+"']:checked").val();
 }
 
 function setRadioCheckedByName(radioName, valeChecked){
