@@ -249,6 +249,7 @@ class HospitalizedRecord {
 	static public function insertRecordInfo($record){
      	$ret=array(
 		   "ret"=>0,
+		   "id"=>0,
 		   "msg"=>""
 		);
 		//patient_id,patient_name,hospitalization_in_time,operation_time,hospitalization_out_time,operation_before_info,operation_info,operation_after_info,hospitalization_out_info,createtime,lastmodifytime,hospital_id,manager_id,lastmodify_manager_id,uploadtime,status,medical_id
@@ -264,7 +265,7 @@ class HospitalizedRecord {
 		
 		*/
 		$sql="insert into  hospitalized_record (patient_id,patient_name,hospitalization_in_time,operation_time,hospitalization_out_time,operation_before_info,operation_info,operation_after_info,hospitalization_out_info,createtime,lastmodifytime,hospital_id,manager_id,lastmodify_manager_id,uploadtime,status,medical_id) values ";
-		$sql=$sql."(:patient_id,:patient_name,:hospitalization_in_time,:operation_time,:hospitalization_out_time,'','','','',:createtime,:lastmodifytime,:hospital_id,:manager_id,:lastmodify_manager_id,0,1,:medical_id)";
+		$sql=$sql."(:patient_id,:patient_name,:hospitalization_in_time,:operation_time,:hospitalization_out_time,'','','','',:createtime,:lastmodifytime,:hospital_id,:manager_id,:lastmodify_manager_id,0,1,:medical_id) ";
 		CUtil::logFile("=====$sql  ".print_r($record,true));
 		try{
      	$connection = Yii::$app->db;
@@ -277,12 +278,25 @@ class HospitalizedRecord {
 			return $ret;
 		}
 		
-		if($result!=1){
+		if($result!= 1){
 			$ret["ret"]=1;
 			$ret["msg"]="insert err!";		
 			CUtil::logFile("=====$result  ");			
 			return $ret;
 		}
+		$arg=array(":lastmodify_manager_id"=>$record[":lastmodify_manager_id"]);
+        $sql="select max(id) as id from hospitalized_record where lastmodify_manager_id=:lastmodify_manager_id";
+		try{
+		$connection = Yii::$app->db;
+		$command = $connection->createCommand($sql,$arg);
+		$num = $command->queryOne();
+		}catch(\Exception $ex){
+			$ret["ret"]=2;
+			$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
+			CUtil::logFile("catch ===== ".$ret["msg"]);			
+			return $ret;
+		}
+		$ret["id"]=$num["id"];
 		return $ret;
 
     }

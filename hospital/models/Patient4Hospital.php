@@ -185,6 +185,7 @@ status  1:正常 2:上传  3：删除
 	  static public function insertPatientInfo($patientInfo){
      	$ret=array(
 		   "ret"=>0,
+		   "id"=>0,
 		   "msg"=>""
 		);
 		
@@ -217,6 +218,20 @@ status  1:正常 2:上传  3：删除
 			CUtil::logFile("=====$records  ");			
 			return $ret;
 		}
+		
+		$arg=array(":lastmod_manager_id"=>$patientInfo[":lastmod_manager_id"]);
+        $sql="select max(id) as id from patientInfo where lastmod_manager_id=:lastmod_manager_id";
+		try{
+		$connection = Yii::$app->db;
+		$command = $connection->createCommand($sql,$arg);
+		$num = $command->queryOne();
+		}catch(\Exception $ex){
+			$ret["ret"]=2;
+			$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
+			CUtil::logFile("catch ===== ".$ret["msg"]);			
+			return $ret;
+		}
+		$ret["id"]=$num["id"];
 		return $ret;
 
     }
