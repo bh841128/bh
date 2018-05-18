@@ -11,13 +11,13 @@
     </div>
     <div class="report-chart-container" style="height:500px;" id="report-chart">
     </div>
-    <div class="report-chart-footer" style="text-align:left;">
+    <div class="report-chart-footer" style="text-align:left;padding-left:100px;">
         <div class="form-horizontal">
             <table class="control-table padding-20">
                 <tr>
                     <td>
                         <div style="padding-left:200px">
-                            <select class="form-control input-sm" style="width:250px">
+                            <select class="form-control input-sm" style="width:150px">
                                 <option value="医院">医院</option>
                             </select>
                         </div>
