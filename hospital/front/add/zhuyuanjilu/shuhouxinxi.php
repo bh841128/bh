@@ -18,7 +18,7 @@
                     <div class="control-label" style="width:124px">术后住院时间：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="术后住院时间" json-name="术后住院时间">
                 </td>
                 <td>
                     <span>（天）</span>
@@ -32,9 +32,9 @@
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="dangtianjinchujianhushinei" value="1" checked>是</lable>
+                        <input type="radio" name="dangtianjinchujianhushinei" value="1" checked json-name="当天进出监护室内">是</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="dangtianjinchujianhushinei" value="2">否</lable>
+                        <input type="radio" name="dangtianjinchujianhushinei" value="2" json-name="当天进出监护室内">否</lable>
                 </td>
             </tr>
         </table>
@@ -45,7 +45,7 @@
                 </td>
                 <td>
                     <div class="input-group date">
-                        <input type="text" class="form-control input-sm" tag="datepicker" style="width:160px">
+                        <input type="text" class="form-control input-sm" tag="datepicker" style="width:160px" json-name="出监护室日期">
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
@@ -55,7 +55,7 @@
                     <div class="control-label" style="width:180px">术后监护室停留时间：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:120px" placeholder="术后监护室停留时间" json-name="术后监护室停留时间">
                 </td>
                 <td>
                     <span>（天）</span>
@@ -68,7 +68,7 @@
                     <div class="control-label" style="width:180px">累计有创辅助通气时间：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:120px" placeholder="累计有创辅助通气时间" json-name="累计有创辅助通气时间">
                 </td>
                 <td>
                     <span>（天）</span>
@@ -82,9 +82,9 @@
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="weishoushuqixueyezhipinshuru" value="1" checked>是</lable>
+                        <input type="radio" name="weishoushuqixueyezhipinshuru" value="1" checked json-name="围手术期血液制品输入（累计）">是</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="weishoushuqixueyezhipinshuru" value="2">否</lable>
+                        <input type="radio" name="weishoushuqixueyezhipinshuru" value="2" json-name="围手术期血液制品输入（累计）">否</lable>
                 </td>
             </tr>
         </table>
@@ -94,7 +94,7 @@
                     <div class="control-label" style="width:124px">红细胞：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="" json-name="红细胞">
                 </td>
                 <td>
                     <span>（单位）</span>
@@ -103,7 +103,7 @@
                     <div class="control-label" style="width:124px">新鲜冰冻血浆：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="新鲜冰冻血浆" json-name="新鲜冰冻血浆">
                 </td>
                 <td>
                     <span>（毫升）</span>
@@ -112,7 +112,7 @@
                     <div class="control-label" style="width:124px">血浆冷沉淀：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="血浆冷沉淀" json-name="血浆冷沉淀">
                 </td>
                 <td>
                     <span>（单位）</span>
@@ -125,7 +125,7 @@
                     <div class="control-label" style="width:124px">血小板：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="血小板" json-name="血小板">
                 </td>
                 <td>
                     <span>（单位）</span>
@@ -134,7 +134,7 @@
                     <div class="control-label" style="width:124px">自体血：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="自体血" json-name="自体血">
                 </td>
                 <td>
                     <span>（毫升）</span>
@@ -148,9 +148,9 @@
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="shuhoubingfazheng" value="1" checked>是</lable>
+                        <input type="radio" name="shuhoubingfazheng" value="1" checked json-name="术后并发症">是</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="shuhoubingfazheng" value="2">否</lable>
+                        <input type="radio" name="shuhoubingfazheng" value="2" json-name="术后并发症">否</lable>
                 </td>
             </tr>
         </table>
@@ -158,14 +158,14 @@
             <tr>
                 <td>
                     <div class="input-group" style="margin-left:80px">
-                        <select class="form-control input-sm" style="width:500px"></select>
+                        <select class="form-control input-sm" style="width:500px" json-name="术后并发症名称"></select>
                     </div>
                 </td>
             </tr>
             <tr>
                 <td>
                     <div class="input-group" style="margin-left:80px">
-                        <textarea class="form-control" style="width:500px" rows="5"></textarea>
+                        <textarea class="form-control" style="width:500px" rows="5" json-name="术后并发症名称-详情"></textarea>
                     </div>
                 </td>
             </tr>
@@ -177,7 +177,7 @@
                 </td>
                 <td>
                     <div class="input-group">
-                        <textarea class="form-control" style="width:500px" rows="5"></textarea>
+                        <textarea class="form-control" style="width:500px" rows="5" json-name="其他"></textarea>
                     </div>
                 </td>
             </tr>
