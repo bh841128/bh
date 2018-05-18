@@ -4,7 +4,7 @@
         <h4 style="padding-top:10px" id="report-sub-title">总量：0</h4>
     </div>
     <div style="position: absolute;top:20px;right:10px;">
-        <select class="form-control input-sm" style="width:100px">
+        <select class="form-control input-sm" id="year-select" style="width:100px">
             <option value="2018">2018</option>
             <option value="2017">2017</option>
         </select>
@@ -17,7 +17,7 @@
                 <tr>
                     <td>
                         <div style="padding-left:200px">
-                            <select class="form-control input-sm" style="width:150px">
+                            <select class="form-control input-sm" style="width:250px">
                                 <option value="医院">医院</option>
                             </select>
                         </div>

@@ -44,6 +44,10 @@ require_once(__DIR__."/../config/front_config.php");
                 hideHover: 'auto'
             });
             $("#foot_hospital_name").html(g_global_data.hospital.name);
+            $("#year-select").change(function(){
+                var year = $("#year-select").val();
+                queryReportTable(year);
+            })
         }
         initPage(init_hospital_end);
         function init_hospital_end(){
