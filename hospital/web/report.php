@@ -80,7 +80,7 @@ require_once(__DIR__."/../config/front_config.php");
             for (var i = 0; i < data.length; i++){
                 var record_num = parseInt(data[i].num);
                 total_num += record_num;
-                var month = parseInt(data[i],10);
+                var month = parseInt(data[i]["month"],10);
                 if (data[i].hospital_id == the_hospital.id){
                     report_data_tmp[month][the_hospital.name]+=record_num;
                 }
