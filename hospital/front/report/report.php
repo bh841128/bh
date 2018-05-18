@@ -26,7 +26,7 @@
                     <td>
                         <div style="height:13px;width:13px;margin-left:20px;margin-right:10px;background-color:rgb(86,187,251)"></div>
                     </td>
-                    <td id="foot_hospital_name"></td>
+                    <td><div id="foot_hospital_name"></div></td>
                     <td>
                         <div style="height:13px;width:13px;margin-left:20px;margin-right:10px;background-color:rgb(255,129,73)"></div>
                     </td>
