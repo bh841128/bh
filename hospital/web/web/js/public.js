@@ -70,7 +70,7 @@ function initUserMenu(){
 		hideAllErrorMsgs();
 	});
 }
-function getManagerInfo(){
+function getManagerInfo(init_end_callback){
 	function getManagerInfoRet(rsp){
 		if (rsp.ret != 0){
 			return;
@@ -81,14 +81,17 @@ function getManagerInfo(){
 		var hospital_name = rsp["msg"].hospital["name"];
 		g_global_data.hospital = rsp["msg"].hospital;
 		$("#user-menu-right-top").html(hospital_name+'<span class="caret"></span>');
+		if (typeof init_end_callback != "undefined"){
+			init_end_callback();
+		}
 	}
 	var username = g_global_data["username"];
 	ajaxRemoteRequest("hospital/get-manager",{username:username},getManagerInfoRet);
 }
 ///////////////////////////////////////////////
-function initPage(){
-	function initPageOther(){
-		getManagerInfo();
+function initPage(init_end_callback){
+	function initPageOther(init_end_callback){
+		getManagerInfo(init_end_callback);
 	}
 	checkLogin(onCheckLoginRet);
 	function onCheckLoginRet(rsp){
