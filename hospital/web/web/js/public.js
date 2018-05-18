@@ -492,7 +492,7 @@ function getParentUntil(node, parentTagname){
 
 //////////////////////////////////////////////////////////////
 function getHospitals(){
-	reutrn [
+	return [
 		{ "name": "中国医学科学院阜外医院", "id": "1" },
 		{ "name": "上海交通大学医学院附属上海儿童医学中心", "id": "2" },
 		{ "name": "复旦大学附属儿科医院", "id": "3" },
