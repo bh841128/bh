@@ -68,13 +68,13 @@
                     <div class="control-label" style="width:124px">手术医生：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:100px"  placeholder="手术医生" json-name="手术医生">
                 </td>
                 <td>
                     <div class="control-label control-label-120">手术用时：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:100px"  placeholder="手术用时" json-name="手术用时">
                 </td>
                 <td>
                     <span>（分钟）</span>
@@ -83,7 +83,7 @@
                     <div class="control-label control-label-120">手术年龄：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:100px"  placeholder="手术年龄" json-name="手术年龄">
                 </td>
                 <td>
                     <span>（岁/月）</span>
@@ -97,13 +97,13 @@
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="shoushuzhuangtai" value="1" checked>择期手术</lable>
+                        <input type="radio" name="shoushuzhuangtai" value="1" checked json-name="手术状态">择期手术</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="shoushuzhuangtai" value="2">急诊手术</lable>
+                        <input type="radio" name="shoushuzhuangtai" value="2" json-name="手术状态">急诊手术</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="shoushuzhuangtai" value="3" checked>限期手术</lable>
+                        <input type="radio" name="shoushuzhuangtai" value="3" json-name="手术状态">限期手术</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="shoushuzhuangtai" value="4">抢救</lable>
+                        <input type="radio" name="shoushuzhuangtai" value="4" json-name="手术状态">抢救</lable>
                 </td>
             </tr>
             <tr>
@@ -112,11 +112,11 @@
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="shoushufangshi" value="1" checked>经外途径介入</lable>
+                        <input type="radio" name="shoushufangshi" value="1" checked json-name="手术方式">经外途径介入</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="shoushufangshi" value="2">直视</lable>
+                        <input type="radio" name="shoushufangshi" value="2" json-name="手术方式">直视</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="shoushufangshi" value="3" checked>杂交（镶嵌）</lable>
+                        <input type="radio" name="shoushufangshi" value="3" json-name="手术方式">杂交（镶嵌）</lable>
                 </td>
             </tr>
         </table>
@@ -127,7 +127,7 @@
                 </td>
                 <td>
                     <div class="input-group">
-                        <select class="form-control input-sm" style="width:300px"></select>
+                        <select class="form-control input-sm" style="width:300px" json-name="手术路径"></select>
                     </div>
                 </td>
                 <td>
@@ -135,7 +135,7 @@
                 </td>
                 <td>
                     <div class="input-group">
-                        <input type="text" class="form-control input-sm" style="width:300px">
+                        <input type="text" class="form-control input-sm" style="width:300px" placeholder="其他" json-name="其他">
                     </div>
                 </td>
             </tr>
@@ -147,9 +147,9 @@
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="yanchiguanxiong" value="1" checked>是</lable>
+                        <input type="radio" name="yanchiguanxiong" value="1" checked json-name="延迟关胸">是</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="yanchiguanxiong" value="2">否</lable>
+                        <input type="radio" name="yanchiguanxiong" value="2" json-name="延迟关胸">否</lable>
                 </td>
             </tr>
             <tr>
@@ -157,7 +157,7 @@
                     <div class="control-label" style="width:124px">延迟关胸天数：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="延迟关胸天数" json-name="延迟关胸天数">
                 </td>
                 <td>
                     <span>（天）</span>
@@ -189,9 +189,9 @@
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="tiwaixunhuan" value="1" checked>是</lable>
+                        <input type="radio" name="tiwaixunhuan" value="1" checked json-name="体外循环">是</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="tiwaixunhuan" value="2">否</lable>
+                        <input type="radio" name="tiwaixunhuan" value="2" json-name="体外循环">否</lable>
                 </td>
             </tr>
             <tr>
@@ -200,9 +200,9 @@
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="shifoujihua" value="1" checked>是-术前计划</lable>
+                        <input type="radio" name="shifoujihua" value="1" checked json-name="是否计划">是-术前计划</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="shifoujihua" value="2">否-术中由非体外转为体外</lable>
+                        <input type="radio" name="shifoujihua" value="2" json-name="是否计划">否-术中由非体外转为体外</lable>
                 </td>
             </tr>
             <tr>
@@ -211,9 +211,9 @@
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="tingboye" value="1" checked>是</lable>
+                        <input type="radio" name="tingboye" value="1" checked json-name="停搏液">是</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="tingboye" value="2">否</lable>
+                        <input type="radio" name="tingboye" value="2" json-name="停搏液">否</lable>
                 </td>
             </tr>
             <tr>
@@ -222,9 +222,9 @@
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="tingboyeleixing" value="1" checked>含血</lable>
+                        <input type="radio" name="tingboyeleixing" value="1" checked json-name="停搏液类型">含血</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="tingboyeleixing" value="2">晶体</lable>
+                        <input type="radio" name="tingboyeleixing" value="2" json-name="停搏液类型">晶体</lable>
                 </td>
             </tr>
             <tr>
@@ -233,9 +233,9 @@
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="tingboyewendu" value="1" checked>温</lable>
+                        <input type="radio" name="tingboyewendu" value="1" checked json-name="停搏液温度">温</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="tingboyewendu" value="2">冷</lable>
+                        <input type="radio" name="tingboyewendu" value="2" json-name="停搏液温度">冷</lable>
                 </td>
             </tr>
 
@@ -246,7 +246,7 @@
                     <div class="control-label" style="width:124px">体外循环时间：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="体外循环时间" json-name="体外循环时间">
                 </td>
                 <td>
                     <span>（分钟）</span>
@@ -259,7 +259,7 @@
                     <div class="control-label" style="width:150px">主动脉阻断时间：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="主动脉阻断时间" json-name="主动脉阻断时间">
                 </td>
                 <td>
                     <span>（分钟）</span>
@@ -267,11 +267,11 @@
                 <td style="padding-left:35px">
                     <div class="checkbox">
                         <lable>
-                            <input type="checkbox" tag="address-nodetail-checkbox">不能提供</lable>
+                            <input type="checkbox" tag="address-nodetail-checkbox" json-name="主动脉阻断时间-不能提供">不能提供</lable>
                     </div>
                 </td>
                 <td style="padding-left:15px">
-                    <input type="text" class="form-control input-sm" style="width:400px" placeholder="输入原因" tag="address-nodetail-yuanyi" disabled>
+                    <input type="text" class="form-control input-sm" style="width:400px" placeholder="输入原因" tag="address-nodetail-yuanyi" disabled json-name="主动脉阻断时间-不能提供-原因">
                 </td>
             </tr>
         </table>
@@ -282,16 +282,16 @@
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="ercihuoduocitiwaixunhuan" value="1" checked>是</lable>
+                        <input type="radio" name="ercihuoduocitiwaixunhuan" value="1" checked json-name="是否二次或多次体外循环">是</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="ercihuoduocitiwaixunhuan" value="2">否</lable>
+                        <input type="radio" name="ercihuoduocitiwaixunhuan" value="2" json-name="是否二次或多次体外循环">否</lable>
                 </td>
                 <td>
                     <div class="control-label" style="width:80px">原因：</div>
                 </td>
                 <td>
                     <div class="input-group">
-                        <select class="form-control input-sm" style="width:300px"></select>
+                        <select class="form-control input-sm" style="width:300px" json-name="是否二次或多次体外循环-原因"></select>
                     </div>
                 </td>
             </tr>
@@ -303,15 +303,15 @@
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="shendiwentingxunhuan" value="1" checked>是</lable>
+                        <input type="radio" name="shendiwentingxunhuan" value="1" checked json-name="深低温停循环">是</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="shendiwentingxunhuan" value="2">否</lable>
+                        <input type="radio" name="shendiwentingxunhuan" value="2" json-name="深低温停循环">否</lable>
                 </td>
                 <td>
                     <div class="control-label" style="width:160px">深低温停循环时间：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="深低温停循环时间" json-name="深低温停循环时间">
                 </td>
                 <td>
                     <span>（分钟）</span>
@@ -323,15 +323,15 @@
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="dancenaoguanzhu" value="1" checked>是</lable>
+                        <input type="radio" name="dancenaoguanzhu" value="1" checked json-name="单侧脑灌注">是</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="dancenaoguanzhu" value="2">否</lable>
+                        <input type="radio" name="dancenaoguanzhu" value="2" json-name="单侧脑灌注">否</lable>
                 </td>
                 <td>
                     <div class="control-label" style="width:160px">单侧脑灌注时间：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="单侧脑灌注时间" json-name="单侧脑灌注时间">
                 </td>
                 <td>
                     <span>（分钟）</span>
