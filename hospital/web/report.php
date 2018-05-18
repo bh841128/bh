@@ -40,8 +40,7 @@ require_once(__DIR__."/../config/front_config.php");
                 barColors: ['rgb(86,187,251)', '#f56954'],
                 xkey: 'y',
                 ykeys: [g_global_data.hospital.name, '其他'],
-                //labels: [g_global_data.hospital.name, '其他'],
-                hideHover: 'auto'
+                labels: [g_global_data.hospital.name, '其他']
             });
             $("#foot_hospital_name").html(g_global_data.hospital.name);
             $("#year-select").change(function(){
