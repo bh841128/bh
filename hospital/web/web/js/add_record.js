@@ -184,6 +184,24 @@ function addZhuyuanjilu(){
 		var data_json_operation_before_info = arrayToJson(raw_json_operation_before_info);
 		data_json.operation_before_info = $.toJSON(data_json_operation_before_info);
 		console.dir(data_json_operation_before_info);
+
+		var raw_json_operation_info = g_control_json.parseControlJson($("#tab-zyjl-shoushuxinxi"));
+		console.dir(raw_json_operation_info);
+		var data_json_operation_info = arrayToJson(raw_json_operation_info);
+		data_json.operation_info = $.toJSON(data_json_operation_info);
+		console.dir(data_json_operation_info);
+
+		var raw_json_operation_after_info = g_control_json.parseControlJson($("#tab-zyjl-shuhouxinxi"));
+		console.dir(raw_json_operation_after_info);
+		var data_json_operation_after_info = arrayToJson(raw_json_operation_after_info);
+		data_json.operation_after_info = $.toJSON(data_json_operation_after_info);
+		console.dir(data_json_operation_after_info);
+
+		var raw_json_hospitalization_out_info = g_control_json.parseControlJson($("#tab-zyjl-chuyuanziliao"));
+		console.dir(raw_json_hospitalization_out_info);
+		var data_json_hospitalization_out_info = arrayToJson(raw_json_hospitalization_out_info);
+		data_json.hospitalization_out_info = $.toJSON(data_json_hospitalization_out_info);
+		console.dir(data_json_hospitalization_out_info);
 		////////////////////////////////////////////////
 		////检查参数合法性
 		////////////////////////////////////////////////
@@ -224,17 +242,11 @@ function addZhuyuanjilu(){
 				return;
 			}
 			var db_data = rsp.msg;
-			if (db_data.operation_before_info == ""){
-				db_data.operation_before_info = {};
-			}
-			else {
-				try {
-					db_data.operation_before_info = eval('(' + db_data.operation_before_info + ')');
-				}
-				catch (err) {
-					db_data.operation_before_info = {};
-				}
-			}
+			db_data.operation_before_info 		= evalJsonStr(db_data.operation_before_info);
+			db_data.operation_info 				= evalJsonStr(db_data.operation_info);
+			db_data.operation_after_info 		= evalJsonStr(db_data.operation_after_info);
+			db_data.hospitalization_out_info 	= evalJsonStr(db_data.hospitalization_out_info);
+			
 			initInputsByData(db_data);
 		}
 		ajaxRemoteRequest("hospital/get-record",{id:zyjl_id},onGetZhuyuanjiluDataRet);
@@ -248,7 +260,10 @@ function addZhuyuanjilu(){
 		console.dir(data_json);
 		var g_control_json = new control_json();
 		g_control_json.setJson2Control($("#tab-zyjl-riqi"), data_json);
-		g_control_json.setJson2Control($("#tab-zyjl-shuqianxinxi"), db_data.operation_before_info);
+		g_control_json.setJson2Control($("#tab-zyjl-shuqianxinxi"), 	db_data.operation_before_info);
+		g_control_json.setJson2Control($("#tab-zyjl-shoushuxinxi"), 	db_data.operation_info);
+		g_control_json.setJson2Control($("#tab-zyjl-shuhouxinxi"), 		db_data.operation_after_info);
+		g_control_json.setJson2Control($("#tab-zyjl-chuyuanziliao"), 	db_data.hospitalization_out_info);
 	}
 	///////////////////////////////////////////////////////
 	//既往心脏病手术次数

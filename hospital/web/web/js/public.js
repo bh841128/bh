@@ -524,3 +524,19 @@ function initHospital(controls){
 	}
 	setSelectOptions2(controls, options_hospitals);
 }
+
+////////////////////////////////////////////////////////////////////////////
+function evalJsonStr(json_str){
+	if (json_str == ""){
+		json_str = {};
+	}
+	else {
+		try {
+			json_str = eval('(' + json_str + ')');
+		}
+		catch (err) {
+			json_str = {};
+		}
+	}
+	return json_str;
+}
