@@ -1,11 +1,12 @@
 <div class="report-chart" style="position:relative;width:100%;height:700px;margin-top:20px">
     <div class="report-chart-title" style="text-align:center">
-        <h3>少儿先天性心脏病月录入量统计</h3>
-        <h4 style="padding-top:10px">总量：1234</h4>
+        <h3 id="report-main-title">少儿先天性心脏病月录入量统计</h3>
+        <h4 style="padding-top:10px" id="report-sub-title">总量：0</h4>
     </div>
     <div style="position: absolute;top:20px;right:10px;">
         <select class="form-control input-sm" style="width:100px">
             <option value="2018">2018</option>
+            <option value="2017">2017</option>
         </select>
     </div>
     <div class="report-chart-container" style="height:500px;" id="report-chart">

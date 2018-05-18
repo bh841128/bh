@@ -50,9 +50,41 @@ require_once(__DIR__."/../config/front_config.php");
         }
         function queryReportTable(year){
             function onQueryReportTableRet(rsp){
-                console.dir(rsp);
+                if (rsp.ret != 0){
+                    alert("查询数据错误，请稍后再试");
+                    return;
+                }
+                var data = [];
+                for (var i = 0; i < rsp.msg.length; i++){
+                    var record =  rsp.msg[i];
+                    data.push({
+                        hospital_id:record["hospital_id"],
+                        month:record["mon"],
+                        num:record["count(*)"]
+                    })
+                }
             }
             ajaxRemoteRequest("hospital/records-table",{year:year},onQueryReportTableRet);
+        }
+        function showReportBar(data){
+            var report_data = [];
+            var the_hospital = g_global_data.hospital;
+            var report_data_tmp = {};
+            for (var i = 1; i <= 12; i++){
+                report_data_tmp[i] = {the_hospital.name:0, "其他":0};
+            }
+            var total_num = 0;
+            for (var i = 0; i < data.length; i++){
+                total_num += data[i].mum;
+                var month = parseInt(data[i],10);
+                if (data[i].hospital_id == the_hospital.id){
+                    report_data_tmp[month][the_hospital.name]+=data[i].mum;
+                }
+                else{
+                    report_data_tmp[month]["其他"]+=data[i].mum;
+                }
+            }
+            console.dir(report_data_tmp);
         }
         //{ y: '01月份', "阜外医院": 1000, "其他": 900 },
 
