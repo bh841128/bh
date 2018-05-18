@@ -63,6 +63,7 @@ require_once(__DIR__."/../config/front_config.php");
                         num:record["count(*)"]
                     })
                 }
+                showReportBar(data);
             }
             ajaxRemoteRequest("hospital/records-table",{year:year},onQueryReportTableRet);
         }
