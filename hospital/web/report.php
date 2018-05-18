@@ -34,7 +34,7 @@ require_once(__DIR__."/../config/front_config.php");
     <script type="text/javascript">
         function initBar(data,keys){
             $("report-chart").empty();
-            if (0 && typeof g_report_bar == "undefined"){
+            if (1 || typeof g_report_bar == "undefined"){
                 g_report_bar = new Morris.Bar({
                     element: 'report-chart',
                     resize: true,
