@@ -407,7 +407,10 @@ class HospitalController extends Controller
 		}
 		
 		$patientInfo[":relate_text"]=CUtil::getRequestParam('request', 'relate_text', "");
-		
+		if(!CUtil::is_json($patientInfo[":relate_text"])){
+            $arrArgErr["relate_text"]=$patientInfo[":relate_text"];
+            $argErr=true; 
+        }
 		if($argErr==true){
 			$ret["ret"]=ARGSERR;
             $ret["msg"]=$arrArgErr;
@@ -532,6 +535,10 @@ class HospitalController extends Controller
             $patientInfo[":medical_id"]=CUtil::getRequestParam('request', 'medical_id', "");
         }
 
+        if(!CUtil::is_json($patientInfo[":relate_text"])){
+            $arrArgErr["relate_text"]=$patientInfo[":relate_text"];
+            $argErr=true; 
+        }
 
 		if($argErr==true){
 			$ret["ret"]=ARGSERR;

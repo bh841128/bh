@@ -72,5 +72,10 @@ class CUtil {
 		//exit($strexport);		
 		return $strexport;     
 	}   
+
+	static public function is_json($string) {
+	    json_decode($string);
+	    return (json_last_error() == JSON_ERROR_NONE);
+	}
 	
 }
