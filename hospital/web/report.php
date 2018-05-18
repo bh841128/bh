@@ -100,6 +100,7 @@ require_once(__DIR__."/../config/front_config.php");
                 report_data.push(report_record);
             }
             console.dir(report_data);
+            $("#report-sub-title").html("总量："+total_num);
             g_report_bar.setData(report_data);
         }
         //{ y: '01月份', "阜外医院": 1000, "其他": 900 },
