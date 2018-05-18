@@ -39,7 +39,8 @@ require_once(__DIR__."/../config/front_config.php");
                 barColors: ['rgb(86,187,251)', '#f56954'],
                 xkey: 'y',
                 ykeys: keys,
-                labels: keys
+                labels: keys,
+                hideHover: 'auto'
             });
             $("#foot_hospital_name").html(g_global_data.hospital.name);
             $("#year-select,#hospital-select").change(function(){
