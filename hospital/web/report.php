@@ -71,7 +71,9 @@ require_once(__DIR__."/../config/front_config.php");
             var the_hospital = g_global_data.hospital;
             var report_data_tmp = {};
             for (var i = 1; i <= 12; i++){
-                report_data_tmp[i] = {the_hospital.name:0, "其他":0};
+                report_data_tmp[i] = {};
+                report_data_tmp[i][the_hospital.name] = 0;
+                report_data_tmp[i]["其他"] = 0;
             }
             var total_num = 0;
             for (var i = 0; i < data.length; i++){
