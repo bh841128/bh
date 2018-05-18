@@ -94,7 +94,7 @@ require_once(__DIR__."/../config/front_config.php");
                 else{
                     report_data_tmp[month]["其他"]+=record_num;
                 }
-                report_data_tmp[i]["所有医院"] += record_num;
+                report_data_tmp[month]["所有医院"] += record_num;
             }
 
             var report_data = [];
