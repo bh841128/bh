@@ -520,7 +520,7 @@ function initHospital(controls){
 	var options_hospitals = [];
 	options_hospitals({"name":"所有医院","value":0});
     for ( var i=0;i<hospitals.length;i++) {
-		options_hospitals.push("name":hospitals[i].name, "value":hospitals[i].id);
+		options_hospitals.push({"name":hospitals[i].name, "value":hospitals[i].id});
 	}
 	setSelectOptions2(controls, options_hospitals);
 }
