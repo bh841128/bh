@@ -98,7 +98,7 @@ function initPage(init_end_callback){
 		if (rsp.ret != 0){
 			gotoLoginPage();
 		}
-		initPageOther();
+		initPageOther(init_end_callback);
 	}
 	initAsideMenu();
 	initDatePicker("input[tag='datepicker']");
