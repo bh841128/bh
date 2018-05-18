@@ -39,13 +39,15 @@ require_once(__DIR__."/../config/front_config.php");
                 ],
                 barColors: ['rgb(86,187,251)', '#f56954'],
                 xkey: 'y',
-                ykeys: ['阜外医院', '其他'],
-                labels: ['阜外医院', '其他'],
+                ykeys: [g_global_data.hospital.name, '其他'],
+                labels: [g_global_data.hospital.name, '其他'],
                 hideHover: 'auto'
             });
+            $("#foot_hospital_name").html(g_global_data.hospital.name);
         }
         initPage(init_hospital_end);
         function init_hospital_end(){
+            initBar();
             queryReportTable((new Date()).getFullYear());
         }
         function queryReportTable(year){
@@ -98,6 +100,7 @@ require_once(__DIR__."/../config/front_config.php");
                 report_data.push(report_record);
             }
             console.dir(report_data);
+            g_report_bar.setData(report_data);
         }
         //{ y: '01月份', "阜外医院": 1000, "其他": 900 },
 
