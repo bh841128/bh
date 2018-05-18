@@ -78,13 +78,14 @@ require_once(__DIR__."/../config/front_config.php");
             }
             var total_num = 0;
             for (var i = 0; i < data.length; i++){
-                total_num += data[i].mum;
+                var record_num = parseInt(data[i].num);
+                total_num += record_num;
                 var month = parseInt(data[i],10);
                 if (data[i].hospital_id == the_hospital.id){
-                    report_data_tmp[month][the_hospital.name]+=data[i].mum;
+                    report_data_tmp[month][the_hospital.name]+=record_num;
                 }
                 else{
-                    report_data_tmp[month]["其他"]+=data[i].mum;
+                    report_data_tmp[month]["其他"]+=record_num;
                 }
             }
             console.dir(report_data_tmp);
