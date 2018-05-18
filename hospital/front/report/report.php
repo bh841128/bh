@@ -30,7 +30,7 @@
                     <td>
                         <div style="height:13px;width:13px;margin-left:20px;margin-right:10px;background-color:rgb(255,129,73)"></div>
                     </td>
-                    <td>其他</td>
+                    <td><div id="foot_hospital_other"></div></td>
                 </tr>
             </table>
         </div>

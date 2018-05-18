@@ -121,10 +121,12 @@ require_once(__DIR__."/../config/front_config.php");
             if (hospital_id > 0){
                 $("#foot_hospital_name").html(hospital_name);
                 $("#foot_hospital_name").show();
+                $("foot_hospital_other").html("所有医院");
             }
             else{
                 $("#foot_hospital_name").html('');
                 $("#foot_hospital_name").hide();
+                $("foot_hospital_other").html("其他");
             }
         }
         initPage(init_hospital_end);
