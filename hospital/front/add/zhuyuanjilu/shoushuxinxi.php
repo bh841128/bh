@@ -19,12 +19,12 @@
                     <div class="control-label control-label-120" style="width:120px">手术诊断：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:400px" placeholder="">
+                    <input type="text" class="form-control input-sm" style="width:400px" placeholder="手术诊断" json-name="手术诊断">
                 </td>
                 <td style="padding-left:35px">
                     <div class="checkbox">
                         <lable>
-                            <input type="checkbox" tag="address-nodetail-checkbox">与术前诊断一致</lable>
+                            <input type="checkbox" tag="address-nodetail-checkbox" json-name="与术前诊断一致">与术前诊断一致</lable>
                     </div>
                 </td>
             </tr>
@@ -36,18 +36,18 @@
                 </td>
                 <td>
                     <div class="input-group">
-                        <input type="text" class="form-control input-sm" style="width:400px">
+                        <input type="text" class="form-control input-sm" style="width:400px" placeholder="其他" json-name="手术诊断-其他">
                     </div>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <div class="control-label control-label-120">其他手术名称：</div>
+                    <div class="control-label control-label-120">主要手术名称：</div>
                 </td>
 
                 <td>
                     <div class="input-group">
-                        <input type="text" class="form-control input-sm" style="width:400px">
+                        <select class="form-control input-sm" style="width:400px" json-name="主要手术名称"></select>
                     </div>
                 </td>
             </tr>
@@ -57,7 +57,7 @@
                 </td>
                 <td>
                     <div class="input-group">
-                        <input type="text" class="form-control input-sm" style="width:400px">
+                        <input type="text" class="form-control input-sm" style="width:400px" placeholder="其他" json-name="主要手术名称-其他">
                     </div>
                 </td>
             </tr>
