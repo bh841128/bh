@@ -32,6 +32,11 @@ require_once(__DIR__."/../config/front_config.php");
     <script src="/web/lib/adminlte/js/morris.min.js"></script>
     <script type="text/javascript">
         initPage();
+        function queryReportTable(year){
+
+        }
+
+        queryReportTable((new Date()).getFullYear());
         var bar = new Morris.Bar({
             element: 'report-chart',
             resize: true,

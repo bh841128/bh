@@ -79,6 +79,7 @@ function getManagerInfo(){
 			return;
 		}
 		var hospital_name = rsp["msg"].hospital["name"];
+		g_global_data.hospital = rsp["msg"].hospital;
 		$("#user-menu-right-top").html(hospital_name+'<span class="caret"></span>');
 	}
 	var username = g_global_data["username"];
