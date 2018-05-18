@@ -5,6 +5,7 @@ require_once(__DIR__."/../config/front_config.php");
 <html>
 <head>
     <?php require(WEB_PAGE_PATH."head.php"); ?>
+    <link rel="stylesheet" href="/web/lib/adminlte/css/morris.css">
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
