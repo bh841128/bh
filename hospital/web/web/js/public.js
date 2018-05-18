@@ -491,8 +491,8 @@ function getParentUntil(node, parentTagname){
 }
 
 //////////////////////////////////////////////////////////////
-function getHospitalName(hospital_id) {
-	var hospitals = [
+function getHospitals(){
+	reutrn [
 		{ "name": "中国医学科学院阜外医院", "id": "1" },
 		{ "name": "上海交通大学医学院附属上海儿童医学中心", "id": "2" },
 		{ "name": "复旦大学附属儿科医院", "id": "3" },
@@ -504,10 +504,23 @@ function getHospitalName(hospital_id) {
 		{ "name": "中国人民解放军第四军医大学第一附属医院", "id": "9" },
 		{ "name": "中国人民解放军第三军医大学", "id": "10" }
 	];
+}
+function getHospitalName(hospital_id) {
+	var hospitals = getHospitals();
 	for (var i = 0; i < hospitals.length; i++) {
 		if (hospitals[i]["id"] == hospital_id) {
 			return hospitals[i]["name"];
 		}
 	}
 	return "" + hospital_id;
+}
+
+function initHospital(controls){
+	var hospitals = getHospitals();
+	var options_hospitals = [];
+	options_hospitals({"name":"所有医院","value":0});
+    for ( var i=0;i<hospitals.length;i++) {
+		options_hospitals.push("name":hospitals[i].name, "value":hospitals[i].id);
+	}
+	setSelectOptions2(controls, options_hospitals);
 }

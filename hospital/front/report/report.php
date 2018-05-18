@@ -17,7 +17,7 @@
                 <tr>
                     <td>
                         <div style="padding-left:200px">
-                            <select class="form-control input-sm" style="width:250px">
+                            <select class="form-control input-sm" style="width:250px" id="hospital-select">
                                 <option value="">医院</option>
                             </select>
                         </div>

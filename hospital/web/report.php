@@ -49,7 +49,6 @@ require_once(__DIR__."/../config/front_config.php");
                 queryReportTable(year);
             })
         }
-        initPage(init_hospital_end);
         function init_hospital_end(){
             initBar();
             queryReportTable((new Date()).getFullYear());
@@ -107,7 +106,8 @@ require_once(__DIR__."/../config/front_config.php");
             $("#report-sub-title").html("总量："+total_num);
             g_report_bar.setData(report_data);
         }
-        //{ y: '01月份', "阜外医院": 1000, "其他": 900 },
+        initPage(init_hospital_end);
+        initHospital($("#hospital-select"));
 
         
         
