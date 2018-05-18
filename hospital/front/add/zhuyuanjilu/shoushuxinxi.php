@@ -259,7 +259,7 @@
                     <div class="control-label" style="width:150px">主动脉阻断时间：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="主动脉阻断时间" json-name="主动脉阻断时间">
+                    <input type="text" class="form-control input-sm" style="width:200px" placeholder="主动脉阻断时间" json-name="主动脉阻断时间">
                 </td>
                 <td>
                     <span>（分钟）</span>
@@ -311,7 +311,7 @@
                     <div class="control-label" style="width:160px">深低温停循环时间：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="深低温停循环时间" json-name="深低温停循环时间">
+                    <input type="text" class="form-control input-sm" style="width:200px" placeholder="深低温停循环时间" json-name="深低温停循环时间">
                 </td>
                 <td>
                     <span>（分钟）</span>
@@ -331,7 +331,7 @@
                     <div class="control-label" style="width:160px">单侧脑灌注时间：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="单侧脑灌注时间" json-name="单侧脑灌注时间">
+                    <input type="text" class="form-control input-sm" style="width:200px" placeholder="单侧脑灌注时间" json-name="单侧脑灌注时间">
                 </td>
                 <td>
                     <span>（分钟）</span>
