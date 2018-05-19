@@ -35,6 +35,7 @@ function hospital(){
 		this.gotoPage(["新增资料"]);
 
 		initQuery();
+		initExport();
 		initReport();
 	}
 	//////////////////////////////////////////////页面跳转管理
