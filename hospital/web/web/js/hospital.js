@@ -35,6 +35,7 @@ function hospital(){
 		this.gotoPage(["新增资料"]);
 
 		initQuery();
+		initReport();
 	}
 	//////////////////////////////////////////////页面跳转管理
 	this.gotoPage = function(page_name, data){
@@ -72,6 +73,7 @@ function hospital(){
 			else if (page_name == "新增住院记录"){
 				showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-riqi", "tab-zyjl-riqi");
 			}
+			
 			var container_id = page_info.container_id;
 			for (var i = 0; i < page_configs.length; i++){
 				if (page_configs[i].container_id != container_id){
@@ -95,6 +97,10 @@ function hospital(){
 			}
 			if (page_name == "数据查询"){
 				query_queryDefaultPage();
+				return;
+			}
+			if (page_name == "数据报表"){
+				g_report.onQueryReportTable();
 				return;
 			}
 		}
