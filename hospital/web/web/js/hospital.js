@@ -61,14 +61,14 @@ function hospital(){
 					return;
 				}
 				if (bread_level == 1){
-					$(this).html('<a href="#"><span class="glyphicon '+top_site_info.icon+'"></span></i>'+breadcrumb_sites[0]+'</a>');
+					$(this).html('<a href="#">'+breadcrumb_sites[0]+'</a>');
 				}
 				else if (bread_level == breadcrumb_sites.length){
 					$(this).html(breadcrumb_sites[bread_level - 1]);
 					$(this).addClass("active");
 				}
 				else{
-					$(this).html(breadcrumb_sites[bread_level - 1]);
+					$(this).html('<a href="#">'+breadcrumb_sites[bread_level - 1]+'</a>');
 					$(this).removeClass("active");
 				}
 				$(this).show();
