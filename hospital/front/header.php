@@ -7,7 +7,7 @@
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle gray-font" style="font-size:18px" data-toggle="dropdown" id="user-menu-right-top"><span class="caret"></span><?php echo $hospital_name; ?></a>
+                        <a href="#" class="dropdown-toggle gray-font" style="font-size:18px" data-toggle="dropdown" id="user-menu-right-top"><?php echo $hospital_name; ?><span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu" style="min-width:10px" id="user_login_menu">
                             <li>
                                 <a href="#" data-toggle="control-sidebar" title="Sign out" tag="change_password">
