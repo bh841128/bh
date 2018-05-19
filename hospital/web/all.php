@@ -25,6 +25,7 @@ require_once(__DIR__."/../config/front_config.php");
         <?php require(WEB_PAGE_PATH."footer.php"); ?>
         <?php require(WEB_PAGE_PATH."login_modal.php"); ?>
     </div>
+    <?php require(WEB_PAGE_PATH."js.php"); ?>
 </body>
 
 </html>
