@@ -71,6 +71,7 @@ function hospital(){
 					$(this).html(breadcrumb_sites[bread_level - 1]);
 					$(this).removeClass("active");
 				}
+				$(this).show();
 			})
 		}
 		
