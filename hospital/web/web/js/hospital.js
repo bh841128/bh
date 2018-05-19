@@ -128,10 +128,10 @@ function hospital(){
 	function showNavTab(section_id, show_nav_id, show_tab_id){
 		$("#"+section_id+">.nav-tabs>li>a").each(function(){
 			if (this.id == show_nav_id){
-				$(this).addClass("active");
+				$(this.parentNode).addClass("active");
 			}
 			else{
-				$(this).removeClass("active");
+				$(this.parentNode).removeClass("active");
 			}
 		})
 		$("#"+section_id+">.tab-content>.tab-pane").each(function(){
