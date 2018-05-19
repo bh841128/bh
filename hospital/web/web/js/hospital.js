@@ -35,7 +35,7 @@ function hospital(){
 		this.gotoPage(["新增资料"]);
 	}
 	//////////////////////////////////////////////页面跳转管理
-	this.gotoPage = function(page_name){
+	this.gotoPage = function(page_name, data){
 		function setBreadcrumb(page_name){
 			var breadcrumb = m_this.m_page_struct.elements["breadcrumb"];
 			breadcrumb.html(page_name);
@@ -64,6 +64,9 @@ function hospital(){
 			if (page_name == "新增资料"){
 				showNavTab("jibenziliao-section", "nav-tab-jibenziliao", "tab-jibenziliao");
 			}
+			else if (page_name == "住院记录列表"){
+				showNavTab("zhuyuanjilu-section", "nav-tab-jibenziliao", "tab-zhuyuanjilu");
+			}
 			else if (page_name == "新增住院记录"){
 				showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-riqi", "tab-zyjl-riqi");
 			}
@@ -74,6 +77,20 @@ function hospital(){
 				}
 			}
 			$("#"+container_id).show();
+		}
+		function beforeShowDstPage(page_name){
+			if (page_name == "新增资料"){
+				g_addPatient.showPage(data);
+				return;
+			}
+			if (page_name == "住院记录列表"){
+				g_addZhuyuanjilu.showPageZyjlList(data);
+				return;
+			}
+			if (page_name == "新增住院记录"){
+				g_addZhuyuanjilu.showPage(data);
+				return;
+			}
 		}
 		
 		var current_page = m_this.getGlobalData("current_page");
@@ -86,6 +103,8 @@ function hospital(){
 		setBreadcrumb(page_name);
 		///设置当前站点
 		m_this.setGlobalData("currentSite", page_name);
+
+		beforeShowDstPage(page_name);
 		///显示隐藏相关页面
 		showDstPage(page_name);
 		//////////////////
@@ -197,9 +216,6 @@ function hospital(){
 	function initAddPatientZyjl(){
 		g_addPatient = new addPatient();
 		g_addPatient.init();
-		//查询住院记录
-		g_queryZhuyuanjilu = new queryZhuyuanjilu();
-		g_queryZhuyuanjilu.init();
 		//添加住院记录
 		g_addZhuyuanjilu = new addZhuyuanjilu();
 		g_addZhuyuanjilu.init();

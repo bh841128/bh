@@ -21,10 +21,24 @@ function addPatient(){
 		$("#tab-jibenziliao button[tag='jibenziliao-baocun']").click(function(){
 			onJibenziliaoSave();
 		})
+		//查询住院记录
+		g_queryZhuyuanjilu = new queryZhuyuanjilu();
+		g_queryZhuyuanjilu.init();
 	}
 	this.showPage = function(patient_data){
-		m_patient_id = patient_data["id"];
-		initInputsByData(patient_data);
+		if (typeof patient_data != "undefined"){
+			m_patient_id = patient_data["id"];
+			initInputsByData(patient_data);
+			$("#nav-tab-zhuyuanjilu").get(0).disabled = false;
+		}
+		else{
+			m_patient_id = 0;
+			$("#nav-tab-zhuyuanjilu").get(0).disabled = true;
+		}
+	}
+	this.showPageZyjlList = function(patient_data){
+		m_this.showPage(patient_data);
+		g_queryZhuyuanjilu.showPage(m_patient_id);
 	}
 	function onAddZhuyuanjilu(){
 		$("#content-add").hide();
