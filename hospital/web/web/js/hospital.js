@@ -20,21 +20,16 @@ function hospital(){
 	///////////////////////////////////////////////初始化
 	this.init = function(){
 		//这是左侧sidebar点击事件
-		var page_configs = m_this.m_page_struct.page_configs;
-		for (var i = 0; i < page_configs.length; i++){
-			var container_id = page_configs[i]["container-id"];
-			$("#"+container_id + " .tree-btn").click(function(){
-				var this_container_id = this.id;
-				var page_info = findPageInfoByContainerId(this_container_id);
-				if (!page_info){
-					return;
-				}
-				if ($($this).hasClass("active")){
-					return;
-				}
-				this.gotoPage(page_info.name);
-			})
-		}
+		var side_bar = m_this.m_page_struct.elements["side_bar"];
+		side_bar.find(".tree-btn[tag]").each(function(){
+			if ($(this).hasClass("active")){
+				return;
+			}
+			var tag = $(this).attr("tag");
+			this.gotoPage(tag);
+		});
+		
+		//默认页面
 		this.gotoPage(["新增资料"]);
 	}
 	//////////////////////////////////////////////页面跳转管理
@@ -47,8 +42,8 @@ function hospital(){
 			if (page_name == "新增住院记录"){
 				page_name = "新增资料";
 			}
-			var site_bar = m_this.m_page_struct.elements["side_bar"];
-			site_bar.find(".tree-btn[tag]").each(function(){
+			var side_bar = m_this.m_page_struct.elements["side_bar"];
+			side_bar.find(".tree-btn[tag]").each(function(){
 				var tag = $(this).attr("tag");
 				if (tag == page_name){
 					$(this).addClass("active");
