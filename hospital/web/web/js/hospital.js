@@ -92,7 +92,7 @@ function hospital(){
 				}
 				if (typeof page_info["container-id"] != "undefined"){
 					container_id = page_info["container-id"];
-					container_ids.push(content_warrer_id);
+					container_ids.push(container_id);
 				}
 				if (typeof page_info["pages"] == "undefined"){
 					break;
