@@ -51,7 +51,7 @@ function hospital(){
 			var site_bar = m_this.m_page_struct.elements["side_bar"];
 			site_bar.find(".tree-btn[tag]").each(function(){
 				var tag = $(this).attr("tag");
-				if (tag == top_site){
+				if (tag == site_name){
 					$(this).addClass("active");
 				}
 				else{
