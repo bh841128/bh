@@ -37,6 +37,7 @@ function hospital(){
 	//////////////////////////////////////////////页面跳转管理
 	this.gotoPage = function(page_name){
 		function setBreadcrumb(page_name){
+			var breadcrumb = m_this.m_page_struct.elements["breadcrumb"];
 			breadcrumb.html(page_name);
 		}
 		function setSitebarHightlight(page_name){
