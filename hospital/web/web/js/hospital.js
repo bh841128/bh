@@ -34,6 +34,7 @@ function hospital(){
 		//默认页面
 		this.gotoPage(["新增资料"]);
 
+		initUpload();
 		initQuery();
 		initExport();
 		initReport();
@@ -94,6 +95,10 @@ function hospital(){
 			}
 			if (page_name == "新增住院记录"){
 				g_addZhuyuanjilu.showPage(data);
+				return;
+			}
+			if (page_name == "上传资料"){
+				upload_queryDefaultPage();
 				return;
 			}
 			if (page_name == "数据查询"){
@@ -278,8 +283,25 @@ function hospital(){
 		g_addZhuyuanjilu.init();
 	}
 	/////////////////////////////////////////初始化上传
+	function upload_queryDefaultPage(status){
+		var query_params = {status:status};
+		query_params.page = 1;
+		query_params.size = 10;
+		g_patient_query.queryData(query_params);
+	}
 	function initUpload(){
-
+		var options = {
+            "show_fields":["序号","病案号","姓名","性别", "出生日期", "联系人", "联系电话", "医院", "上传时间", "状态"],
+            "operations":"",
+            "table_wrapper":$("#export-query-patient-table-wrapper"),
+            "page_nav_wrapper":$("#export-query-patient-page-nav")
+        }
+        g_patient_query_upload = new patient_query();
+		g_patient_query_upload.init(options);
+		$("#content-wrapper-export-upload input[tag='datetimepicker']").val("");
+        $("#content-wrapper-export-upload button[tag='query']").click(function(){
+            upload_queryDefaultPage();
+		})
 	}
 	/////////////////////////////////////////初始化查询
 	function query_queryDefaultPage(){
