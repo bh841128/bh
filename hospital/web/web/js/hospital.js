@@ -126,7 +126,7 @@ function hospital(){
 	}
 	
 	function showNavTab(section_id, show_nav_id, show_tab_id){
-		$("$#"+section_id+">.nav-tabs>li>a").each(function(){
+		$("#"+section_id+">.nav-tabs>li>a").each(function(){
 			if (this.id == show_nav_id){
 				$(this).addClass("active");
 			}
@@ -134,7 +134,7 @@ function hospital(){
 				$(this).removeClass("active");
 			}
 		})
-		$("$#"+section_id+">.tab-content>.tab-pane").each(function(){
+		$("#"+section_id+">.tab-content>.tab-pane").each(function(){
 			if (this.id == show_tab_id){
 				$(this).addClass("active");
 			}
