@@ -4,9 +4,10 @@ defined('YII_ENV') or define('YII_ENV', 'dev');
 
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../vendor/yiisoft/yii2/Yii.php';
-require __DIR__ . '/../models/CUtil.php';
+require __DIR__ . '/../models/Hospital.php';
 
-app\models\CUtil::checkMobile("111");
+$ret_client = app\models\Hospital::checkLogin();
+print_r($ret_client);
 exit;
 require_once(__DIR__."/../config/front_config.php");
 
