@@ -74,13 +74,13 @@ function hospital(){
 			//确认是否离开页面
 		}
 		///设置左侧sidebar高亮
-		setSitebarHightlight(dstSites[0]);
+		setSitebarHightlight(page_name);
 		///设置顶部面包屑
-		m_this.setBreadcrumb(dstSites);
+		m_this.setBreadcrumb(page_name);
 		///设置当前站点
-		m_this.setGlobalData("currentSite", dstSites);
+		m_this.setGlobalData("currentSite", page_name);
 		///显示隐藏相关页面
-		showDstPage(dstSites);
+		showDstPage(page_name);
 	}
 	//////////////////////////////////////////////全局数据管理
 	this.setGlobalData = function(key, data){
