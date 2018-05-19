@@ -374,8 +374,13 @@ function patient_query() {
     function getOpertionHtml(data, operations) {
         var arrHtmls = [];
         var arrOperations = operations.split(",");
+        var status = data["状态"];
         for (var i = 0; i < arrOperations.length; i++) {
-            var html = '<button type="button" class="btn btn-link" data-id="' + data["id"] + '" operation-type="' + arrOperations[i] + '">' + arrOperations[i] + '</button>';
+            var operation = arrOperations[i];
+            if (status == "已上传" && (operation == "删除" || operation == "上传"|| operation == "编辑")){
+                continue;
+            }
+            var html = '<button type="button" class="btn btn-link" data-id="' + data["id"] + '" operation-type="' + operation + '">' + operation + '</button>';
             arrHtmls.push(html);
         }
         return arrHtmls.join("&nbsp;&nbsp;");
@@ -461,7 +466,7 @@ function zhuyuanjilu_query(){
     function getStatusName(status) {
         var status_map = [
             { "name": "未上传", "id": "1" },
-            { "name": "上传", "id": "2" },
+            { "name": "已上传", "id": "2" },
             { "name": "删除", "id": "3" }
         ];
         for (var i = 0; i < status_map.length; i++) {
