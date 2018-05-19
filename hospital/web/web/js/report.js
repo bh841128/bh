@@ -3,7 +3,6 @@ function report(){
     this.init = function(){
         initHospital($("#hospital-select"));
         initBar([], ["所有医院"]);
-        queryReportTable();
     }
     
     function initBar(data,keys){
