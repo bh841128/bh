@@ -277,13 +277,13 @@ function hospital(){
 
 	}
 	/////////////////////////////////////////初始化查询
-	function query_queryDefaultPage(){
-		var query_params = g_patient_query.parseQueryParam($("#query_param_form"));
-		query_params.page = 1;
-		query_params.size = 10;
-		g_patient_query.queryData(query_params);
-	}
 	function initQuery(){
+		function query_queryDefaultPage(){
+			var query_params = g_patient_query.parseQueryParam($("#query_param_form"));
+			query_params.page = 1;
+			query_params.size = 10;
+			g_patient_query.queryData(query_params);
+		}
 		var options = {
             "show_fields":["序号","病案号","姓名","性别", "出生日期", "联系人", "联系电话", "医院", "上传时间", "状态"],
             "operations":"编辑,删除",
@@ -299,6 +299,12 @@ function hospital(){
 	}
 	/////////////////////////////////////////初始化导出
 	function initExport(){
+		function query_queryDefaultPage(){
+			var query_params = g_patient_query.parseQueryParam($("#export_query_param_form"));
+			query_params.page = 1;
+			query_params.size = 10;
+			g_patient_query_export.queryData(query_params);
+		}
 		var options = {
             "show_fields":["序号","病案号","姓名","性别", "出生日期", "联系人", "联系电话", "医院", "上传时间", "状态"],
             "operations":"",
@@ -307,8 +313,8 @@ function hospital(){
         }
         g_patient_query_export = new patient_query();
 		g_patient_query_export.init(options);
-		$("#content-wrapper-query-query input[tag='datetimepicker']").val("");
-        $("#content-wrapper-query-query button[tag='query']").click(function(){
+		$("#content-wrapper-export-export input[tag='datetimepicker']").val("");
+        $("#content-wrapper-export-export button[tag='query']").click(function(){
             query_queryDefaultPage();
         })
 	}
