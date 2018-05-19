@@ -84,11 +84,20 @@ function hospital(){
 		function showDstPage(){
 			var container_id = "";
 			var container_ids = [];
+			var site_pages = m_this.m_page_struct.site_pages;
 			for (var i = 0; i < dstSites.length; i++){
-				if (typeof dstSites[i]["container-id"] != "undefined"){
-					container_id = dstSites[i]["container-id"];
+				var page_info = findSitePageInfo(site_pages, dstSites[i]);
+				if (!page_info){
+					return false;
+				}
+				if (typeof page_info["container-id"] != "undefined"){
+					container_id = page_info["container-id"];
 					container_ids.push(content_warrer_id);
 				}
+				if (typeof page_info["pages"] == "undefined"){
+					break;
+				}
+				site_pages = page_info["pages"];
 			}
 			if (container_id == ""){
 				return false;
