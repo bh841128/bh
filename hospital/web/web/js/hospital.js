@@ -80,13 +80,18 @@ function hospital(){
 		m_this.setGlobalData("currentSite", page_name);
 		///显示隐藏相关页面
 		showDstPage(page_name);
+		//////////////////
+		m_this.setGlobalData("current_page", current_page);
 	}
 	//////////////////////////////////////////////全局数据管理
 	this.setGlobalData = function(key, data){
 		m_this.m_global_data[key] = data;
 	}
 	this.getGlobalData = function(key, data){
-		
+		if (typeof m_this.m_global_data[key] == "undefined"){
+			return "";
+		}
+		return m_this.m_global_data[key];
 	}
 	this.setGlobalDataDirty = function(key, data){
 
