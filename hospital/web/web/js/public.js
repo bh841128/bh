@@ -546,3 +546,24 @@ function evalJsonStr(json_str){
 	}
 	return json_str;
 }
+//////////////////////////////////////////////////////////////
+function showNavTab(section_id, show_nav_id, show_tab_id){
+	$("#"+section_id+">.nav-tabs>li>a").each(function(){
+		if (this.id == show_nav_id){
+			$(this.parentNode).addClass("active");
+		}
+		else{
+			$(this.parentNode).removeClass("active");
+		}
+	})
+	$("#"+section_id+">.tab-content>.tab-pane").each(function(){
+		if (this.id == show_tab_id){
+			$(this).addClass("active");
+			$(this).addClass("in");
+		}
+		else{
+			$(this).removeClass("active");
+			$(this).removeClass("in");
+		}
+	})
+}

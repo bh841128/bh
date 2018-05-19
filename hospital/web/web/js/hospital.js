@@ -19,6 +19,7 @@ function hospital(){
 	};
 	///////////////////////////////////////////////初始化
 	this.init = function(){
+		initControls();
 		//这是左侧sidebar点击事件
 		var side_bar = m_this.m_page_struct.elements["side_bar"];
 		side_bar.find(".tree-btn[tag]").click(function(){
@@ -99,12 +100,6 @@ function hospital(){
 		}
 		return m_this.m_global_data[key];
 	}
-	this.setGlobalDataDirty = function(key, data){
-
-	}
-	this.isGlobalDataDirty = function(key){
-
-	}
 	////////////////////////////////////////////数据接口管理
 	function findPageInfo(page_configs, page_name){
 		var page_configs = m_this.m_page_struct.page_configs;
@@ -124,26 +119,26 @@ function hospital(){
 		}
 		return null;
 	}
+	/////////////////////////////////////////////
+	function initControls(){
+		initDatePicker("input[tag='datepicker']");
+		initDateTimePicker("input[tag='datetimepicker']");
+		initMinzu($("select[tag='minzu']"));
+		initAddress($("div[tag='address']"));
+		initUserMenu();
+		initIEPlaceholder();
+	}
+	function initUserMenu(){
+		$("#user_login_menu a[tag='change_password']").click(function(){
+			onShowChangePwd();
+		})
+		$("#user_login_menu a[tag='signout']").click(function(){
+			onLogout();
+		})
 	
-	function showNavTab(section_id, show_nav_id, show_tab_id){
-		$("#"+section_id+">.nav-tabs>li>a").each(function(){
-			if (this.id == show_nav_id){
-				$(this.parentNode).addClass("active");
-			}
-			else{
-				$(this.parentNode).removeClass("active");
-			}
-		})
-		$("#"+section_id+">.tab-content>.tab-pane").each(function(){
-			if (this.id == show_tab_id){
-				$(this).addClass("active");
-				$(this).addClass("in");
-			}
-			else{
-				$(this).removeClass("active");
-				$(this).removeClass("in");
-			}
-		})
+		$("input[tag]").one( "focus", function() {
+			hideAllErrorMsgs();
+		});
 	}
 }
 
