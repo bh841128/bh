@@ -6,7 +6,7 @@ require_once(__DIR__."/../config/front_config.php");
 <head>
     <?php require(WEB_PAGE_PATH."head.php"); ?>
 </head>
-<body class="hold-transition">
+<body>
     <?php require(WEB_PAGE_PATH."header.php"); ?>
     <div class="top-hr"></div>
     <div class="top-wrapper">
