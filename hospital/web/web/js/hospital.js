@@ -61,7 +61,7 @@ function hospital(){
 					return;
 				}
 				if (bread_level == 1){
-					$(this).html('<a href="#">'+breadcrumb_sites[0]+'</a>');
+					$(this).html(breadcrumb_sites[0]);
 				}
 				else if (bread_level == breadcrumb_sites.length){
 					$(this).html(breadcrumb_sites[bread_level - 1]);
