@@ -24,7 +24,7 @@ function report(){
             g_report_bar.setData(data);
         }
         
-        $("#foot_hospital_name").html(g_global_data.hospital.name);
+        $("#foot_hospital_name").html(g_hospital_name);
         $("#year-select,#hospital-select").change(function(){
             m_this.onQueryReportTable();
         })

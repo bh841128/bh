@@ -62,6 +62,8 @@ require_once(__DIR__."/../config/front_config.php");
 <?php
     
     echo "g_user_name='$user_name';".PHP_EOL;
+    echo "g_hospital_name='$hospital_name';".PHP_EOL;
+    echo "g_hospital_id='$hospital_id';".PHP_EOL;
 ?>
         var g_hospital = new hospital();
         g_hospital.init();
