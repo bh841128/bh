@@ -70,7 +70,7 @@ function patient_query() {
     ///////////////////
     function getStatusName(status) {
         var status_map = [
-            { "name": "正常", "id": "1" },
+            { "name": "未上传", "id": "1" },
             { "name": "上传", "id": "2" },
             { "name": "删除", "id": "3" }
         ];
@@ -460,7 +460,7 @@ function zhuyuanjilu_query(){
     /////////////////////////////////////////////////////
     function getStatusName(status) {
         var status_map = [
-            { "name": "正常", "id": "1" },
+            { "name": "未上传", "id": "1" },
             { "name": "上传", "id": "2" },
             { "name": "删除", "id": "3" }
         ];
