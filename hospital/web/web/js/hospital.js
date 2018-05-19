@@ -3,7 +3,7 @@ function hospital(){
 	this.m_page_struct = {
 		elements : {
 			"side_bar":$("#main-sidebar"),
-			"breadcrumb":$("breadcrumb")
+			"breadcrumb":$("#breadcrumb")
 		},
 		site_pages : [
 			{"name":"新增资料","icon":"glyphicon-plus", pages:[
