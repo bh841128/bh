@@ -17,9 +17,9 @@ require_once(__DIR__."/../config/front_config.php");
                     <section class="content-header">
                         <div class="hospital-breadcrumb">
                             <ol class="breadcrumb">
-                                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                                <li><a href="#">Forms</a></li>
-                                <li class="active">General Elements</li>
+                                <li bread-level="1"></li>
+                                <li bread-level="2"></li>
+                                <li bread-level="3"></li>
                             </ol>
                         </div>
                     </section>

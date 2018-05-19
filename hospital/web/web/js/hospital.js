@@ -25,7 +25,7 @@ function hospital(){
 	this.m_global_data = {
 		currentSite:[]
 	};
-	//////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////初始化
 	this.init = function(){
 	}
 	//////////////////////////////////////////////页面跳转管理
@@ -69,5 +69,12 @@ function hospital(){
 	this.getGlobalData = function(key, data){
 		
 	}
+	this.setGlobalDataDirty = function(key, data){
+
+	}
+	this.isGlobalDataDirty = function(key){
+
+	}
+	////////////////////////////////////////////数据接口管理
 }
 
