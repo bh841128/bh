@@ -40,9 +40,9 @@
 </div>
 <div class="form-horizontal">
     <div style="text-align:right;margin-top:10px;">
-            <button type="button" class="btn btn-primary" style="width:100px;border-radius:20px;">
-                    <span class="glyphicon glyphicon-search"></span>导出</button>&nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="button" class="btn btn-primary" style="width:100px;border-radius:20px;">
+            <a class="btn btn-primary" style="width:100px;border-radius:20px;" target="_blank">
+                    <span class="glyphicon glyphicon-search"></span>导出</button>&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        <button type="button" class="btn btn-primary" style="width:100px;border-radius:20px;" tag="query">
             <span class="glyphicon glyphicon-search"></span>查询</button>
     </div>
 </div>
