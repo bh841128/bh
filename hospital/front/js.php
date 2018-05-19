@@ -5,6 +5,8 @@
 <script src="/web/lib/datetimepicker/bootstrap-datetimepicker.min.js"></script>
 <script src="/web/lib/jquery.placeholder.js"></script>
 <script src="/web/lib/jquery.json.js"></script>
+<script src="/web/lib/adminlte/js/raphael.min.js"></script>
+<script src="/web/lib/adminlte/js/morris.min.js"></script>
 
 <script src="/web/js/public.js"></script>
 <script src="/web/js/address.js"></script>

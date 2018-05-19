@@ -26,10 +26,10 @@ function report(){
         
         $("#foot_hospital_name").html(g_global_data.hospital.name);
         $("#year-select,#hospital-select").change(function(){
-            onQueryReportTable();
+            m_this.onQueryReportTable();
         })
     }
-    function onQueryReportTable(){
+    this.onQueryReportTable = function(){
         var year = $("#year-select").val();
         queryReportTable(year);
     }
