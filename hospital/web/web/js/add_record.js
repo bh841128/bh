@@ -1,4 +1,7 @@
 function addPatient(){
+	var g_patient_id = 0;
+	var g_zyjl_id = 0;
+	var g_operation_type = 0;
 	var m_json_map = [
 		{"name":"病案号","field":"medical_id"},
 		{"name":"性别","field":"sexy"},
@@ -21,11 +24,7 @@ function addPatient(){
 			onJibenziliaoSave();
 		})
 		
-		if (g_patient_id > 0){
-			if (g_operation_type > 0){
-				initPatientData(g_patient_id);
-			}
-		}
+		//initPatientData(g_patient_id);
 	}
 	function onAddZhuyuanjilu(){
 		$("#content-add").hide();
