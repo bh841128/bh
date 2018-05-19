@@ -7,6 +7,10 @@
     background-color:white;
 }
 
+.content-header .hospital-breadcrumb .breadcrumb>li+li:before{
+    content:'>\00a0';
+}
+
 .bread-content-wrapper .content-header {
     padding:0px;
 }
