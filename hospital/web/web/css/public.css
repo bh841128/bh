@@ -7,9 +7,16 @@ body{
     background-color:white;
 }
 .hospital-wrapper, .main-sidebar{
-    margin-left:154px;
     border:solid 1px white;
     border-radius:2px;
+}
+
+.main-sidebar{
+    width:150px;
+    min-height:500px;
+}
+.hospital-wrapper{
+    margin-left:154px;
 }
 
 .top-wrapper{
@@ -21,9 +28,6 @@ body{
     width: 1200px;
     margin-left: auto;
     margin-right: auto;
-}
-.main-sidebar {
-    min-height:500px;
 }
 
 .content-header .hospital-breadcrumb .breadcrumb>li+li:before{
@@ -145,9 +149,6 @@ body{
     margin-top:10px;
 }
 
-.main-sidebar{
-    width:150px;
-}
 .content-wrapper{
     margin-left:150px;
     background-color:white;
