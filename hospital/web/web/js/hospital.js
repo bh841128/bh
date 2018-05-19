@@ -20,6 +20,7 @@ function hospital(){
 	///////////////////////////////////////////////初始化
 	this.init = function(){
 		initControls();
+		initAddPatientZyjl();
 		//这是左侧sidebar点击事件
 		var side_bar = m_this.m_page_struct.elements["side_bar"];
 		side_bar.find(".tree-btn[tag]").click(function(){
@@ -139,6 +140,51 @@ function hospital(){
 		$("input[tag]").one( "focus", function() {
 			hideAllErrorMsgs();
 		});
+	}
+	/////////////////////////////////////////初始化添加资料 住院记录
+	function initAddPatientZyjl(){
+		g_addPatient = new addPatient();
+		g_addPatient.init();
+		//查询住院记录
+		g_queryZhuyuanjilu = new queryZhuyuanjilu();
+		g_queryZhuyuanjilu.init();
+		//添加住院记录
+		g_addZhuyuanjilu = new addZhuyuanjilu();
+		g_addZhuyuanjilu.init();
+	}
+	/////////////////////////////////////////初始化上传
+	function initUpload(){
+
+	}
+	/////////////////////////////////////////初始化查询
+	function query_queryDefaultPage(){
+		var query_params = g_patient_query.parseQueryParam($("#query_param_form"));
+		query_params.page = 1;
+		query_params.size = 10;
+		g_patient_query.queryData(query_params);
+	}
+	function initQuery(){
+		var options = {
+            "show_fields":["序号","病案号","姓名","性别", "出生日期", "联系人", "联系电话", "医院", "上传时间", "状态"],
+            "operations":"编辑,删除",
+            "table_wrapper":$("#query-table-wrapper"),
+            "page_nav_wrapper":$("#query-page-nav")
+        }
+        g_patient_query = new patient_query();
+		g_patient_query.init(options);
+		$("#content-query input[tag='datetimepicker']").val("");
+        $("#content-query button[tag='query']").click(function(){
+            query_queryDefaultPage();
+        })
+	}
+	/////////////////////////////////////////初始化导出
+	function initExport(){
+
+	}
+	/////////////////////////////////////////初始化报表
+	function initReport(){
+		g_report = new report();
+		g_report.init();
 	}
 }
 

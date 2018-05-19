@@ -9,4 +9,7 @@
 <script src="/web/js/public.js"></script>
 <script src="/web/js/address.js"></script>
 <script src="/web/js/control_json.js"></script>
+<script src="/web/js/add_record.js"></script>
+<script src="/web/js/query.js"></script>
+<script src="/web/js/report.js"></script>
 <script src="/web/js/hospital.js"></script>
