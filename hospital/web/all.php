@@ -9,7 +9,7 @@ require_once(__DIR__."/../config/front_config.php");
 <body class="hold-transition skin-blue sidebar-mini">
     <?php require(WEB_PAGE_PATH."header.php"); ?>
     <div class="top-hr"></div>
-    <div class="wrapper top-wrapper">
+    <div class="top-wrapper">
         <?php require(WEB_PAGE_PATH."aside.php"); ?>
         <div class="content-wrapper bread-content-wrapper">
             <section class="content-header">
