@@ -6,9 +6,10 @@ require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../vendor/yiisoft/yii2/Yii.php';
 $config = require __DIR__ . '/../config/web.php';
 $application = new yii\console\Application($config);
-
+app\models\CUtil::checkMobile("111");
+exit;
 require_once(__DIR__."/../config/front_config.php");
-require_once(__DIR__."/api_inter.php");
+
 
 
 ?>
