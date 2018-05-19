@@ -8,7 +8,7 @@ body{
 }
 .hospital-wrapper, .main-sidebar{
     border:solid 1px white;
-    border-radius:2px;
+    border-radius:5px;
 }
 
 .main-sidebar{
@@ -16,7 +16,7 @@ body{
     min-height:500px;
 }
 .hospital-wrapper{
-    margin-left:154px;
+    margin-left:155px;
 }
 
 .top-wrapper{
