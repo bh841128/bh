@@ -1,4 +1,4 @@
-<footer style="margin-top:20px">
+<footer>
     <div class="copyright">
         <p>保险业务经营许可证：269633000000800 小雨伞保险经纪有限公司：9112011608300716X9</p>
         <p>版权所有 ©

@@ -32,6 +32,13 @@ body{
     border-radius:5px;
 }
 
+footer{
+    margin-top:0px;
+    padding-top:0px;
+    z-index:1000;
+}
+
+
 .content-header .hospital-breadcrumb .breadcrumb>li+li:before{
     content:'>\00a0';
 }
