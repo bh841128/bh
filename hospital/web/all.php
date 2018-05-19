@@ -4,8 +4,8 @@ defined('YII_ENV') or define('YII_ENV', 'dev');
 
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../vendor/yiisoft/yii2/Yii.php';
-$config = require __DIR__ . '/../config/web.php';
-$application = new yii\console\Application($config);
+require __DIR__ . '/../models/CUtil.php';
+
 app\models\CUtil::checkMobile("111");
 exit;
 require_once(__DIR__."/../config/front_config.php");
