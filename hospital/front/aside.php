@@ -6,25 +6,25 @@
             </li>
             <li class="treeview">
                 <div class="tree-btn-wrapper">
-                    <div class="btn gray-font tree-btn" page="index">
+                    <div class="btn gray-font tree-btn" page="index" tag="新增资料">
                         <span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;新增资料</div>
                 </div>
             </li>
             <li class="treeview">
                 <div class="tree-btn-wrapper">
-                    <div class="btn gray-font tree-btn" page="upload">
+                    <div class="btn gray-font tree-btn" page="upload" tag="上传资料">
                         <span class="glyphicon glyphicon-upload"></span>&nbsp;&nbsp;上传资料</div>
                 </div>
             </li>
             <li class="treeview">
                 <div class="tree-btn-wrapper">
-                    <div class="btn gray-font tree-btn" page="query">
+                    <div class="btn gray-font tree-btn" page="query" tag="数据查询">
                         <span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;数据查询</div>
                 </div>
             </li>
             <li class="treeview">
                 <div class="tree-btn-wrapper">
-                    <div class="btn gray-font tree-btn" page="export">
+                    <div class="btn gray-font tree-btn" page="export" tag="数据导出">
                         <span class="glyphicon glyphicon-export"></span>&nbsp;&nbsp;数据导出</div>
                 </div>
             </li>
@@ -33,7 +33,7 @@
             </li>
             <li class="treeview">
                 <div class="tree-btn-wrapper">
-                    <div class="btn gray-font tree-btn" page="report">
+                    <div class="btn gray-font tree-btn" page="report" tag="数据报表">
                         <span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;数据报表</div>
                 </div>
             </li>
