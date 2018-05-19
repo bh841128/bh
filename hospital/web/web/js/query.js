@@ -386,7 +386,7 @@ function patient_query() {
         for (var i = 0; i < options.show_fields.length; i++) {
             table_html += '<th>' + options.show_fields[i] + '</th>';
         }
-        if (typeof options.operations != "") {
+        if (options.operations != "") {
             table_html += '<th>操作</th>';
         }
         table_html += '</tr></thead>';
@@ -398,7 +398,7 @@ function patient_query() {
                 var show_field = options.show_fields[i];
                 record_html += '<td>' + data[show_field] + '</td>';
             }
-            if (typeof options.operations != "") {
+            if (options.operations != "") {
                 record_html += '<td>' + getOpertionHtml(data, options.operations) + '</td>';
             }
             record_html += '</tr>';
