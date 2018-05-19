@@ -23,7 +23,7 @@ function hospital(){
 		var page_configs = m_this.m_page_struct.page_configs;
 		for (var i = 0; i < page_configs.length; i++){
 			var container_id = page_configs[i]["container-id"];
-			$("#"+container_id).click(function(){
+			$("#"+container_id + " .tree-btn").click(function(){
 				var this_container_id = this.id;
 				var page_info = findPageInfoByContainerId(this_container_id);
 				if (!page_info){
