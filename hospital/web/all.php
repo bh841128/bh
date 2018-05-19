@@ -9,7 +9,7 @@ require __DIR__ . '/../vendor/yiisoft/yii2/Yii.php';
 $config = require __DIR__ . '/../config/web.php';
 require_once(__DIR__."/../config/front_config.php");
 
-use Yii;
+namespace app\models;
 use app\models\Hospital;
 $ret_check_login = Hospital::checkLogin();
 if ($ret_check_login["ret"] != 0){
