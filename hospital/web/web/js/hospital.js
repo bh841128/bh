@@ -39,12 +39,6 @@ function hospital(){
 			}
 			return null;
 		}
-		
-		var top_site = dstSite[0];
-		var top_site_info = findSitePageInfo(top_site);
-		if (!top_site_info){
-			return false;
-		}
 		function setSitebarHightlight(top_site){
 			var site_bar = m_this.m_page_struct.elements["side_bar"];
 			site_bar.find(".tree-btn[tag]").each(function(){
@@ -57,6 +51,13 @@ function hospital(){
 				}
 			})
 		}
+		
+		var top_site = dstSite[0];
+		var top_site_info = findSitePageInfo(top_site);
+		if (!top_site_info){
+			return false;
+		}
+		setSitebarHightlight(top_site);
 		///设置左侧sidebar高亮
 		
 
@@ -76,5 +77,6 @@ function hospital(){
 
 	}
 	////////////////////////////////////////////数据接口管理
+
 }
 
