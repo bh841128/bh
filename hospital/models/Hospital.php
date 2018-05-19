@@ -49,7 +49,7 @@ class Hospital
 		$ret=Login4Hospital::checkLogin($username,$skey);
 		if($ret["ret"]!=0){
 			$ret_client["ret"] = $ret["ret"];
-			$ret_client["msg"] = $ret["need login"];
+			$ret_client["msg"] = "need login";
 			return $ret_client;
 		}
 		$ret_client["data"] = ["user_name"=>$username];
