@@ -4,7 +4,11 @@ require_once(__DIR__."/../config/front_config.php");
 <!DOCTYPE html>
 <html>
 <head>
-    <?php require(WEB_PAGE_PATH."head.php"); ?>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>中国少儿先天性心脏病外科手术数据库</title>
+    <?php require(WEB_PAGE_PATH."css.php"); ?>
 </head>
 <body>
     <?php require(WEB_PAGE_PATH."header.php"); ?>
