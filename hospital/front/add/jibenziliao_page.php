@@ -9,9 +9,9 @@
     </ul>
     <div class="tab-content">
         <div class="tab-pane form-step fade active in" id="tab-jibenziliao" role="tabpanel" aria-labelledby="nav-tab-jibenziliao">
-            <?php require("./add/jibenziliao.php"); ?>
+            <?php require("./jibenziliao.php"); ?>
         </div>
         <div class="tab-pane form-step fade" id="tab-zhuyuanjilu" role="tabpanel" aria-labelledby="nav-tab-zhuyuanjilu">
-        <?php require("./add/zhuyuanjilu.php"); ?>
+        <?php require("./zhuyuanjilu.php"); ?>
     </div>
 </section>
