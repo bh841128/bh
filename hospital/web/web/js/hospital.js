@@ -281,8 +281,8 @@ function hospital(){
 		var options = {
             "show_fields":["序号","病案号","姓名","性别", "出生日期", "联系人", "联系电话", "医院", "上传时间", "状态"],
             "operations":"编辑,删除",
-            "table_wrapper":$("#query-table-wrapper"),
-            "page_nav_wrapper":$("#query-page-nav")
+            "table_wrapper":$("#cx-query-patient-table-wrapper"),
+            "page_nav_wrapper":$("#cx-query-patient-page-nav")
         }
         g_patient_query = new patient_query();
 		g_patient_query.init(options);
