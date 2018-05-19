@@ -429,10 +429,11 @@ function zhuyuanjilu_query(){
     }
     this.transData = function(table_datas) {
         for (var i = 0; i < table_datas.length; i++) {
-            table_datas[i]["入院日期"] = timestampToDateString(table_datas[i]["入院日期"]);
-            table_datas[i]["出院日期"] = timestampToDateString(table_datas[i]["出院日期"]);
-            table_datas[i]["上传时间"] = timestampToDateString(table_datas[i]["上传时间"]);
-            table_datas[i]["状态"] = getStatusName(table_datas[i]["状态"]);
+            table_datas[i]["入院日期"]  = timestampToDateString(table_datas[i]["入院日期"]);
+            table_datas[i]["出院日期"]  = timestampToDateString(table_datas[i]["出院日期"]);
+            table_datas[i]["上传时间"]  = timestampToDateString(table_datas[i]["上传时间"]);
+            table_datas[i]["手术日期"]  = timestampToDateString(table_datas[i]["手术日期"]);
+            table_datas[i]["状态"]      = getStatusName(table_datas[i]["状态"]);
         }
     }
     this.onOperationClick = function(operationType, dataId){
