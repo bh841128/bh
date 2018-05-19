@@ -81,7 +81,7 @@
             <span class="glyphicon glyphicon-search"></span>查询</button>
     </div>
 </div>
-<div class="box-body table-responsive" id="query-table-wrapper">
+<div class="box-body table-responsive" tag="cx-query-patient-table-wrapper">
     <table class="table table-bordered table-hover table-center" style="text-align:center">
         <thead>
             <tr>
@@ -102,6 +102,4 @@
         </tbody>
     </table>
 </div>
-<nav aria-label="Page navigation" style="text-align:center" id="query-page-nav">
-    
-</nav>
+<nav aria-label="Page navigation" style="text-align:center" id="cx-query-patient-page-nav"></nav>

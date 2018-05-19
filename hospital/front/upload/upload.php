@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="box-body table-responsive">
-        <table id="example2" class="table table-bordered table-hover">
+        <table class="table table-bordered table-hover">
             <thead>
                 <tr>
                     <th>序号</th>
