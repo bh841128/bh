@@ -8,7 +8,8 @@ require __DIR__ . '/../vendor/yiisoft/yii2/Yii.php';
 
 $config = require __DIR__ . '/../config/web.php';
 use Yii;
-use app\models\Hospital;
-
+use app\models\CUtil;
+CUtil::checkMobile("111");
+exit;
 $ret_check_login = Hospital::checkLogin();
 print_r($ret_check_login);
