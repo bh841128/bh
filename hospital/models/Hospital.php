@@ -1,4 +1,6 @@
 <?php
+
+use Yii;
 namespace app\models;
 class Hospital
 {

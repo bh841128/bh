@@ -59,8 +59,8 @@ if ($ret_check_login["ret"] != 0){
     <?php require(WEB_PAGE_PATH."js.php"); ?>
     <script type="text/javascript">
 <?php
-    $user_name = $ret_check_login["user_name"];
-    echo "g_user_name='$user_name';".PHP_EOL;
+    //$user_name = $ret_check_login["user_name"];
+    //echo "g_user_name='$user_name';".PHP_EOL;
 ?>
         var g_hospital = new hospital();
         g_hospital.init();
