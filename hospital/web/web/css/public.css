@@ -2,8 +2,8 @@ html,body{
     background-color:rgb(245,248,250);
 }
 
-.top-container, .top-wrapper{
-    width:1200px;
+.wrapper.top-wrapper,.login-top-wrapper,.top-container, .top-wrapper{
+    width:1500px;
     margin-left:auto;
     margin-right:auto;
 }
@@ -410,11 +410,6 @@ html,body{
     visibility:visible;
 }
 
-.wrapper.top-wrapper,.login-top-wrapper{
-    width:1200px;
-    margin-left:auto;
-    margin-right:auto;
-}
 .top-hr{
     width:100%;
     height:2px;
