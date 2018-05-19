@@ -1,4 +1,5 @@
 function report(){
+    var m_this = this;
     this.init = function(){
         initHospital($("#hospital-select"));
         initBar([], ["所有医院"]);
