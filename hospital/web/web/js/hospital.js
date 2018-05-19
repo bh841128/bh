@@ -3,27 +3,11 @@ function hospital(){
 	this.m_page_struct = {
 		elements : {
 			"side_bar":$("#main-sidebar"),
-			"breadcrumb":$("#breadcrumb")
+			"breadcrumb":$("#breadcrumb-title")
 		},
-		site_pages : [
-			{"name":"新增资料", "container-id":"content-wrapper-add-jibenziliao",
-				pages:[
-					{"name":"基本资料"},
-					{"name":"住院记录",
-						pages:[
-							{"name":"新增住院记录", "container-id":"content-wrapper-add-zhuyuanjilu",
-								pages:[
-									{"name":"日期"},
-									{"name":"术前信息"},
-									{"name":"手术信息"},
-									{"name":"术后信息"},
-									{"name":"出院资料"}
-								]
-							}
-						]
-					}
-				]
-			},
+		page_configs : [
+			{"name":"新增资料", "container-id":"content-wrapper-add-jibenziliao", "nav-tabs":[]},
+			{"name":"新增住院记录", "container-id":"content-wrapper-add-zhuyuanjilu", "nav-tabs":[]},
 			{"name":"上传资料", "container-id":"content-wrapper-upload-upload"},
 			{"name":"数据查询", "container-id":"content-wrapper-query-query"},
 			{"name":"数据导出", "container-id":"content-wrapper-export-export"},
@@ -31,49 +15,38 @@ function hospital(){
 		]
 	}
 	this.m_global_data = {
-		
+		"current_page":""
 	};
 	///////////////////////////////////////////////初始化
 	this.init = function(){
-		this.gotoPage(["新增资料","基本资料"]);
+		//这是左侧sidebar点击事件
+		var page_configs = m_this.m_page_struct.page_configs;
+		for (var i = 0; i < page_configs.length; i++){
+			var container_id = page_configs[i]["container-id"];
+			$("#"+container_id).click(function(){
+				var this_container_id = this.id;
+				var page_info = findPageInfoByContainerId(this_container_id);
+				if (!page_info){
+					return;
+				}
+				this.gotoPage(page_info.name);
+			})
+		}
+		this.gotoPage(["新增资料"]);
 	}
 	//////////////////////////////////////////////页面跳转管理
-	this.setBreadcrumb = function(breadcrumb_sites){
-		var breadcrumb = m_this.m_page_struct.elements["breadcrumb"];
-		breadcrumb.find("li[bread-level]").each(function(){
-			var bread_level = $(this).attr("bread-level");
-			if (bread_level > breadcrumb_sites.length){
-				$(this).hide();
-				return;
-			}
-			if (bread_level == 1){
-				$(this).html(breadcrumb_sites[0]);
-			}
-			else if (bread_level == breadcrumb_sites.length){
-				$(this).html(breadcrumb_sites[bread_level - 1]);
-				$(this).addClass("active");
-			}
-			else{
-				$(this).html('<a href="#">'+breadcrumb_sites[bread_level - 1]+'</a>');
-				$(this).removeClass("active");
-			}
-			$(this).show();
-		})
-	}
-	this.gotoPage = function(dstSites){
-		function findSitePageInfo(site_configs, site_name){
-			for (var i = 0; i < site_configs.length; i++){
-				if (site_configs[i].name == site_name){
-					return site_configs[i];
-				}
-			}
-			return null;
+	this.gotoPage = function(page_name){
+		function setBreadcrumb(page_name){
+			breadcrumb.html(page_name);
 		}
-		function setSitebarHightlight(site_name){
+		function setSitebarHightlight(page_name){
+			if (page_name == "新增住院记录"){
+				page_name = "新增资料";
+			}
 			var site_bar = m_this.m_page_struct.elements["side_bar"];
 			site_bar.find(".tree-btn[tag]").each(function(){
 				var tag = $(this).attr("tag");
-				if (tag == site_name){
+				if (tag == page_name){
 					$(this).addClass("active");
 				}
 				else{
@@ -81,36 +54,25 @@ function hospital(){
 				}
 			})
 		}
-		function showDstPage(){
-			var container_id = "";
-			var container_ids = [];
-			var site_pages = m_this.m_page_struct.site_pages;
-			for (var i = 0; i < dstSites.length; i++){
-				var page_info = findSitePageInfo(site_pages, dstSites[i]);
-				if (!page_info){
-					return false;
-				}
-				if (typeof page_info["container-id"] != "undefined"){
-					container_id = page_info["container-id"];
-					container_ids.push(container_id);
-				}
-				if (typeof page_info["pages"] == "undefined"){
-					break;
-				}
-				site_pages = page_info["pages"];
-			}
-			if (container_id == ""){
+		function showDstPage(page_name){
+			var page_configs = m_this.m_page_struct.page_configs;
+			var page_info = findSitePageInfo(page_configs, dstSites[i]);
+			if (!page_info){
 				return false;
 			}
-			for ($i = 0; i < container_ids.length; i++){
-				if (container_ids[i] == container_id){
-					continue;
+			var container_id = page_info.container_id;
+			for (var i = 0; i < page_configs.length; i++){
+				if (page_configs[i].container_id != container_id){
+					$("#"+page_configs[i].container_id).hide();
 				}
-				$("#"+container_ids[i]).hide();
 			}
 			$("#"+container_id).show();
 		}
 		
+		var current_page = m_this.getGlobalData("current_page");
+		if (current_page == "新增资料" || current_page == "新增住院记录"){
+			//确认是否离开页面
+		}
 		///设置左侧sidebar高亮
 		setSitebarHightlight(dstSites[0]);
 		///设置顶部面包屑
@@ -134,6 +96,23 @@ function hospital(){
 
 	}
 	////////////////////////////////////////////数据接口管理
-
+	function findPageInfo(page_configs, page_name){
+		var page_configs = m_this.m_page_struct.page_configs;
+		for (var i = 0; i < page_configs.length; i++){
+			if (page_configs[i].name == page_name){
+				return page_configs[i];
+			}
+		}
+		return null;
+	}
+	function findPageInfoByContainerId(page_configs, container_id){
+		var page_configs = m_this.m_page_struct.page_configs;
+		for (var i = 0; i < page_configs.length; i++){
+			if (page_configs[i]["container-id"] == container_id){
+				return page_configs[i];
+			}
+		}
+		return null;
+	}
 }
 
