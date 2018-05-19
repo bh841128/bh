@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 use app\models\CError;
 use app\models\CUtil;
-use app\models\hospital;
+use app\models\Hospital;
 
 
 class Login4Hospital {
