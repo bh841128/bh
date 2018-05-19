@@ -100,6 +100,10 @@ function hospital(){
 				query_queryDefaultPage();
 				return;
 			}
+			if (page_name == "数据导出"){
+				export_queryDefaultPage();
+				return;
+			}
 			if (page_name == "数据报表"){
 				g_report.onQueryReportTable();
 				return;
@@ -278,13 +282,13 @@ function hospital(){
 
 	}
 	/////////////////////////////////////////初始化查询
-	function initQuery(){
-		function query_queryDefaultPage(){
-			var query_params = g_patient_query.parseQueryParam($("#query_param_form"));
-			query_params.page = 1;
-			query_params.size = 10;
-			g_patient_query.queryData(query_params);
-		}
+	function query_queryDefaultPage(){
+		var query_params = g_patient_query.parseQueryParam($("#query_param_form"));
+		query_params.page = 1;
+		query_params.size = 10;
+		g_patient_query.queryData(query_params);
+	}
+	function initQuery(){	
 		var options = {
             "show_fields":["序号","病案号","姓名","性别", "出生日期", "联系人", "联系电话", "医院", "上传时间", "状态"],
             "operations":"编辑,删除",
@@ -299,13 +303,13 @@ function hospital(){
         })
 	}
 	/////////////////////////////////////////初始化导出
+	function export_queryDefaultPage(){
+		var query_params = g_patient_query.parseQueryParam($("#export_query_param_form"));
+		query_params.page = 1;
+		query_params.size = 10;
+		g_patient_query_export.queryData(query_params);
+	}
 	function initExport(){
-		function query_queryDefaultPage(){
-			var query_params = g_patient_query.parseQueryParam($("#export_query_param_form"));
-			query_params.page = 1;
-			query_params.size = 10;
-			g_patient_query_export.queryData(query_params);
-		}
 		var options = {
             "show_fields":["序号","病案号","姓名","性别", "出生日期", "联系人", "联系电话", "医院", "上传时间", "状态"],
             "operations":"",
@@ -316,7 +320,7 @@ function hospital(){
 		g_patient_query_export.init(options);
 		$("#content-wrapper-export-export input[tag='datetimepicker']").val("");
         $("#content-wrapper-export-export button[tag='query']").click(function(){
-            query_queryDefaultPage();
+            export_queryDefaultPage();
         })
 	}
 	/////////////////////////////////////////初始化报表
