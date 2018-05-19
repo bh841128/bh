@@ -28,6 +28,7 @@ function hospital(){
 	};
 	///////////////////////////////////////////////初始化
 	this.init = function(){
+		this.gotoPage(["新增资料","基本资料"]);
 	}
 	//////////////////////////////////////////////页面跳转管理
 	this.gotoPage = function(dstSite){
