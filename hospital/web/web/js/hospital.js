@@ -332,7 +332,7 @@ function hospital(){
         $("#content-wrapper-export-export button[tag='query']").click(function(){
             export_queryDefaultPage();
 		})
-		$("#content-wrapper-export-export button[tag='query']").click(function(){
+		$("#content-wrapper-export-export a[tag='export']").click(function(){
 			this.href = getExportLink();
 			return true;
         })
