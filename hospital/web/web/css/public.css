@@ -32,10 +32,10 @@ body{
     border-radius:5px;
 }
 
-footer{
+.hospital-footer{
     margin-top:0px;
     padding-top:0px;
-    z-index:1000;
+    z-index:20000;
 }
 
 
