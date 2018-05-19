@@ -10,7 +10,7 @@ require_once(__DIR__."/../config/front_config.php");
     <?php require(WEB_PAGE_PATH."header.php"); ?>
     <div class="top-hr"></div>
     <div class="top-wrapper">
-        <div class="content-wrapper bread-content-wrapper">
+        <div class="bread-content-wrapper">
             <section class="content-header">
                 <div class="hospital-breadcrumb">
                     <ol class="breadcrumb">
