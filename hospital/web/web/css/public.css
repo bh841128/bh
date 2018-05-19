@@ -1,12 +1,12 @@
 body{
     background-color:rgb(245,248,250);
 }
-.content-wrapper, .hospital-content-wrapper, .main-sidebar,
+.hospital-wrapper, .main-sidebar,
 .content-header .hospital-breadcrumb .breadcrumb
 {
     background-color:white;
 }
-.content-wrapper, .hospital-content-wrapper, .main-sidebar{
+.hospital-wrapper, .main-sidebar{
     border:1px soid white;
     border-radius:2px;
 }
