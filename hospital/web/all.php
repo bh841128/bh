@@ -22,8 +22,13 @@ require_once(__DIR__."/../config/front_config.php");
                 </div>
             </section>
         </div>
+
+        <?php require(WEB_PAGE_PATH."footer.php"); ?>
+        <?php require(WEB_PAGE_PATH."login_modal.php"); ?>
     </div>
 
+     
+    <?php require(WEB_PAGE_PATH."js.php"); ?>
     <script type="text/javascript">
         var g_hospital = new hospital();
         g_hospital.init();
