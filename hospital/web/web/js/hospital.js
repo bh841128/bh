@@ -38,6 +38,28 @@ function hospital(){
 		this.gotoPage(["新增资料","基本资料"]);
 	}
 	//////////////////////////////////////////////页面跳转管理
+	this.setBreadcrumb = function(breadcrumb_sites){
+		var breadcrumb = m_this.m_page_struct.elements["breadcrumb"];
+		breadcrumb.find("li[bread-level]").each(function(){
+			var bread_level = $(this).attr("bread-level");
+			if (bread_level > breadcrumb_sites.length){
+				$(this).hide();
+				return;
+			}
+			if (bread_level == 1){
+				$(this).html(breadcrumb_sites[0]);
+			}
+			else if (bread_level == breadcrumb_sites.length){
+				$(this).html(breadcrumb_sites[bread_level - 1]);
+				$(this).addClass("active");
+			}
+			else{
+				$(this).html('<a href="#">'+breadcrumb_sites[bread_level - 1]+'</a>');
+				$(this).removeClass("active");
+			}
+			$(this).show();
+		})
+	}
 	this.gotoPage = function(dstSites){
 		function findSitePageInfo(site_configs, site_name){
 			for (var i = 0; i < site_configs.length; i++){
@@ -57,28 +79,6 @@ function hospital(){
 				else{
 					$(this).removeClass("active");
 				}
-			})
-		}
-		function setBreadcrumb(breadcrumb_sites){
-			var breadcrumb = m_this.m_page_struct.elements["breadcrumb"];
-			breadcrumb.find("li[bread-level]").each(function(){
-				var bread_level = $(this).attr("bread-level");
-				if (bread_level > breadcrumb_sites.length){
-					$(this).hide();
-					return;
-				}
-				if (bread_level == 1){
-					$(this).html(breadcrumb_sites[0]);
-				}
-				else if (bread_level == breadcrumb_sites.length){
-					$(this).html(breadcrumb_sites[bread_level - 1]);
-					$(this).addClass("active");
-				}
-				else{
-					$(this).html('<a href="#">'+breadcrumb_sites[bread_level - 1]+'</a>');
-					$(this).removeClass("active");
-				}
-				$(this).show();
 			})
 		}
 		function showDstPage(){
@@ -114,7 +114,7 @@ function hospital(){
 		///设置左侧sidebar高亮
 		setSitebarHightlight(dstSites[0]);
 		///设置顶部面包屑
-		setBreadcrumb(dstSites);
+		m_this.setBreadcrumb(dstSites);
 		///设置当前站点
 		m_this.setGlobalData("currentSite", dstSites);
 		///显示隐藏相关页面
