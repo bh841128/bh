@@ -84,7 +84,7 @@ function hospital(){
 				return;
 			}
 			if (page_name == "住院记录列表"){
-				g_addZhuyuanjilu.showPageZyjlList(data);
+				g_addPatient.showPageZyjlList(data);
 				return;
 			}
 			if (page_name == "新增住院记录"){
@@ -129,6 +129,46 @@ function hospital(){
 	}
 	function isNeedLogin(ret){
 		return ret == 1;
+	}
+	///////////////////////////////////////////
+	this.onEditPatientInfo = function(patient_id, callback, page_name){
+		function onGetPatientDataRet(ret_info){
+			if (isNeedLogin(ret_info.ret)){
+				showLoginModal();
+				return;
+			}
+			if (ret_info.ret != 0){
+				callback(ret_info);
+				return;
+			}
+			if (typeof page_name == "undefined"){
+				page_name = "新增资料";
+			}
+			m_this.gotoPage(page_name, ret_info.data);
+		}
+		getPatientData(patient_id, onGetPatientDataRet);
+	}
+	this.onAddZhuyuanjilu = function(zyjl_id){
+		function onGetZhuyuanjiluDataRet(ret_info){
+			if (isNeedLogin(ret_info.ret)){
+				showLoginModal();
+				return;
+			}
+			if (ret_info.ret != 0){
+				callback(ret_info);
+				return;
+			}
+			if (typeof page_name == "undefined"){
+				page_name = "新增资料";
+			}
+			m_this.gotoPage("新增住院记录", ret_info.data);
+		}
+		if (zyjl_id > 0){
+			getZhuyuanjiluData(zyjl_id, onGetZhuyuanjiluDataRet);
+		}
+		else{
+			m_this.gotoPage("新增住院记录");
+		}
 	}
 	function getPatientData(patient_id, callback){
 		function onGetPatientDataRet(rsp){
