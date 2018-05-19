@@ -29,6 +29,9 @@ function hospital(){
 				if (!page_info){
 					return;
 				}
+				if ($($this).hasClass("active")){
+					return;
+				}
 				this.gotoPage(page_info.name);
 			})
 		}
