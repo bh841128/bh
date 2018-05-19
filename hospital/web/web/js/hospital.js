@@ -6,12 +6,12 @@ function hospital(){
 			"breadcrumb":$("#breadcrumb-title")
 		},
 		page_configs : [
-			{"name":"新增资料", "container-id":"content-wrapper-add-jibenziliao", "nav-tabs":[]},
-			{"name":"新增住院记录", "container-id":"content-wrapper-add-zhuyuanjilu", "nav-tabs":[]},
-			{"name":"上传资料", "container-id":"content-wrapper-upload-upload"},
-			{"name":"数据查询", "container-id":"content-wrapper-query-query"},
-			{"name":"数据导出", "container-id":"content-wrapper-export-export"},
-			{"name":"数据报表", "container-id":"content-wrapper-report-report"}
+			{"name":"新增资料", "container_id":"content-wrapper-add-jibenziliao", "nav-tabs":[]},
+			{"name":"新增住院记录", "container_id":"content-wrapper-add-zhuyuanjilu", "nav-tabs":[]},
+			{"name":"上传资料", "container_id":"content-wrapper-upload-upload"},
+			{"name":"数据查询", "container_id":"content-wrapper-query-query"},
+			{"name":"数据导出", "container_id":"content-wrapper-export-export"},
+			{"name":"数据报表", "container_id":"content-wrapper-report-report"}
 		]
 	}
 	this.m_global_data = {
@@ -112,7 +112,7 @@ function hospital(){
 	function findPageInfoByContainerId(page_configs, container_id){
 		var page_configs = m_this.m_page_struct.page_configs;
 		for (var i = 0; i < page_configs.length; i++){
-			if (page_configs[i]["container-id"] == container_id){
+			if (page_configs[i]["container_id"] == container_id){
 				return page_configs[i];
 			}
 		}
