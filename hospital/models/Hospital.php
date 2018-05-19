@@ -52,7 +52,15 @@ class Hospital
 			$ret_client["msg"] = "need login";
 			return $ret_client;
 		}
-		$ret_client["data"] = ["user_name"=>$username];
+		$hostpital_name = "";
+		$hostpital_id   = 0;
+		$ret=Login4Hospital::getManager($username);
+		if ($ret["ret"] == 0){
+			$hospital = $ret["msg"]["hospital"];
+			$hostpital_id = intval($hospital["id"]);
+			$hostpital_name = $hospital["name"];
+		}
+		$ret_client["data"] = ["user_name"=>$username, "hospital_name"=>$hostpital_name, "hostpital_id"=>"$hostpital_id"];
 		return $ret_client;
 	}
 }
