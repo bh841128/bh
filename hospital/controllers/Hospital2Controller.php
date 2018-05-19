@@ -53,4 +53,28 @@ class HospitalController extends Controller
         Yii::$app->request->enableCsrfValidation = false;
         return parent::beforeAction($action);
     }
+
+    function checkLogin(){
+        $username = CUtil::getRequestParam('cookie', 'username', '');
+        $skey = CUtil::getRequestParam('cookie', 'skey', '');
+		//登录
+        $ret=Login4Hospital::checkLogin($username,$skey);
+        if ($ret["ret"] != 0){
+            return false;
+        }
+        return true;
+    }
+
+    public function actionGetPatientAndZhuyuanjilu(){
+        if (!$this->checkLogin()){
+            return ["ret"=>1, "msg"=>"need login"];
+        }
+        $patient_id = CUtil::getRequestParam('cookie', 'patient_id', 0);
+        $zyjl_id = CUtil::getRequestParam('cookie', 'zyjl', 0);
+        if ($patient_id == 0 || $zyjl_id){
+            return ["ret"=>99, "msg"=>"param error"];
+        }
+        $ret = Hospital::getPatientAndZhuyuanjilu($patient_id, $zyjl_id);
+        return json_encode($ret);
+    }
 }

@@ -4,6 +4,9 @@ namespace app\models;
 use Yii;
 use app\models\CUtil;
 use app\models\Login4Hospital;
+use app\models\Patient4Hospital;
+use app\models\HospitalizedRecord;
+
 class Hospital
 {
     public $id;
@@ -61,6 +64,29 @@ class Hospital
 			$hospital_name = $hospital["name"];
 		}
 		$ret_client["data"] = ["user_name"=>$username, "hospital_name"=>$hospital_name, "hospital_id"=>"$hospital_id"];
+		return $ret_client;
+	}
+
+	//病人基本信息和某个住院记录
+	public static function getPatientAndZhuyuanjilu($patient_id, $zyjl_id){
+		$ret_client = ["ret"=>0, "msg"=>"OK", "data"=>["patient"=>[],"zhuyuanjilu"=>[]]];
+
+		$username = CUtil::getRequestParam('cookie', 'username', '');
+		$ret=Login4Hospital::getManager($username);
+		if ($ret["ret"] != 0){
+			return ["ret"=>99, "msg"=>"拉取数据错误，请稍候再试"];
+		}
+		$hospital_id = $ret["msg"]["hospital_id"];
+		$ret=Patient4Hospital::getPatientById($patient_id,$hospital_id);
+		if ($ret["ret"] != 0){
+			return ["ret"=>99, "msg"=>"拉取数据错误，请稍候再试"];
+		}
+		$ret_client["data"]["patient"] = $ret["msg"];
+		$ret=HospitalizedRecord::getRecordById($id,$ret["msg"]["hospital_id"]);
+		if ($ret["ret"] != 0){
+			return ["ret"=>99, "msg"=>"拉取数据错误，请稍候再试"];
+		}
+		$ret_client["data"]["zhuyuanjilu"] = $ret["msg"];
 		return $ret_client;
 	}
 }
