@@ -33,7 +33,7 @@ require_once(__DIR__."/../config/front_config.php");
                 <div class="hospital-content-wrapper" id="content-wrapper-export-export" style="display:none">
                     <?php require(WEB_PAGE_PATH."export/export_page.php"); ?>
                 </div>
-                <div class="hospital-content-wrapper" id="content-wrapper-report-report">
+                <div class="hospital-content-wrapper" id="content-wrapper-report-report" style="display:none">
                     <?php require(WEB_PAGE_PATH."report/report_page.php"); ?>
                 </div>
             </div>

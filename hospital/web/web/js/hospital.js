@@ -6,21 +6,28 @@ function hospital(){
 			"breadcrumb":$("#breadcrumb")
 		},
 		site_pages : [
-			{"name":"新增资料","icon":"glyphicon-plus", pages:[
-				{"name":"基本资料"},
-				{"name":"住院记录"},
-				{"name":"新增住院记录",pages:[
-					{"name":"日期"},
-					{"name":"术前信息"},
-					{"name":"手术信息"},
-					{"name":"术后信息"},
-					{"name":"出院资料"}
-				]}
-			]},
-			{"name":"上传资料","icon":"glyphicon-upload"},
-			{"name":"数据查询","icon":"glyphicon-search"},
-			{"name":"数据导出","icon":"glyphicon-export"},
-			{"name":"数据报表","icon":"glyphicon-list-alt"}
+			{"name":"新增资料", "container-id":"content-wrapper-add-jibenziliao",
+				pages:[
+					{"name":"基本资料"},
+					{"name":"住院记录",
+						pages:[
+							{"name":"新增住院记录", "container-id":"content-wrapper-add-zhuyuanjilu",
+								pages:[
+									{"name":"日期"},
+									{"name":"术前信息"},
+									{"name":"手术信息"},
+									{"name":"术后信息"},
+									{"name":"出院资料"}
+								]
+							}
+						]
+					}
+				]
+			},
+			{"name":"上传资料", "container-id":"content-wrapper-upload-upload"},
+			{"name":"数据查询", "container-id":"content-wrapper-query-query"},
+			{"name":"数据导出", "container-id":"content-wrapper-export-export"},
+			{"name":"数据报表", "container-id":"content-wrapper-report-report"}
 		]
 	}
 	this.m_global_data = {
@@ -31,17 +38,16 @@ function hospital(){
 		this.gotoPage(["新增资料","基本资料"]);
 	}
 	//////////////////////////////////////////////页面跳转管理
-	this.gotoPage = function(dstSite){
-		function findSitePageInfo(top_site){
-			var site_pages = m_this.m_page_struct.site_pages;
-			for (var i = 0; i < site_pages.length; i++){
-				if (site_pages[i].name == top_site){
-					return site_pages[i];
+	this.gotoPage = function(dstSites){
+		function findSitePageInfo(site_configs, site_name){
+			for (var i = 0; i < site_configs.length; i++){
+				if (site_configs[i].name == site_name){
+					return site_configs[i];
 				}
 			}
 			return null;
 		}
-		function setSitebarHightlight(top_site){
+		function setSitebarHightlight(site_name){
 			var site_bar = m_this.m_page_struct.elements["side_bar"];
 			site_bar.find(".tree-btn[tag]").each(function(){
 				var tag = $(this).attr("tag");
@@ -75,19 +81,35 @@ function hospital(){
 				$(this).show();
 			})
 		}
-		
-		var top_site = dstSite[0];
-		var top_site_info = findSitePageInfo(top_site);
-		if (!top_site_info){
-			return false;
+		function showDstPage(){
+			var container_id = "";
+			var container_ids = [];
+			for (var i = 0; i < dstSites.length; i++){
+				if (typeof dstSites[i]["container-id"] != "undefined"){
+					container_id = dstSites[i]["container-id"];
+					container_ids.push(content_warrer_id);
+				}
+			}
+			if (container_id == ""){
+				return false;
+			}
+			for ($i = 0; i < container_ids.length; i++){
+				if (container_ids[i] == container_id){
+					continue;
+				}
+				$("#"+container_ids[i]).hide();
+			}
+			$("#"+container_id).show();
 		}
+		
 		///设置左侧sidebar高亮
-		setSitebarHightlight(top_site);
+		setSitebarHightlight(dstSites[0]);
 		///设置顶部面包屑
-		setBreadcrumb(dstSite);
+		setBreadcrumb(dstSites);
 		///设置当前站点
-		m_this.setGlobalData("currentSite", dstSite);
+		m_this.setGlobalData("currentSite", dstSites);
 		///显示隐藏相关页面
+		showDstPage(dstSites);
 	}
 	//////////////////////////////////////////////全局数据管理
 	this.setGlobalData = function(key, data){
