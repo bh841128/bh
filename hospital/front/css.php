@@ -5,4 +5,5 @@
 <link rel="stylesheet" href="/web/lib/adminlte/css/AdminLTE.min.css">
 <link rel="stylesheet" href="/web/lib/datetimepicker/bootstrap-datetimepicker.min.css">
 <link rel="stylesheet" href="/web/lib/datatable/datatables.bootstrap.css">
+<link rel="stylesheet" href="/web/lib/adminlte/css/morris.css">
 <link rel="stylesheet" href="/web/css/public.css">
