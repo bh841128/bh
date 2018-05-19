@@ -7,7 +7,8 @@ body{
     background-color:white;
 }
 .hospital-wrapper, .main-sidebar{
-    border:1px soid white;
+    margin-left:154px;
+    border:solid 1px white;
     border-radius:2px;
 }
 
@@ -33,7 +34,7 @@ body{
     padding:0px;
 }
 .bread-content-wrapper, .hospital-content-wrapper{
-    margin-left: 150px;
+    margin:0px;
 }
 
 .hospital-content-wrapper{
