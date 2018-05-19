@@ -428,6 +428,12 @@ function zhuyuanjilu_query(){
     this.preProcessData = function(rawDatas) {
     }
     this.transData = function(table_datas) {
+        for (var i = 0; i < table_datas.length; i++) {
+            table_datas[i]["入院日期"] = timestampToDateString(table_datas[i]["入院日期"]);
+            table_datas[i]["出院日期"] = timestampToDateString(table_datas[i]["出院日期"]);
+            table_datas[i]["上传时间"] = timestampToDateString(table_datas[i]["上传时间"]);
+            table_datas[i]["状态"] = getStatusName(table_datas[i]["状态"]);
+        }
     }
     this.onOperationClick = function(operationType, dataId){
         alert(operationType);
@@ -449,5 +455,19 @@ function zhuyuanjilu_query(){
         query_param.patient_id = m_options.patient_id;
         query_param.size = m_options.page_size;
         return m_patient_query.queryData(query_param);
+    }
+    /////////////////////////////////////////////////////
+    function getStatusName(status) {
+        var status_map = [
+            { "name": "正常", "id": "1" },
+            { "name": "上传", "id": "2" },
+            { "name": "删除", "id": "3" }
+        ];
+        for (var i = 0; i < status_map.length; i++) {
+            if (status_map[i]["id"] == status) {
+                return status_map[i]["name"];
+            }
+        }
+        return "" + status;
     }
 }
