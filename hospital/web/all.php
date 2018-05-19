@@ -16,10 +16,10 @@ require_once(__DIR__."/../config/front_config.php");
                 <div class="bread-content-wrapper">
                     <section class="content-header">
                         <div class="hospital-breadcrumb">
-                            <ol class="breadcrumb">
-                                <li bread-level="1"></li>
-                                <li bread-level="2"></li>
-                                <li bread-level="3"></li>
+                            <ol class="breadcrumb" id="breadcrumb">
+                                <li bread-level="1" style="display:none"></li>
+                                <li bread-level="2" style="display:none"></li>
+                                <li bread-level="3" style="display:none"></li>
                             </ol>
                         </div>
                     </section>

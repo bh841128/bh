@@ -2,7 +2,8 @@ function hospital(){
 	var m_this = this;
 	this.m_page_struct = {
 		elements : {
-			"side_bar":$("#main-sidebar")
+			"side_bar":$("#main-sidebar"),
+			"breadcrumb":$("breadcrumb")
 		},
 		site_pages : [
 			{"name":"新增资料","icon":"glyphicon-plus", pages:[
@@ -51,17 +52,49 @@ function hospital(){
 				}
 			})
 		}
+		function setBreadcrumb(breadcrumb_sites){
+			var breadcrumb = m_this.m_page_struct.elements["breadcrumb"];
+			breadcrumb.find("li[bread-level]").each(function(){
+				var bread_level = $(this).attr("bread-level");
+				if (bread_level > breadcrumb_sites.length){
+					$(this).hide();
+					return;
+				}
+				if (bread_level == 1){
+					$(this).html('<a href="#"><span class="glyphicon '+top_site_info.icon+'"></span></i>'+breadcrumb_sites[0]+'</a>');
+				}
+				else if (bread_level == breadcrumb_sites.length){
+					$(this).html(breadcrumb_sites[bread_level - 1]);
+					$(this).addClass("active");
+				}
+				else{
+					$(this).html(breadcrumb_sites[bread_level - 1]);
+					$(this).removeClass("active");
+				}
+			})
+			for (var i = 0; i < breadcrumb_sites.length && i < site_slots.length; i++){
+				var site = breadcrumb_sites[i];
+				if ( i == 0){
+
+				}
+				else if (i == breadcrumb_sites.length - 1){
+
+				}
+			}
+			for (i = site_slots.length; i <= 3; i++){
+
+			}
+		}
 		
 		var top_site = dstSite[0];
 		var top_site_info = findSitePageInfo(top_site);
 		if (!top_site_info){
 			return false;
 		}
-		setSitebarHightlight(top_site);
 		///设置左侧sidebar高亮
-		
-
+		setSitebarHightlight(top_site);
 		///设置顶部面包屑
+		///设置当前站点
 	}
 	//////////////////////////////////////////////全局数据管理
 	this.addGlobalData = function(key, data){
