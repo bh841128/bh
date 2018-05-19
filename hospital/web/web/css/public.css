@@ -13,6 +13,10 @@ body{
     background-color:white;
 }
 
+#breadcrumb-title{
+    padding-left:15px;
+    padding-right:15px;
+}
 .top-wrapper{
     position: relative;
     overflow-x: hidden;
