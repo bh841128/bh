@@ -1,4 +1,4 @@
-<div class="container-fluid" style="width:1200px;margin-left:auto;margin-right:auto">
+<div class="container-fluid top-container">
     <header class="main-header">
         <nav class="navbar navbar-static-top" role="navigation" style="margin-left:0px;">
             <a href="#" class="logo" style="width:500px">
