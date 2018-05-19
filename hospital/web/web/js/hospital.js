@@ -287,7 +287,7 @@ function hospital(){
 		var query_params = {status:status};
 		query_params.page = 1;
 		query_params.size = 10;
-		g_patient_query.queryData(query_params);
+		g_patient_query_upload.queryData(query_params);
 	}
 	function initUpload(){
 		var options = {
