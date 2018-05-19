@@ -45,6 +45,9 @@ body{
 .content-header .hospital-breadcrumb .breadcrumb>li+li:before{
     content:'>\00a0';
 }
+.hospital-breadcrumb{
+    height:36px;
+}
 
 .bread-content-wrapper .content-header {
     padding:0px;

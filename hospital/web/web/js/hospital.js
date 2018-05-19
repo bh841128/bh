@@ -24,7 +24,7 @@ function hospital(){
 		]
 	}
 	this.m_global_data = {
-		currentSite:[]
+		
 	};
 	///////////////////////////////////////////////初始化
 	this.init = function(){
@@ -86,10 +86,12 @@ function hospital(){
 		///设置顶部面包屑
 		setBreadcrumb(dstSite);
 		///设置当前站点
+		m_this.setGlobalData("currentSite", dstSite);
+		///显示隐藏相关页面
 	}
 	//////////////////////////////////////////////全局数据管理
-	this.addGlobalData = function(key, data){
-
+	this.setGlobalData = function(key, data){
+		m_this.m_global_data[key] = data;
 	}
 	this.getGlobalData = function(key, data){
 		
