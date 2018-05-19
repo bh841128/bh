@@ -137,9 +137,11 @@ function hospital(){
 		$("#"+section_id+">.tab-content>.tab-pane").each(function(){
 			if (this.id == show_tab_id){
 				$(this).addClass("active");
+				$(this).addClass("in");
 			}
 			else{
 				$(this).removeClass("active");
+				$(this).removeClass("in");
 			}
 		})
 	}
