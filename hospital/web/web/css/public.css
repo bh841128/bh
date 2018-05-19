@@ -1,10 +1,11 @@
 /*     ?????      */
 .hospital-breadcrumb .content-header>.breadcrumb{
     float:left;
+    background-color:white;
 }
 .content-wrapper{
     min-height:460px;
-    background-color:white;
+    
 }
 
 
