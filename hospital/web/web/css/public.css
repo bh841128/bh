@@ -2,6 +2,10 @@
 .hospital-breadcrumb .content-header>.breadcrumb{
     float:left;
 }
+.content-wrapper{
+    min-height:460px;
+    background-color:white;
+}
 
 
 
