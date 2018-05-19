@@ -1,8 +1,9 @@
 .wrapper.top-wrapper{
     min-height:100%;
+    height:auto;
 }
 
-.hospital-breadcrumb .content-header>.breadcrumb{
+.hospital-breadcrumb .content-header .breadcrumb{
     float:left;
     background-color:white;
 }
