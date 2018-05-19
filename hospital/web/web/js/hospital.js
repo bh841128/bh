@@ -33,6 +33,8 @@ function hospital(){
 
 		//默认页面
 		this.gotoPage(["新增资料"]);
+
+		initQuery();
 	}
 	//////////////////////////////////////////////页面跳转管理
 	this.gotoPage = function(page_name, data){
