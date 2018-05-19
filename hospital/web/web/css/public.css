@@ -3,8 +3,7 @@
     height:auto;
 }
 
-.hospital-breadcrumb .content-header .breadcrumb{
-    float:left;
+.content-header .hospital-breadcrumb .breadcrumb{
     background-color:white;
 }
 
