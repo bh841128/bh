@@ -4,7 +4,11 @@ defined('YII_ENV') or define('YII_ENV', 'dev');
 
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../vendor/yiisoft/yii2/Yii.php';
+$application = new yii\web\Application($config);
+exit;
 require __DIR__ . '/../models/Hospital.php';
+require __DIR__ . '/../models/CUtil.php';
+require __DIR__ . '/../models/Login4Hospital.php';
 
 $ret_client = app\models\Hospital::checkLogin();
 print_r($ret_client);
