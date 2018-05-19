@@ -21,6 +21,8 @@ require_once(__DIR__."/../config/front_config.php");
                 </div>
             </section>
         </div>
+        <div class="hospital-content-wrapper">
+        </div>
         <?php require(WEB_PAGE_PATH."aside.php"); ?>
         <?php require(WEB_PAGE_PATH."footer.php"); ?>
         <?php require(WEB_PAGE_PATH."login_modal.php"); ?>
