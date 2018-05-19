@@ -286,8 +286,8 @@ function hospital(){
         }
         g_patient_query = new patient_query();
 		g_patient_query.init(options);
-		$("#content-query input[tag='datetimepicker']").val("");
-        $("#content-query button[tag='query']").click(function(){
+		$("#content-wrapper-query-query input[tag='datetimepicker']").val("");
+        $("#content-wrapper-query-query button[tag='query']").click(function(){
             query_queryDefaultPage();
         })
 	}
