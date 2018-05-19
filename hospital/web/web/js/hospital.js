@@ -57,7 +57,7 @@ function hospital(){
 		}
 		function showDstPage(page_name){
 			var page_configs = m_this.m_page_struct.page_configs;
-			var page_info = findPageInfo(page_configs, dstSites[i]);
+			var page_info = findPageInfo(page_configs, page_name);
 			if (!page_info){
 				return false;
 			}
