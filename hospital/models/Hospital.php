@@ -60,7 +60,7 @@ class Hospital
 			$hospital_id = intval($hospital["id"]);
 			$hospital_name = $hospital["name"];
 		}
-		$ret_client["data"] = ["user_name"=>$username, "hospital_name"=>$hospital_name, "hospital_name"=>"$hospital_id"];
+		$ret_client["data"] = ["user_name"=>$username, "hospital_name"=>$hospital_name, "hospital_id"=>"$hospital_id"];
 		return $ret_client;
 	}
 }
