@@ -72,18 +72,6 @@ function hospital(){
 					$(this).removeClass("active");
 				}
 			})
-			for (var i = 0; i < breadcrumb_sites.length && i < site_slots.length; i++){
-				var site = breadcrumb_sites[i];
-				if ( i == 0){
-
-				}
-				else if (i == breadcrumb_sites.length - 1){
-
-				}
-			}
-			for (i = site_slots.length; i <= 3; i++){
-
-			}
 		}
 		
 		var top_site = dstSite[0];
@@ -94,6 +82,7 @@ function hospital(){
 		///设置左侧sidebar高亮
 		setSitebarHightlight(top_site);
 		///设置顶部面包屑
+		setBreadcrumb(dstSite);
 		///设置当前站点
 	}
 	//////////////////////////////////////////////全局数据管理
