@@ -81,7 +81,7 @@
             <span class="glyphicon glyphicon-search"></span>查询</button>
     </div>
 </div>
-<div class="box-body table-responsive" tag="cx-query-patient-table-wrapper">
+<div class="box-body table-responsive" id="cx-query-patient-table-wrapper">
     <table class="table table-bordered table-hover table-center" style="text-align:center">
         <thead>
             <tr>
