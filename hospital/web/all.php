@@ -20,7 +20,7 @@ require_once(__DIR__."/../config/front_config.php");
                 <div class="hospital-content-wrapper" id="content-wrapper-add-zhuyuanjilu" style="display:none">
                     <?php require(WEB_PAGE_PATH."add/zhuyuanjilu_page.php"); ?>
                 </div>
-                <div class="hospital-content-wrapper" id="content-wrapper-upload-upload" style="display:none">
+                <div class="hospital-content-wrapper" id="content-wrapper-upload-upload">
                     <?php require(WEB_PAGE_PATH."upload/upload_page.php"); ?>
                 </div>
                 <div class="hospital-content-wrapper" id="content-wrapper-query-query" style="display:none">
