@@ -98,7 +98,7 @@ function hospital(){
 				return;
 			}
 			if (page_name == "上传资料"){
-				upload_queryDefaultPage();
+				upload_queryDefaultPage(1);
 				return;
 			}
 			if (page_name == "数据查询"){
