@@ -37,4 +37,18 @@ class Hospital
 		}
 		return false;
 	}
+
+	public static function checkLogin(){
+		$ret_client = ["ret"=>0, "msg"=>"OK", "data"=>""];
+		$username = CUtil::getRequestParam('cookie', 'username', '');
+        $skey = CUtil::getRequestParam('cookie', 'skey', '');
+		$ret=Login4Hospital::checkLogin($username,$skey);
+		if($ret["ret"]!=0){
+			$ret_client["ret"] = $ret["ret"];
+			$ret_client["msg"] = $ret["need login"];
+			return $ret_client;
+		}
+		$ret_client["data"] = ["username"=>$username];
+		return $ret_client;
+	}
 }

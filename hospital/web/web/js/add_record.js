@@ -1,7 +1,5 @@
 function addPatient(){
 	var g_patient_id = 0;
-	var g_zyjl_id = 0;
-	var g_operation_type = 0;
 	var m_json_map = [
 		{"name":"病案号","field":"medical_id"},
 		{"name":"性别","field":"sexy"},
@@ -23,8 +21,32 @@ function addPatient(){
 		$("#tab-jibenziliao button[tag='jibenziliao-baocun']").click(function(){
 			onJibenziliaoSave();
 		})
-		
-		//initPatientData(g_patient_id);
+	}
+	this.initPatientData = function(patient_id){
+		function onGetPatientDataRet(rsp){
+			if (rsp.ret != 0){
+				g_patient_id = 0;
+				alert("读取数据失败，请稍候再试");
+				return;
+			}
+			var db_data = rsp.msg;
+			if (db_data.relate_text == ""){
+				db_data.relate_text = {};
+			}
+			else {
+				try {
+					db_data.relate_text = eval('(' + db_data.relate_text + ')');
+				}
+				catch (err) {
+					db_data.relate_text = {};
+				}
+			}
+			initInputsByData(db_data);
+			if (g_operation_type == 2 || g_operation_type == 3){
+				onAddZhuyuanjilu();
+			}
+		}
+		ajaxRemoteRequest("hospital/get-patient",{id:patient_id},onGetPatientDataRet);
 	}
 	function onAddZhuyuanjilu(){
 		$("#content-add").hide();
@@ -76,32 +98,6 @@ function addPatient(){
 		alert("更新成功");
 	}
 	/////////////////////////////////////////////////////////////////////
-	function initPatientData(patient_id){
-		function onGetPatientDataRet(rsp){
-			if (rsp.ret != 0){
-				g_patient_id = 0;
-				alert("读取数据失败，请稍候再试");
-				return;
-			}
-			var db_data = rsp.msg;
-			if (db_data.relate_text == ""){
-				db_data.relate_text = {};
-			}
-			else {
-				try {
-					db_data.relate_text = eval('(' + db_data.relate_text + ')');
-				}
-				catch (err) {
-					db_data.relate_text = {};
-				}
-			}
-			initInputsByData(db_data);
-			if (g_operation_type == 2 || g_operation_type == 3){
-				onAddZhuyuanjilu();
-			}
-		}
-		ajaxRemoteRequest("hospital/get-patient",{id:patient_id},onGetPatientDataRet);
-	}
 	function initInputsByData(db_data){
 		console.dir(db_data);
 		var data_json = getValuesByMapReverse(db_data, m_json_map);
@@ -115,12 +111,12 @@ function addPatient(){
 }
 
 function queryZhuyuanjilu(){
-	this.init = function(){
-		initZhuyuanjilu();
+	this.init = function(patient_id){
+		initZhuyuanjilu(patient_id);
 	}
-	function initZhuyuanjilu(){
+	function initZhuyuanjilu(patient_id){
 		function onQueryZhuyuanjilu(){
-			if (g_patient_id <= 0){
+			if (patient_id <= 0){
 				return;
 			}
 			g_zhuyuanjilu_query.queryData({"patient_id":g_patient_id});

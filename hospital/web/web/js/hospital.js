@@ -102,6 +102,59 @@ function hospital(){
 		return m_this.m_global_data[key];
 	}
 	////////////////////////////////////////////数据接口管理
+	function showLoginModal(callback){
+		function onLoginRet(rsp){
+
+		}
+		alert("showLoginModal");
+	}
+	function isNeedLogin(ret){
+		return ret == 1;
+	}
+	function getPatientData(patient_id, callback){
+		function onGetPatientDataRet(rsp){
+			var ret_info = {ret:0,msg:'',data:{}};
+			if (isNeedLogin(rsp.ret)){
+				showLoginModal();
+				return;
+			}
+			if (rsp.ret != 0){
+				ret_info.ret = rsp.ret;
+				ret_info.msg = rsp.msg;				
+				callback(ret_info);
+				return;
+			}
+			var db_data = rsp.msg;
+			db_data.relate_text = evalJsonStr(db_data.relate_text);
+			ret_info.data = db_data;
+			callback(ret_info);
+		}
+		ajaxRemoteRequest("hospital/get-patient",{id:patient_id},onGetPatientDataRet);
+	}
+	function getZhuyuanjiluData(zyjl_id, callback){
+		function onGetZyjlRet(rsp){
+			var ret_info = {ret:0,msg:'',data:{}};
+			if (isNeedLogin(rsp.ret)){
+				showLoginModal();
+				return;
+			}
+			if (rsp.ret != 0){
+				ret_info.ret = rsp.ret;
+				ret_info.msg = rsp.msg;				
+				callback(ret_info);
+				return;
+			}
+			var db_data = rsp.msg;
+			db_data.operation_before_info 		= evalJsonStr(db_data.operation_before_info);
+			db_data.operation_info 				= evalJsonStr(db_data.operation_info);
+			db_data.operation_after_info 		= evalJsonStr(db_data.operation_after_info);
+			db_data.hospitalization_out_info 	= evalJsonStr(db_data.hospitalization_out_info);
+			ret_info.data = db_data;
+			callback(ret_info);
+		}
+		ajaxRemoteRequest("hospital/get-record",{id:zyjl_id},onGetZyjlRet);
+	}
+	////////////////////////////////////////////
 	function findPageInfo(page_configs, page_name){
 		var page_configs = m_this.m_page_struct.page_configs;
 		for (var i = 0; i < page_configs.length; i++){
@@ -120,7 +173,6 @@ function hospital(){
 		}
 		return null;
 	}
-	/////////////////////////////////////////////
 	function initControls(){
 		initDatePicker("input[tag='datepicker']");
 		initDateTimePicker("input[tag='datetimepicker']");
