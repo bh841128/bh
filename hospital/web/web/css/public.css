@@ -441,6 +441,7 @@ html,body{
     border:none;
     color:red;
     cursor:default;
+    background-color:white;
 }
 .pagination>li.page-nav-cur>a:hover, .pagination>li.page-nav-cur>a:active, .pagination>li.page-nav-cur>a:focus,
 .pagination>li.page-nav-dot>a:hover,.pagination>li.page-nav-dot>a:active,.pagination>li.page-nav-dot>a:focus{
