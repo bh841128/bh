@@ -91,6 +91,10 @@ function hospital(){
 				g_addZhuyuanjilu.showPage(data);
 				return;
 			}
+			if (page_name == "数据查询"){
+				query_queryDefaultPage();
+				return;
+			}
 		}
 		
 		var current_page = m_this.getGlobalData("current_page");
