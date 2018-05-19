@@ -48,7 +48,7 @@ class Hospital
 			$ret_client["msg"] = $ret["need login"];
 			return $ret_client;
 		}
-		$ret_client["data"] = ["username"=>$username];
+		$ret_client["data"] = ["user_name"=>$username];
 		return $ret_client;
 	}
 }

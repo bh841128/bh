@@ -10,6 +10,11 @@ $config = require __DIR__ . '/../config/web.php';
 require_once(__DIR__."/../config/front_config.php");
 
 use app\models\Hospital;
+$ret_check_login = Hospital::checkLogin();
+if ($ret_check_login["ret"] != 0){
+    header('Location: http://112.74.105.107/login.php');
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -53,6 +58,10 @@ use app\models\Hospital;
     </div>
     <?php require(WEB_PAGE_PATH."js.php"); ?>
     <script type="text/javascript">
+<?php
+    $user_name = $ret_check_login["user_name"];
+    echo "g_user_name='$user_name';".PHP_EOL;
+?>
         var g_hospital = new hospital();
         g_hospital.init();
     </script>
