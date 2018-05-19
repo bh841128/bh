@@ -21,7 +21,7 @@ function hospital(){
 	this.init = function(){
 		//这是左侧sidebar点击事件
 		var side_bar = m_this.m_page_struct.elements["side_bar"];
-		side_bar.find(".tree-btn[tag]").each(function(){
+		side_bar.find(".tree-btn[tag]").click(function(){
 			if ($(this).hasClass("active")){
 				return;
 			}
