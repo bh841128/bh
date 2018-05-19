@@ -6,8 +6,8 @@ function hospital(){
 			"breadcrumb":$("#breadcrumb-title")
 		},
 		page_configs : [
-			{"name":"新增资料", "container_id":"content-wrapper-add-jibenziliao", "nav-tabs":[]},
-			{"name":"新增住院记录", "container_id":"content-wrapper-add-zhuyuanjilu", "nav-tabs":[]},
+			{"name":"新增资料", "container_id":"content-wrapper-add-jibenziliao"},
+			{"name":"新增住院记录", "container_id":"content-wrapper-add-zhuyuanjilu"},
 			{"name":"上传资料", "container_id":"content-wrapper-upload-upload"},
 			{"name":"数据查询", "container_id":"content-wrapper-query-query"},
 			{"name":"数据导出", "container_id":"content-wrapper-export-export"},
@@ -58,6 +58,12 @@ function hospital(){
 			var page_info = findPageInfo(page_configs, page_name);
 			if (!page_info){
 				return false;
+			}
+			if (page_name == "新增资料"){
+				showNavTab("jibenziliao-section", "nav-tab-jibenziliao", "tab-jibenziliao");
+			}
+			else if (page_name == "新增住院记录"){
+				showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-riqi", "tab-zyjl-riqi");
 			}
 			var container_id = page_info.container_id;
 			for (var i = 0; i < page_configs.length; i++){
@@ -117,6 +123,25 @@ function hospital(){
 			}
 		}
 		return null;
+	}
+	
+	function showNavTab(section_id, show_nav_id, show_tab_id){
+		$("$#"+section_id+">.nav-tabs>li>a").each(function(){
+			if (this.id == show_nav_id){
+				$(this).addClass("active");
+			}
+			else{
+				$(this).removeClass("active");
+			}
+		})
+		$("$#"+section_id+">.tab-content>.tab-pane").each(function(){
+			if (this.id == show_tab_id){
+				$(this).addClass("active");
+			}
+			else{
+				$(this).removeClass("active");
+			}
+		})
 	}
 }
 

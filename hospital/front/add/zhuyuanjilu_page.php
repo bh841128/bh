@@ -1,5 +1,5 @@
-<section class="content container-fluid main-container">
-    <ul class="nav nav-tabs" id="nav-tab-xinzeng-zyjl" role="tablist">
+<section class="content container-fluid main-container" id="zhuyuanjilu-section">
+    <ul class="nav nav-tabs" role="tablist">
         <li class="active">
             <a class="nav-item nav-link" id="nav-tab-zyjl-riqi" data-toggle="tab" href="#tab-zyjl-riqi" role="tab" aria-selected="true">日期</a>
         </li>
@@ -17,7 +17,7 @@
                 aria-selected="true">出院资料</a>
         </li>
     </ul>
-    <div class="tab-content" style="margin-top:20px" id="zyjl-wraper">
+    <div class="tab-content" style="margin-top:20px">
         <div class="tab-pane form-step fade active in" id="tab-zyjl-riqi" role="tabpanel" aria-labelledby="nav-tab-zyjl-riqi">
             <?php require(WEB_PAGE_PATH."add/zhuyuanjilu/riqi.php"); ?>
             <?php require(WEB_PAGE_PATH."add/zhuyuanjilu/save_upload.php"); ?>

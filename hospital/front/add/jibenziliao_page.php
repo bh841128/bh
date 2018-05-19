@@ -1,5 +1,5 @@
-<section class="content container-fluid main-container">
-    <ul class="nav nav-tabs" id="nav-tab" role="tablist">
+<section class="content container-fluid main-container" id="jibenziliao-section">
+    <ul class="nav nav-tabs" role="tablist">
         <li class="active">
             <a class="nav-item nav-link" id="nav-tab-jibenziliao" data-toggle="tab" href="#tab-jibenziliao" role="tab" aria-selected="true">基本资料</a>
         </li>
