@@ -444,6 +444,9 @@ function strDateToTimestap(sDate){
 	return parseInt(Date.parse(sDate)/1000);
 }
 function timestampToString(timestamp){
+	if (timestamp <= 0 || timestamp == ""){
+		return "";
+	}
 	var dt = new Date(timestamp * 1000);
 
 	var year  = dt.getFullYear();
@@ -468,6 +471,9 @@ function timestampToString(timestamp){
 }
 
 function timestampToDateString(timestamp){
+	if (timestamp <= 0 || timestamp == ""){
+		return "";
+	}
 	var dt = new Date(timestamp * 1000);
 
 	var year  = dt.getFullYear();
