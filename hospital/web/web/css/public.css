@@ -22,11 +22,14 @@
 .bread-content-wrapper .content-header {
     padding:0px;
 }
-.bread-content-wrapper{
+.bread-content-wrapper, .hospital-content-wrapper{
     margin-left: 150px;
     background-color: white;
 }
 
+.hospital-content-wrapper{
+    min-height:500px;
+}
 
 
 
