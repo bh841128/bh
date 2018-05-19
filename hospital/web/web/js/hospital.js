@@ -299,7 +299,18 @@ function hospital(){
 	}
 	/////////////////////////////////////////初始化导出
 	function initExport(){
-
+		var options = {
+            "show_fields":["序号","病案号","姓名","性别", "出生日期", "联系人", "联系电话", "医院", "上传时间", "状态"],
+            "operations":"",
+            "table_wrapper":$("#export-query-patient-table-wrapper"),
+            "page_nav_wrapper":$("#export-query-patient-page-nav")
+        }
+        g_patient_query_export = new patient_query();
+		g_patient_query_export.init(options);
+		$("#content-wrapper-query-query input[tag='datetimepicker']").val("");
+        $("#content-wrapper-query-query button[tag='query']").click(function(){
+            query_queryDefaultPage();
+        })
 	}
 	/////////////////////////////////////////初始化报表
 	function initReport(){
