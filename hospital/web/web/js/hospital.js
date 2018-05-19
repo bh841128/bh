@@ -310,6 +310,16 @@ function hospital(){
 		g_patient_query_export.queryData(query_params);
 	}
 	function initExport(){
+		function getExportLink(){
+			var query_params = g_patient_query.parseQueryParam($("#export_query_param_form"));
+			query_params.page = 1;
+			query_params.size = 1000;
+			var arrUrlParams = [];
+			for (var x in query_params){
+				arrUrlParams.push(x+'='+encodeURIComponent(query_params[x]));
+			}
+			return "http://112.74.105.107/hospital/download?"+arrUrlParams.join("&");
+		}
 		var options = {
             "show_fields":["序号","病案号","姓名","性别", "出生日期", "联系人", "联系电话", "医院", "上传时间", "状态"],
             "operations":"",
@@ -321,6 +331,10 @@ function hospital(){
 		$("#content-wrapper-export-export input[tag='datetimepicker']").val("");
         $("#content-wrapper-export-export button[tag='query']").click(function(){
             export_queryDefaultPage();
+		})
+		$("#content-wrapper-export-export button[tag='query']").click(function(){
+			this.href = getExportLink();
+			return true;
         })
 	}
 	/////////////////////////////////////////初始化报表
