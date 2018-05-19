@@ -10,7 +10,7 @@ require_once(__DIR__."/../config/front_config.php");
     <?php require(WEB_PAGE_PATH."header.php"); ?>
     <div class="top-hr"></div>
     <div class="top-wrapper">
-        <?php require(WEB_PAGE_PATH."aside.php"); ?>
+        
         <div class="content-wrapper bread-content-wrapper">
             <section class="content-header">
                 <div class="hospital-breadcrumb">
@@ -24,7 +24,6 @@ require_once(__DIR__."/../config/front_config.php");
         </div>
 
         <?php require(WEB_PAGE_PATH."footer.php"); ?>
-        <?php require(WEB_PAGE_PATH."login_modal.php"); ?>
     </div>
 
      
