@@ -11,7 +11,7 @@ require_once(__DIR__."/../config/front_config.php");
     <div class="top-hr"></div>
     <div class="wrapper top-wrapper">
         <?php require(WEB_PAGE_PATH."aside.php"); ?>
-        <div class="content-wrapper">
+        <div class="content-wrapper bread-content-wrapper">
             <section class="content-header">
                 <div class="hospital-breadcrumb">
                     <ol class="breadcrumb">
