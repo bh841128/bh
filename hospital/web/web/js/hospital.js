@@ -33,7 +33,7 @@ function hospital(){
 		function findSitePageInfo(top_site){
 			var site_pages = m_this.m_page_struct.site_pages;
 			for (var i = 0; i < site_pages.length; i++){
-				if (site_pages[i].name == "top_site"){
+				if (site_pages[i].name == top_site){
 					return site_pages[i];
 				}
 			}
