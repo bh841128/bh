@@ -2,7 +2,7 @@ function report(){
     var m_this = this;
     this.init = function(){
         initHospital($("#hospital-select"));
-        initBar([], ["所有医院"]);
+        //initBar([], ["所有医院"]);
     }
     
     function initBar(data,keys){
