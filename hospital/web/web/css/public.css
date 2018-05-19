@@ -13,10 +13,12 @@ body{
 
 .main-sidebar{
     width:150px;
-    min-height:500px;
+    
+    height:100%;
 }
 .hospital-wrapper{
     margin-left:155px;
+    min-height:500px;
 }
 
 .top-wrapper{
