@@ -6,30 +6,30 @@ body{
 {
     background-color:white;
 }
-.hospital-wrapper, .main-sidebar{
-    border:solid 1px white;
-    border-radius:5px;
-}
 
+.top-wrapper{
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height:auto;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.top-wrapper2{
+    min-height:500px;   
+}
 .main-sidebar{
     width:150px;
-    
     height:100%;
 }
 .hospital-wrapper{
     margin-left:155px;
     min-height:500px;
 }
-
-.top-wrapper{
-    position: relative;
-    overflow-x: hidden;
-    overflow-y: auto;
-    min-height:500px;
-    height:auto;
-    width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+.hospital-wrapper, .main-sidebar{
+    border:solid 1px white;
+    border-radius:5px;
 }
 
 .content-header .hospital-breadcrumb .breadcrumb>li+li:before{
