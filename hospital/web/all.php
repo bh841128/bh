@@ -8,12 +8,11 @@ $config = require __DIR__ . '/../config/web.php';
 $application = new yii\web\Application($config);
 
 $ret_client = app\models\Hospital::checkLogin();
-print_r($ret_client);
-exit;
+if ($ret_client["ret"] != 0){
+    header("Location: http://112.74.105.107/login.php");
+    exit;
+}
 require_once(__DIR__."/../config/front_config.php");
-
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -58,8 +57,8 @@ require_once(__DIR__."/../config/front_config.php");
     <?php require(WEB_PAGE_PATH."js.php"); ?>
     <script type="text/javascript">
 <?php
-    //$user_name = $ret_check_login["user_name"];
-    //echo "g_user_name='$user_name';".PHP_EOL;
+    $user_name = $ret_check_login["data"]["user_name"];
+    echo "g_user_name='$user_name';".PHP_EOL;
 ?>
         var g_hospital = new hospital();
         g_hospital.init();
