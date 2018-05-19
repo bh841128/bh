@@ -26,9 +26,9 @@ function hospital(){
 				return;
 			}
 			var tag = $(this).attr("tag");
-			this.gotoPage(tag);
+			m_this.gotoPage(tag);
 		});
-		
+
 		//默认页面
 		this.gotoPage(["新增资料"]);
 	}
