@@ -76,7 +76,7 @@ function hospital(){
 		///设置左侧sidebar高亮
 		setSitebarHightlight(page_name);
 		///设置顶部面包屑
-		m_this.setBreadcrumb(page_name);
+		setBreadcrumb(page_name);
 		///设置当前站点
 		m_this.setGlobalData("currentSite", page_name);
 		///显示隐藏相关页面
