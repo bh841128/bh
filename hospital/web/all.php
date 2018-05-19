@@ -12,6 +12,7 @@ require_once(__DIR__."/../config/front_config.php");
     <div class="top-wrapper">
         <?php require(WEB_PAGE_PATH."aside.php"); ?>
         <?php require(WEB_PAGE_PATH."footer.php"); ?>
+        <?php require(WEB_PAGE_PATH."login_modal.php"); ?>
     </div>
 </body>
 
