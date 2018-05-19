@@ -1,7 +1,9 @@
 <?php
+namespace app\models;
 
 use Yii;
-namespace app\models;
+use app\models\CUtil;
+use app\models\Login4Hospital;
 class Hospital
 {
     public $id;
