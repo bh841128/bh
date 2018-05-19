@@ -1,5 +1,5 @@
 function addPatient(){
-	var g_patient_id = 0;
+	var m_patient_id = 0;
 	var m_json_map = [
 		{"name":"病案号","field":"medical_id"},
 		{"name":"性别","field":"sexy"},
@@ -22,31 +22,9 @@ function addPatient(){
 			onJibenziliaoSave();
 		})
 	}
-	this.initPatientData = function(patient_id){
-		function onGetPatientDataRet(rsp){
-			if (rsp.ret != 0){
-				g_patient_id = 0;
-				alert("读取数据失败，请稍候再试");
-				return;
-			}
-			var db_data = rsp.msg;
-			if (db_data.relate_text == ""){
-				db_data.relate_text = {};
-			}
-			else {
-				try {
-					db_data.relate_text = eval('(' + db_data.relate_text + ')');
-				}
-				catch (err) {
-					db_data.relate_text = {};
-				}
-			}
-			initInputsByData(db_data);
-			if (g_operation_type == 2 || g_operation_type == 3){
-				onAddZhuyuanjilu();
-			}
-		}
-		ajaxRemoteRequest("hospital/get-patient",{id:patient_id},onGetPatientDataRet);
+	this.showPage = function(patient_data){
+		m_patient_id = patient_data["id"];
+		initInputsByData(patient_data);
 	}
 	function onAddZhuyuanjilu(){
 		$("#content-add").hide();
@@ -70,8 +48,8 @@ function addPatient(){
 		////检查参数合法性
 		////////////////////////////////////////////////
 		//发送插入请求
-		if (g_patient_id > 0){
-			data_json["id"] = g_patient_id;
+		if (m_patient_id > 0){
+			data_json["id"] = m_patient_id;
 			ajaxRemoteRequest("hospital/update-patient",data_json,onUpdatePatientRet);
 		}
 		else{
@@ -87,7 +65,7 @@ function addPatient(){
 		}
 		alert("添加成功");
 		g_operation_type = 1;
-		g_patient_id = rsp.id;
+		m_patient_id = rsp.id;
 	}
 	function onUpdatePatientRet(rsp){
 		console.dir(rsp);
@@ -111,35 +89,38 @@ function addPatient(){
 }
 
 function queryZhuyuanjilu(){
-	this.init = function(patient_id){
-		initZhuyuanjilu(patient_id);
+	this.init = function(){
+		initZhuyuanjilu();
 	}
-	function initZhuyuanjilu(patient_id){
+	this.showPage = function(patient_id){
 		function onQueryZhuyuanjilu(){
 			if (patient_id <= 0){
 				return;
 			}
-			g_zhuyuanjilu_query.queryData({"patient_id":g_patient_id});
+			g_zhuyuanjilu_query.queryData({"patient_id":patient_id});
 		}
-
-		$('#nav-tab-zhuyuanjilu').on('shown.bs.tab', function (e) {
-			onQueryZhuyuanjilu();
-		});
 		var options = {
             "show_fields":["序号","入院日期","出院日期","手术日期","上传时间", "状态"],
             "operations":"详情,编辑,删除",
             "table_wrapper":$("#query-table-wrapper"),
 			"page_nav_wrapper":$("#query-page-nav"),
-			"patient_id":g_patient_id
+			"patient_id":patient_id
 		}
 		var g_zhuyuanjilu_query = new zhuyuanjilu_query();
 		g_zhuyuanjilu_query.init(options);
 		
 		onQueryZhuyuanjilu();
 	}
+	function initZhuyuanjilu(patient_id){
+		$('#nav-tab-zhuyuanjilu').on('shown.bs.tab', function (e) {
+			onQueryZhuyuanjilu();
+		});
+	}
 }
 
 function addZhuyuanjilu(){
+	var m_patient_id = 0;
+	var m_zyjl_id = 0;
 	var m_json_map = [
 		{"name":"入院日期","field":"hospitalization_in_time"},
 		{"name":"出院日期","field":"hospitalization_out_time"},
@@ -153,11 +134,16 @@ function addZhuyuanjilu(){
 			onUploadZhuyuanjilu();
 		})
 		initControlJwxzbch();
-		
-		if (g_patient_id > 0 && g_zyjl_id > 0){
-			if (g_operation_type == 3){
-				initZhuyuanjiluData(g_zyjl_id);
-			}
+	}
+	this.showPage = function(zyjl_data){
+		if (typeof zyjl_data != "undefined"){
+			m_patient_id = zyjl_data["patient_id"];
+			m_zyjl_id = zyjl_data["id"];
+			initInputsByData(zyjl_data);
+		}
+		else{
+			m_patient_id = 0;
+			m_zyjl_id    = 0;
 		}
 	}
 
@@ -168,7 +154,7 @@ function addZhuyuanjilu(){
 		console.dir(raw_json);
 		/////////////////////////////////////////////////
 		var data_json = getValuesByMap(raw_json, m_json_map);
-		data_json["patient_id"] = g_patient_id;
+		data_json["patient_id"] = m_patient_id;
 		data_json["hospitalization_in_time"] = strDateToTimestap(data_json["hospitalization_in_time"]);
 		data_json["hospitalization_out_time"] = strDateToTimestap(data_json["hospitalization_out_time"]);
 		data_json["operation_time"] = strDateToTimestap(data_json["operation_time"]);
@@ -201,8 +187,8 @@ function addZhuyuanjilu(){
 		////检查参数合法性
 		////////////////////////////////////////////////
 		//发送插入请求
-		if (g_zyjl_id > 0){
-			data_json["id"] = g_zyjl_id;
+		if (m_zyjl_id > 0){
+			data_json["id"] = m_zyjl_id;
 			ajaxRemoteRequest("hospital/set-record-text",data_json,onUpdateZhuyuanjiluRet);
 		}
 		else{
@@ -226,26 +212,9 @@ function addZhuyuanjilu(){
 		}
 		alert("添加成功");
 		g_operation_type = 3;
-		g_zyjl_id = rsp.id;
+		m_zyjl_id = rsp.id;
 	}
 
-	function initZhuyuanjiluData(zyjl_id){
-		function onGetZhuyuanjiluDataRet(rsp){
-			if (rsp.ret != 0){
-				g_patient_id = 0;
-				alert("读取数据失败，请稍候再试");
-				return;
-			}
-			var db_data = rsp.msg;
-			db_data.operation_before_info 		= evalJsonStr(db_data.operation_before_info);
-			db_data.operation_info 				= evalJsonStr(db_data.operation_info);
-			db_data.operation_after_info 		= evalJsonStr(db_data.operation_after_info);
-			db_data.hospitalization_out_info 	= evalJsonStr(db_data.hospitalization_out_info);
-			
-			initInputsByData(db_data);
-		}
-		ajaxRemoteRequest("hospital/get-record",{id:zyjl_id},onGetZhuyuanjiluDataRet);
-	}
 	function initInputsByData(db_data){
 		console.dir(db_data);
 		var data_json = getValuesByMapReverse(db_data, m_json_map);
