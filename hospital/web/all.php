@@ -7,8 +7,8 @@ require __DIR__ . '/../vendor/yiisoft/yii2/Yii.php';
 $config = require __DIR__ . '/../config/web.php';
 $application = new yii\web\Application($config);
 
-$ret_client = app\models\Hospital::checkLogin();
-if ($ret_client["ret"] != 0){
+$ret_check_login = app\models\Hospital::checkLogin();
+if ($ret_check_login["ret"] != 0){
     header("Location: http://112.74.105.107/login.php");
     exit;
 }
