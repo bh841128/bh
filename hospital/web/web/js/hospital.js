@@ -293,14 +293,16 @@ function hospital(){
 		var options = {
             "show_fields":["序号","病案号","姓名","性别", "出生日期", "联系人", "联系电话", "医院", "上传时间", "状态"],
             "operations":"",
-            "table_wrapper":$("#export-query-patient-table-wrapper"),
-            "page_nav_wrapper":$("#export-query-patient-page-nav")
+            "table_wrapper":$("#upload-query-patient-table-wrapper"),
+            "page_nav_wrapper":$("#upload-query-patient-page-nav")
         }
         g_patient_query_upload = new patient_query();
 		g_patient_query_upload.init(options);
-		$("#content-wrapper-export-upload input[tag='datetimepicker']").val("");
-        $("#content-wrapper-export-upload button[tag='query']").click(function(){
-            upload_queryDefaultPage();
+        $("#upload-query-patient-param-wrapper button[tag='not_upload']").click(function(){
+            upload_queryDefaultPage(1);
+		})
+		$("#upload-query-patient-param-wrapper button[tag='uploaded']").click(function(){
+            upload_queryDefaultPage(2);
 		})
 	}
 	/////////////////////////////////////////初始化查询
