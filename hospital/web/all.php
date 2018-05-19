@@ -1,15 +1,6 @@
 <?php
-// comment out the following two lines when deployed to production
-defined('YII_DEBUG') or define('YII_DEBUG', true);
-defined('YII_ENV') or define('YII_ENV', 'dev');
-
-require __DIR__ . '/../vendor/autoload.php';
-require __DIR__ . '/../vendor/yiisoft/yii2/Yii.php';
-
-$config = require __DIR__ . '/../config/web.php';
 require_once(__DIR__."/../config/front_config.php");
 
-use \yii\app\models\Hospital;
 $ret_check_login = Hospital::checkLogin();
 if ($ret_check_login["ret"] != 0){
     header('Location: http://112.74.105.107/login.php');
