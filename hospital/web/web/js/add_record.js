@@ -191,7 +191,7 @@ function addZhuyuanjilu(){
 	function onZhuyuanjiluReturn(){
 		if (m_come_from == ""){
 			gotoZyjlList();
-			reutrn;
+			return;
 		}
 		g_hospital.gotoPage(m_come_from);
 	}
