@@ -25,6 +25,10 @@ function addPatient(){
 		//查询住院记录
 		g_queryZhuyuanjilu = new queryZhuyuanjilu();
 		g_queryZhuyuanjilu.init();
+
+		$("#jibenziliao-section [json-name],#zhuyuanjilu-section [json-name]").off('focus').on( "focus", function() {
+			hideAllErrorMsgs();
+		});
 	}
 	this.initData = function(patient_data){
 		if (typeof patient_data != "undefined"){
@@ -44,6 +48,7 @@ function addPatient(){
 			setJibenZiliaoState(false);
 		}
 		g_hospital.setGlobalData("patient_id", m_patient_id);
+		hideAllErrorMsgs();
 	}
 	this.showPage = function(patient_data){
 		m_this.initData(patient_data);
@@ -356,7 +361,7 @@ function addZhuyuanjilu(){
 	///////////////////////////////////////////////////////
 	//既往心脏病手术次数
 	function initControlJwxzbch(){
-		$("#jyxzbcs-radio-wraper input[name='zyjl-jiwangxinzangbingcishu']").off('click').on("change", function(){
+		$("#jyxzbcs-radio-wraper input[name='zyjl-jiwangxinzangbingcishu']").off('change').on("change", function(){
 			var value = getRadioValue($("#jyxzbcs-radio-wraper"), 'zyjl-jiwangxinzangbingcishu');
 			var i = 0;
 			$("#jyxzbcs-wraper [tag='jyxzbcs']").each(function(){

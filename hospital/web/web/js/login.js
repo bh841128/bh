@@ -6,7 +6,7 @@ function userLogin(){
 			onLoginSubmit();
 		})
 
-		$("input[name='login_name'],input[name='login_password']").one( "focus", function() {
+		$("input[name='login_name'],input[name='login_password']").off('focus').on( "focus", function() {
 			hideAllErrorMsgs();
 		});
 	}
