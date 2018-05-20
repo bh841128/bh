@@ -161,6 +161,16 @@ function addZhuyuanjilu(){
 		g_hospital.setGlobalData("zyjl_id",m_zyjl_id);
 	}
 
+	function onUploadZhuyuanjilu(){
+		function onUploadZhuyuanjiluRet(rsp){
+			if (rsp.ret != 0){
+				alert("上传失败，请稍候再试");
+				return false;
+			}
+		}
+		ajaxRemoteRequest("hospital/set-records-status",{"ids":""+m_zyjl_id},onUploadZhuyuanjiluRet);
+	}
+
 	function onZhuyuanjiluSave(){
 		var raw_json = {};
 		var g_control_json = new control_json();
