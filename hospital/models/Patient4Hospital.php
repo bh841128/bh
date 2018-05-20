@@ -135,6 +135,7 @@ status  1:正常 2:上传  3：删除
 		}else{
 			$sql=$sql." uploadtime>=0 ";
 		}
+		$sql .= " order by createtime desc ";
 		
 		$page=$page<1?1:$page;
 		if($size<=0)
