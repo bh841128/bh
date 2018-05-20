@@ -320,6 +320,9 @@ function isIE(){
 ///////////////////////////////////////////////////////////////////
 function getTrimInputValue(input_control){
 	var value = input_control.val();
+	return getTrimValue(value);
+}
+function getTrimValue(value){
 	value = value.replace(/^\s+|\s+$/);
 	return value;
 }
@@ -573,4 +576,50 @@ function setAllControlDisabled(container, bDisabled){
 	container.find("[json-name],button").each(function(){
 		this.disabled = bDisabled;
 	});
+}
+////////////////////////////////////////////////////////////
+function checkInputValueValid(data_json, check_rules){
+	for (var i = 0; i < check_rules.length; i++){
+		var field_name = check_rules[i].name;
+		var rules = check_rules[i].rules;
+		var value = getJsonValue(data_json, field_name);
+		value = getTrimValue(value);
+		for (var r = 0; r < rules.length; r++){
+			var rule = rules[r];
+			var errmsg = checkValueByRule(value, rule);
+			if (errmsg != "" && errmsg != null){
+				return {"ret":1, "msg":errmsg};
+			}
+		}
+	}
+	return {"ret":0};
+}
+
+function checkValueByRule(value, rule){
+	if (rule == "不能为空"){
+		if (value == ""){
+			return value+" 不能为空";
+		}
+		return "";
+	}
+	if (!rule.match(/\-\-/)){
+		return "";
+	}
+	var rule_value = rule.split("--");
+	if (rule_value.length != 2){
+		return "";
+	}
+	if (rule_value[0] == "长度"){
+		var lengths = rule_value[1].split(",");
+		var len_min = parseInt(lengths[0]);
+		var len_max = parseInt(lengths[1]);
+		if (value.length < len_min || value.length > len_max){
+			if (len_min == len_max){
+				return value+" 的长度应该为"+len_min;
+			}
+			return value+" 长度范围应在"+len_min+"到"+len_max+"之间";
+		}
+	}
+
+	return "";
 }

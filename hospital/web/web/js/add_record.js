@@ -12,7 +12,7 @@ function addPatient(){
 		{"name":"省份","field":"province"},
 		{"name":"城市","field":"city"},
 		{"name":"区县","field":"district"},
-		{"name":"详细地址","field":"address"},
+		{"name":"详细地址","field":"address"}
 	];
 
 	this.init = function(){
@@ -60,7 +60,7 @@ function addPatient(){
 		var g_control_json = new control_json();
 		raw_json["患者基本资料"] = g_control_json.parseControlJson($("#huanzhe-jibenziliao"));
 		raw_json["联系人基本资料"] = g_control_json.parseControlJson($("#lianxiren-jibenziliao"));
-		console.dir(raw_json);
+		//console.dir(raw_json);
 		/////////////////////////////////////////////////
 		
 		var data_json = getValuesByMap(raw_json["患者基本资料"], m_json_map);
@@ -68,9 +68,15 @@ function addPatient(){
 		delete data_json["isNotSupply"];
 		var data_json_lianxiren = arrayToJson(raw_json["联系人基本资料"]);
 		data_json["relate_text"] = $.toJSON(data_json_lianxiren);
-		console.dir(data_json);
+		//console.dir(data_json);
 		////////////////////////////////////////////////
 		////检查参数合法性
+		if (!checkHuanzheInputValid(raw_json["患者基本资料"],raw_json["联系人基本资料"])){
+			return false;
+		}
+		if (!checkLianxirenInputValid(raw_json["联系人基本资料"])){
+			return false;
+		}
 		////////////////////////////////////////////////
 		//发送插入请求
 		if (m_patient_id > 0){
@@ -83,7 +89,7 @@ function addPatient(){
 		
 	}
 	function onAddPatientRet(rsp){
-		console.dir(rsp);
+		//console.dir(rsp);
 		if (rsp.ret != 0){
 			alert("添加数据失败，请稍后再试");
 			return;
@@ -95,7 +101,7 @@ function addPatient(){
 		$("#nav-tab-zhuyuanjilu").get(0).disabled = false;
 	}
 	function onUpdatePatientRet(rsp){
-		console.dir(rsp);
+		//console.dir(rsp);
 		if (rsp.ret != 0){
 			alert("更新数据失败，请稍后再试");
 			return;
@@ -107,15 +113,61 @@ function addPatient(){
 	}
 	/////////////////////////////////////////////////////////////////////
 	function initInputsByData(db_data){
-		console.dir(db_data);
+		//console.dir(db_data);
 		var data_json = getValuesByMapReverse(db_data, m_json_map);
 		data_json["详细地址-不能提供"] = db_data["isSupply"]==0?1:0;
-		console.dir(data_json);
+		//console.dir(data_json);
 		var g_control_json = new control_json();
 		g_control_json.setJson2Control($("#huanzhe-jibenziliao"), data_json);
 		g_control_json.setJson2Control($("#lianxiren-jibenziliao"), db_data.relate_text);
 	}
 	////////////////////////////////////////////////////////////////////////
+	function checkHuanzheInputValid(raw_json){
+		var data_json   = arrayToJson(raw_json);
+		////基本规则
+		var check_rules = [
+			{"name":"病案号",rules:["长度--1,10"]},
+			{"name":"性别",  rules:["不能为空"]},
+			{"name":"姓名",  rules:["长度--2,10"]},
+			{"name":"民族",  rules:["不能为空"]},
+			{"name":"出生日期",  rules:["不能为空"]}
+		];
+		var check_rules_address = [
+			{"name":"省份", rules:["不能为空"]},
+			{"name":"城市", rules:["不能为空"]},
+			{"name":"区县", rules:["不能为空"]},
+			{"name":"详细地址", rules:["长度--2,100"]}
+		];
+		var check_ret = checkInputValueValid(data_json, check_rules);
+		if (check_ret != 0){
+			showInputValueInvalid(check_ret["msg"]);
+			return false;
+		}
+		////特殊规则
+		if (!getJsonValue(data_json, "详细地址-不能提供", 0)){
+			var check_ret = checkInputValueValid(data_json, check_rules);
+			if (check_ret != 0){
+				showInputValueInvalid(check_ret["msg"]);
+				return false;
+			}
+		}
+		else{
+			var json_tmp = {"详细地址-不能提供-原因":getJsonValue(data_json, "详细地址-不能提供-原因", "")};
+			var check_ret = checkInputValueValid(json_tmp, [{"name":"详细地址-不能提供-原因", rules:["长度--2,100"]}]);
+			if (check_ret != 0){
+				showInputValueInvalid(check_ret["msg"]);
+				return false;
+			}
+		}
+		return true;
+	}
+	function checkLianxirenInputValid(raw_json){
+		
+	}
+
+	function showInputValueInvalid(errormsg){
+		alert(msg);
+	}
 }
 
 function queryZhuyuanjilu(){
@@ -222,7 +274,7 @@ function addZhuyuanjilu(){
 		var raw_json = {};
 		var g_control_json = new control_json();
 		raw_json = g_control_json.parseControlJson($("#tab-zyjl-riqi"));
-		console.dir(raw_json);
+		//console.dir(raw_json);
 		/////////////////////////////////////////////////
 		var data_json = getValuesByMap(raw_json, m_json_map);
 		data_json["patient_id"] = g_hospital.getGlobalData("patient_id");
@@ -230,30 +282,30 @@ function addZhuyuanjilu(){
 		data_json["hospitalization_out_time"] = strDateToTimestap(data_json["hospitalization_out_time"]);
 		data_json["operation_time"] = strDateToTimestap(data_json["operation_time"]);
 		
-		console.dir(data_json);
+		//console.dir(data_json);
 		var raw_json_operation_before_info = g_control_json.parseControlJson($("#tab-zyjl-shuqianxinxi"));
-		console.dir(raw_json_operation_before_info);
+		//console.dir(raw_json_operation_before_info);
 		var data_json_operation_before_info = arrayToJson(raw_json_operation_before_info);
 		data_json.operation_before_info = $.toJSON(data_json_operation_before_info);
-		console.dir(data_json_operation_before_info);
+		//console.dir(data_json_operation_before_info);
 
 		var raw_json_operation_info = g_control_json.parseControlJson($("#tab-zyjl-shoushuxinxi"));
-		console.dir(raw_json_operation_info);
+		//console.dir(raw_json_operation_info);
 		var data_json_operation_info = arrayToJson(raw_json_operation_info);
 		data_json.operation_info = $.toJSON(data_json_operation_info);
-		console.dir(data_json_operation_info);
+		//console.dir(data_json_operation_info);
 
 		var raw_json_operation_after_info = g_control_json.parseControlJson($("#tab-zyjl-shuhouxinxi"));
-		console.dir(raw_json_operation_after_info);
+		//console.dir(raw_json_operation_after_info);
 		var data_json_operation_after_info = arrayToJson(raw_json_operation_after_info);
 		data_json.operation_after_info = $.toJSON(data_json_operation_after_info);
-		console.dir(data_json_operation_after_info);
+		//console.dir(data_json_operation_after_info);
 
 		var raw_json_hospitalization_out_info = g_control_json.parseControlJson($("#tab-zyjl-chuyuanziliao"));
-		console.dir(raw_json_hospitalization_out_info);
+		//console.dir(raw_json_hospitalization_out_info);
 		var data_json_hospitalization_out_info = arrayToJson(raw_json_hospitalization_out_info);
 		data_json.hospitalization_out_info = $.toJSON(data_json_hospitalization_out_info);
-		console.dir(data_json_hospitalization_out_info);
+		//console.dir(data_json_hospitalization_out_info);
 		////////////////////////////////////////////////
 		////检查参数合法性
 		////////////////////////////////////////////////
@@ -276,7 +328,7 @@ function addZhuyuanjilu(){
 	}
 
 	function onAddZhuyuanjiluRet(rsp){
-		console.dir(rsp);
+		//console.dir(rsp);
 		if (rsp.ret != 0){
 			alert("添加数据失败，请稍后再试");
 			return;
@@ -288,12 +340,12 @@ function addZhuyuanjilu(){
 	}
 
 	function initInputsByData(db_data){
-		console.dir(db_data);
+		//console.dir(db_data);
 		var data_json = getValuesByMapReverse(db_data, m_json_map);
 		data_json["入院日期"] = timestampToDateString(data_json["入院日期"]);
 		data_json["出院日期"] = timestampToDateString(data_json["出院日期"]);
 		data_json["手术日期"] = timestampToDateString(data_json["手术日期"]);
-		console.dir(data_json);
+		//console.dir(data_json);
 		var g_control_json = new control_json();
 		g_control_json.setJson2Control($("#tab-zyjl-riqi"), data_json);
 		g_control_json.setJson2Control($("#tab-zyjl-shuqianxinxi"), 	db_data.operation_before_info);
