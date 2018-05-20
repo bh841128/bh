@@ -1,7 +1,7 @@
 <div class="form-horizontal" id="upload-query-patient-param-wrapper">
     <div style="text-align:left;margin-top:10px;">
-            <button type="button" class="btn btn-danger btn_upload" tag="not_upload">未上传(120)</button>&nbsp;&nbsp;&nbsp;&nbsp;
-            <button type="button" class="btn btn-primary btn_notupload" tag="uploaded">已上传(12000)</button>
+            <button type="button" class="btn btn-danger btn_upload" tag="not_upload">未上传</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-primary btn_notupload" tag="uploaded">已上传</button>
     </div>
 </div>
 <div class="form-horizontal">
