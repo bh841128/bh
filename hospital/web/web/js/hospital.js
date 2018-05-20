@@ -94,7 +94,8 @@ function hospital(){
 				return;
 			}
 			if (page_name == "新增住院记录"){
-				g_addZhuyuanjilu.showPage(data);
+				g_addPatient.initData(data);
+				g_addZhuyuanjilu.showPage();
 				return;
 			}
 			if (page_name == "上传资料"){

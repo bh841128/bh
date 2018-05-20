@@ -25,10 +25,9 @@ function addPatient(){
 		g_queryZhuyuanjilu = new queryZhuyuanjilu();
 		g_queryZhuyuanjilu.init();
 	}
-	this.showPage = function(patient_data){
+	this.initData = function(patient_data){
 		if (typeof patient_data != "undefined"){
 			m_patient_id = patient_data["id"];
-			g_hospital.setGlobalData("patient_id", m_patient_id);
 			initInputsByData(patient_data);
 			$("#nav-tab-zhuyuanjilu").get(0).disabled = false;
 		}
@@ -36,6 +35,10 @@ function addPatient(){
 			m_patient_id = 0;
 			$("#nav-tab-zhuyuanjilu").get(0).disabled = true;
 		}
+		g_hospital.setGlobalData("patient_id", m_patient_id);
+	}
+	this.showPage = function(patient_data){
+		m_this.initData(patient_data);
 	}
 	this.showPageZyjlList = function(patient_data){
 		m_this.showPage(patient_data);
@@ -106,12 +109,11 @@ function addPatient(){
 }
 
 function queryZhuyuanjilu(){
-	var m_patient_id = 0;
 	var m_zhuyuanjilu_query = null;
 	this.init = function(){
 		$('#nav-tab-zhuyuanjilu').on('shown.bs.tab', function (e) {
 			m_patient_id = g_hospital.getGlobalData("patient_id");
-			onQueryZhuyuanjilu(m_patient_id);
+			onQueryZhuyuanjilu();
 		});
 		var options = {
 			"show_fields":["序号","入院日期","出院日期","手术日期","上传时间", "状态"],
@@ -122,9 +124,9 @@ function queryZhuyuanjilu(){
 		m_zhuyuanjilu_query = new zhuyuanjilu_query();
 		m_zhuyuanjilu_query.init(options);
 	}
-	this.showPage = function(patient_id){
-		m_patient_id = patient_id;
-		onQueryZhuyuanjilu(m_patient_id);
+	this.showPage = function(){
+		var patient_id = g_hospital.getGlobalData("patient_id");
+		onQueryZhuyuanjilu(patient_id);
 	}
 	function onQueryZhuyuanjilu(patient_id){
 		if (patient_id <= 0){
@@ -135,7 +137,6 @@ function queryZhuyuanjilu(){
 }
 
 function addZhuyuanjilu(){
-	var m_patient_id = 0;
 	var m_zyjl_id = 0;
 	var m_json_map = [
 		{"name":"入院日期","field":"hospitalization_in_time"},
@@ -153,15 +154,9 @@ function addZhuyuanjilu(){
 	}
 	this.showPage = function(zyjl_data){
 		if (typeof zyjl_data != "undefined"){
-			m_patient_id = zyjl_data["patient_id"];
 			m_zyjl_id = zyjl_data["id"];
 			initInputsByData(zyjl_data);
 		}
-		else{
-			m_patient_id = 0;
-			m_zyjl_id    = 0;
-		}
-		g_hospital.setGlobalData("patient_id",m_patient_id);
 		g_hospital.setGlobalData("zyjl_id",m_zyjl_id);
 	}
 
