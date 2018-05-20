@@ -71,7 +71,7 @@ function hospital(){
 				showNavTab("jibenziliao-section", "nav-tab-jibenziliao", "tab-jibenziliao");
 			}
 			else if (page_name == "住院记录列表"){
-				showNavTab("zhuyuanjilu-section", "nav-tab-jibenziliao", "tab-zhuyuanjilu");
+				showNavTab("jibenziliao-section", "nav-tab-zhuyuanjilu", "tab-zhuyuanjilu");
 			}
 			else if (page_name == "新增住院记录" || page_name == "编辑住院记录"){
 				showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-riqi", "tab-zyjl-riqi");
