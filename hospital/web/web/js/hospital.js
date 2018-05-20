@@ -101,7 +101,7 @@ function hospital(){
 			}
 			if (page_name == "编辑住院记录"){
 				g_addPatient.initData(data);
-				g_addZhuyuanjilu.showPage(data2);
+				g_addZhuyuanjilu.showPage(data2, come_from);
 				return;
 			}
 			if (page_name == "上传资料"){
@@ -160,7 +160,7 @@ function hospital(){
 		return ret == 1;
 	}
 	///////////////////////////////////////////
-	this.onEditZyjlInfo = function(zyjl_id, callback){
+	this.onEditZyjlInfo = function(zyjl_id, callback, come_from){
 		function onGetZyjlDataRet(ret_info){
 			if (isNeedLogin(ret_info.ret)){
 				showLoginModal();

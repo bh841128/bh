@@ -46,8 +46,7 @@ function addPatient(){
 		g_queryZhuyuanjilu.showPage(m_patient_id);
 	}
 	function onAddZhuyuanjilu(){
-		$("#content-wrapper-add-jibenziliao").hide();
-		$("#content-wrapper-add-zhuyuanjilu").show();
+		g_addZhuyuanjilu.onAddZhuyuanjilu();
 	}
 	function onJibenziliaoSave(){
 		var raw_json = {};
@@ -139,6 +138,7 @@ function queryZhuyuanjilu(){
 
 function addZhuyuanjilu(){
 	var m_zyjl_id = 0;
+	var m_come_from = "";
 	var m_json_map = [
 		{"name":"入院日期","field":"hospitalization_in_time"},
 		{"name":"出院日期","field":"hospitalization_out_time"},
@@ -151,12 +151,21 @@ function addZhuyuanjilu(){
 		$("#content-wrapper-add-zhuyuanjilu button[tag='zyjl-upload']").click(function(){
 			onUploadZhuyuanjilu();
 		})
+		$("#content-wrapper-add-zhuyuanjilu button[tag='zyjl-return']").click(function(){
+			onZhuyuanjiluReturn();
+		})
 		initControlJwxzbch();
 	}
-	this.showPage = function(zyjl_data){
+	this.showPage = function(zyjl_data, come_from){
 		if (typeof zyjl_data != "undefined"){
 			m_zyjl_id = zyjl_data["id"];
 			initInputsByData(zyjl_data);
+		}
+		if (typeof come_from == "undefined"){
+			m_come_from = "";
+		}
+		else{
+			m_come_from = come_from;
 		}
 		g_hospital.setGlobalData("zyjl_id",m_zyjl_id);
 	}
@@ -173,6 +182,19 @@ function addZhuyuanjilu(){
 		ajaxRemoteRequest("hospital/set-records-status",{"ids":""+m_zyjl_id,"status":2},onUploadZhuyuanjiluRet);
 	}
 
+	this.onAddZhuyuanjilu = function(){
+		$("#content-wrapper-add-jibenziliao").hide();
+		$("#content-wrapper-add-zhuyuanjilu").show();
+		m_come_from = "";
+	}
+		
+	function onZhuyuanjiluReturn(){
+		if (m_come_from == ""){
+			gotoZyjlList();
+			reutrn;
+		}
+		g_hospital.gotoPage(m_come_from);
+	}
 	function gotoZyjlList(){
 		g_queryZhuyuanjilu.showPage(g_hospital.getGlobalData("patient_id"));
 		showNavTab("jibenziliao-section", "nav-tab-zhuyuanjilu", "tab-zhuyuanjilu");
