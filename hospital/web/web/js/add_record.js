@@ -80,6 +80,7 @@ function addPatient(){
 		alert("添加成功");
 		g_operation_type = 1;
 		m_patient_id = rsp.id;
+		$("#nav-tab-zhuyuanjilu").get(0).disabled = false;
 	}
 	function onUpdatePatientRet(rsp){
 		console.dir(rsp);
