@@ -19,7 +19,7 @@ html,body{
 }
 .top-wrapper{
     position: relative;
-    overflow-x: auto;
+    overflow-x: scroll;
     overflow-y: auto;
     height:auto;
 }
