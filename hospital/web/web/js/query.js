@@ -75,8 +75,8 @@ function patient_query() {
     function getStatusName(status) {
         var status_map = [
             { "name": "未上传", "id": "1" },
-            { "name": "上传", "id": "2" },
-            { "name": "删除", "id": "3" }
+            { "name": "已上传", "id": "2" },
+            { "name": "已删除", "id": "3" }
         ];
         for (var i = 0; i < status_map.length; i++) {
             if (status_map[i]["id"] == status) {
