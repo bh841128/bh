@@ -119,7 +119,7 @@ function queryZhuyuanjilu(){
 			"table_wrapper":$("#zyjl-query-zyjl-table-wrapper"),
 			"page_nav_wrapper":$("#zyjl-query-zyjl-nav")
 		}
-		var m_zhuyuanjilu_query = new zhuyuanjilu_query();
+		m_zhuyuanjilu_query = new zhuyuanjilu_query();
 		m_zhuyuanjilu_query.init(options);
 	}
 	this.showPage = function(patient_id){
