@@ -105,6 +105,7 @@ function addPatient(){
 
 function queryZhuyuanjilu(){
 	var m_patient_id = 0;
+	var m_zhuyuanjilu_query = null;
 	this.init = function(){
 		function initZhuyuanjilu(){
 			$('#nav-tab-zhuyuanjilu').on('shown.bs.tab', function (e) {
@@ -122,8 +123,8 @@ function queryZhuyuanjilu(){
 			"page_nav_wrapper":$("#zyjl-query-zyjl-nav"),
 			"patient_id":patient_id
 		}
-		var g_zhuyuanjilu_query = new zhuyuanjilu_query();
-		g_zhuyuanjilu_query.init(options);
+		var m_zhuyuanjilu_query = new zhuyuanjilu_query();
+		m_zhuyuanjilu_query.init(options);
 		
 		onQueryZhuyuanjilu(m_patient_id);
 	}
@@ -131,7 +132,7 @@ function queryZhuyuanjilu(){
 		if (patient_id <= 0){
 			return;
 		}
-		g_zhuyuanjilu_query.queryData({"patient_id":patient_id});
+		m_zhuyuanjilu_query.queryData({"patient_id":patient_id});
 	}
 }
 
