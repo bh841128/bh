@@ -182,12 +182,7 @@ function hospital(){
 			}
 			m_this.gotoPage("新增住院记录", ret_info.data);
 		}
-		if (zyjl_id > 0){
-			getPatientData(patient_id, onGetPatientDataRet);
-		}
-		else{
-			m_this.gotoPage("新增住院记录");
-		}
+		getPatientData(patient_id, onGetPatientDataRet);
 	}
 	function getPatientData(patient_id, callback){
 		function onGetPatientDataRet(rsp){
