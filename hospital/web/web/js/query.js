@@ -483,7 +483,7 @@ function zhuyuanjilu_query(){
                 alert("操作失败，请稍后再试");
                 return;
             }
-            queryData(m_query_param);
+            m_this.queryData(m_query_param);
         }
         function onEditZyjlRet(ret_info){
             if (ret_info.ret != 0){
