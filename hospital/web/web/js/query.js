@@ -453,6 +453,7 @@ function patient_query() {
 function zhuyuanjilu_query(){
     var m_this = this;
     var m_options = {};
+    var m_query_param = {};
     var m_patient_query = new patient_query();
     var map_showname_name = {
         "序号": "id",
@@ -482,7 +483,7 @@ function zhuyuanjilu_query(){
                 alert("操作失败，请稍后再试");
                 return;
             }
-            queryPageData(m_this.m_query_param.size, m_this.m_query_param.page);
+            queryData(m_query_param);
         }
         function onEditZyjlRet(ret_info){
             if (ret_info.ret != 0){
@@ -523,6 +524,7 @@ function zhuyuanjilu_query(){
     this.queryData = function (query_param){
         query_param.patient_id = m_options.patient_id;
         query_param.size = m_options.page_size;
+        m_query_param = query_param();
         return m_patient_query.queryData(query_param);
     }
     /////////////////////////////////////////////////////
