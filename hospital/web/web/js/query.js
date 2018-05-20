@@ -81,7 +81,7 @@ function patient_query() {
             return;
         }
         if (operationType == "新增住院记录"){
-            g_hospital.onAddZhuyuanjilu(dataId,onAddZhuyuanjiluRet);
+            g_hospital.onAddZhuyuanjilu(dataId,onAddZhuyuanjiluRet, m_options["come_from"]);
             return;
         }
     }
@@ -117,6 +117,9 @@ function patient_query() {
         m_this.m_options = options;
         if (typeof m_this.m_options["nav_page_num"] == "undefined") {
             m_this.m_options["nav_page_num"] = 7;
+        }
+        if (typeof m_options["come_from"] == "undefined"){
+            m_options["come_from"] = "";
         }
         initPageNav(m_this.m_options.page_nav_wrapper, m_this.m_options);
     }
@@ -496,7 +499,7 @@ function zhuyuanjilu_query(){
             return;
         }
         if (operationType == "编辑" || operationType == "详情"){
-            g_hospital.onEditZyjlInfo(dataId,onEditZyjlRet);
+            g_hospital.onEditZyjlInfo(dataId,onEditZyjlRet, m_options["come_from"]);
             return;
         }
     }
@@ -505,6 +508,10 @@ function zhuyuanjilu_query(){
         if (typeof m_options["page_size"] == "undefined"){
             m_options["page_size"] = 10;
         }
+        if (typeof m_options["come_from"] == "undefined"){
+            m_options["come_from"] = "";
+        }
+        
         m_patient_query.init(m_options);
         m_patient_query.m_query_data_api = m_this.m_query_data_api;
         m_patient_query.map_showname_name = map_showname_name;

@@ -41,7 +41,7 @@ function hospital(){
 		initReport();
 	}
 	//////////////////////////////////////////////页面跳转管理
-	this.gotoPage = function(page_name, data,data2){
+	this.gotoPage = function(page_name, data, come_from,data2){
 		function setBreadcrumb(page_name){
 			var breadcrumb = m_this.m_page_struct.elements["breadcrumb"];
 			breadcrumb.html(page_name);
@@ -183,7 +183,7 @@ function hospital(){
 				callback(ret_info);
 				return;
 			}
-			m_this.gotoPage("编辑住院记录", ret_info.data, zyjl_data);
+			m_this.gotoPage("编辑住院记录", ret_info.data, come_from, zyjl_data);
 		}
 		var zyjl_data = null;
 		getZhuyuanjiluData(zyjl_id, onGetZyjlDataRet);
@@ -205,7 +205,7 @@ function hospital(){
 		}
 		getPatientData(patient_id, onGetPatientDataRet);
 	}
-	this.onAddZhuyuanjilu = function(patient_id, callback){
+	this.onAddZhuyuanjilu = function(patient_id, callback, come_from){
 		function onGetPatientDataRet(ret_info){
 			if (isNeedLogin(ret_info.ret)){
 				showLoginModal();
@@ -215,7 +215,7 @@ function hospital(){
 				callback(ret_info);
 				return;
 			}
-			m_this.gotoPage("新增住院记录", ret_info.data);
+			m_this.gotoPage("新增住院记录", ret_info.data, come_from);
 		}
 		getPatientData(patient_id, onGetPatientDataRet);
 	}
@@ -319,7 +319,8 @@ function hospital(){
             "show_fields":["序号","病案号","姓名","性别", "出生日期", "联系人", "联系电话", "医院", "上传时间", "状态"],
             "operations":"上传,删除,新增住院记录",
             "table_wrapper":$("#upload-query-patient-table-wrapper"),
-            "page_nav_wrapper":$("#upload-query-patient-page-nav")
+            "page_nav_wrapper":$("#upload-query-patient-page-nav"),
+			"come_from":"上传资料"
         }
         g_patient_query_upload = new patient_query();
 		g_patient_query_upload.init(options);
@@ -340,7 +341,8 @@ function hospital(){
             "show_fields":["序号","病案号","姓名","性别", "出生日期", "联系人", "联系电话", "医院", "上传时间", "状态"],
             "operations":"详情,编辑,删除",
             "table_wrapper":$("#cx-query-patient-table-wrapper"),
-            "page_nav_wrapper":$("#cx-query-patient-page-nav")
+			"page_nav_wrapper":$("#cx-query-patient-page-nav"),
+			"come_from":"数据查询"
         }
         g_patient_query = new patient_query();
 		g_patient_query.init(options);
@@ -369,7 +371,8 @@ function hospital(){
             "show_fields":["序号","病案号","姓名","性别", "出生日期", "联系人", "联系电话", "医院", "上传时间", "状态"],
             "operations":"",
             "table_wrapper":$("#export-query-patient-table-wrapper"),
-            "page_nav_wrapper":$("#export-query-patient-page-nav")
+            "page_nav_wrapper":$("#export-query-patient-page-nav"),
+			"come_from":"数据导出"
         }
         g_patient_query_export = new patient_query();
 		g_patient_query_export.init(options);
