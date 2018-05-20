@@ -161,6 +161,8 @@ function addZhuyuanjilu(){
 			m_patient_id = 0;
 			m_zyjl_id    = 0;
 		}
+		g_hospital.setGlobalData("patient_id",m_patient_id);
+		g_hospital.setGlobalData("zyjl_id",m_zyjl_id);
 	}
 
 	function onZhuyuanjiluSave(){
@@ -170,7 +172,7 @@ function addZhuyuanjilu(){
 		console.dir(raw_json);
 		/////////////////////////////////////////////////
 		var data_json = getValuesByMap(raw_json, m_json_map);
-		data_json["patient_id"] = m_patient_id;
+		data_json["patient_id"] = g_hospital.getGlobalData("patient_id");
 		data_json["hospitalization_in_time"] = strDateToTimestap(data_json["hospitalization_in_time"]);
 		data_json["hospitalization_out_time"] = strDateToTimestap(data_json["hospitalization_out_time"]);
 		data_json["operation_time"] = strDateToTimestap(data_json["operation_time"]);
