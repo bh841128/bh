@@ -18,10 +18,14 @@ function control_json(){
     this.setJson2Control = function(selector, json){
         selector.find("[json-name]").each(function(){
             var json_name = $(this).attr("json-name");
-            if (typeof json[json_name] == "undefined"){
-                return;
+            var value = "";
+            if (typeof json == "undefined" || !json || typeof json[json_name] == "undefined" || !json[json_name]){
+                value = "";
             }
-            setInputValue($(this),json[json_name]);
+            else{
+                value = json[json_name];
+            }
+            setInputValue($(this),value);
         })
     }
 
