@@ -28,6 +28,7 @@ function addPatient(){
 	this.showPage = function(patient_data){
 		if (typeof patient_data != "undefined"){
 			m_patient_id = patient_data["id"];
+			g_hospital.setGlobalData("patient_id", m_patient_id);
 			initInputsByData(patient_data);
 			$("#nav-tab-zhuyuanjilu").get(0).disabled = false;
 		}
@@ -80,6 +81,7 @@ function addPatient(){
 		alert("添加成功");
 		g_operation_type = 1;
 		m_patient_id = rsp.id;
+		g_hospital.setGlobalData("patient_id", m_patient_id);
 		$("#nav-tab-zhuyuanjilu").get(0).disabled = false;
 	}
 	function onUpdatePatientRet(rsp){
@@ -107,25 +109,21 @@ function queryZhuyuanjilu(){
 	var m_patient_id = 0;
 	var m_zhuyuanjilu_query = null;
 	this.init = function(){
-		function initZhuyuanjilu(){
-			$('#nav-tab-zhuyuanjilu').on('shown.bs.tab', function (e) {
-				onQueryZhuyuanjilu(m_patient_id);
-			});
-		}
-		initZhuyuanjilu();
-	}
-	this.showPage = function(patient_id){
-		m_patient_id = patient_id;
+		$('#nav-tab-zhuyuanjilu').on('shown.bs.tab', function (e) {
+			m_patient_id = g_hospital.getGlobalData("patient_id");
+			onQueryZhuyuanjilu(m_patient_id);
+		});
 		var options = {
-            "show_fields":["序号","入院日期","出院日期","手术日期","上传时间", "状态"],
-            "operations":"详情,编辑,删除",
-            "table_wrapper":$("#zyjl-query-zyjl-table-wrapper"),
-			"page_nav_wrapper":$("#zyjl-query-zyjl-nav"),
-			"patient_id":patient_id
+			"show_fields":["序号","入院日期","出院日期","手术日期","上传时间", "状态"],
+			"operations":"详情,编辑,删除",
+			"table_wrapper":$("#zyjl-query-zyjl-table-wrapper"),
+			"page_nav_wrapper":$("#zyjl-query-zyjl-nav")
 		}
 		var m_zhuyuanjilu_query = new zhuyuanjilu_query();
 		m_zhuyuanjilu_query.init(options);
-		
+	}
+	this.showPage = function(patient_id){
+		m_patient_id = patient_id;
 		onQueryZhuyuanjilu(m_patient_id);
 	}
 	function onQueryZhuyuanjilu(patient_id){
