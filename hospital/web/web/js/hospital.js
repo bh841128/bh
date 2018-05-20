@@ -317,7 +317,7 @@ function hospital(){
 	function initUpload(){
 		var options = {
             "show_fields":["序号","病案号","姓名","性别", "出生日期", "联系人", "联系电话", "医院", "上传时间", "状态"],
-            "operations":"上传,删除,新增住院记录",
+            "operations":"详情,编辑,上传,删除,新增住院记录",
             "table_wrapper":$("#upload-query-patient-table-wrapper"),
             "page_nav_wrapper":$("#upload-query-patient-page-nav"),
 			"come_from":"上传资料"
@@ -339,7 +339,7 @@ function hospital(){
 	function initQuery(){	
 		var options = {
             "show_fields":["序号","病案号","姓名","性别", "出生日期", "联系人", "联系电话", "医院", "上传时间", "状态"],
-            "operations":"详情,编辑,删除",
+            "operations":"详情,编辑,上传,删除,新增住院记录",
             "table_wrapper":$("#cx-query-patient-table-wrapper"),
 			"page_nav_wrapper":$("#cx-query-patient-page-nav"),
 			"come_from":"数据查询"

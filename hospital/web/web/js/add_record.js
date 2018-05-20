@@ -117,7 +117,7 @@ function queryZhuyuanjilu(){
 		});
 		var options = {
 			"show_fields":["序号","入院日期","出院日期","手术日期","上传时间", "状态"],
-			"operations":"详情,编辑,删除",
+			"operations":"详情,编辑,上传,删除",
 			"table_wrapper":$("#zyjl-query-zyjl-table-wrapper"),
 			"page_nav_wrapper":$("#zyjl-query-zyjl-nav")
 		}
