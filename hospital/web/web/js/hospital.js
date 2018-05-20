@@ -338,7 +338,7 @@ function hospital(){
 	function initQuery(){	
 		var options = {
             "show_fields":["序号","病案号","姓名","性别", "出生日期", "联系人", "联系电话", "医院", "上传时间", "状态"],
-            "operations":"编辑,删除",
+            "operations":"详情,编辑,删除",
             "table_wrapper":$("#cx-query-patient-table-wrapper"),
             "page_nav_wrapper":$("#cx-query-patient-page-nav")
         }
