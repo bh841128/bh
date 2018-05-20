@@ -76,7 +76,7 @@ function addPatient(){
 		//console.dir(data_json);
 		////////////////////////////////////////////////
 		////检查参数合法性
-		if (!checkHuanzheInputValid(raw_json["患者基本资料"],raw_json["联系人基本资料"])){
+		if (!checkHuanzheInputValid(raw_json["患者基本资料"])){
 			return false;
 		}
 		if (!checkLianxirenInputValid(raw_json["联系人基本资料"])){
@@ -129,79 +129,51 @@ function addPatient(){
 	////////////////////////////////////////////////////////////////////////
 	function checkHuanzheInputValid(raw_json){
 		var data_json   = arrayToJson(raw_json);
-		////基本规则
-		var check_rules = [
-			{"name":"病案号",rules:["长度--1,10"]},
-			{"name":"性别",  rules:["不能为空"]},
-			{"name":"姓名",  rules:["长度--2,10"]},
-			{"name":"民族",  rules:["不能为空"]},
-			{"name":"出生日期",  rules:["不能为空"]}
-		];
-		var check_rules_address = [
-			{"name":"省份", rules:["不能为空"]},
-			{"name":"城市", rules:["不能为空"]},
-			{"name":"区县", rules:["不能为空"]},
-			{"name":"详细地址", rules:["长度--2,100"]}
-		];
-		var check_ret = checkInputValueValid(data_json, check_rules);
-		if (check_ret != 0){
-			showInputValueInvalid("患者-"+check_ret["msg"]);
-			return false;
-		}
-		////特殊规则
-		if (!getJsonValue(data_json, "详细地址-不能提供", 0)){
-			var check_ret = checkInputValueValid(data_json, check_rules);
-			if (check_ret != 0){
-				showInputValueInvalid("患者-"+check_ret["msg"]);
-				return false;
-			}
+		var arr_errmsgs = [];
+		checkValueValid(arr_errmsgs, data_json, "病案号",		"不能为空",		"请填写 病案号");
+		checkValueValid(arr_errmsgs, data_json, "性别",			"不能为空", 	"请选择 性别");
+		checkValueValid(arr_errmsgs, data_json, "姓名",			"不能为空", 	"请填写 患者姓名");
+		checkValueValid(arr_errmsgs, data_json, "姓名",			"长度范围", 	"患者姓名 格式不正确，请重新填写", 2, 10);
+		checkValueValid(arr_errmsgs, data_json, "民族",			"不能为空", 	"请选择 民族");
+		checkValueValid(arr_errmsgs, data_json, "出生日期",		"不能为空", 	"请选择 出生日期");
+		if(!data_json["详细地址-不能提供"]){
+			checkValueValid(arr_errmsgs, data_json, "省份",		"不能为空", 	"请选择 省份");
+			checkValueValid(arr_errmsgs, data_json, "城市",		"不能为空", 	"请选择 城市");
+			checkValueValid(arr_errmsgs, data_json, "区县",		"不能为空", 	"请选择 区县");
+			checkValueValid(arr_errmsgs, data_json, "详细地址",	"不能为空",		"请填写 详细地址");
+			checkValueValid(arr_errmsgs, data_json, "详细地址",	"长度范围", 	"详细地址 格式不正确，请重新填写", 2, 100);
 		}
 		else{
-			var json_tmp = {"详细地址-不能提供-原因":getJsonValue(data_json, "详细地址-不能提供-原因", "")};
-			var check_ret = checkInputValueValid(json_tmp, [{"name":"详细地址-不能提供-原因", rules:["长度--2,100"]}]);
-			if (check_ret != 0){
-				showInputValueInvalid("患者-"+check_ret["msg"]);
-				return false;
-			}
+			checkValueValid(arr_errmsgs, data_json, "详细地址-不能提供-原因",	"不能为空",		"请填写 详细地址不能提供的原因");
+			checkValueValid(arr_errmsgs, data_json, "详细地址-不能提供-原因",	"长度范围",		"详细地址不能提供的原因 格式不正确，请重新填写", 2, 100);
+		}
+		if (arr_errmsgs.length > 0){
+			showInputValueInvalid(arr_errmsgs[0]);
+			return false;
 		}
 		return true;
 	}
 	function checkLianxirenInputValid(raw_json){
 		var data_json   = arrayToJson(raw_json);
-		////基本规则
-		var check_rules = [
-			{"name":"姓名",  rules:["长度--2,10"]}
-		];
-		var check_ret = checkInputValueValid(data_json, check_rules);
-		if (check_ret != 0){
-			showInputValueInvalid("联系人-"+check_ret["msg"]);
-			return false;
-		}
-		if (!getJsonValue(data_json, "联系人电话-不能提供", 0)){
-			var phone = getJsonValue(data_json, "联系人电话", "");
-			if (phone == ""){
-				showInputValueInvalid("请输入联系人电话");
-				return false;
-			}
-			if (!isPhoneValid(phone)){
-				showInputValueInvalid("联系人电话格式不正确，请重新输入");
-				return false;
-			}
+		var arr_errmsgs = [];
+
+		checkValueValid(arr_errmsgs, data_json, "姓名",		"不能为空",		"请填写 联系人姓名");
+		checkValueValid(arr_errmsgs, data_json, "姓名",		"长度范围",		"联系人姓名 格式不正确，请重新填写", 2, 10);
+		if (!data_json["联系人电话-不能提供"]){
+			checkValueValid(arr_errmsgs, data_json, "联系人电话",		"不能为空",		"请填写 联系人电话");
+			checkValueValid(arr_errmsgs, data_json, "联系人电话",		"电话号码",		"联系人电话 格式不正确，请重新填写");
 		}
 		else{
-			var reason = getJsonValue(data_json, "联系人电话-不能提供-原因", "");
-			if (reason == ""){
-				showInputValueInvalid("请输入联系人电话不能提供原因");
-				return false;
-			}
-			else if (reason.length > 100){
-				showInputValueInvalid("联系人电话不能提供原因 长度不成超过100");
-				return false;
-			}
+			checkValueValid(arr_errmsgs, data_json, "联系人电话-不能提供-原因",	"不能为空",		"请填写 联系人电话不能提供的原因");
+			checkValueValid(arr_errmsgs, data_json, "联系人电话-不能提供-原因",	"长度范围",		"联系人电话不能提供的原因 格式不正确，请重新填写", 2, 100);
 		}
-		var phone_2 = getJsonValue(data_json, "联系人电话(号码二)", "");
-		if (phone_2 != "" && !isPhoneValid(phone)){
-			showInputValueInvalid("联系人电话(号码二)格式不正确，请重新输入");
+		if (data_json["联系人电话(号码二)"] != ""){
+			checkValueValid(arr_errmsgs, data_json, "联系人电话",		"电话号码",		"联系人电话(号码二) 格式不正确，请重新填写");
+		}
+		
+
+		if (arr_errmsgs.length > 0){
+			showInputValueInvalid(arr_errmsgs[0]);
 			return false;
 		}
 		return true;
