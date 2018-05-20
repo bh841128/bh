@@ -143,10 +143,10 @@ function addZhuyuanjilu(){
 		{"name":"手术日期","field":"operation_time"}
 	];
 	this.init = function(){
-		$("#zyjl-wraper button[tag='zyjl-save']").click(function(){
+		$("#content-wrapper-add-zhuyuanjilu button[tag='zyjl-save']").click(function(){
 			onZhuyuanjiluSave();
 		})
-		$("#zyjl-wraper button[tag='zyjl-upload']").click(function(){
+		$("#content-wrapper-add-zhuyuanjilu button[tag='zyjl-upload']").click(function(){
 			onUploadZhuyuanjilu();
 		})
 		initControlJwxzbch();
