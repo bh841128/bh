@@ -105,6 +105,11 @@ function addPatient(){
 
 function queryZhuyuanjilu(){
 	this.init = function(){
+		function initZhuyuanjilu(){
+			$('#nav-tab-zhuyuanjilu').on('shown.bs.tab', function (e) {
+				onQueryZhuyuanjilu();
+			});
+		}
 		initZhuyuanjilu();
 	}
 	this.showPage = function(patient_id){
@@ -119,12 +124,6 @@ function queryZhuyuanjilu(){
 		g_zhuyuanjilu_query.init(options);
 		
 		onQueryZhuyuanjilu();
-	}
-	
-	function initZhuyuanjilu(patient_id){
-		$('#nav-tab-zhuyuanjilu').on('shown.bs.tab', function (e) {
-			onQueryZhuyuanjilu();
-		});
 	}
 	function onQueryZhuyuanjilu(){
 		if (patient_id <= 0){
