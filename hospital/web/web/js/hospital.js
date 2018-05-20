@@ -96,7 +96,7 @@ function hospital(){
 			}
 			if (page_name == "新增住院记录"){
 				g_addPatient.initData(data);
-				g_addZhuyuanjilu.showPage(come_from);
+				g_addZhuyuanjilu.showPage(null, come_from);
 				return;
 			}
 			if (page_name == "编辑住院记录"){

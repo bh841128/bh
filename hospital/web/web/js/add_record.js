@@ -157,7 +157,7 @@ function addZhuyuanjilu(){
 		initControlJwxzbch();
 	}
 	this.showPage = function(zyjl_data, come_from){
-		if (typeof zyjl_data != "undefined"){
+		if (typeof zyjl_data != "undefined" && zyjl_data){
 			m_zyjl_id = zyjl_data["id"];
 			initInputsByData(zyjl_data);
 		}
