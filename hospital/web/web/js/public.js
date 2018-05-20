@@ -574,7 +574,7 @@ $("#"+section_id+">.tab-content>.tab-pane").each(function(){
 /////////////////////////////////////////////////////////////
 function setAllControlDisabled(container, bDisabled){
 	container.find("[json-name],button").each(function(){
-		this.disabled = bDisabled;
+		//this.disabled = bDisabled;
 	});
 }
 ////////////////////////////////////////////////////////////
