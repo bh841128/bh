@@ -170,7 +170,7 @@ function addZhuyuanjilu(){
 			alert("上传成功");
 			gotoZyjlList();
 		}
-		ajaxRemoteRequest("hospital/set-records-status",{"ids":""+m_zyjl_id,"status":3},onUploadZhuyuanjiluRet);
+		ajaxRemoteRequest("hospital/set-records-status",{"ids":""+m_zyjl_id,"status":2},onUploadZhuyuanjiluRet);
 	}
 
 	function gotoZyjlList(){
