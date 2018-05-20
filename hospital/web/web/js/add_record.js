@@ -321,6 +321,9 @@ function addZhuyuanjilu(){
 	/////////////////////////////////
 	function setJibenZiliaoState(bSisabled){
 		setAllControlDisabled($("#content-wrapper-add-zhuyuanjilu"),bSisabled);
-		$("#content-wrapper-add-zhuyuanjilu button[tag='zyjl-return']").get(0).disabled = false;
+		var return_buttons = $("#content-wrapper-add-zhuyuanjilu button[tag='zyjl-return']");
+		for (var i = 0; i < return_buttons.length; i++){
+			return_buttons.get(i).disabled = false;
+		}
 	}
 }
