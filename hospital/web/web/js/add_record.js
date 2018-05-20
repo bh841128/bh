@@ -230,7 +230,7 @@ function addZhuyuanjilu(){
 			m_come_from = come_from;
 		}
 		g_hospital.setGlobalData("zyjl_id",m_zyjl_id);
-		if (typeof zyjl_data != "undefined" && zyjl_data["status"] == 2){
+		if (typeof zyjl_data != "undefined" && zyjl_data && zyjl_data["status"] == 2){
 			setJibenZiliaoState(true);
 		}
 		else{
