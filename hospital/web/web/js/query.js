@@ -81,7 +81,7 @@ function patient_query() {
             return;
         }
         if (operationType == "新增住院记录"){
-            g_hospital.onAddZhuyuanjilu(dataId,onAddZhuyuanjiluRet, m_options["come_from"]);
+            g_hospital.onAddZhuyuanjilu(dataId,onAddZhuyuanjiluRet, m_this.m_options["come_from"]);
             return;
         }
     }
@@ -118,8 +118,8 @@ function patient_query() {
         if (typeof m_this.m_options["nav_page_num"] == "undefined") {
             m_this.m_options["nav_page_num"] = 7;
         }
-        if (typeof m_options["come_from"] == "undefined"){
-            m_options["come_from"] = "";
+        if (typeof m_this.m_options["come_from"] == "undefined"){
+            m_this.m_options["come_from"] = "";
         }
         initPageNav(m_this.m_options.page_nav_wrapper, m_this.m_options);
     }
