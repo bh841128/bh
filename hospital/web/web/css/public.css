@@ -3,7 +3,7 @@ html,body{
 }
 
 .wrapper.top-wrapper,.login-top-wrapper,.top-container, .top-wrapper{
-    width:1300px;
+    min-width:1300px;
     margin-left:auto;
     margin-right:auto;
 }
@@ -19,7 +19,7 @@ html,body{
 }
 .top-wrapper{
     position: relative;
-    overflow-x: hidden;
+    overflow-x: auto;
     overflow-y: auto;
     height:auto;
 }
