@@ -37,6 +37,12 @@ function addPatient(){
 			initInputsByData({});
 			$("#nav-tab-zhuyuanjilu").get(0).disabled = true;
 		}
+		if (typeof patient_data != "undefined" && patient_data["status"] == 2){
+			setJibenZiliaoState(true);
+		}
+		else{
+			setJibenZiliaoState(false);
+		}
 		g_hospital.setGlobalData("patient_id", m_patient_id);
 	}
 	this.showPage = function(patient_data){
@@ -95,6 +101,9 @@ function addPatient(){
 			return;
 		}
 		alert("更新成功");
+	}
+	function setJibenZiliaoState(bSisabled){
+		setAllControlDisabled($("#tab-jibenziliao"),bSisabled);
 	}
 	/////////////////////////////////////////////////////////////////////
 	function initInputsByData(db_data){
@@ -169,6 +178,12 @@ function addZhuyuanjilu(){
 			m_come_from = come_from;
 		}
 		g_hospital.setGlobalData("zyjl_id",m_zyjl_id);
+		if (typeof zyjl_data != "undefined" && zyjl_data["status"] == 2){
+			setJibenZiliaoState(true);
+		}
+		else{
+			setJibenZiliaoState(false);
+		}
 	}
 
 	function onUploadZhuyuanjilu(){
@@ -302,5 +317,10 @@ function addZhuyuanjilu(){
 				i++;
 			})
 		})
+	}
+	/////////////////////////////////
+	function setJibenZiliaoState(bSisabled){
+		setAllControlDisabled($("#tab-zhuyuanjilu"),bSisabled);
+		$("#tab-zhuyuanjilu button[tag='zyjl-return']").get(0).disabled = false;
 	}
 }
