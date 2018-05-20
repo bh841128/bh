@@ -42,8 +42,8 @@ function addPatient(){
 		g_queryZhuyuanjilu.showPage(m_patient_id);
 	}
 	function onAddZhuyuanjilu(){
-		$("#content-add").hide();
-		$("#content-zyjl").show();
+		$("#content-wrapper-add-jibenziliao").hide();
+		$("#content-wrapper-add-zhuyuanjilu").show();
 	}
 	function onJibenziliaoSave(){
 		var raw_json = {};
