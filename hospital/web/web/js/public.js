@@ -586,7 +586,7 @@ function checkInputValueValid(data_json, check_rules){
 		value = getTrimValue(value);
 		for (var r = 0; r < rules.length; r++){
 			var rule = rules[r];
-			var errmsg = checkValueByRule(value, rule);
+			var errmsg = checkValueByRule(field_name, value, rule);
 			if (errmsg != "" && errmsg != null){
 				return {"ret":1, "msg":errmsg};
 			}
@@ -595,10 +595,10 @@ function checkInputValueValid(data_json, check_rules){
 	return {"ret":0};
 }
 
-function checkValueByRule(value, rule){
+function checkValueByRule(field_name, value, rule){
 	if (rule == "不能为空"){
 		if (value == ""){
-			return value+" 不能为空";
+			return field_name+" 不能为空";
 		}
 		return "";
 	}
@@ -615,9 +615,9 @@ function checkValueByRule(value, rule){
 		var len_max = parseInt(lengths[1]);
 		if (value.length < len_min || value.length > len_max){
 			if (len_min == len_max){
-				return value+" 的长度应该为"+len_min;
+				return field_name+" 的长度应该为"+len_min;
 			}
-			return value+" 长度范围应在"+len_min+"到"+len_max+"之间";
+			return field_name+" 长度范围应在"+len_min+"到"+len_max+"之间";
 		}
 	}
 
