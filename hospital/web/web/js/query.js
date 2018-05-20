@@ -62,6 +62,12 @@ function patient_query() {
                 return;
             }
         }
+        function onAddZhuyuanjiluRet(ret_info){
+            if (ret_info.ret != 0){
+                alert("读取数据错误，请稍候再试");
+                return;
+            }
+        }
         if (operationType == "删除"){
             ajaxRemoteRequest("hospital/set-patients-status", {"ids":dataId+"","status":3}, onOperationRet);
             return;
@@ -72,6 +78,10 @@ function patient_query() {
         }
         if (operationType == "编辑"){
             g_hospital.onEditPatientInfo(dataId,onEditPatientInfoRet);
+            return;
+        }
+        if (operationType == "新增住院记录"){
+            g_hospital.onAddZhuyuanjilu(dataId,onAddZhuyuanjiluRet);
             return;
         }
     }
