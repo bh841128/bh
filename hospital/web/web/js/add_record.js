@@ -168,6 +168,9 @@ function addZhuyuanjilu(){
 				return false;
 			}
 			alert("上传成功");
+			g_queryZhuyuanjilu.showPage(m_patient_id);
+			$("#content-wrapper-add-jibenziliao").show();
+			$("#content-wrapper-add-zhuyuanjilu").hide();
 		}
 		ajaxRemoteRequest("hospital/set-records-status",{"ids":""+m_zyjl_id,"status":3},onUploadZhuyuanjiluRet);
 	}
