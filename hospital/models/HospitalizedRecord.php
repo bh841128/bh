@@ -199,6 +199,7 @@ class HospitalizedRecord {
 		}else{
 			$sql=$sql." uploadtime>=0 ";
 		}
+		$sql .= " order by createtime desc ";
 		
 		$page=$page<1?1:$page;
 		if($size<=0){
