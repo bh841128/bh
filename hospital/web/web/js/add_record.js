@@ -26,7 +26,7 @@ function addPatient(){
 		g_queryZhuyuanjilu = new queryZhuyuanjilu();
 		g_queryZhuyuanjilu.init();
 
-		$("#jibenziliao-section [json-name],#zhuyuanjilu-section [json-name]").off('focus').on( "focus", function() {
+		$("#jibenziliao-section [json-name],#zhuyuanjilu-section [json-name]").on( "focus", function() {
 			hideAllErrorMsgs();
 		});
 	}
