@@ -154,10 +154,15 @@ function hospital(){
 		function onLoginRet(rsp){
 
 		}
-		alert("showLoginModal");
+		gotoLoginPage();
 	}
 	function isNeedLogin(ret){
 		return ret == 1;
+	}
+	this.checkRspNeedLogin = function(rsp,callback){
+		if (isNeedLogin(rsp.ret)){
+			showLoginModal(callback);
+		}
 	}
 	///////////////////////////////////////////
 	this.onEditZyjlInfo = function(zyjl_id, callback, come_from){
