@@ -384,7 +384,7 @@ function patient_query() {
             if (status == "已上传" && (operation == "删除" || operation == "上传"|| operation == "编辑")){
                 continue;
             }
-            if (status == "删除"){
+            if (status == "已删除"){
                 continue;
             }
             var html = '<button type="button" class="btn btn-link" data-id="' + data["id"] + '" operation-type="' + operation + '">' + operation + '</button>';
@@ -474,7 +474,7 @@ function zhuyuanjilu_query(){
         var status_map = [
             { "name": "未上传", "id": "1" },
             { "name": "已上传", "id": "2" },
-            { "name": "删除", "id": "3" }
+            { "name": "已删除", "id": "3" }
         ];
         for (var i = 0; i < status_map.length; i++) {
             if (status_map[i]["id"] == status) {
