@@ -573,7 +573,8 @@ $("#"+section_id+">.tab-content>.tab-pane").each(function(){
 
 /////////////////////////////////////////////////////////////
 function setAllControlDisabled(container, bDisabled){
-	container.find("[json-name],button").each(function(){
+	//container.find("[json-name],button").each(function(){
+		container.find("button").each(function(){
 		this.disabled = bDisabled;
 	});
 }
