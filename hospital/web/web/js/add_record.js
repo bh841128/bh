@@ -108,12 +108,6 @@ function queryZhuyuanjilu(){
 		initZhuyuanjilu();
 	}
 	this.showPage = function(patient_id){
-		function onQueryZhuyuanjilu(){
-			if (patient_id <= 0){
-				return;
-			}
-			g_zhuyuanjilu_query.queryData({"patient_id":patient_id});
-		}
 		var options = {
             "show_fields":["序号","入院日期","出院日期","手术日期","上传时间", "状态"],
             "operations":"详情,编辑,删除",
@@ -126,10 +120,17 @@ function queryZhuyuanjilu(){
 		
 		onQueryZhuyuanjilu();
 	}
+	
 	function initZhuyuanjilu(patient_id){
 		$('#nav-tab-zhuyuanjilu').on('shown.bs.tab', function (e) {
 			onQueryZhuyuanjilu();
 		});
+	}
+	function onQueryZhuyuanjilu(){
+		if (patient_id <= 0){
+			return;
+		}
+		g_zhuyuanjilu_query.queryData({"patient_id":patient_id});
 	}
 }
 
