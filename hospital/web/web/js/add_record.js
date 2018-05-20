@@ -231,6 +231,7 @@ function addZhuyuanjilu(){
 		alert("添加成功");
 		g_operation_type = 3;
 		m_zyjl_id = rsp.id;
+		g_hospital.setGlobalData("zyjl_id",m_zyjl_id);
 	}
 
 	function initInputsByData(db_data){
