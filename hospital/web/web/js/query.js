@@ -76,7 +76,7 @@ function patient_query() {
             ajaxRemoteRequest("hospital/set-patients-status", {"ids":dataId+"","status":2}, onOperationRet);
             return;
         }
-        if (operationType == "编辑"){
+        if (operationType == "编辑" || operationType == "详情"){
             g_hospital.onEditPatientInfo(dataId,onEditPatientInfoRet);
             return;
         }
@@ -463,7 +463,31 @@ function zhuyuanjilu_query(){
         }
     }
     this.onOperationClick = function(operationType, dataId){
-        alert(operationType);
+        function onOperationRet(rsp){
+            if (rsp.ret != 0){
+                alert("操作失败，请稍后再试");
+                return;
+            }
+            queryPageData(m_this.m_query_param.size, m_this.m_query_param.page);
+        }
+        function onEditZyjlRet(ret_info){
+            if (ret_info.ret != 0){
+                alert("读取数据错误，请稍候再试");
+                return;
+            }
+        }
+        if (operationType == "删除"){
+            ajaxRemoteRequest("hospital/set-records-status", {"ids":dataId+"","status":3}, onOperationRet);
+            return;
+        }
+        if (operationType == "上传"){
+            ajaxRemoteRequest("hospital/set-records-status", {"ids":dataId+"","status":2}, onOperationRet);
+            return;
+        }
+        if (operationType == "编辑" || operationType == "详情"){
+            g_hospital.onEditZyjlInfo(dataId,onEditZyjlRet);
+            return;
+        }
     }
     this.init = function(options){
         m_options = options;

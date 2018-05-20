@@ -8,6 +8,7 @@ function hospital(){
 		page_configs : [
 			{"name":"新增资料", "container_id":"content-wrapper-add-jibenziliao"},
 			{"name":"新增住院记录", "container_id":"content-wrapper-add-zhuyuanjilu"},
+			{"name":"编辑住院记录", "container_id":"content-wrapper-add-zhuyuanjilu"},
 			{"name":"上传资料", "container_id":"content-wrapper-upload-upload"},
 			{"name":"数据查询", "container_id":"content-wrapper-query-query"},
 			{"name":"数据导出", "container_id":"content-wrapper-export-export"},
@@ -40,13 +41,13 @@ function hospital(){
 		initReport();
 	}
 	//////////////////////////////////////////////页面跳转管理
-	this.gotoPage = function(page_name, data){
+	this.gotoPage = function(page_name, data,data2){
 		function setBreadcrumb(page_name){
 			var breadcrumb = m_this.m_page_struct.elements["breadcrumb"];
 			breadcrumb.html(page_name);
 		}
 		function setSitebarHightlight(page_name){
-			if (page_name == "新增住院记录"){
+			if (page_name == "新增住院记录" || page_name == "编辑住院记录"){
 				page_name = "新增资料";
 			}
 			var side_bar = m_this.m_page_struct.elements["side_bar"];
@@ -72,7 +73,7 @@ function hospital(){
 			else if (page_name == "住院记录列表"){
 				showNavTab("zhuyuanjilu-section", "nav-tab-jibenziliao", "tab-zhuyuanjilu");
 			}
-			else if (page_name == "新增住院记录"){
+			else if (page_name == "新增住院记录" || page_name == "编辑住院记录"){
 				showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-riqi", "tab-zyjl-riqi");
 			}
 			
@@ -96,6 +97,11 @@ function hospital(){
 			if (page_name == "新增住院记录"){
 				g_addPatient.initData(data);
 				g_addZhuyuanjilu.showPage();
+				return;
+			}
+			if (page_name == "编辑住院记录"){
+				g_addPatient.initData(data);
+				g_addZhuyuanjilu.showPage(data2);
 				return;
 			}
 			if (page_name == "上传资料"){
@@ -154,6 +160,34 @@ function hospital(){
 		return ret == 1;
 	}
 	///////////////////////////////////////////
+	this.onEditZyjlInfo = function(zyjl_id, callback){
+		function onGetZyjlDataRet(ret_info){
+			if (isNeedLogin(ret_info.ret)){
+				showLoginModal();
+				return;
+			}
+			if (ret_info.ret != 0){
+				callback(ret_info);
+				return;
+			}
+			zyjl_data = ret_info.data;
+			getPatientData(zyjl_data["patient_id"], onGetPatientDataRet);
+			
+		}
+		function onGetPatientDataRet(ret_info){
+			if (isNeedLogin(ret_info.ret)){
+				showLoginModal();
+				return;
+			}
+			if (ret_info.ret != 0){
+				callback(ret_info);
+				return;
+			}
+			m_this.gotoPage("编辑住院记录", ret_info.data, zyjl_data);
+		}
+		var zyjl_data = null;
+		getZhuyuanjiluData(patient_id, onGetZyjlDataRet);
+	}
 	this.onEditPatientInfo = function(patient_id, callback, page_name){
 		function onGetPatientDataRet(ret_info){
 			if (isNeedLogin(ret_info.ret)){
