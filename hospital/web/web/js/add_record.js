@@ -34,6 +34,7 @@ function addPatient(){
 		}
 		else{
 			m_patient_id = 0;
+			initInputsByData({});
 			$("#nav-tab-zhuyuanjilu").get(0).disabled = true;
 		}
 		g_hospital.setGlobalData("patient_id", m_patient_id);
