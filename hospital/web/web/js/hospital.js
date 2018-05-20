@@ -312,8 +312,6 @@ function hospital(){
 	/////////////////////////////////////////初始化上传
 	function upload_queryDefaultPage(status){
 		var query_params = {status:status};
-		query_params.page = 1;
-		query_params.size = 10;
 		g_patient_query_upload.queryData(query_params);
 	}
 	function initUpload(){
@@ -354,8 +352,6 @@ function hospital(){
 	/////////////////////////////////////////初始化导出
 	function export_queryDefaultPage(){
 		var query_params = g_patient_query.parseQueryParam($("#export_query_param_form"));
-		query_params.page = 1;
-		query_params.size = 10;
 		g_patient_query_export.queryData(query_params);
 	}
 	function initExport(){
