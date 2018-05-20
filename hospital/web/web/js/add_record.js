@@ -166,7 +166,7 @@ function addPatient(){
 	}
 
 	function showInputValueInvalid(errormsg){
-		alert(msg);
+		alert(errormsg);
 	}
 }
 
