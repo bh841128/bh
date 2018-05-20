@@ -3,7 +3,7 @@
             <button type="button" class="btn btn-primary" style="width:110px;border-radius:20px" id="add-zhuyuanjilu">新增住院记录</button>
         </div>
     </div>
-    <div class="box-body table-responsive" id="zyjl-query-patient-table-wrapper">
+    <div class="box-body table-responsive" id="zyjl-query-zyjl-table-wrapper">
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
@@ -20,5 +20,5 @@
             </tbody>
         </table>
     </div>
-    <nav aria-label="Page navigation" style="text-align:center" id="zyjl-query-patient-nav"><nav>
+    <nav aria-label="Page navigation" style="text-align:center" id="zyjl-query-zyjl-nav"><nav>
 </div>
