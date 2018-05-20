@@ -175,6 +175,7 @@ function addZhuyuanjilu(){
 
 	function gotoZyjlList(){
 		g_queryZhuyuanjilu.showPage(g_hospital.getGlobalData("patient_id"));
+		showNavTab("zhuyuanjilu-section", "nav-tab-jibenziliao", "tab-zhuyuanjilu");
 		$("#content-wrapper-add-jibenziliao").show();
 		$("#content-wrapper-add-zhuyuanjilu").hide();
 	}
