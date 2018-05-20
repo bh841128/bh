@@ -66,6 +66,10 @@ function patient_query() {
             ajaxRemoteRequest("hospital/set-patients-status", {"ids":dataId+"","status":3}, onOperationRet);
             return;
         }
+        if (operationType == "上传"){
+            ajaxRemoteRequest("hospital/set-patients-status", {"ids":dataId+"","status":2}, onOperationRet);
+            return;
+        }
         if (operationType == "编辑"){
             g_hospital.onEditPatientInfo(dataId,onEditPatientInfoRet);
             return;
