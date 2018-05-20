@@ -186,7 +186,7 @@ function hospital(){
 			m_this.gotoPage("编辑住院记录", ret_info.data, zyjl_data);
 		}
 		var zyjl_data = null;
-		getZhuyuanjiluData(patient_id, onGetZyjlDataRet);
+		getZhuyuanjiluData(zyjl_id, onGetZyjlDataRet);
 	}
 	this.onEditPatientInfo = function(patient_id, callback, page_name){
 		function onGetPatientDataRet(ret_info){
