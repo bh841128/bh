@@ -1,5 +1,5 @@
 <div class="form-horizontal">
-    <div class="form-group errormsg active"><div class="msg-wrap"><div class="msg-error"><b></b>请输入验证码</div></div></div>
+    <div class="form-group errormsg active"><div class="msg-wrap"><div class="msg-error"><b></b></div></div></div>
     <div style="text-align:left;margin-left:100px;margin-top:30px;">
         <button type="button" class="btn btn-primary" style="width:100px" tag="zyjl-save">保存</button>&nbsp;&nbsp;
         <button type="button" class="btn btn-primary" style="width:100px" tag="zyjl-upload">上传</button>&nbsp;&nbsp;

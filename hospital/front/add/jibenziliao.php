@@ -179,6 +179,7 @@
     </div>
 </div>
 <div class="form-horizontal">
+    <div class="form-group errormsg active"><div class="msg-wrap"><div class="msg-error"><b></b>请输入验证码</div></div></div>
     <div style="text-align:left;margin-top:40px;">
         <button type="button" class="btn btn-primary" style="width:200px;margin-left:120px" tag="jibenziliao-baocun">保存信息</button>
     </div>
