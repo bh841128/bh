@@ -167,7 +167,44 @@ function addPatient(){
 		return true;
 	}
 	function checkLianxirenInputValid(raw_json){
-		
+		var data_json   = arrayToJson(raw_json);
+		////基本规则
+		var check_rules = [
+			{"name":"姓名",  rules:["长度--2,10"]}
+		];
+		var check_ret = checkInputValueValid(data_json, check_rules);
+		if (check_ret != 0){
+			showInputValueInvalid("联系人-"+check_ret["msg"]);
+			return false;
+		}
+		if (!getJsonValue(data_json, "联系人电话-不能提供", 0)){
+			var phone = getJsonValue(data_json, "联系人电话", "");
+			if (phone == ""){
+				showInputValueInvalid("请输入联系人电话");
+				return false;
+			}
+			if (!isPhoneValid(phone)){
+				showInputValueInvalid("联系人电话格式不正确，请重新输入");
+				return false;
+			}
+		}
+		else{
+			var reason = getJsonValue(data_json, "联系人电话-不能提供-原因", "");
+			if (reason == ""){
+				showInputValueInvalid("请输入联系人电话不能提供原因");
+				return false;
+			}
+			else if (reason.length > 100){
+				showInputValueInvalid("联系人电话不能提供原因 长度不成超过100");
+				return false;
+			}
+		}
+		var phone_2 = getJsonValue(data_json, "联系人电话(号码二)", "");
+		if (phone_2 != "" && !isPhoneValid(phone)){
+			showInputValueInvalid("联系人电话(号码二)格式不正确，请重新输入");
+			return false;
+		}
+		return true;
 	}
 
 	function showInputValueInvalid(errormsg){

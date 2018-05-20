@@ -160,20 +160,13 @@
             </tr>
         </table>
         <table class="control-table">
-            <tr></tr>
-            <td>
-                <div class="control-label control-label-180">
-                    <span class="red_star">*&nbsp;</span>联系人电话(号码二)：</div>
-            </td>
-            <td>
-                <input type="text" class="form-control input-sm" placeholder="联系人电话" json-name="联系人电话(号码二)" value="63333">
-            </td>
-            <td style="padding-left:35px">
-                <div class="checkbox">
-                    <lable>
-                        <input type="checkbox" value="1" json-name="联系人电话(号码二)-不能提供">不能提供</lable>
-                </div>
-            </td>
+            <tr>
+                <td>
+                    <div class="control-label control-label-180">联系人电话(号码二)：</div>
+                </td>
+                <td>
+                    <input type="text" class="form-control input-sm" placeholder="联系人电话" json-name="联系人电话(号码二)" value="">
+                </td>
             </tr>
         </table>
     </div>

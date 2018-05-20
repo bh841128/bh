@@ -602,6 +602,13 @@ function checkValueByRule(field_name, value, rule){
 		}
 		return "";
 	}
+	if (rule == "电话号码"){
+		var errmsg = checkPhoneValid(phone);
+		if (errmsg != ""){
+			return field_name +" "+ermsg;
+		}
+		return "";
+	}
 	if (!rule.match(/\-\-/)){
 		return "";
 	}
@@ -617,9 +624,24 @@ function checkValueByRule(field_name, value, rule){
 			if (len_min == len_max){
 				return field_name+" 的长度应该为"+len_min;
 			}
-			return field_name+" 长度范围应在"+len_min+"到"+len_max+"之间";
+			if (value.length < len_min){
+				return field_name+" 长度不能小于"+len_min;
+			}
+			else if (value.length > len_max){
+				return field_name+" 长度不能大于"+len_max;
+			}
 		}
 	}
 
 	return "";
+}
+
+function isPhoneValid(phone){
+	if (phone == ""){
+		return false;
+	}
+	if (phone.length < 3 || phone.length > 20){
+		return false;
+	}
+	return true;
 }
