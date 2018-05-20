@@ -140,14 +140,14 @@ function addPatient(){
 		];
 		var check_ret = checkInputValueValid(data_json, check_rules);
 		if (check_ret != 0){
-			showInputValueInvalid(check_ret["msg"]);
+			showInputValueInvalid("患者-"+check_ret["msg"]);
 			return false;
 		}
 		////特殊规则
 		if (!getJsonValue(data_json, "详细地址-不能提供", 0)){
 			var check_ret = checkInputValueValid(data_json, check_rules);
 			if (check_ret != 0){
-				showInputValueInvalid(check_ret["msg"]);
+				showInputValueInvalid("患者-"+check_ret["msg"]);
 				return false;
 			}
 		}
@@ -155,7 +155,7 @@ function addPatient(){
 			var json_tmp = {"详细地址-不能提供-原因":getJsonValue(data_json, "详细地址-不能提供-原因", "")};
 			var check_ret = checkInputValueValid(json_tmp, [{"name":"详细地址-不能提供-原因", rules:["长度--2,100"]}]);
 			if (check_ret != 0){
-				showInputValueInvalid(check_ret["msg"]);
+				showInputValueInvalid("患者-"+check_ret["msg"]);
 				return false;
 			}
 		}
