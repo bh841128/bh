@@ -146,10 +146,21 @@ function patient_query() {
         }
 
         if (typeof query_param["page"] == "undefined") {
-            query_param["page"] = 1;
+            if(typeof m_this.m_query_param["page"] != "undefined"){
+                query_param["page"] = m_this.m_query_param["page"];
+            }
+            else{
+                query_param["page"] = 1;
+            }
+            
         }
         if (typeof query_param["size"] == "undefined") {
-            query_param["size"] = 10;
+            if(typeof m_this.m_query_param["size"] != "undefined"){
+                query_param["size"] = m_this.m_query_param["size"];
+            }
+            else{
+                query_param["size"] = 10;
+            }
         }
         m_this.m_query_param = query_param;
 
