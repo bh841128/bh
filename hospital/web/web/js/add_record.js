@@ -1,5 +1,6 @@
 function addPatient(){
 	var m_patient_id = 0;
+	var m_this = this;
 	var m_json_map = [
 		{"name":"病案号","field":"medical_id"},
 		{"name":"性别","field":"sexy"},
