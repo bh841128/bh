@@ -168,7 +168,7 @@ function addZhuyuanjilu(){
 				return false;
 			}
 		}
-		ajaxRemoteRequest("hospital/set-records-status",{"ids":""+m_zyjl_id},onUploadZhuyuanjiluRet);
+		ajaxRemoteRequest("hospital/set-records-status",{"ids":""+m_zyjl_id,"status":3},onUploadZhuyuanjiluRet);
 	}
 
 	function onZhuyuanjiluSave(){
