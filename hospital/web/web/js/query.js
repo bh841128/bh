@@ -56,14 +56,18 @@ function patient_query() {
             }
             queryPageData(m_this.m_query_param.size, m_this.m_query_param.page);
         }
+        function onEditPatientInfoRet(ret_info){
+            if (ret_info.ret != 0){
+                alert("读取数据错误，请稍候再试");
+                return;
+            }
+        }
         if (operationType == "删除"){
             ajaxRemoteRequest("hospital/set-patients-status", {"ids":dataId+"","status":3}, onOperationRet);
             return;
         }
         if (operationType == "编辑"){
-            $("#post_edit_form input[name='patient_id']").val(dataId);
-            $("#post_edit_form input[name='operation_type']").val(1);
-            $("#post_edit_form").submit();
+            g_hospital.onEditPatientInfo(dataId,onEditPatientInfoRet);
             return;
         }
     }
