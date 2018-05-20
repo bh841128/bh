@@ -170,8 +170,8 @@ function hospital(){
 		}
 		getPatientData(patient_id, onGetPatientDataRet);
 	}
-	this.onAddZhuyuanjilu = function(zyjl_id, callback){
-		function onGetZhuyuanjiluDataRet(ret_info){
+	this.onAddZhuyuanjilu = function(patient_id, callback){
+		function onGetPatientDataRet(ret_info){
 			if (isNeedLogin(ret_info.ret)){
 				showLoginModal();
 				return;
@@ -183,7 +183,7 @@ function hospital(){
 			m_this.gotoPage("新增住院记录", ret_info.data);
 		}
 		if (zyjl_id > 0){
-			getZhuyuanjiluData(zyjl_id, onGetZhuyuanjiluDataRet);
+			getPatientData(patient_id, onGetPatientDataRet);
 		}
 		else{
 			m_this.gotoPage("新增住院记录");
