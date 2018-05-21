@@ -1,7 +1,7 @@
 function select_modal(){
     var m_options = {};
     var m_records = [];
-    var m_index_datas = {};
+    var m_index_datas = [];
     m_callback = null;
     m_control  = null;
     this.init = function(options){
