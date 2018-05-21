@@ -39,6 +39,21 @@ function select_modal(){
         }
         return selected_indexs.join(",");
     }
+    this.data2Indexs = function(datas){
+        var selected_indexs = [];
+        for (var i = 0; i < datas.length; i++){
+            var key1 = datas[i].key1;
+            var key2 = datas[i].key2;
+            for (var j = 0; j < m_index_datas.length; j++){
+                if (key1 != m_index_datas[j].key1 || key2 != m_index_datas[j].key2){
+                    continue;
+                }
+                selected_indexs.push(j);
+                break;
+            }
+        }
+        return selected_indexs.join(",");
+    }
 
     function createDataIndex(){
         m_index_datas = {};
