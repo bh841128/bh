@@ -32,7 +32,7 @@ function control_json(){
     /////////////////////////////////////////////////////////////////
     function getInputValue(control){
         if (isSelectModal(control)){
-            return getSelectModalValue(control, value);
+            return getSelectModalValue(control);
         }
         var tagName = control.prop('tagName');
         if (tagName == "SELECT"){
