@@ -320,7 +320,7 @@ function hospital(){
 		})
 		$("#tab-zyjl-shuqianxinxi input[name='shuqianyibanweixianyinsu']").change(function(){
 			var bHas = getRadioValue($("#tab-zyjl-shuqianxinxi"), "shuqianyibanweixianyinsu");
-			$("#tab-zyjl-shuqianxinxi textarea[tag='feixinzangjixing']").get(0).disabled = (bHas==2?true:false);
+			$("#tab-zyjl-shuqianxinxi textarea[tag='shuqianyibanweixianyinsu']").get(0).disabled = (bHas==2?true:false);
 		})
 	}
 	/////////////////////////////////////////初始化上传
