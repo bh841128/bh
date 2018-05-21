@@ -595,7 +595,7 @@ function isSelectModal(control){
 function get2Keyvalue(arr2Keys){
 	var arrValues = [];
 	for (var i = 0; i < arr2Keys.length; i++){
-		arrValues.push(arr2Keys[i].key1 +"\t\t" + arr2Keys[i].key2);
+		arrValues.push(arr2Keys[i].key1 +"\t" + arr2Keys[i].key2);
 	}
 	return arrValues.join("\n");
 }
