@@ -326,6 +326,10 @@ function hospital(){
 			var bChecked = getCheckboxChecked(this);
 			$("#tab-zyjl-shoushuxinxi textarea[tag='shoushuzhenduan']").get(0).disabled = (bChecked?true:false);
 		})
+		$("#tab-zyjl-shuhouxinxi input[name='shuhoubingfazheng-r']").change(function(){
+			var bChecked = getCheckboxChecked(this);
+			$("#tab-zyjl-shuhouxinxi textarea[tag='shuhoubingfazheng']").get(0).disabled = (bChecked?true:false);
+		})
 	}
 	/////////////////////////////////////////初始化上传
 	function upload_queryDefaultPage(status, page){
@@ -439,18 +443,18 @@ function hospital(){
 			"title":"术前一般危险因素"
 		});
 
-		g_bingfazheng_select_modal = new select_modal();
-		g_bingfazheng_select_modal.init({
-			"modal_container":$("#select_modal_xianxinbingbingzhong"),
-			"data_source":g_bingfazheng_data,
-			"title":"并发症"
-		});
-
 		g_zhuyaoshoushumingcheng_select_modal = new select_modal();
 		g_zhuyaoshoushumingcheng_select_modal.init({
 			"modal_container":$("#select_modal_xianxinbingbingzhong"),
 			"data_source":g_shoushufangshi_data,
 			"title":"主要手术名称"
+		});
+
+		g_shuhoubingfazheng_select_modal = new select_modal();
+		g_shuhoubingfazheng_select_modal.init({
+			"modal_container":$("#select_modal_xianxinbingbingzhong"),
+			"data_source":g_bingfazheng_data,
+			"title":"术后并发症"
 		});
 
 		

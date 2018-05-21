@@ -148,37 +148,15 @@
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="shuhoubingfazheng" value="1" checked json-name="术后并发症">是</lable>
+                        <input type="radio" name="shuhoubingfazheng-r" value="1" checked json-name="是否术后并发症">是</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="shuhoubingfazheng" value="2" json-name="术后并发症">否</lable>
-                </td>
-            </tr>
-        </table>
-        <table class="control-table padding-20">
-            <tr>
-                <td>
-                    <div class="input-group" style="margin-left:80px">
-                        <select class="form-control input-sm" style="width:500px" json-name="术后并发症名称"></select>
-                    </div>
+                        <input type="radio" name="shuhoubingfazheng-r" value="2" json-name="是否术后并发症">否</lable>
                 </td>
             </tr>
             <tr>
+                <td></td>
                 <td>
-                    <div class="input-group" style="margin-left:80px">
-                        <textarea class="form-control" style="width:500px" rows="5" json-name="术后并发症名称-详情"></textarea>
-                    </div>
-                </td>
-            </tr>
-        </table>
-        <table class="control-table padding-20">
-            <tr>
-                <td style="vertical-align:top">
-                    <div class="control-label" style="width:80px">其他：</div>
-                </td>
-                <td>
-                    <div class="input-group">
-                        <textarea class="form-control" style="width:500px" rows="5" json-name="其他"></textarea>
-                    </div>
+                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="术后并发症" json-name="术后并发症" tag="shuhoubingfazheng"></textarea>
                 </td>
             </tr>
         </table>

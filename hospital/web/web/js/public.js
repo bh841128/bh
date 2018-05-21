@@ -589,7 +589,8 @@ function isSelectModal(control){
 	if (json_name == "术前诊断" || json_name == "手术诊断" ||
 		json_name == "非心脏畸形" ||
 		json_name == "术前一般危险因素" ||
-		json_name == "主要手术名称"
+		json_name == "主要手术名称",
+		json_name == "术后并发症"
 	){
 		return true;
 	}
@@ -626,6 +627,12 @@ function setSelectModalValue(control, value){
 			var data_indexs = g_zhuyaoshoushumingcheng_select_modal.data2Indexs(value);
 		}
 	}
+	else if (json_name == "术后并发症"){
+		if (typeof value != "undefined" && value ){
+			var data_indexs = g_shuhoubingfazheng_select_modal.data2Indexs(value);
+		}
+	}
+	
 	
 	var show_values = get2Keyvalue(value);
 	control.val(show_values);
@@ -653,6 +660,10 @@ function getSelectModalValue(control){
 		var datas = g_zhuyaoshoushumingcheng_select_modal.indexs2Data(data_indexs);
 		return datas;
 	}
+	else if (json_name == "术后并发症"){
+		var datas = g_shuhoubingfazheng_select_modal.indexs2Data(data_indexs);
+		return datas;
+	}
 	return [];
 }
 function initSelectModal(){
@@ -674,5 +685,9 @@ function initSelectModal(){
 	$("[json-name='主要手术名称']").on("focus",(function(){
 		var selected_data_index = $(this).attr("data_indexs");
 		g_zhuyaoshoushumingcheng_select_modal.show_modal($(this), selected_data_index, onSelectModalSelectOk);
+	}));
+	$("[json-name='术后并发症']").on("focus",(function(){
+		var selected_data_index = $(this).attr("data_indexs");
+		g_shuhoubingfazheng_select_modal.show_modal($(this), selected_data_index, onSelectModalSelectOk);
 	}));
 }
