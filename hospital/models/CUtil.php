@@ -56,14 +56,21 @@ class CUtil {
         Yii::getLogger()->log($msg, $level,$category);
      }
 	 
-	 static public function createtable($list,$filename,$header=array()){    
+	 static public function createtable($list,$filename,$header){    
 		header("Content-type:application/vnd.ms-excel");    
 		header("Content-Disposition:filename=".$filename.".xls");    
 		$teble_header = implode("\t",$header);  
 		$strexport = $teble_header."\r";  
-		foreach ($list as $row){    
-			foreach($row as $key=>$value){  
-				$strexport.=$value."\t";     
+		foreach ($list as $row){
+            //CUtil::logFile(",,,,,,,,,,".print_r($row,true));			
+			foreach($header as $value){
+                if(array_key_exists($value,$row)){
+					$strexport.=$row[$value]."\t"; 
+				}
+				else{
+					$strexport.="\t"; 
+				}				 
+					    
 			}  
 			$strexport.="\r";   
 	  

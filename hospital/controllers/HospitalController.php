@@ -976,13 +976,8 @@ class HospitalController extends Controller
 			$filter["end_time"]=CUtil::getRequestParam('request', 'end_time', 0);
 		}
 		
-		if(CUtil::getRequestParam('request', 'status',0)==1||
-		   CUtil::getRequestParam('request', 'status',0)==2||
-		   CUtil::getRequestParam('request', 'status',0)==3)
-		{
-			
-			$filter["status"]=CUtil::getRequestParam('request', 'status', 0);
-		}
+		
+		$filter["status"]=2;
 		
 		CUtil::logFile("$hospital_id===".print_r($filter,true));
         $records=HospitalizedRecord::getRecordList(0,$hospital_id,$filter,0);
@@ -1069,9 +1064,9 @@ records
 
 */
 
-      //'{"姓名":"联系人1+1","与患者关系":"父亲","联系人电话":"96325","联系人电话-不能提供-原因":"","联系人电话(号码二)":"63333"}'
-        //$header = array("医院名称","上传时间","病案号","姓名","性别","民族","出生日期","省","市","县","地址","联系人姓名","与患儿关系","联系人电话","其他联系电话（号码二）","其他联系电话（号码三）","入院日期","出院日期","手术日期","既往先心病手术次数","第一次既往先心病手术时间","第一次既往先心病手术医院","第一次既往先心病手术名称","第一次其他","第二次既往先心病手术时间","第二次既往先心病手术医院","第二次既往先心病手术名称","第二次其他","第三次既往先心病手术时间","第三次既往先心病手术医院","第三次既往先心病手术名称","第三次其他","第四次既往先心病手术时间","第四次既往先心病手术医院","第四次既往先心病手术名称","第四次其他","身高","体重","术前右上肢血氧饱和度","术前右下肢血氧饱和度","术前左上肢血氧饱和度","术前左下肢血氧饱和度","术后右上肢血氧饱和度","术后右下肢血氧饱和度","术后左上肢血氧饱和度","术后左下肢血氧饱和度","专科检查-MRI","专科检查-心导管","专科检查-造影","专科检查-其他","术前诊断","术前诊断-其他","出生时胎龄","出生体重","产前明确诊断","术前一般危险因素","术前一般危险因素-其他","非心脏畸形","非心脏畸形-其他","与术前诊断一致","手术诊断","手术诊断-其他","主要手术名称","主要手术名称-其他","手术医生","手术用时","手术年龄","手术状态","手术方式","手术路径","手术路径-其他","延迟关胸","延迟关胸时间","体外循环","是否计划","停搏液","停搏液类型","体外循环时间","主动脉阻断时间","二次或多次体外循环","残余畸形","增加循环辅助时间","出血","二次或多次体外循环-其他","深低温停循环","深低温停循环时间","单侧脑灌注","单侧脑灌注时间","术后住院时间","术后监护室停留时间","出监护室日期","累计有创辅助通气时间","围手术期血液制品输入","红细胞","新鲜冰冻血浆","血浆冷沉淀","血小板","自体血","术后并发症","术后并发症-其他","出院时状态","自动出院日期","自动出院主要原因","自动出院其他原因","死亡日期","死亡主要原因","其他死亡原因","治疗费用","出院备注");		
-		$header = array("医院名称","上传时间","病案号","姓名","性别","民族","出生日期","省","市","县","地址","联系人姓名","与患儿关系","联系人电话","联系人电话-不能提供-原因","其他联系电话（号码二）",/*"其他联系电话（号码三）",*/"入院日期","出院日期","手术日期");     
+     
+        $header = array("医院名称","上传时间","病案号","姓名","性别","民族","出生日期","省","市","县","地址","联系人姓名","与患者关系","联系人电话","其他联系电话（号码二）","其他联系电话（号码三）","入院日期","出院日期","手术日期","既往先心病手术次数","第一次既往先心病手术时间","第一次既往先心病手术医院","第一次既往先心病手术名称","第一次其他","第二次既往先心病手术时间","第二次既往先心病手术医院","第二次既往先心病手术名称","第二次其他","第三次既往先心病手术时间","第三次既往先心病手术医院","第三次既往先心病手术名称","第三次其他","第四次既往先心病手术时间","第四次既往先心病手术医院","第四次既往先心病手术名称","第四次其他","身高","体重","术前右上肢血氧饱和度","术前右下肢血氧饱和度","术前左上肢血氧饱和度","术前左下肢血氧饱和度","术后右上肢血氧饱和度","术后右下肢血氧饱和度","术后左上肢血氧饱和度","术后左下肢血氧饱和度","专科检查-MRI","专科检查-心导管","专科检查-造影","专科检查-其他","术前诊断","术前诊断-其他","出生时胎龄","出生体重","产前明确诊断","术前一般危险因素","术前一般危险因素-其他","非心脏畸形","非心脏畸形-其他","与术前诊断一致","手术诊断","手术诊断-其他","主要手术名称","主要手术名称-其他","手术医生","手术用时","手术年龄","手术状态","手术方式","手术路径","手术路径-其他","延迟关胸","延迟关胸时间","体外循环","是否计划","停搏液","停搏液类型","体外循环时间","主动脉阻断时间","二次或多次体外循环","残余畸形","增加循环辅助时间","出血","二次或多次体外循环-其他","深低温停循环","深低温停循环时间","单侧脑灌注","单侧脑灌注时间","术后住院时间","术后监护室停留时间","出监护室日期","累计有创辅助通气时间","围手术期血液制品输入","红细胞","新鲜冰冻血浆","血浆冷沉淀","血小板","自体血","术后并发症","术后并发症-其他","出院时状态","自动出院日期","自动出院主要原因","自动出院其他原因","死亡日期","死亡主要原因","其他死亡原因","治疗费用","出院备注");		
+		
         $filename = '病例记录';  
       
        // CUtil::logFile(print_r($records,true));
@@ -1079,26 +1074,46 @@ records
         foreach ($records["msg"] as $key=>$value){   
             $ele=array();
             $patient=$arrPatients[$value["patient_id"]];
-            $ele["hospital_name"]=$patient["hospital_name"];
-            $ele["uploadtime"]=date("Y-m-d H:i:s",intval($value["uploadtime"]));
-            $ele["medical_id"]=$value["medical_id"];
+            $ele["医院名称"]=$patient["hospital_name"];
+            $ele["上传时间"]=date("Y-m-d H:i:s",intval($value["uploadtime"]));
+            $ele["病案号"]=$value["medical_id"];
           
-            $ele["patient_name"]=$patient["name"];
-            $ele["sexy"]=$patient["sexy"]==1?"男":"女";
-            $ele["nation"]=$patient["nation"];
-            $ele["birthday"]=$patient["birthday"];
-            $ele["province"]=$patient["province"];
-            $ele["city"]=$patient["city"];
-            $ele["district"]=$patient["district"];
-            $ele["address"]=$patient["address"];
+            $ele["姓名"]=$patient["name"];
+            $ele["性别"]=$patient["sexy"]==1?"男":"女";
+            $ele["民族"]=$patient["nation"];
+            $ele["出生日期"]=$patient["birthday"];
+            $ele["省"]=$patient["province"];
+            $ele["市"]=$patient["city"];
+            $ele["县"]=$patient["district"];
+            $ele["地址"]=$patient["address"];
             $relate_text=json_decode($patient["relate_text"],true);
             foreach ($relate_text as $k=>$v){  
                 $ele[$k]=$v;
             }
-            $ele["hospitalization_in_time"]=date("Y-m-d H:i:s",intval($value["hospitalization_in_time"]));
-            $ele["hospitalization_out_time"]=date("Y-m-d H:i:s",intval($value["hospitalization_out_time"]));
-            $ele["operation_time"]=date("Y-m-d H:i:s",intval($value["operation_time"]));
-            $table[]=$ele;
+			
+			
+            $ele["入院日期"]=date("Y-m-d",intval($value["hospitalization_in_time"]));
+            $ele["出院日期"]=date("Y-m-d",intval($value["hospitalization_out_time"]));
+            $ele["手术日期"]=date("Y-m-d",intval($value["operation_time"]));
+            $operation_before_info=json_decode($value["operation_before_info"],true);
+            foreach ($operation_before_info as $k=>$v){  
+                $ele[$k]=$v;
+            }
+			$operation_info=json_decode($value["operation_info"],true);
+            foreach ($operation_info as $k=>$v){  
+                $ele[$k]=$v;
+            }
+			$operation_after_info=json_decode($value["operation_after_info"],true);
+            foreach ($operation_after_info as $k=>$v){  
+                $ele[$k]=$v;
+            }
+			$hospitalization_out_info=json_decode($value["hospitalization_out_info"],true);
+            foreach ($hospitalization_out_info as $k=>$v){  
+                $ele[$k]=$v;
+            }
+			
+			
+			$table[]=$ele;
         }
         CUtil::logFile(print_r($table,true));
         $data=CUtil::createtable($table,$filename,$header); 
