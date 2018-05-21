@@ -641,16 +641,20 @@ class HospitalController extends Controller
 		
 		
 		
-	    if(CUtil::getRequestParam('request', 'operation_info', "")!=""){
+	    if(CUtil::getRequestParam('request', 'operation_info', "")!=""&&
+		CUtil::is_json(CUtil::getRequestParam('request', 'operation_info', ""))){
 			$arrText[":operation_info"]=CUtil::getRequestParam('request', 'operation_info', "");
 		}
-		if(CUtil::getRequestParam('request', 'operation_before_info', "")!=""){
+		if(CUtil::getRequestParam('request', 'operation_before_info', "")!=""&&
+		CUtil::is_json(CUtil::getRequestParam('request', 'operation_before_info', ""))){
 			$arrText[":operation_before_info"]=CUtil::getRequestParam('request', 'operation_before_info', "");
 		}
-		if(CUtil::getRequestParam('request', 'operation_after_info', "")!=""){
+		if(CUtil::getRequestParam('request', 'operation_after_info', "")!=""&&
+		CUtil::is_json(CUtil::getRequestParam('request', 'operation_after_info', ""))){
 			$arrText[":operation_after_info"]=CUtil::getRequestParam('request', 'operation_after_info', "");
 		}
-		if(CUtil::getRequestParam('request', 'hospitalization_out_info', "")!=""){
+		if(CUtil::getRequestParam('request', 'hospitalization_out_info', "")!=""&&
+		CUtil::is_json(CUtil::getRequestParam('request', 'hospitalization_out_info', ""))){
 			$arrText[":hospitalization_out_info"]=CUtil::getRequestParam('request', 'hospitalization_out_info', "");
 		}
         $ret=HospitalizedRecord::setRecordText($id,$arrText,$ret["msg"]["hospital_id"]);
