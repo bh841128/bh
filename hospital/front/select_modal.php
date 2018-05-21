@@ -1,7 +1,7 @@
 <div id="select_modal_xianxinbingbingzhong" class="modal login_modal" tabindex="-1" role="dialog" style="z-index:10000">
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="width:1000px;">
-            <div class="modal-header">
+            <div class="modal-header" style="padding-top:5px;padding-bottom:5px">
                     <h2 class="modal-title" style="text-align:left"></h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="right:5px;width:30px">
                     <span aria-hidden="true">&times;</span>
