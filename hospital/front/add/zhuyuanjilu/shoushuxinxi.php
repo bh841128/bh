@@ -19,7 +19,7 @@
                     <div class="control-label control-label-120" style="width:120px">手术诊断：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:400px" placeholder="手术诊断" json-name="手术诊断">
+                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="手术诊断" json-name="手术诊断" tag="shoushuzhenduan"></textarea>
                 </td>
                 <td style="padding-left:35px">
                     <div class="checkbox">

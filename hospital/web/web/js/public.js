@@ -586,9 +586,9 @@ function checkValueValid(arr_errmsgs, data_json, key,	check_type,	errmsg, param1
 
 function isSelectModal(control){
 	var json_name = control.attr("json-name");
-	if (json_name == "术前诊断" ||
+	if (json_name == "术前诊断" || json_name == "手术诊断" ||
 		json_name == "非心脏畸形" ||
-		json_name == "术前一般危险因素"
+		json_name == "术前一般危险因素" 
 	){
 		return true;
 	}
@@ -605,7 +605,7 @@ function get2Keyvalue(arr2Keys){
 function setSelectModalValue(control, value){
 	var json_name = control.attr("json-name");
 	var data_indexs = "";
-	if (json_name == "术前诊断"){
+	if (json_name == "术前诊断" || json_name == "手术诊断"){
 		if (typeof value != "undefined" && value ){
 			var data_indexs = g_xianxinbingbingzhong_select_modal.data2Indexs(value);
 		}
@@ -630,7 +630,7 @@ function getSelectModalValue(control){
 	if (!data_indexs || data_indexs == ""){
 		return [];
 	}
-	if (json_name == "术前诊断"){
+	if (json_name == "术前诊断" || json_name == "手术诊断"){
 		var datas = g_xianxinbingbingzhong_select_modal.indexs2Data(data_indexs);
 		return datas;
 	}
@@ -648,7 +648,7 @@ function initSelectModal(){
 	function onSelectModalSelectOk(control, selected_datas){
 		setSelectModalValue(control, selected_datas);
 	}
-	$("[json-name='术前诊断']").on("focus",(function(){
+	$("[json-name='术前诊断'],[json-name='手术诊断']").on("focus",(function(){
 		var selected_data_index = $(this).attr("data_indexs");
 		g_xianxinbingbingzhong_select_modal.show_modal($(this), selected_data_index, onSelectModalSelectOk);
 	}));

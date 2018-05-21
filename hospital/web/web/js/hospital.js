@@ -322,6 +322,10 @@ function hospital(){
 			var bHas = getRadioValue($("#tab-zyjl-shuqianxinxi"), "shuqianyibanweixianyinsu");
 			$("#tab-zyjl-shuqianxinxi textarea[tag='shuqianyibanweixianyinsu']").get(0).disabled = (bHas==2?true:false);
 		})
+		$("#tab-zyjl-shoushuxinxi input[json-name='与术前诊断一致']").change(function(){
+			var bChecked = getCheckboxChecked($(this));
+			$("#tab-zyjl-shuqianxinxi textarea[tag='shoushuzhenduan']").get(0).disabled = (bChecked?true:false);
+		})
 	}
 	/////////////////////////////////////////初始化上传
 	function upload_queryDefaultPage(status, page){
