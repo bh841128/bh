@@ -589,13 +589,39 @@ function isSelectModal(control){
 	if (json_name == "术前诊断"){
 		return true;
 	}
+	return false;
 }
 
+function get2Keyvalue(arr2Keys){
+	var arrValues = [];
+	for (var i = 0; i < arr2Keys; i++){
+		arrValues.push(arr2Keys[i].key1 +"\t" + arr2Keys[i].key2);
+	}
+	return arrValues.join("\n");
+}
 function setSelectModalValue(control, value){
-	
+	var json_name = control.attr("json-name");
+	var data_indexs = "";
+	if (json_name == "术前诊断"){
+		if (typeof value != "undefined" && value ){
+			var data_indexs = g_xianxinbingbingzhong_select_modal.data2Indexs(value);
+		}
+	}
+	var show_values = get2Keyvalue(value);
+	control.val(show_values);
+	control.attr("data_indexs", data_indexs);
 }
-function getSelectModalValue(control, value){
-
+function getSelectModalValue(control){
+	var json_name = control.attr("json-name");
+	var data_indexs = control.attr("data_indexs");
+	if (!data_indexs || data_indexs == ""){
+		return [];
+	}
+	if (json_name == "术前诊断"){
+		var datas = g_xianxinbingbingzhong_select_modal.indexs2Data(data_indexs);
+		return datas;
+	}
+	return [];
 }
 function initSelectModal(){
 	$("[json-name='术前诊断']").click(function(){

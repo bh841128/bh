@@ -61,7 +61,7 @@ function select_modal(){
             if (arr_indexs[i] == "" || arr_indexs[i] >= m_index_datas.length){
                 continue;
             }
-            datas.push(m_index_datas[arr_indexs[i]]);
+            datas.push({key1:m_index_datas[arr_indexs[i]].key1, key2:m_index_datas[arr_indexs[i]].key2});
         }
         return datas;
     }
