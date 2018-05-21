@@ -316,11 +316,11 @@ function hospital(){
 		g_addZhuyuanjilu.init();
 		$("#tab-zyjl-shuqianxinxi input[name='feixinzangjixing']").change(function(){
 			var bHas = getRadioValue($("#tab-zyjl-shuqianxinxi"), "feixinzangjixing");
-			$("#tab-zyjl-shuqianxinxi textarea[tag='feixinzangjixing']").get(0).disabled = (bHas?true:false);
+			$("#tab-zyjl-shuqianxinxi textarea[tag='feixinzangjixing']").get(0).disabled = (bHas==2?true:false);
 		})
 		$("#tab-zyjl-shuqianxinxi input[name='shuqianyibanweixianyinsu']").change(function(){
 			var bHas = getRadioValue($("#tab-zyjl-shuqianxinxi"), "shuqianyibanweixianyinsu");
-			$("#tab-zyjl-shuqianxinxi textarea[tag='feixinzangjixing']").get(0).disabled = (bHas?true:false);
+			$("#tab-zyjl-shuqianxinxi textarea[tag='feixinzangjixing']").get(0).disabled = (bHas==2?true:false);
 		})
 	}
 	/////////////////////////////////////////初始化上传
