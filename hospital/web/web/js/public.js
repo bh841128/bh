@@ -645,6 +645,6 @@ function initSelectModal(){
 	}));
 	$("[json-name='非心脏畸形']").on("focus",(function(){
 		var selected_data_index = $(this).attr("data_indexs");
-		g_xianxinbingbingzhong_select_modal.show_modal($(this), selected_data_index, onSelectModalSelectOk);
+		g_feixinzangjixing_select_modal.show_modal($(this), selected_data_index, onSelectModalSelectOk);
 	}));
 }
