@@ -589,7 +589,7 @@ function isSelectModal(control){
 	if (json_name == "术前诊断" || json_name == "手术诊断" ||
 		json_name == "非心脏畸形" ||
 		json_name == "术前一般危险因素" ||
-		json_name == "主要手术名称",
+		json_name == "主要手术名称" ||
 		json_name == "术后并发症"
 	){
 		return true;
