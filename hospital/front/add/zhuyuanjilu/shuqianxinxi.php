@@ -413,7 +413,7 @@
             <tr>
                 <td></td>
                 <td>
-                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="术前一般危险因素" json-name="术前一般危险因素"></textarea>
+                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="术前一般危险因素" json-name="术前一般危险因素" tag="shuqianyibanweixianyinsu"></textarea>
                 </td>
             </tr>
             <tr>
@@ -430,7 +430,7 @@
             <tr>
                 <td></td>
                 <td>
-                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="非心脏畸形" json-name="非心脏畸形"></textarea>
+                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="非心脏畸形" json-name="非心脏畸形" tag="feixinzangjixing"></textarea>
                 </td>
             </tr>
         </table>

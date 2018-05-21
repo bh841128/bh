@@ -314,6 +314,14 @@ function hospital(){
 		//添加住院记录
 		g_addZhuyuanjilu = new addZhuyuanjilu();
 		g_addZhuyuanjilu.init();
+		$("#tab-zyjl-shuqianxinxi input[name='feixinzangjixing']").change(function(){
+			var bHas = getRadioValue($("#tab-zyjl-shuqianxinxi"), "feixinzangjixing");
+			$("#tab-zyjl-shuqianxinxi textarea[tag='feixinzangjixing']").get(0).disabled = (bHas?true:false);
+		})
+		$("#tab-zyjl-shuqianxinxi input[name='shuqianyibanweixianyinsu']").change(function(){
+			var bHas = getRadioValue($("#tab-zyjl-shuqianxinxi"), "shuqianyibanweixianyinsu");
+			$("#tab-zyjl-shuqianxinxi textarea[tag='feixinzangjixing']").get(0).disabled = (bHas?true:false);
+		})
 	}
 	/////////////////////////////////////////初始化上传
 	function upload_queryDefaultPage(status, page){
