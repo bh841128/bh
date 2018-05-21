@@ -106,15 +106,15 @@ function select_modal(){
         })
     }
 
-    function getTableHtml(table_datas, selected_datas) {
+    function getTableHtml(table_datas) {
         var table_html = '<table class="table table-bordered table-hover table-center table-query" style="text-align:center">';
         table_html += '<tbody>';
         for (var d = 0; d < table_datas.length; d++) {
             var data = table_datas[d];
             var record_html = '<tr>';
-            for (var i = 0; i < 2; i++) {
-                record_html += '<td>' + data[i] + '</td>';
-            }
+            record_html += '<td>' + data.key1 + '</td>';
+            record_html += '<td>' + data.key2 + '</td>';
+            
             record_html += '<td><input type="checkbox"'+(data.is_data_selected?' checked':'')+' data_index="'+d+'"></td>';
             record_html += '</tr>';
             table_html += record_html;
@@ -124,22 +124,6 @@ function select_modal(){
         return table_html;
     }
 
-    function isRecordSelected(record, selected_datas){
-        function isRecordEqual(record, selected_data){
-            for (var key in record){
-                if (typeof selected_data[key] != "undefined" && selected_data[key] != record[key]){
-                    return false;
-                }
-            }
-            return true;
-        }
-        for (var i = 0; i < selected_datas.length; i++){
-            if (isRecordEqual(record, selected_datas[i])){
-                return true;
-            }
-        }
-        return false;
-    }
     function onSelectAData(data_index, is_data_selected){
         m_index_datas[data_index].is_data_selected = is_data_selected;
     }
