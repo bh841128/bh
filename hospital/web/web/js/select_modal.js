@@ -1,11 +1,11 @@
 function select_modal(){
     var m_options = {};
-    var m_selected_datas = [];
     var m_records = [];
     var m_index_datas = {};
     m_callback = null;
     this.init = function(options){
         m_options = options;
+        m_records = m_options.data_source;
         m_options.container.find("button[tag='ok']").click(function(){
             if (typeof m_callback!= undefined){
                 var selected_datas = getSelectedDatas(m_index_datas);
@@ -14,12 +14,10 @@ function select_modal(){
         })
         createDataIndex();
     }
-    this.show_modal = function(records, selected_datas, callback){
+    this.show_modal = function(selected_data_index, callback){
         m_callback = callback;
         clearParamControls();
-
-        m_selected_datas = selected_datas;
-        m_records = records;
+        processData(selected_data_index);
         fillTable();
         container.modal();
     }
@@ -31,6 +29,15 @@ function select_modal(){
             }
         }
         return selected_datas;
+    }
+    this.getSelectedIndexs = function(datas){
+        var selected_indexs = [];
+        for (var i = 0; i < datas.length; i++){
+            if (datas[i].is_data_selected){
+                selected_indexs.push(i);
+            }
+        }
+        return selected_indexs.join(",");
     }
 
     function createDataIndex(){
@@ -46,19 +53,20 @@ function select_modal(){
                 }
             }
         }
-        for (var i = 0; i < m_index_datas.length; i++){
-            if (isRecordSelected(m_index_datas[i], m_selected_datas)){
-                m_index_datas[i].is_data_selected = true;
-            }
-            else{
-                m_index_datas[i].is_data_selected = false;
-            }
-        }
+        m_index_datas[i].is_data_selected = false;
     }
-    function processData(){
-        for (var i = 0; i < m_records.length; i++){
-            m_records[i]["is_data_selected"] = isRecordSelected(m_records[i], m_selected_datas);
-            m_records[i]["data_index"] = i;
+    function processData(selected_data_index){
+        for (var i = 0; i < m_index_datas.length; i++){
+            m_index_datas[i]["is_data_selected"] = false;
+        }
+
+        var arr_selected_data_index = selected_data_index.split(",");
+        var index_selected_data_index = {};
+        for (var i = 0; i < arr_selected_data_index; i++){
+            if (arr_selected_data_index[i] == "" || arr_selected_data_index[i] >= m_index_datas.length){
+                continue;
+            }
+            m_index_datas[arr_selected_data_index[i]].is_data_selected = true;
         }
     }
     function fillTable(){
