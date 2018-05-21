@@ -69,7 +69,7 @@ function select_modal(){
     }
 
     function createDataIndex(){
-        m_index_datas = {};
+        m_index_datas = [];
         for (var key1 in m_records){
             var key2s = m_records[key1];
             if (key2s.length == 0){
