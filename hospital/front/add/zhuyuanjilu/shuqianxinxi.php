@@ -343,7 +343,7 @@
                     <div class="control-label control-label-150">术前诊断：</div>
                 </td>
                 <td>
-                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="术前诊断" json-name="专科检查-术前诊断"></textarea>
+                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="术前诊断" json-name="术前诊断"></textarea>
                 </td>
             </tr>
         </table>
