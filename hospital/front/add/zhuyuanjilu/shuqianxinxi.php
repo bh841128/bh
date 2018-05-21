@@ -351,7 +351,7 @@
     <div class="form-group">
         <table class="control-table padding-10">
             <tr>
-                <td>
+                <td style="vertical-align:top">
                     <div class="control-label control-label-180">术前诊断：</div>
                 </td>
                 <td>

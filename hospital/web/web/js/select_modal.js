@@ -98,7 +98,7 @@ function select_modal(){
         }
     }
     function fillTable(){
-        var table_html = getTableHtml(m_index_datas, m_selected_datas);
+        var table_html = getTableHtml(m_index_datas);
         var table_container = m_options.container.find("[tag='search-table-wrapper']");
         table_container.html(table_html);
         table_container.find("input[data_index]").change(function(){
