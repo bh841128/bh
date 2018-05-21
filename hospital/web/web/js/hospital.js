@@ -412,6 +412,7 @@ function hospital(){
 			"container":$("#select_modal_xianxinbingbingzhong"),
 			"data_source":g_xianxinbingbingzhong_data
 		});
+		initSelectModal();
 	}
 }
 

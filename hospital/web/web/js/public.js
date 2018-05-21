@@ -624,7 +624,11 @@ function getSelectModalValue(control){
 	return [];
 }
 function initSelectModal(){
+	function onSelectModalSelectOk(control, selected_datas){
+		setSelectModalValue(control, selected_datas);
+	}
 	$("[json-name='术前诊断']").click(function(){
-
+		var selected_data_index = $(this).attr("data_indexs");
+		g_xianxinbingbingzhong_select_modal.show_modal($(this), selected_data_index, onSelectModalSelectOk);
 	})
 }

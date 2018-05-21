@@ -3,19 +3,21 @@ function select_modal(){
     var m_records = [];
     var m_index_datas = {};
     m_callback = null;
+    m_control  = null;
     this.init = function(options){
         m_options = options;
         m_records = m_options.data_source;
         m_options.container.find("button[tag='ok']").click(function(){
             if (typeof m_callback!= undefined){
-                var selected_datas = getSelectedDatas(m_index_datas);
-                m_callback(selected_datas);
+                var selected_datas = m_this.getSelectedDatas(m_index_datas);
+                m_callback(m_control, selected_datas);
             }
         })
         createDataIndex();
     }
-    this.show_modal = function(selected_data_index, callback){
+    this.show_modal = function(control, selected_data_index, callback){
         m_callback = callback;
+        m_control = control;
         clearParamControls();
         processData(selected_data_index);
         fillTable();
