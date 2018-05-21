@@ -23,7 +23,7 @@ function select_modal(){
             }
         })
         m_options.modal_container.find(".modal-title").html(m_options.title);
-        m_options.modal_container.modal();
+        m_options.modal_container.modal({backdrop:false});
     }
     this.getSelectedDatas = function(datas){
         var selected_datas = [];
