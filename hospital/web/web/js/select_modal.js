@@ -14,7 +14,7 @@ function select_modal(){
         m_control = control;
         processData(selected_data_index);
         fillTable();
-        m_options.modal_container.find("button[tag='ok']").each(function(){
+        m_options.modal_container.find("button[tag='button_ok']").each(function(){
             this.onclick = function(){
                 if (typeof m_callback!= undefined){
                     var selected_datas = m_this.getSelectedDatas(m_index_datas);
