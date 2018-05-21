@@ -128,6 +128,7 @@ function addPatient(){
 	}
 	////////////////////////////////////////////////////////////////////////
 	function checkHuanzheInputValid(raw_json){
+		return true;
 		var data_json   = arrayToJson(raw_json);
 		////基本规则
 		var check_rules = [
