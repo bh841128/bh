@@ -439,6 +439,22 @@ function hospital(){
 			"title":"术前一般危险因素"
 		});
 
+		g_bingfazheng_select_modal = new select_modal();
+		g_bingfazheng_select_modal.init({
+			"modal_container":$("#select_modal_xianxinbingbingzhong"),
+			"data_source":g_bingfazheng_data,
+			"title":"并发症"
+		});
+
+		g_zhuyaoshoushumingcheng_select_modal = new select_modal();
+		g_zhuyaoshoushumingcheng_select_modal.init({
+			"modal_container":$("#select_modal_xianxinbingbingzhong"),
+			"data_source":g_shoushufangshi_data,
+			"title":"主要手术名称"
+		});
+
+		
+
 		
 		initSelectModal();
 	}

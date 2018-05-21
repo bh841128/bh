@@ -47,7 +47,7 @@
 
                 <td>
                     <div class="input-group">
-                        <select class="form-control input-sm" style="width:400px" json-name="主要手术名称"></select>
+                        <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="主要手术名称" json-name="主要手术名称" tag="zhuyaoshoushumingcheng"></textarea>
                     </div>
                 </td>
             </tr>

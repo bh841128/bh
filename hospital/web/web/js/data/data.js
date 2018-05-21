@@ -418,7 +418,7 @@ g_bingfazheng_data = {
     ]
 }
 
-g_shoushufangtshi_data = {
+g_shoushufangshi_data = {
     "心肌病":[
         "部分左心室切除术（左心室减容术）（Batista）",
         "心脏移植",
