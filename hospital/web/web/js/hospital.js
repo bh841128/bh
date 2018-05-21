@@ -335,15 +335,15 @@ function hospital(){
 			var state = getRadioValue(chuyuanziliao_container, "chuyuanzhuangtai");
 			if (state == 0){
 				chuyuanziliao_container.find("[tag='死亡日期'],[tag='死亡主要原因']").hide();
-				chuyuanziliao_container.find("[tag='自动出院日期'],[tag='自动出院原因']").hide();
+				chuyuanziliao_container.find("[tag='自动出院日期'],[tag='自动出院主要原因']").hide();
 			}
 			else if(state == 1){
 				chuyuanziliao_container.find("[tag='死亡日期'],[tag='死亡主要原因']").show();
-				chuyuanziliao_container.find("[tag='自动出院日期'],[tag='自动出院原因']").hide();
+				chuyuanziliao_container.find("[tag='自动出院日期'],[tag='自动出院主要原因']").hide();
 			}
 			else{
 				chuyuanziliao_container.find("[tag='死亡日期'],[tag='死亡主要原因']").hide();
-				chuyuanziliao_container.find("[tag='自动出院日期'],[tag='自动出院原因']").show();
+				chuyuanziliao_container.find("[tag='自动出院日期'],[tag='自动出院主要原因']").show();
 			}
 		});
 	}
