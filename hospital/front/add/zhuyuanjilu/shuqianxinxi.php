@@ -303,7 +303,7 @@
                 <td>
                     <div class="control-label" style="width:10px"></div>
                 </td>
-                <td style="padding-left:35px">
+                <td style="padding-left:70px">
                     <div class="checkbox">
                         <lable>
                             <input type="checkbox" json-name="专科检查-心导管">心导管</lable>
@@ -343,7 +343,7 @@
                     <div class="control-label control-label-150">术前诊断：</div>
                 </td>
                 <td>
-                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="术前诊断" json-name="术前诊断"></textarea>
+                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="术前诊断" json-name="专科检查-术前诊断"></textarea>
                 </td>
             </tr>
         </table>
@@ -353,7 +353,7 @@
                     <div class="control-label control-label-150">出生胎龄：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="出生胎龄" json-name="术前诊断-出生胎龄">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="出生胎龄" json-name="专科检查-出生胎龄">
                 </td>
                 <td>
                     <span>（周）</span>
@@ -361,7 +361,7 @@
                 <td style="padding-left:35px">
                     <div class="checkbox">
                         <lable>
-                            <input type="checkbox" json-name="术前诊断-出生胎龄-不能提供">不能提供</lable>
+                            <input type="checkbox" json-name="专科检查-出生胎龄-不能提供">不能提供</lable>
                     </div>
                 </td>
             </tr>
@@ -370,7 +370,7 @@
                     <div class="control-label control-label-150">出生体重：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="出生体重" json-name="术前诊断-出生体重">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="出生体重" json-name="专科检查-出生体重">
                 </td>
                 <td>
                     <span>（千克）</span>
@@ -378,7 +378,7 @@
                 <td style="padding-left:35px">
                     <div class="checkbox">
                         <lable>
-                            <input type="checkbox" json-name="术前诊断-出生体重-不能提供">不能提供</lable>
+                            <input type="checkbox" json-name="专科检查-出生体重-不能提供">不能提供</lable>
                     </div>
                 </td>
             </tr>
@@ -390,13 +390,13 @@
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="chanqianmingquezhenduan" value="1" json-name="术前诊断-产前明确诊断">是</lable>
+                        <input type="radio" name="chanqianmingquezhenduan" value="1" json-name="专科检查-产前明确诊断">是</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="chanqianmingquezhenduan" value="2" json-name="术前诊断-产前明确诊断">是，仅知道患有先心病</lable>
+                        <input type="radio" name="chanqianmingquezhenduan" value="2" json-name="专科检查-产前明确诊断">是，仅知道患有先心病</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="chanqianmingquezhenduan" value="3" json-name="术前诊断-产前明确诊断">否</lable>
+                        <input type="radio" name="chanqianmingquezhenduan" value="3" json-name="专科检查-产前明确诊断">否</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="chanqianmingquezhenduan" value="4" json-name="术前诊断-产前明确诊断">不能提供</lable>
+                        <input type="radio" name="chanqianmingquezhenduan" value="4" json-name="专科检查-产前明确诊断">不能提供</lable>
                 </td>
             </tr>
             <tr>
@@ -405,9 +405,32 @@
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="shuqianyibanweixianyinsu" value="1" json-name="术前诊断-术前一般危险因素">是</lable>
+                        <input type="radio" name="shuqianyibanweixianyinsu" value="1" json-name="专科检查-术前一般危险因素">是</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="shuqianyibanweixianyinsu" value="2" json-name="术前诊断-术前一般危险因素">否</lable>
+                        <input type="radio" name="shuqianyibanweixianyinsu" value="2" json-name="专科检查-术前一般危险因素">否</lable>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="术前一般危险因素" json-name="术前一般危险因素"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="control-label control-label-180">非心脏畸形：</div>
+                </td>
+                <td>
+                    <lable class="radio-inline">
+                        <input type="radio" name="feixinzangjixing" value="1" json-name="专科检查-非心脏畸形">是</lable>
+                    <lable class="radio-inline">
+                        <input type="radio" name="feixinzangjixing" value="2" json-name="专科检查-非心脏畸形">否</lable>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="非心脏畸形" json-name="非心脏畸形"></textarea>
                 </td>
             </tr>
         </table>
