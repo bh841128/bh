@@ -324,7 +324,7 @@ function hospital(){
 		})
 		$("#tab-zyjl-shoushuxinxi input[json-name='与术前诊断一致']").change(function(){
 			var bChecked = getCheckboxChecked($(this));
-			$("#tab-zyjl-shuqianxinxi textarea[tag='shoushuzhenduan']").get(0).disabled = (bChecked?true:false);
+			$("#tab-zyjl-shoushuxinxi textarea[tag='shoushuzhenduan']").get(0).disabled = (bChecked?true:false);
 		})
 	}
 	/////////////////////////////////////////初始化上传
