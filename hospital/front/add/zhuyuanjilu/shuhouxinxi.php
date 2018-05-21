@@ -148,9 +148,9 @@
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="shuhoubingfazheng-r" value="1" checked json-name="是否术后并发症">是</lable>
+                        <input type="radio" name="shuhoubingfazheng-r" value="1" checked json-name="是否术后并发症" checked>是</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="shuhoubingfazheng-r" value="2" json-name="是否术后并发症">否</lable>
+                        <input type="radio" name="shuhoubingfazheng-r" value="0" json-name="是否术后并发症">否</lable>
                 </td>
             </tr>
             <tr>
