@@ -94,7 +94,7 @@ function select_modal(){
 
         var arr_selected_data_index = selected_data_index.split(",");
         var index_selected_data_index = {};
-        for (var i = 0; i < arr_selected_data_index; i++){
+        for (var i = 0; i < arr_selected_data_index.length; i++){
             if (arr_selected_data_index[i] == "" || arr_selected_data_index[i] >= m_index_datas.length){
                 continue;
             }
