@@ -20,6 +20,7 @@ function select_modal(){
                     var selected_datas = m_this.getSelectedDatas(m_index_datas);
                     m_callback(m_control, selected_datas);
                 }
+                m_options.modal_container.modal("hide");
             }
         })
         m_options.modal_container.find(".modal-title").html(m_options.title);
