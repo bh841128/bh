@@ -295,6 +295,8 @@ function addZhuyuanjilu(){
 	}
 
 	this.onAddZhuyuanjilu = function(){
+		setAllControlDisabled("#content-wrapper-add-zhuyuanjilu", false);
+		initInputsByData({});
 		$("#content-wrapper-add-jibenziliao").hide();
 		$("#content-wrapper-add-zhuyuanjilu").show();
 		m_come_from = "";
