@@ -630,5 +630,5 @@ function initSelectModal(){
 	$("[json-name='术前诊断']").on("focus",(function(){
 		var selected_data_index = $(this).attr("data_indexs");
 		g_xianxinbingbingzhong_select_modal.show_modal($(this), selected_data_index, onSelectModalSelectOk);
-	})
+	}));
 }
