@@ -409,7 +409,7 @@ function hospital(){
 	function init_select_modals(){
 		g_xianxinbingbingzhong_select_modal = new select_modal();
 		g_xianxinbingbingzhong_select_modal.init({
-			"container":$("#select_modal_xianxinbingbingzhong"),
+			"modal_container":$("#select_modal_xianxinbingbingzhong"),
 			"data_source":g_xianxinbingbingzhong_data
 		});
 		initSelectModal();

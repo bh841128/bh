@@ -7,7 +7,7 @@ function select_modal(){
     this.init = function(options){
         m_options = options;
         m_records = m_options.data_source;
-        m_options.container.find("button[tag='ok']").click(function(){
+        m_options.modal_container.find("button[tag='ok']").click(function(){
             if (typeof m_callback!= undefined){
                 var selected_datas = m_this.getSelectedDatas(m_index_datas);
                 m_callback(m_control, selected_datas);
@@ -21,7 +21,7 @@ function select_modal(){
         clearParamControls();
         processData(selected_data_index);
         fillTable();
-        container.modal();
+        m_options.modal_container.modal();
     }
     this.getSelectedDatas = function(datas){
         var selected_datas = [];
@@ -99,7 +99,7 @@ function select_modal(){
     }
     function fillTable(){
         var table_html = getTableHtml(m_index_datas);
-        var table_container = m_options.container.find("[tag='search-table-wrapper']");
+        var table_container = m_options.modal_container.find("[tag='search-table-wrapper']");
         table_container.html(table_html);
         table_container.find("input[data_index]").change(function(){
             var data_index = $(this).attr("data_index");
@@ -146,7 +146,7 @@ function select_modal(){
     }
 
     function clearParamControls(){
-        m_options.container.find("[tag='param-container'] [json-name]").each(function(){
+        m_options.modal_container.find("[tag='param-container'] [json-name]").each(function(){
             clearInputValue($(this));
         })
     }
