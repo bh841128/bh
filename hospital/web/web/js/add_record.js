@@ -168,6 +168,7 @@ function addPatient(){
 		return true;
 	}
 	function checkLianxirenInputValid(raw_json){
+		return true;
 		var data_json   = arrayToJson(raw_json);
 		////基本规则
 		var check_rules = [
