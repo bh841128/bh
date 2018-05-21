@@ -63,7 +63,7 @@ function select_modal(){
     this.indexs2Data = function(indexs){
         var arr_indexs = indexs.split(",");
         var datas = {};
-        for (var i = 0; i < arr_selected_data_index; i++){
+        for (var i = 0; i < arr_indexs.length; i++){
             if (arr_indexs[i] == "" || arr_indexs[i] >= m_index_datas.length){
                 continue;
             }
