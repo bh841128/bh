@@ -81,7 +81,7 @@
             </tr>
         </table>
         <table class="control-table" style="margin-top:15px">
-            <tr></tr>
+            <tr>
             <td>
                 <div class="control-label control-label-100"></div>
             </td>
@@ -122,7 +122,7 @@
                     <div class="control-label control-label-180">姓名：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" placeholder="姓名" json-name="姓名" value="">
+                    <input type="text" class="form-control input-sm" placeholder="姓名" json-name="联系人姓名" value="">
                 </td>
                 <td>
                     <div class="control-label control-label-110">与患者关系：</div>

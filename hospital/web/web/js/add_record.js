@@ -128,6 +128,7 @@ function addPatient(){
 	}
 	////////////////////////////////////////////////////////////////////////
 	function checkHuanzheInputValid(raw_json){
+		return true;
 		var data_json   = arrayToJson(raw_json);
 		var arr_errmsgs = [];
 		checkValueValid(arr_errmsgs, data_json, "病案号",		"不能为空",		"请填写 病案号");
@@ -154,6 +155,7 @@ function addPatient(){
 		return true;
 	}
 	function checkLianxirenInputValid(raw_json){
+		return true;
 		var data_json   = arrayToJson(raw_json);
 		var arr_errmsgs = [];
 
@@ -265,6 +267,8 @@ function addZhuyuanjilu(){
 	}
 
 	this.onAddZhuyuanjilu = function(){
+		setAllControlDisabled($("#content-wrapper-add-zhuyuanjilu"), false);
+		initInputsByData({});
 		$("#content-wrapper-add-jibenziliao").hide();
 		$("#content-wrapper-add-zhuyuanjilu").show();
 		m_come_from = "";

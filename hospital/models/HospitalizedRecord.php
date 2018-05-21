@@ -266,7 +266,7 @@ class HospitalizedRecord {
 		
 		*/
 		$sql="insert into  hospitalized_record (patient_id,patient_name,hospitalization_in_time,operation_time,hospitalization_out_time,operation_before_info,operation_info,operation_after_info,hospitalization_out_info,createtime,lastmodifytime,hospital_id,manager_id,lastmodify_manager_id,uploadtime,status,medical_id) values ";
-		$sql=$sql."(:patient_id,:patient_name,:hospitalization_in_time,:operation_time,:hospitalization_out_time,'','','','',:createtime,:lastmodifytime,:hospital_id,:manager_id,:lastmodify_manager_id,0,1,:medical_id) ";
+		$sql=$sql."(:patient_id,:patient_name,:hospitalization_in_time,:operation_time,:hospitalization_out_time,'{}','{}','{}','{}',:createtime,:lastmodifytime,:hospital_id,:manager_id,:lastmodify_manager_id,0,1,:medical_id) ";
 		CUtil::logFile("=====$sql  ".print_r($record,true));
 		try{
      	$connection = Yii::$app->db;

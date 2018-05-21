@@ -118,11 +118,26 @@ status  1:正常 2:上传  3：删除
         $sql =  " from patientInfo where hospital_id=:hospital_id and ";
 		$args=array(":hospital_id"=>$hospital_id);
 		foreach ($filter as $key => $value) {  
-			if($key!="start_time"&&$key!="end_time"){
+			if($key!="start_time"&&$key!="end_time"&&$key!="relate_name"&&$key!="relate_iphone"&&$key!="name"){
 				$sql=$sql." $key=:".$key."  and ";
 				$args[":".$key]=$value;
 			}
 			
+		}
+		
+		if(array_key_exists("relate_name",$filter)){
+			$sql=$sql." relate_text like :relate_name  and ";
+			$args[":relate_name"]="%".$filter["relate_name"]."%";
+		}
+		
+		if(array_key_exists("relate_iphone",$filter)){
+			$sql=$sql." relate_text like :relate_iphone  and ";
+			$args[":relate_iphone"]="%".$filter["relate_iphone"]."%";
+		}
+		
+		if(array_key_exists("name",$filter)){
+			$sql=$sql." name like :name  and ";
+			$args[":name"]="%".$filter["name"]."%";
 		}
 		
 		if(array_key_exists("end_time",$filter)){
@@ -135,6 +150,8 @@ status  1:正常 2:上传  3：删除
 		}else{
 			$sql=$sql." uploadtime>=0 ";
 		}
+		
+		
 		$sql .= " order by createtime desc ";
 		
 		$page=$page<1?1:$page;

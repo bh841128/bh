@@ -105,7 +105,7 @@ function hospital(){
 				return;
 			}
 			if (page_name == "上传资料"){
-				upload_queryDefaultPage(1);
+				upload_queryDefaultPage();
 				return;
 			}
 			if (page_name == "数据查询"){
@@ -315,8 +315,11 @@ function hospital(){
 		g_addZhuyuanjilu.init();
 	}
 	/////////////////////////////////////////初始化上传
-	function upload_queryDefaultPage(status){
+	function upload_queryDefaultPage(status, page){
 		var query_params = {status:status};
+		if (typeof page != "undefinedd"){
+			query_params.page = page;
+		}
 		g_patient_query_upload.queryData(query_params);
 	}
 	function initUpload(){
@@ -330,15 +333,18 @@ function hospital(){
         g_patient_query_upload = new patient_query();
 		g_patient_query_upload.init(options);
         $("#upload-query-patient-param-wrapper button[tag='not_upload']").click(function(){
-            upload_queryDefaultPage(1);
+            upload_queryDefaultPage(1,1);
 		})
 		$("#upload-query-patient-param-wrapper button[tag='uploaded']").click(function(){
-            upload_queryDefaultPage(2);
+            upload_queryDefaultPage(2,1);
 		})
 	}
 	/////////////////////////////////////////初始化查询
-	function query_queryDefaultPage(){
+	function query_queryDefaultPage(page){
 		var query_params = g_patient_query.parseQueryParam($("#query_param_form"));
+		if (typeof page != "undefinedd"){
+			query_params.page = page;
+		}
 		g_patient_query.queryData(query_params);
 	}
 	function initQuery(){	
@@ -353,12 +359,15 @@ function hospital(){
 		g_patient_query.init(options);
 		$("#content-wrapper-query-query input[tag='datetimepicker']").val("");
         $("#content-wrapper-query-query button[tag='query']").click(function(){
-            query_queryDefaultPage();
+            query_queryDefaultPage(1);
         })
 	}
 	/////////////////////////////////////////初始化导出
-	function export_queryDefaultPage(){
+	function export_queryDefaultPage(page){
 		var query_params = g_patient_query.parseQueryParam($("#export_query_param_form"));
+		if (typeof page != "undefinedd"){
+			query_params.page = page;
+		}
 		g_patient_query_export.queryData(query_params);
 	}
 	function initExport(){
@@ -383,7 +392,7 @@ function hospital(){
 		g_patient_query_export.init(options);
 		$("#content-wrapper-export-export input[tag='datetimepicker']").val("");
         $("#content-wrapper-export-export button[tag='query']").click(function(){
-            export_queryDefaultPage();
+            export_queryDefaultPage(1);
 		})
 		$("#content-wrapper-export-export a[tag='export']").click(function(){
 			this.href = getExportLink();
