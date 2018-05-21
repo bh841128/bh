@@ -80,7 +80,7 @@ function select_modal(){
             for (var i = 0; i < 2; i++) {
                 record_html += '<td>' + data[i] + '</td>';
             }
-            record_html += '<td><input type="checkbox"'+(data.is_data_selected?' checked':'')+' data_index='+d+'></td>';
+            record_html += '<td><input type="checkbox"'+(data.is_data_selected?' checked':'')+' data_index="'+d+'"></td>';
             record_html += '</tr>';
             table_html += record_html;
         }
