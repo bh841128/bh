@@ -27,7 +27,7 @@
                 </td>
             </tr>
         </table>
-        <table class="control-table padding-20">
+        <table class="control-table padding-20" tag="死亡日期">
             <tr>
                 <td>
                     <div class="control-label" style="width:124px">死亡日期：</div>
@@ -42,14 +42,14 @@
                 </td>
             </tr>
         </table>
-        <table class="control-table padding-20">
+        <table class="control-table padding-20" tag="死亡主要原因">
             <tr>
                 <td>
-                    <div class="control-label" style="width:124px">死亡原因：</div>
+                    <div class="control-label" style="width:124px">死亡主要原因：</div>
                 </td>
                 <td>
                     <div class="input-group">
-                        <select class="form-control input-sm" style="width:300px" json-name="死亡原因">
+                        <select class="form-control input-sm" style="width:300px" json-name="死亡主要原因">
                             <option value="心脏原因">心脏原因</option>
                             <option value="神经系统原因">神经系统原因</option>
                             <option value="肾脏原因">肾脏原因</option>
@@ -62,20 +62,7 @@
                 </td>
             </tr>
         </table>
-        <table class="control-table padding-20">
-            <tr>
-                <td>
-                    <div class="control-label" style="width:124px">术后住院时间：</div>
-                </td>
-                <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="术后住院时间" json-name="术后住院时间">
-                </td>
-                <td>
-                    <span>（天）</span>
-                </td>
-            </tr>
-        </table>
-        <table class="control-table padding-20">
+        <table class="control-table padding-20" tag="自动出院日期">
             <tr>
                 <td>
                     <div class="control-label" style="width:124px">自动出院日期：</div>
@@ -90,7 +77,7 @@
                 </td>
             </tr>
         </table>
-        <table class="control-table padding-20">
+        <table class="control-table padding-20" tag="自动出院原因">
             <tr>
                 <td>
                     <div class="control-label" style="width:124px">自动出院原因：</div>

@@ -330,6 +330,22 @@ function hospital(){
 			var bChecked = getCheckboxChecked(this);
 			$("#tab-zyjl-shuhouxinxi textarea[tag='shuhoubingfazheng']").get(0).disabled = (bChecked?false:true);
 		})
+		$("#tab-zyjl-chuyuanziliao input[name='chuyuanzhuangtai']").change(function(){
+			var chuyuanziliao_container = $("#tab-zyjl-chuyuanziliao")
+			var state = getRadioValue(chuyuanziliao_container, "chuyuanzhuangtai");
+			if (state == 0){
+				chuyuanziliao_container.find("[tag='死亡日期'],[tag='死亡主要原因']").hide();
+				chuyuanziliao_container.find("[tag='自动出院日期'],[tag='自动出院原因']").hide();
+			}
+			else if(state == 1){
+				chuyuanziliao_container.find("[tag='死亡日期'],[tag='死亡主要原因']").show();
+				chuyuanziliao_container.find("[tag='自动出院日期'],[tag='自动出院原因']").hide();
+			}
+			else{
+				chuyuanziliao_container.find("[tag='死亡日期'],[tag='死亡主要原因']").hide();
+				chuyuanziliao_container.find("[tag='自动出院日期'],[tag='自动出院原因']").show();
+			}
+		});
 	}
 	/////////////////////////////////////////初始化上传
 	function upload_queryDefaultPage(status, page){
