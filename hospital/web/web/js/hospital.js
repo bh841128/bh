@@ -328,7 +328,7 @@ function hospital(){
 		})
 		$("#tab-zyjl-shuhouxinxi input[name='shuhoubingfazheng-r']").change(function(){
 			var bChecked = getCheckboxChecked(this);
-			$("#tab-zyjl-shuhouxinxi textarea[tag='shuhoubingfazheng']").get(0).disabled = (bChecked?true:false);
+			$("#tab-zyjl-shuhouxinxi textarea[tag='shuhoubingfazheng']").get(0).disabled = (bChecked?false:true);
 		})
 	}
 	/////////////////////////////////////////初始化上传
