@@ -1,4 +1,5 @@
 function select_modal(){
+    var m_this = this;
     var m_options = {};
     var m_records = [];
     var m_index_datas = [];
