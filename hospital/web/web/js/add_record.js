@@ -268,6 +268,7 @@ function addZhuyuanjilu(){
 
 	this.onAddZhuyuanjilu = function(){
 		setAllControlDisabled($("#content-wrapper-add-zhuyuanjilu"), false);
+		showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-riqi", "tab-zyjl-riqi");
 		initInputsByData({});
 		$("#content-wrapper-add-jibenziliao").hide();
 		$("#content-wrapper-add-zhuyuanjilu").show();
