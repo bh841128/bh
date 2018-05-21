@@ -410,7 +410,8 @@ function hospital(){
 		g_xianxinbingbingzhong_select_modal = new select_modal();
 		g_xianxinbingbingzhong_select_modal.init({
 			"modal_container":$("#select_modal_xianxinbingbingzhong"),
-			"data_source":g_xianxinbingbingzhong_data
+			"data_source":g_xianxinbingbingzhong_data,
+			"title":"先心病病种"
 		});
 		initSelectModal();
 	}

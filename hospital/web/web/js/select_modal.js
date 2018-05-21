@@ -7,12 +7,6 @@ function select_modal(){
     this.init = function(options){
         m_options = options;
         m_records = m_options.data_source;
-        m_options.modal_container.find("button[tag='ok']").click(function(){
-            if (typeof m_callback!= undefined){
-                var selected_datas = m_this.getSelectedDatas(m_index_datas);
-                m_callback(m_control, selected_datas);
-            }
-        })
         createDataIndex();
     }
     this.show_modal = function(control, selected_data_index, callback){
@@ -20,6 +14,14 @@ function select_modal(){
         m_control = control;
         processData(selected_data_index);
         fillTable();
+        m_options.modal_container.find("button[tag='ok']").each(function(){
+            this.onclick = function(){
+                if (typeof m_callback!= undefined){
+                    var selected_datas = m_this.getSelectedDatas(m_index_datas);
+                    m_callback(m_control, selected_datas);
+                }
+            }
+        })
         m_options.modal_container.modal();
     }
     this.getSelectedDatas = function(datas){
