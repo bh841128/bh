@@ -2,7 +2,7 @@ html,body{
     background-color:rgb(245,248,250);
 }
 body{
-    overflow-x:scroll;
+    overflow-x:auto;
 }
 
 .wrapper.top-wrapper,.login-top-wrapper,.top-container, .top-wrapper{
@@ -22,7 +22,7 @@ body{
 }
 .top-wrapper{
     position: relative;
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: auto;
     height:auto;
 }
