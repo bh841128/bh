@@ -427,6 +427,15 @@ function hospital(){
 			"data_source":g_feixinzangjixing_data,
 			"title":"非心脏畸形"
 		});
+
+		g_shuqianyibanweixianyinsu_select_modal = new select_modal();
+		g_shuqianyibanweixianyinsu_select_modal.init({
+			"modal_container":$("#select_modal_xianxinbingbingzhong"),
+			"data_source":g_shuqianyibanweixianyinsu_data,
+			"title":"术前一般危险因素"
+		});
+
+		
 		initSelectModal();
 	}
 }

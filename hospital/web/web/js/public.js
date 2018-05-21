@@ -615,6 +615,11 @@ function setSelectModalValue(control, value){
 			var data_indexs = g_feixinzangjixing_select_modal.data2Indexs(value);
 		}
 	}
+	else if (json_name == "术前一般危险因素"){
+		if (typeof value != "undefined" && value ){
+			var data_indexs = g_shuqianyibanweixianyinsu_select_modal.data2Indexs(value);
+		}
+	}
 	var show_values = get2Keyvalue(value);
 	control.val(show_values);
 	control.attr("data_indexs", data_indexs);
@@ -633,6 +638,10 @@ function getSelectModalValue(control){
 		var datas = g_feixinzangjixing_select_modal.indexs2Data(data_indexs);
 		return datas;
 	}
+	else if (json_name == "术前一般危险因素"){
+		var datas = g_shuqianyibanweixianyinsu_select_modal.indexs2Data(data_indexs);
+		return datas;
+	}
 	return [];
 }
 function initSelectModal(){
@@ -646,5 +655,9 @@ function initSelectModal(){
 	$("[json-name='非心脏畸形']").on("focus",(function(){
 		var selected_data_index = $(this).attr("data_indexs");
 		g_feixinzangjixing_select_modal.show_modal($(this), selected_data_index, onSelectModalSelectOk);
+	}));
+	$("[json-name='术前一般危险因素']").on("focus",(function(){
+		var selected_data_index = $(this).attr("data_indexs");
+		g_shuqianyibanweixianyinsu_select_modal.show_modal($(this), selected_data_index, onSelectModalSelectOk);
 	}));
 }
