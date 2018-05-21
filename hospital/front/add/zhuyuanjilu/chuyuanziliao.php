@@ -49,7 +49,15 @@
                 </td>
                 <td>
                     <div class="input-group">
-                        <select class="form-control input-sm" style="width:300px" json-name="死亡原因"></select>
+                        <select class="form-control input-sm" style="width:300px" json-name="死亡原因">
+                            <option value="心脏原因">心脏原因</option>
+                            <option value="神经系统原因">神经系统原因</option>
+                            <option value="肾脏原因">肾脏原因</option>
+                            <option value="血管原因">血管原因</option>
+                            <option value="感染原因">感染原因</option>
+                            <option value="肺部原因">肺部原因</option>
+                            <option value="其他原因">其他原因</option>
+                        </select>
                     </div>
                 </td>
             </tr>
@@ -89,7 +97,16 @@
                 </td>
                 <td>
                     <div class="input-group">
-                        <select class="form-control input-sm" style="width:300px" json-name="自动出院原因"></select>
+                        <select class="form-control input-sm" style="width:300px" json-name="自动出院原因">
+                            <option value="心脏原因">心脏原因</option>
+                            <option value="神经系统原因">神经系统原因</option>
+                            <option value="肾脏原因">肾脏原因</option>
+                            <option value="血管原因">血管原因</option>
+                            <option value="感染原因">感染原因</option>
+                            <option value="肺部原因">肺部原因</option>
+                            <option value="经济原因">经济原因</option>
+                            <option value="其他原因">其他原因</option>
+                        </select>
                     </div>
                 </td>
             </tr>
