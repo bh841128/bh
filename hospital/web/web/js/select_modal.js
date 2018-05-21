@@ -107,14 +107,14 @@ function select_modal(){
     }
 
     function getTableHtml(table_datas) {
-        var table_html = '<table class="table table-bordered table-hover table-center table-query" style="text-align:center">';
+        var table_html = '<table class="table table-bordered table-hover table-center table-query" style="text-align:left">';
         table_html += '<tbody>';
         for (var d = 0; d < table_datas.length; d++) {
             var data = table_datas[d];
             var record_html = '<tr>';
             record_html += '<td>' + data.key1 + '</td>';
             record_html += '<td>' + data.key2 + '</td>';
-            
+
             record_html += '<td><input type="checkbox"'+(data.is_data_selected?' checked':'')+' data_index="'+d+'"></td>';
             record_html += '</tr>';
             table_html += record_html;
