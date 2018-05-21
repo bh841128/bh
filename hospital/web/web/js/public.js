@@ -107,6 +107,7 @@ function initPage(init_end_callback){
 	initAddress($("div[tag='address']"));
 	initUserMenu();
 	initIEPlaceholder();
+	initSelectModal();
 }
 /////////////////////////////////////////
 function initAddress(controls){
@@ -581,4 +582,23 @@ function setAllControlDisabled(container, bDisabled){
 ////////////////////////////////////////////////////////////
 function checkValueValid(arr_errmsgs, data_json, key,	check_type,	errmsg, param1, param2, param3){
 
+}
+
+function isSelectModal(control){
+	var json_name = control.attr("json-name");
+	if (json_name == "术前诊断"){
+		return true;
+	}
+}
+
+function setSelectModalValue(control, value){
+	
+}
+function getSelectModalValue(control, value){
+
+}
+function initSelectModal(){
+	$("[json-name='术前诊断']").click(function(){
+
+	})
 }

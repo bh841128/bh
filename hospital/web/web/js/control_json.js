@@ -31,6 +31,9 @@ function control_json(){
 
     /////////////////////////////////////////////////////////////////
     function getInputValue(control){
+        if (isSelectModal(control)){
+            return getSelectModalValue(control, value);
+        }
         var tagName = control.prop('tagName');
         if (tagName == "SELECT"){
             return control.val();
@@ -53,6 +56,10 @@ function control_json(){
         return null;
     }
     function setInputValue(control,value){
+        if (isSelectModal(control)){
+            setSelectModalValue(control, value);
+            return;
+        }
         var tagName = control.prop('tagName');
         if (tagName == "SELECT"){
             selectSelectByValue(control,value);
