@@ -407,13 +407,13 @@
                     <lable class="radio-inline">
                         <input type="radio" name="shuqianyibanweixianyinsu" value="1" json-name="专科检查-术前一般危险因素">是</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="shuqianyibanweixianyinsu" value="2" json-name="专科检查-术前一般危险因素">否</lable>
+                        <input type="radio" name="shuqianyibanweixianyinsu" value="2" json-name="专科检查-术前一般危险因素" checked>否</lable>
                 </td>
             </tr>
             <tr>
                 <td></td>
                 <td>
-                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="术前一般危险因素" json-name="术前一般危险因素" tag="shuqianyibanweixianyinsu"></textarea>
+                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="术前一般危险因素" json-name="术前一般危险因素" tag="shuqianyibanweixianyinsu" disabled></textarea>
                 </td>
             </tr>
             <tr>
@@ -424,13 +424,13 @@
                     <lable class="radio-inline">
                         <input type="radio" name="feixinzangjixing" value="1" json-name="专科检查-非心脏畸形">是</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="feixinzangjixing" value="2" json-name="专科检查-非心脏畸形">否</lable>
+                        <input type="radio" name="feixinzangjixing" value="2" json-name="专科检查-非心脏畸形" checked>否</lable>
                 </td>
             </tr>
             <tr>
                 <td></td>
                 <td>
-                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="非心脏畸形" json-name="非心脏畸形" tag="feixinzangjixing"></textarea>
+                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="非心脏畸形" json-name="非心脏畸形" tag="feixinzangjixing" disabled></textarea>
                 </td>
             </tr>
         </table>
