@@ -7,7 +7,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="container">
+            <div class="container" style="padding-top:0px">
                 <div class="box-body table-responsive" tag="search-table-wrapper" style="text-align:center;width:100%;height:500px;overflow-x:scroll;overflow-y:scroll;">
                 </div>
                 <div class="form-horizontal" style="margin:0px;text-align:center;margin-top:10px;">
