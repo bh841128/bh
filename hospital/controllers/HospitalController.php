@@ -861,7 +861,7 @@ class HospitalController extends Controller
 		}
 		if($argErr==true){
 			$ret["ret"]=ARGSERR;
-            
+            $ret["msg"]="ARGSERR";
 			CUtil::logFile("ARGSERR====".print_r($ret,true));
             return json_encode($ret);
 		}
