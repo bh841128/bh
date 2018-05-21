@@ -421,6 +421,12 @@ function hospital(){
 			"data_source":g_xianxinbingbingzhong_data,
 			"title":"先心病病种"
 		});
+		g_feixinzangjixing_select_modal = new select_modal();
+		g_feixinzangjixing_select_modal.init({
+			"modal_container":$("#select_modal_xianxinbingbingzhong"),
+			"data_source":g_feixinzangjixing_data,
+			"title":"非心脏畸形"
+		});
 		initSelectModal();
 	}
 }
