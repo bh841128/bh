@@ -2,7 +2,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="width:1000px;">
             <div class="modal-header">
-                    <h5 class="modal-title" style="text-align:left"></h5>
+                    <h2 class="modal-title" style="text-align:left"></h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="right:5px;width:30px">
                     <span aria-hidden="true">&times;</span>
                 </button>
