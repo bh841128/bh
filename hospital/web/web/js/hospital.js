@@ -39,6 +39,7 @@ function hospital(){
 		initQuery();
 		initExport();
 		initReport();
+		init_select_modals();
 	}
 	//////////////////////////////////////////////页面跳转管理
 	this.gotoPage = function(page_name, data, come_from,data2){
@@ -403,6 +404,14 @@ function hospital(){
 	function initReport(){
 		g_report = new report();
 		g_report.init();
+	}
+	/////////////////////////////////////////////////////////////////////////////////
+	function init_select_modals(){
+		g_xianxinbingbingzhong_select_modal = new select_modal();
+		g_xianxinbingbingzhong_select_modal.init({
+			"container":$("#select_modal_xianxinbingbingzhong"),
+			"data_source":g_xianxinbingbingzhong_data
+		});
 	}
 }
 

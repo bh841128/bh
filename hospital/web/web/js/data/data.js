@@ -1,4 +1,4 @@
-var g_xianxinbingbingzhong = {
+var g_xianxinbingbingzhong_data = {
     "心肌病":[
         "心肌病（包括扩张型、限制型、肥厚型）",
         "心肌病，先天性心脏疾病终末期"
