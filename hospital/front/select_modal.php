@@ -7,11 +7,11 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="container" style="padding-top:0px">
+            <div class="container" style="padding-top:0px;pading-bottom:5px;">
                 <div class="box-body table-responsive" tag="search-table-wrapper" style="text-align:center;width:100%;height:500px;overflow-x:scroll;overflow-y:scroll;">
                 </div>
-                <div class="form-horizontal" style="margin:0px;text-align:center;margin-top:10px;">
-                    <button type="button" class="btn btn-primary" tag="button_ok" style="width:100px;">确认</button>
+                <div class="form-horizontal" style="margin:0px;text-align:center;margin-top:5px;">
+                    <button type="button" class="btn btn-primary" tag="button_ok" style="width:80px;height:20px;">确认</button>
                 </div>
             </div>
         </div>
