@@ -54,6 +54,7 @@ require_once(__DIR__."/../config/front_config.php");
                 </div>
             </div>
             <?php require(WEB_PAGE_PATH."login_modal.php"); ?>
+            <?php require(WEB_PAGE_PATH."select_modal.php"); ?>
         </div>
         <?php require(WEB_PAGE_PATH."footer.php"); ?>
     </div>
