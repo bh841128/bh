@@ -284,6 +284,7 @@ class HospitalController extends Controller
 			$filter["status"]=CUtil::getRequestParam('request', 'status', 0);
 		}
 		
+		
 		CUtil::logFile("$page,$hospital_id===$size=".print_r($filter,true));
         $ret=Patient4Hospital::getPatientList($page,$hospital_id,$filter,$size);
         if($ret["ret"]!=0){
