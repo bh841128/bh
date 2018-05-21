@@ -117,7 +117,7 @@ function select_modal(){
         for (var d = 0; d < table_datas.length; d++) {
             var data = table_datas[d];
             var record_html = '<tr>';
-            record_html += '<td>' + data.key1 + '</td>';
+            record_html += '<td style="word-break: keep-all;white-space:nowrap;">' + data.key1 + '</td>';
             record_html += '<td>' + data.key2 + '</td>';
 
             record_html += '<td><input type="checkbox"'+(data.is_data_selected?' checked':'')+' data_index="'+d+'"></td>';
