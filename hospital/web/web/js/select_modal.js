@@ -18,7 +18,6 @@ function select_modal(){
     this.show_modal = function(control, selected_data_index, callback){
         m_callback = callback;
         m_control = control;
-        clearParamControls();
         processData(selected_data_index);
         fillTable();
         m_options.modal_container.modal();
@@ -143,11 +142,5 @@ function select_modal(){
     }
     function onSelectAData(data_index, is_data_selected){
         m_index_datas[data_index].is_data_selected = is_data_selected;
-    }
-
-    function clearParamControls(){
-        m_options.modal_container.find("[tag='param-container'] [json-name]").each(function(){
-            clearInputValue($(this));
-        })
     }
 }
