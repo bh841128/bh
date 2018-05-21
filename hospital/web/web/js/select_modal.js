@@ -54,6 +54,17 @@ function select_modal(){
         }
         return selected_indexs.join(",");
     }
+    this.indexs2Data = function(indexs){
+        var arr_indexs = indexs.split(",");
+        var datas = {};
+        for (var i = 0; i < arr_selected_data_index; i++){
+            if (arr_indexs[i] == "" || arr_indexs[i] >= m_index_datas.length){
+                continue;
+            }
+            datas.push(m_index_datas[arr_indexs[i]]);
+        }
+        return datas;
+    }
 
     function createDataIndex(){
         m_index_datas = {};
