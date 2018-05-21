@@ -335,24 +335,12 @@
     </div>
 </div>
 
-<section class="content-header">
-    <div class="gray-font" style="font-size:18px;">
-        <table>
-            <tr>
-                <td style="vertical-align:middle;">
-                    <div class="circle"></div>
-                </td>
-                <td>术前诊断</td>
-            </tr>
-        </table>
-    </div>
-</section>
 <div class="form-horizontal">
     <div class="form-group">
         <table class="control-table padding-10">
             <tr>
                 <td style="vertical-align:top">
-                    <div class="control-label control-label-180">术前诊断：</div>
+                    <div class="control-label control-label-150">术前诊断：</div>
                 </td>
                 <td>
                     <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="术前诊断" json-name="术前诊断"></textarea>
@@ -362,7 +350,7 @@
         <table class="control-table padding-10">
             <tr>
                 <td>
-                    <div class="control-label control-label-180">出生胎龄：</div>
+                    <div class="control-label control-label-150">出生胎龄：</div>
                 </td>
                 <td>
                     <input type="text" class="form-control input-sm" style="width:100px" placeholder="出生胎龄" json-name="术前诊断-出生胎龄">
@@ -379,7 +367,7 @@
             </tr>
             <tr>
                 <td>
-                    <div class="control-label control-label-180">出生体重：</div>
+                    <div class="control-label control-label-150">出生体重：</div>
                 </td>
                 <td>
                     <input type="text" class="form-control input-sm" style="width:100px" placeholder="出生体重" json-name="术前诊断-出生体重">
