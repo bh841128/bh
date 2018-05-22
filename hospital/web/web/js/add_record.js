@@ -40,7 +40,7 @@ function addPatient(){
 			m_patient_id = 0;
 			initInputsByData({
 				operation_before_info:{
-					"既往心脏病手术次数":0
+					"既往心脏病手术次数":"0"
 				}
 			});
 			$("#nav-tab-zhuyuanjilu").get(0).disabled = true;
@@ -380,9 +380,6 @@ function addZhuyuanjilu(){
 	}
 
 	function initInputsByJson(data_json){
-		if (typeof data_json["入院日期"] =="undefined"){
-			data_json["入院日期"] = "";
-		}
 		data_json["入院日期"] = timestampToDateString(getJsonValue(data_json,"入院日期",''));
 		data_json["出院日期"] = timestampToDateString(getJsonValue(data_json,"出院日期",''));
 		data_json["手术日期"] = timestampToDateString(getJsonValue(data_json,"手术日期",''));
