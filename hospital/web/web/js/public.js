@@ -580,10 +580,6 @@ function setAllControlDisabled(container, bDisabled){
 	});
 }
 ////////////////////////////////////////////////////////////
-function checkValueValid(arr_errmsgs, data_json, key,	check_type,	errmsg, param1, param2, param3){
-
-}
-
 function isSelectModal(control){
 	var json_name = control.attr("json-name");
 	if (json_name == "术前诊断" || json_name == "手术诊断" ||
@@ -690,4 +686,9 @@ function initSelectModal(){
 		var selected_data_index = $(this).attr("data_indexs");
 		g_shuhoubingfazheng_select_modal.show_modal($(this), selected_data_index, onSelectModalSelectOk);
 	}));
+}
+
+///////////////////////////////////////////////////////////////////////////////////////
+function checkValueValid(arr_errmsgs, data_json, key, check_type, errmsg, param1, param2, param3){
+
 }

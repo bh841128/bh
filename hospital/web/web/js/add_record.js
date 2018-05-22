@@ -138,15 +138,15 @@ function addPatient(){
 		checkValueValid(arr_errmsgs, data_json, "民族",			"不能为空", 	"请选择 民族");
 		checkValueValid(arr_errmsgs, data_json, "出生日期",		"不能为空", 	"请选择 出生日期");
 		if(!data_json["详细地址-不能提供"]){
-			checkValueValid(arr_errmsgs, data_json, "省份",		"不能为空", 	"请选择 省份");
-			checkValueValid(arr_errmsgs, data_json, "城市",		"不能为空", 	"请选择 城市");
-			checkValueValid(arr_errmsgs, data_json, "区县",		"不能为空", 	"请选择 区县");
-			checkValueValid(arr_errmsgs, data_json, "详细地址",	"不能为空",		"请填写 详细地址");
-			checkValueValid(arr_errmsgs, data_json, "详细地址",	"长度范围", 	"详细地址 格式不正确，请重新填写", 2, 100);
+		checkValueValid(arr_errmsgs, data_json, "省份",		"不能为空", 	"请选择 省份");
+		checkValueValid(arr_errmsgs, data_json, "城市",		"不能为空", 	"请选择 城市");
+		checkValueValid(arr_errmsgs, data_json, "区县",		"不能为空", 	"请选择 区县");
+		checkValueValid(arr_errmsgs, data_json, "详细地址",	"不能为空",		"请填写 详细地址");
+		checkValueValid(arr_errmsgs, data_json, "详细地址",	"长度范围", 	"详细地址 格式不正确，请重新填写", 2, 100);
 		}
 		else{
-			checkValueValid(arr_errmsgs, data_json, "详细地址-不能提供-原因",	"不能为空",		"请填写 详细地址不能提供的原因");
-			checkValueValid(arr_errmsgs, data_json, "详细地址-不能提供-原因",	"长度范围",		"详细地址不能提供的原因 格式不正确，请重新填写", 2, 100);
+		checkValueValid(arr_errmsgs, data_json, "详细地址-不能提供-原因",	"不能为空",		"请填写 详细地址不能提供的原因");
+		checkValueValid(arr_errmsgs, data_json, "详细地址-不能提供-原因",	"长度范围",		"详细地址不能提供的原因 格式不正确，请重新填写", 2, 100);
 		}
 		if (arr_errmsgs.length > 0){
 			showInputValueInvalid(arr_errmsgs[0]);
@@ -155,25 +155,26 @@ function addPatient(){
 		return true;
 	}
 	function checkLianxirenInputValid(raw_json){
-		return true;
 		var data_json   = arrayToJson(raw_json);
 		var arr_errmsgs = [];
 
-		checkValueValid(arr_errmsgs, data_json, "姓名",		"不能为空",		"请填写 联系人姓名");
-		checkValueValid(arr_errmsgs, data_json, "姓名",		"长度范围",		"联系人姓名 格式不正确，请重新填写", 2, 10);
+		checkValueValid(arr_errmsgs, data_json, "联系人姓名", "不能为空", "请填写 联系人姓名");
+		checkValueValid(arr_errmsgs, data_json, "联系人姓名", "长度范围", "联系人姓名 格式不正确，请重新填写", 2, 10);
 		if (!data_json["联系人电话-不能提供"]){
-			checkValueValid(arr_errmsgs, data_json, "联系人电话",		"不能为空",		"请填写 联系人电话");
-			checkValueValid(arr_errmsgs, data_json, "联系人电话",		"电话号码",		"联系人电话 格式不正确，请重新填写");
+		checkValueValid(arr_errmsgs, data_json, "联系人电话", "不能为空", "请填写 联系人电话");
+		checkValueValid(arr_errmsgs, data_json, "联系人电话", "电话号码", "联系人电话 格式不正确，请重新填写");
 		}
 		else{
-			checkValueValid(arr_errmsgs, data_json, "联系人电话-不能提供-原因",	"不能为空",		"请填写 联系人电话不能提供的原因");
-			checkValueValid(arr_errmsgs, data_json, "联系人电话-不能提供-原因",	"长度范围",		"联系人电话不能提供的原因 格式不正确，请重新填写", 2, 100);
+		checkValueValid(arr_errmsgs, data_json, "联系人电话-不能提供-原因",	"不能为空", "请填写 联系人电话不能提供的原因");
+		checkValueValid(arr_errmsgs, data_json, "联系人电话-不能提供-原因",	"长度范围", "联系人电话不能提供的原因 格式不正确，请重新填写", 2, 100);
 		}
-		if (data_json["联系人电话(号码二)"] != ""){
-			checkValueValid(arr_errmsgs, data_json, "联系人电话",		"电话号码",		"联系人电话(号码二) 格式不正确，请重新填写");
+		if (data_json["联系人电话(号码二)"] != "" && !data_json["联系人电话(号码二)-不能提供"]){
+		checkValueValid(arr_errmsgs, data_json, "联系人电话(号码二)",	"电话号码",	"联系人电话(号码二) 格式不正确，请重新填写");
 		}
-		
-
+		if (data_json["联系人电话(号码三)"] != "" && !data_json["联系人电话(号码三)-不能提供"]){
+		checkValueValid(arr_errmsgs, data_json, "联系人电话(号码三)",	"电话号码",	"联系人电话(号码三) 格式不正确，请重新填写");
+		}
+	
 		if (arr_errmsgs.length > 0){
 			showInputValueInvalid(arr_errmsgs[0]);
 			return false;
