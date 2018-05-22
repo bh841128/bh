@@ -92,7 +92,7 @@
             </table>
         </div>
         <div class="hospital-group-box" tag="jyxzbcs" style="display:none">
-        <div class="line-div"></div>
+            <div class="line-div"></div>
             <table class="control-table">
                 <tr>
                     <td>
@@ -100,7 +100,7 @@
                     </td>
                     <td>
                         <div class="input-group date">
-                            <input type="text" class="form-control input-sm" tag="datepicker" style="width:160px" json-name="既往心脏病手术时间-1">
+                            <input type="text" class="form-control input-sm" tag="datepicker" style="width:160px" json-name="既往心脏病手术时间-2">
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -109,7 +109,7 @@
                     <td style="padding-left:35px">
                         <div class="checkbox">
                             <lable>
-                                <input type="checkbox" tag="address-nodetail-checkbox" json-name="既往心脏病手术时间-不能提供-1">不能提供</lable>
+                                <input type="checkbox" tag="address-nodetail-checkbox" json-name="既往心脏病手术时间-不能提供-2">不能提供</lable>
                         </div>
                     </td>
                 </tr>
@@ -121,13 +121,13 @@
                     </td>
                     <td>
                         <div class="input-group date">
-                            <input type="text" class="form-control input-sm" style="width:400px" json-name="既往心脏病手术医院-1">
+                            <input type="text" class="form-control input-sm" style="width:400px" json-name="既往心脏病手术医院-2">
                         </div>
                     </td>
                     <td style="padding-left:35px">
                         <div class="checkbox">
                             <lable>
-                                <input type="checkbox" tag="address-nodetail-checkbox" json-name="既往心脏病手术医院-不能提供-1">不能提供</lable>
+                                <input type="checkbox" tag="address-nodetail-checkbox" json-name="既往心脏病手术医院-不能提供-2">不能提供</lable>
                         </div>
                     </td>
                 </tr>
@@ -137,13 +137,129 @@
                     </td>
                     <td>
                         <div class="input-group date">
-                            <input type="text" class="form-control input-sm" style="width:400px" json-name="既往心脏病手术名称-1">
+                            <input type="text" class="form-control input-sm" style="width:400px" json-name="既往心脏病手术名称-2">
                         </div>
                     </td>
                     <td style="padding-left:35px">
                         <div class="checkbox">
                             <lable>
-                                <input type="checkbox" tag="address-nodetail-checkbox" json-name="既往心脏病手术名称-不能提供-1">不能提供</lable>
+                                <input type="checkbox" tag="address-nodetail-checkbox" json-name="既往心脏病手术名称-不能提供-2">不能提供</lable>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="hospital-group-box" tag="jyxzbcs" style="display:none">
+            <div class="line-div"></div>
+            <table class="control-table">
+                <tr>
+                    <td>
+                        <div class="control-label control-label-120">既往心脏病手术时间：</div>
+                    </td>
+                    <td>
+                        <div class="input-group date">
+                            <input type="text" class="form-control input-sm" tag="datepicker" style="width:160px" json-name="既往心脏病手术时间-3">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </td>
+                    <td style="padding-left:35px">
+                        <div class="checkbox">
+                            <lable>
+                                <input type="checkbox" tag="address-nodetail-checkbox" json-name="既往心脏病手术时间-不能提供-3">不能提供</lable>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <div class="control-label control-label-120">既往心脏病手术医院：</div>
+                    </td>
+                    <td>
+                        <div class="input-group date">
+                            <input type="text" class="form-control input-sm" style="width:400px" json-name="既往心脏病手术医院-3">
+                        </div>
+                    </td>
+                    <td style="padding-left:35px">
+                        <div class="checkbox">
+                            <lable>
+                                <input type="checkbox" tag="address-nodetail-checkbox" json-name="既往心脏病手术医院-不能提供-3">不能提供</lable>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="control-label control-label-120">既往心脏病手术名称：</div>
+                    </td>
+                    <td>
+                        <div class="input-group date">
+                            <input type="text" class="form-control input-sm" style="width:400px" json-name="既往心脏病手术名称-3">
+                        </div>
+                    </td>
+                    <td style="padding-left:35px">
+                        <div class="checkbox">
+                            <lable>
+                                <input type="checkbox" tag="address-nodetail-checkbox" json-name="既往心脏病手术名称-不能提供-3">不能提供</lable>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="hospital-group-box" tag="jyxzbcs" style="display:none">
+            <div class="line-div"></div>
+            <table class="control-table">
+                <tr>
+                    <td>
+                        <div class="control-label control-label-120">既往心脏病手术时间：</div>
+                    </td>
+                    <td>
+                        <div class="input-group date">
+                            <input type="text" class="form-control input-sm" tag="datepicker" style="width:160px" json-name="既往心脏病手术时间-4">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </td>
+                    <td style="padding-left:35px">
+                        <div class="checkbox">
+                            <lable>
+                                <input type="checkbox" tag="address-nodetail-checkbox" json-name="既往心脏病手术时间-不能提供-4">不能提供</lable>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <div class="control-label control-label-120">既往心脏病手术医院：</div>
+                    </td>
+                    <td>
+                        <div class="input-group date">
+                            <input type="text" class="form-control input-sm" style="width:400px" json-name="既往心脏病手术医院-4">
+                        </div>
+                    </td>
+                    <td style="padding-left:35px">
+                        <div class="checkbox">
+                            <lable>
+                                <input type="checkbox" tag="address-nodetail-checkbox" json-name="既往心脏病手术医院-不能提供-4">不能提供</lable>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="control-label control-label-120">既往心脏病手术名称：</div>
+                    </td>
+                    <td>
+                        <div class="input-group date">
+                            <input type="text" class="form-control input-sm" style="width:400px" json-name="既往心脏病手术名称-4">
+                        </div>
+                    </td>
+                    <td style="padding-left:35px">
+                        <div class="checkbox">
+                            <lable>
+                                <input type="checkbox" tag="address-nodetail-checkbox" json-name="既往心脏病手术名称-不能提供-4">不能提供</lable>
                         </div>
                     </td>
                 </tr>
