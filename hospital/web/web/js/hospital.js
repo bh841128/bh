@@ -412,7 +412,7 @@ function hospital(){
 		//手术信息  单侧脑灌注
 		$("#tab-zyjl-shoushuxinxi input[name='dancenaoguanzhu']").change(function(){
 			var rValue = getRadioValue($("#tab-zyjl-shoushuxinxi"), "dancenaoguanzhu");
-			$("#tab-zyjl-shoushuxinxi [json-name='单侧脑灌注']").get(0).disabled = (rValue==1?false:true);
+			$("#tab-zyjl-shoushuxinxi [json-name='单侧脑灌注时间']").get(0).disabled = (rValue==1?false:true);
 		})
 		
 	}
