@@ -128,7 +128,6 @@ function addPatient(){
 	}
 	////////////////////////////////////////////////////////////////////////
 	function checkHuanzheInputValid(raw_json){
-		return true;
 		var data_json   = arrayToJson(raw_json);
 		var arr_errmsgs = [];
 		checkValueValid(arr_errmsgs, data_json, "病案号",		"不能为空",		"请填写 病案号");
