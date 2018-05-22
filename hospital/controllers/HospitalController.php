@@ -20,6 +20,7 @@ define("ARGSERR", 4);
 define("INSERTERR", 5);
 define("UPDATEERR", 6);
 define("PATINTIDERR", 7);
+define("RECORDERR", 8);
 
 
 class HospitalController extends Controller
@@ -599,7 +600,7 @@ class HospitalController extends Controller
         if($ret["ret"]!=0){
             $ret["ret"]=NODATA;
             $ret["msg"]="no data";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("no data====".print_r($ret,true));
             return json_encode($ret);
         }
         return json_encode($ret);
@@ -894,32 +895,72 @@ class HospitalController extends Controller
          if($ret["ret"]!=0){
             $ret["ret"]=NOACCESS;
             $ret["msg"]="no ACCESS";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("not login==$username==".print_r($ret,true));
             return json_encode($ret);
         }
 		$hospital_id=intval($ret["msg"]["hospital_id"]);
 		$manager_id=intval($ret["msg"]["id"]);
 		
 		$argErr=false;
-		$ids="";
+		$ids=0;
 		$status=1;
-		if(CUtil::getRequestParam('request', 'ids', "")!=""){
-			$ids=CUtil::getRequestParam('request', 'ids', "");
+		if(CUtil::getRequestParam('request', 'ids', 0)!=0){
+			$ids=CUtil::getRequestParam('request', 'ids', 0);
 		}else{
 			$argErr=true;
 		}
 		if(CUtil::getRequestParam('request', 'status', 0)!=0){
 			$status=CUtil::getRequestParam('request', 'status', 0);
+			if($status!=2&&$status!=3){
+				$argErr=true;
+			}
 		}else{
 			$argErr=true;
 		}
 		if($argErr==true){
 			$ret["ret"]=ARGSERR;
             $ret["msg"]="$ids $status";
-			CUtil::logFile("ARGSERR====$ids $status");
+			CUtil::logFile("ARGSERR==$username==$ids $status");
             return json_encode($ret);
 		}
-		$idarray=explode(",",$ids);
+		
+		
+		$record=HospitalizedRecord::getRecordById($ids,$hospital_id);
+        if($record["ret"]!=0){
+            $ret["ret"]=NODATA;
+            $ret["msg"]="no data";
+			CUtil::logFile("no data=$username===".print_r($ret,true));
+            return json_encode($ret);
+        }
+		
+		if(CUtil::is_json($record["msg"]["operation_before_info"])&&
+			CUtil::is_json($record["msg"]["operation_info"])&&
+			CUtil::is_json($record["msg"]["operation_after_info"])&&
+			CUtil::is_json($record["msg"]["hospitalization_out_info"])){
+			$arrtemp1 = json_decode($record["msg"]["operation_before_info"]); 
+			$arrtemp2 = json_decode($record["msg"]["operation_info"]); 
+			$arrtemp3 = json_decode($record["msg"]["operation_after_info"]); 
+			$arrtemp4 = json_decode($record["msg"]["hospitalization_out_info"]); 
+			//CUtil::logFile(print_r( json_decode($record["msg"]["operation_before_info"]),true)."  ".count($arrtemp1)." ".count($arrtemp2)." ".count($arrtemp3)." ".count($arrtemp4)." ");
+			if(count($arrtemp1)<=0||count($arrtemp2)<=0||count($arrtemp3)<=0||count($arrtemp4)<=0){
+				
+				$ret["ret"]=RECORDERR;
+				$ret["msg"]="RECORDERR";
+				CUtil::logFile("no data=$username===".print_r($record,true));
+				return json_encode($ret);
+			}
+		}
+		else{
+			$ret["ret"]=RECORDERR;
+            $ret["msg"]="RECORDERR";
+			CUtil::logFile("no data=$username===".print_r($record,true));
+            return json_encode($ret);
+		}
+		
+		
+		
+		
+		$idarray=array($ids);
 		$ret=HospitalizedRecord::setRecordStatusByIds($idarray,$hospital_id,$status,$manager_id);
 		if($ret["ret"]!=0){
             $ret["ret"]=INSERTERR;
