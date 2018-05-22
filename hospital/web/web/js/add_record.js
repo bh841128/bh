@@ -246,11 +246,7 @@ function addZhuyuanjilu(){
 		}
 		else{
 			m_zyjl_id = 0;
-			initInputsByJson({
-				operation_before_info:{
-					"既往心脏病手术次数":"0"
-				}
-			});
+			initInputsByDefault();
 		}
 		if (typeof come_from == "undefined"){
 			m_come_from = "";
@@ -286,11 +282,19 @@ function addZhuyuanjilu(){
 	this.onAddZhuyuanjilu = function(){
 		setAllControlDisabled($("#content-wrapper-add-zhuyuanjilu"), false);
 		showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-riqi", "tab-zyjl-riqi");
-		initInputsByData({});
+		initInputsByDefault();
 		$("#content-wrapper-add-jibenziliao").hide();
 		$("#content-wrapper-add-zhuyuanjilu").show();
 		m_come_from = "";
 	}
+	function initInputsByDefault(){
+		initInputsByJson({
+			operation_before_info:{
+				"既往心脏病手术次数":"0"
+			}
+		});
+	}
+	
 		
 	function onZhuyuanjiluReturn(){
 		if (m_come_from == ""){
