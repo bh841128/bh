@@ -689,6 +689,12 @@ function initSelectModal(){
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
+//arr_errmsgs, data_json, "联系人姓名", "不能为空", "请填写 联系人姓名"
 function checkValueValid(arr_errmsgs, data_json, key, check_type, errmsg, param1, param2, param3){
-
+	if (check_type == "不能为空"){
+		if (typeof data_json[key] == "undefined" || data_json[key] == "" || data_json[key] == null){
+			arr_errmsgs.push(errmsg);
+		}
+		return;
+	}
 }
