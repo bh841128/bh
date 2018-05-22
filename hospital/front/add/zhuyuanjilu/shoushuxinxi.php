@@ -273,7 +273,12 @@
                 </td>
                 <td>
                     <div class="input-group">
-                        <select class="form-control input-sm" style="width:300px" json-name="是否二次或多次体外循环-原因"></select>
+                        <select class="form-control input-sm" style="width:300px" json-name="是否二次或多次体外循环-原因">
+                            <option value=""></option>
+                            <option value="残余畸形">残余畸形</option>
+                            <option value="增加循环辅助时间">增加循环辅助时间</option>
+                            <option value="出血">出血</option>
+                        </select>
                     </div>
                 </td>
             </tr>
