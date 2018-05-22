@@ -135,7 +135,7 @@
                 </td>
             </tr>
         </table>
-        <table tag="yanchiguanxiong">
+        <table class="control-table padding-20" tag="yanchiguanxiong">
             <tr>
                 <td>
                     <div class="control-label" style="width:124px">延迟关胸时间：</div>
@@ -179,7 +179,7 @@
                 </td>
             </tr>
         </table>
-        <table tag="tiwaixunhuan">
+        <table class="control-table padding-20" tag="tiwaixunhuan">
             <tr>
                 <td>
                     <div class="control-label" style="width:124px">是否计划：</div>
@@ -192,7 +192,7 @@
                 </td>
             </tr>
         </table>
-        <table>
+        <table class="control-table padding-20">
             <tr>
                 <td>
                     <div class="control-label" style="width:124px">停搏液：</div>
@@ -204,7 +204,8 @@
                         <input type="radio" name="tingboye" value="0" json-name="停搏液">否</lable>
                 </td>
             </tr>
-        <table tag="tingboye">
+        </table>
+        <table class="control-table padding-20">
             <tr>
                 <td>
                     <div class="control-label" style="width:124px">停搏液类型：</div>
