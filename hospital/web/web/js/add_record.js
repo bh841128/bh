@@ -438,7 +438,7 @@ function addZhuyuanjilu(){
 		showErrorMsg($("#zhuyuanjilu-section .errormsg"), err_msg);
 	}
 
-	function checkValidRiqi(data_json){
+	function checkValidRiqi(data_json){return [];
 		var arr_errmsgs = [];
 		if (data_json.hospitalization_in_time < 1000000){
 			arr_errmsgs.push("请输入入院日期");
@@ -460,6 +460,14 @@ function addZhuyuanjilu(){
 		}
 		return arr_errmsgs;
 	}
+	function checkValidShuqianxinxi(data_json){
+		var arr_errmsgs = [];
+		var operation_before_info = operation_before_info.operation_before_info;
+		for (var i = 0; i < operation_before_info["既往心脏病手术次数"]; i++){
+
+		}
+		return arr_errmsgs;
+	}
 	
 	function checkValidZhuyuanjilu(){
 		var data_json = getAllInputDatas();
@@ -467,6 +475,12 @@ function addZhuyuanjilu(){
 		if (arr_errmsgs.length > 0){
 			showInputValueInvalid(arr_errmsgs[0]);
 			showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-riqi", "tab-zyjl-riqi");
+			return false;
+		}
+		var arr_errmsgs = checkValidShuqianxinxi(data_json);
+		if (arr_errmsgs.length > 0){
+			showInputValueInvalid(arr_errmsgs[0]);
+			showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-riqi", "tab-zyjl-shuqianxinxi");
 			return false;
 		}
 		return false;

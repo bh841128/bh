@@ -43,7 +43,7 @@ function control_json(){
             if (inputType == "text"){
                 return control.val();
             }
-            if (inputType == "radio" || inputType == "checkbox"){
+            if (inputType == "radio"){
                 if(!control.get(0).checked){
                     return null;
                 }
@@ -51,6 +51,12 @@ function control_json(){
                     return 1;
                 }
                 return control.get(0).value;
+            }
+            if (inputType == "checkbox"){
+                if(!control.get(0).checked){
+                    return 0;
+                }
+                return 1;
             }
         }
         return null;
