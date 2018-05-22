@@ -58,14 +58,32 @@ class CUtil {
 	 
 	 static public function createtable($list,$filename,$header){    
 		header("Content-type:application/vnd.ms-excel");    
-		header("Content-Disposition:filename=".$filename.".xls");    
-		$teble_header = implode("\t",$header);  
+		header("Content-Disposition:filename=".$filename.".xls"); 
+		$header1=array();
+		//CUtil::logFile("bbbb".print_r($header,true));
+		foreach ($header as $k=>$v){
+			$header1[]=$k;
+		}
+		//CUtil::logFile("aaaaa".print_r($header1,true));
+		$teble_header = implode("\t",$header1);  
 		$strexport = $teble_header."\r";  
 		foreach ($list as $row){
             //CUtil::logFile(",,,,,,,,,,".print_r($row,true));			
-			foreach($header as $value){
+			foreach($header as $key=>$value){
                 if(array_key_exists($value,$row)){
-					$strexport.=$row[$value]."\t"; 
+					$temp=$row[$value];
+					$str="";
+					if(is_array($temp)){
+						foreach($temp as $k=>$v) {
+							foreach($v as $k1=>$v1){
+								$str=$str.$v1.";";
+							}
+						}
+ 
+					}else{
+						$str=$row[$value];
+					}
+					$strexport.=$str."\t"; 
 				}
 				else{
 					$strexport.="\t"; 
