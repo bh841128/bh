@@ -379,13 +379,13 @@ function addZhuyuanjilu(){
 		if (typeof data_json["入院日期"] =="undefined"){
 			data_json["入院日期"] = "";
 		}
-		data_json["入院日期"] = timestampToDateString(getJsongetJsonValue(data_json,"入院日期",''));
-		data_json["出院日期"] = timestampToDateString(getJsongetJsonValue(data_json,"出院日期",''));
-		data_json["手术日期"] = timestampToDateString(getJsongetJsonValue(data_json,"手术日期",''));
-		data_json.operation_before_info = getJsongetJsonValue(data_json,"operation_before_info",{});
-		data_json.operation_info = getJsongetJsonValue(data_json,"operation_info",{});
-		data_json.operation_after_info = getJsongetJsonValue(data_json,"operation_after_info",{});
-		data_json.hospitalization_out_info = getJsongetJsonValue(data_json,"hospitalization_out_info",{});
+		data_json["入院日期"] = timestampToDateString(getJsonValue(data_json,"入院日期",''));
+		data_json["出院日期"] = timestampToDateString(getJsonValue(data_json,"出院日期",''));
+		data_json["手术日期"] = timestampToDateString(getJsonValue(data_json,"手术日期",''));
+		data_json.operation_before_info = getJsonValue(data_json,"operation_before_info",{});
+		data_json.operation_info = getJsonValue(data_json,"operation_info",{});
+		data_json.operation_after_info = getJsonValue(data_json,"operation_after_info",{});
+		data_json.hospitalization_out_info = getJsonValue(data_json,"hospitalization_out_info",{});
 		//console.dir(data_json);
 		var g_control_json = new control_json();
 		g_control_json.setJson2Control($("#tab-zyjl-riqi"), data_json);
