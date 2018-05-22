@@ -359,7 +359,15 @@ function hospital(){
 				$("#tab-zyjl-shuhouxinxi [tag='weishoushuqixueyezhipinshuru']").hide();
 			}
 		})
-		
+		$("#tab-zyjl-shuhouxinxi input[name='dangtianjinchujianhushinei']").change(function(){
+			var rValue = getRadioValue($("#tab-zyjl-shuhouxinxi"), "dangtianjinchujianhushinei");
+			if (rValue == 1){
+				$("#tab-zyjl-shuhouxinxi [tag='dangtianjinchujianhushinei']").show();
+			}
+			else{
+				$("#tab-zyjl-shuhouxinxi [tag='dangtianjinchujianhushinei']").hide();
+			}
+		})
 	}
 	/////////////////////////////////////////初始化上传
 	function upload_queryDefaultPage(status, page){

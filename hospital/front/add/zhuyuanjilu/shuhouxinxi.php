@@ -34,47 +34,49 @@
                     <lable class="radio-inline">
                         <input type="radio" name="dangtianjinchujianhushinei" value="1" checked json-name="当天进出监护室内">是</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="dangtianjinchujianhushinei" value="2" json-name="当天进出监护室内">否</lable>
+                        <input type="radio" name="dangtianjinchujianhushinei" value="0" json-name="当天进出监护室内">否</lable>
                 </td>
             </tr>
         </table>
-        <table class="control-table padding-20">
-            <tr>
-                <td>
-                    <div class="control-label" style="width:124px">出监护室日期：</div>
-                </td>
-                <td>
-                    <div class="input-group date">
-                        <input type="text" class="form-control input-sm" tag="datepicker" style="width:160px" json-name="出监护室日期">
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div>
-                </td>
-                <td>
-                    <div class="control-label" style="width:180px">术后监护室停留时间：</div>
-                </td>
-                <td>
-                    <input type="text" class="form-control input-sm" style="width:120px" placeholder="术后监护室停留时间" json-name="术后监护室停留时间">
-                </td>
-                <td>
-                    <span>（天）</span>
-                </td>
-            </tr>
-        </table>
-        <table class="control-table padding-20">
-            <tr>
-                <td>
-                    <div class="control-label" style="width:180px">累计有创辅助通气时间：</div>
-                </td>
-                <td>
-                    <input type="text" class="form-control input-sm" style="width:120px" placeholder="累计有创辅助通气时间" json-name="累计有创辅助通气时间">
-                </td>
-                <td>
-                    <span>（天）</span>
-                </td>
-            </tr>
-        </table>
+        <div tag="dangtianjinchujianhushinei">
+            <table class="control-table padding-20">
+                <tr>
+                    <td>
+                        <div class="control-label" style="width:124px">出监护室日期：</div>
+                    </td>
+                    <td>
+                        <div class="input-group date">
+                            <input type="text" class="form-control input-sm" tag="datepicker" style="width:160px" json-name="出监护室日期">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="control-label" style="width:180px">术后监护室停留时间：</div>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control input-sm" style="width:120px" placeholder="术后监护室停留时间" json-name="术后监护室停留时间">
+                    </td>
+                    <td>
+                        <span>（天）</span>
+                    </td>
+                </tr>
+            </table>
+            <table class="control-table padding-20">
+                <tr>
+                    <td>
+                        <div class="control-label" style="width:180px">累计有创辅助通气时间：</div>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control input-sm" style="width:120px" placeholder="累计有创辅助通气时间" json-name="累计有创辅助通气时间">
+                    </td>
+                    <td>
+                        <span>（天）</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
         <table class="control-table padding-20">
             <tr>
                 <td>
