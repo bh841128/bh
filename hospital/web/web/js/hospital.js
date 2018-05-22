@@ -346,6 +346,11 @@ function hospital(){
 				chuyuanziliao_container.find("[tag='自动出院日期'],[tag='自动出院主要原因']").show();
 			}
 		});
+		$("#tab-zyjl-shuhouxinxi input[name='yanchiguanxiong']").change(function(){
+			var bYanchiguanxiong = getRadioValue($("#tab-zyjl-shuhouxinxi"), "yanchiguanxiong");
+			$("#tab-zyjl-shuhouxinxi [json-name='延迟关胸时间']").get(0).disabled = (bYanchiguanxiong?false:true);
+		})
+		
 	}
 	/////////////////////////////////////////初始化上传
 	function upload_queryDefaultPage(status, page){

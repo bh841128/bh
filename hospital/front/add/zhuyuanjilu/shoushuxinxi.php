@@ -32,32 +32,12 @@
         <table class="control-table  padding-20">
             <tr>
                 <td>
-                    <div class="control-label control-label-120">其他：</div>
-                </td>
-                <td>
-                    <div class="input-group">
-                        <input type="text" class="form-control input-sm" style="width:400px" placeholder="其他" json-name="手术诊断-其他">
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
                     <div class="control-label control-label-120">主要手术名称：</div>
                 </td>
 
                 <td>
                     <div class="input-group">
                         <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="主要手术名称" json-name="主要手术名称" tag="zhuyaoshoushumingcheng"></textarea>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="control-label control-label-120">其他：</div>
-                </td>
-                <td>
-                    <div class="input-group">
-                        <input type="text" class="form-control input-sm" style="width:400px" placeholder="其他" json-name="主要手术名称-其他">
                     </div>
                 </td>
             </tr>
@@ -127,15 +107,17 @@
                 </td>
                 <td>
                     <div class="input-group">
-                        <select class="form-control input-sm" style="width:300px" json-name="手术路径"></select>
-                    </div>
-                </td>
-                <td>
-                    <div class="control-label control-label-120">其他：</div>
-                </td>
-                <td>
-                    <div class="input-group">
-                        <input type="text" class="form-control input-sm" style="width:300px" placeholder="其他" json-name="其他">
+                        <select class="form-control input-sm" style="width:300px" json-name="手术路径">
+                            <option value=""></option>
+                            <option value="全胸骨正中切口">全胸骨正中切口</option>
+                            <option value="部分胸骨切口">部分胸骨切口</option>
+                            <option value="胸骨旁切口">胸骨旁切口</option>
+                            <option value="左胸切口">左胸切口</option>
+                            <option value="右胸切口">右胸切口</option>
+                            <option value="腔镜辅助小切口">腔镜辅助小切口</option>
+                            <option value="全腔镜切口">全腔镜切口</option>
+                            <option value="机器人辅助">机器人辅助</option>
+                        </select>
                     </div>
                 </td>
             </tr>
@@ -149,15 +131,15 @@
                     <lable class="radio-inline">
                         <input type="radio" name="yanchiguanxiong" value="1" checked json-name="延迟关胸">是</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="yanchiguanxiong" value="2" json-name="延迟关胸">否</lable>
+                        <input type="radio" name="yanchiguanxiong" value="0" json-name="延迟关胸">否</lable>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <div class="control-label" style="width:124px">延迟关胸天数：</div>
+                    <div class="control-label" style="width:124px">延迟关胸时间：</div>
                 </td>
                 <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="延迟关胸天数" json-name="延迟关胸天数">
+                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="延迟关胸时间" json-name="延迟关胸时间">
                 </td>
                 <td>
                     <span>（天）</span>
