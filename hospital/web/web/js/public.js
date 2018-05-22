@@ -690,7 +690,7 @@ function initSelectModal(){
 
 ///////////////////////////////////////////////////////////////////////////////////////
 function isValidPhone(phone){
-	if (typeof data_json[key] == "undefined" || data_json[key] == "" || data_json[key] == null){
+	if (typeof phone == "undefined" || phone == "" || phone == null){
 		return false;
 	}
 	if(!/^(\(\d{3,4}\)|\d{3,4}-|\s)?\d{7,14}$/.test(phone) && !/^((1[3-8][0-9])+\d{8})$/.test(phone)){
