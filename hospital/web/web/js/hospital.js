@@ -350,13 +350,13 @@ function hospital(){
 			var bYanchiguanxiong = getRadioValue($("#tab-zyjl-shoushuxinxi"), "yanchiguanxiong");
 			$("#tab-zyjl-shoushuxinxi [json-name='延迟关胸时间']").get(0).disabled = (bYanchiguanxiong==1?false:true);
 		})
-		$("#tab-zyjl-shuhouxinxi input[name='bYanchiguanxiong']").change(function(){
+		$("#tab-zyjl-shuhouxinxi input[name='weishoushuqixueyezhipinshuru']").change(function(){
 			var rValue = getRadioValue($("#tab-zyjl-shuhouxinxi"), "weishoushuqixueyezhipinshuru");
 			if (rValue == 1){
-				$("#tab-zyjl-shuhouxinxi [tag='bYanchiguanxiong']").show();
+				$("#tab-zyjl-shuhouxinxi [tag='weishoushuqixueyezhipinshuru']").show();
 			}
 			else{
-				$("#tab-zyjl-shuhouxinxi [tag='bYanchiguanxiong']").hide();
+				$("#tab-zyjl-shuhouxinxi [tag='weishoushuqixueyezhipinshuru']").hide();
 			}
 		})
 		
