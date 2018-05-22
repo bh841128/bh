@@ -134,6 +134,8 @@
                         <input type="radio" name="yanchiguanxiong" value="0" json-name="延迟关胸">否</lable>
                 </td>
             </tr>
+        </table>
+        <table tag="yanchiguanxiong">
             <tr>
                 <td>
                     <div class="control-label" style="width:124px">延迟关胸时间：</div>
@@ -173,9 +175,11 @@
                     <lable class="radio-inline">
                         <input type="radio" name="tiwaixunhuan" value="1" checked json-name="体外循环">是</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="tiwaixunhuan" value="2" json-name="体外循环">否</lable>
+                        <input type="radio" name="tiwaixunhuan" value="0" json-name="体外循环">否</lable>
                 </td>
             </tr>
+        </table>
+        <table tag="tiwaixunhuan">
             <tr>
                 <td>
                     <div class="control-label" style="width:124px">是否计划：</div>
@@ -184,9 +188,11 @@
                     <lable class="radio-inline">
                         <input type="radio" name="shifoujihua" value="1" checked json-name="是否计划">是-术前计划</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="shifoujihua" value="2" json-name="是否计划">否-术中由非体外转为体外</lable>
+                        <input type="radio" name="shifoujihua" value="0" json-name="是否计划">否-术中由非体外转为体外</lable>
                 </td>
             </tr>
+        </table>
+        <table>
             <tr>
                 <td>
                     <div class="control-label" style="width:124px">停搏液：</div>
@@ -195,9 +201,10 @@
                     <lable class="radio-inline">
                         <input type="radio" name="tingboye" value="1" checked json-name="停搏液">是</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="tingboye" value="2" json-name="停搏液">否</lable>
+                        <input type="radio" name="tingboye" value="0" json-name="停搏液">否</lable>
                 </td>
             </tr>
+        <table tag="tingboye">
             <tr>
                 <td>
                     <div class="control-label" style="width:124px">停搏液类型：</div>
@@ -206,7 +213,7 @@
                     <lable class="radio-inline">
                         <input type="radio" name="tingboyeleixing" value="1" checked json-name="停搏液类型">含血</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="tingboyeleixing" value="2" json-name="停搏液类型">晶体</lable>
+                        <input type="radio" name="tingboyeleixing" value="0" json-name="停搏液类型">晶体</lable>
                 </td>
             </tr>
             <tr>
@@ -217,10 +224,9 @@
                     <lable class="radio-inline">
                         <input type="radio" name="tingboyewendu" value="1" checked json-name="停搏液温度">温</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="tingboyewendu" value="2" json-name="停搏液温度">冷</lable>
+                        <input type="radio" name="tingboyewendu" value="0" json-name="停搏液温度">冷</lable>
                 </td>
             </tr>
-
         </table>
         <table class="control-table padding-20">
             <tr>

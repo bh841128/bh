@@ -368,6 +368,38 @@ function hospital(){
 				$("#tab-zyjl-shuhouxinxi [tag='dangtianjinchujianhushinei']").hide();
 			}
 		})
+
+		//手术信息  延迟关胸
+		$("#tab-zyjl-shoushuxinxi input[name='yanchiguanxiong']").change(function(){
+			var rValue = getRadioValue($("#tab-zyjl-shoushuxinxi"), "yanchiguanxiong");
+			if (rValue == 1){
+				$("#tab-zyjl-shuhouxinxi [tag='yanchiguanxiong']").show();
+			}
+			else{
+				$("#tab-zyjl-shuhouxinxi [tag='yanchiguanxiong']").hide();
+			}
+		})
+		//手术信息  体外循环情况
+		$("#tab-zyjl-shoushuxinxi input[name='tiwaixunhuan']").change(function(){
+			var rValue = getRadioValue($("#tab-zyjl-shoushuxinxi"), "tiwaixunhuan");
+			if (rValue == 1){
+				$("#tab-zyjl-shuhouxinxi [tag='tiwaixunhuan']").show();
+			}
+			else{
+				$("#tab-zyjl-shuhouxinxi [tag='tiwaixunhuan']").hide();
+			}
+		})
+		//手术信息  停搏液
+		$("#tab-zyjl-shoushuxinxi input[name='tingboye']").change(function(){
+			var rValue = getRadioValue($("#tab-zyjl-shoushuxinxi"), "tingboye");
+			if (rValue == 1){
+				$("#tab-zyjl-shuhouxinxi [tag='tingboye']").show();
+			}
+			else{
+				$("#tab-zyjl-shuhouxinxi [tag='tingboye']").hide();
+			}
+		})
+		
 	}
 	/////////////////////////////////////////初始化上传
 	function upload_queryDefaultPage(status, page){
