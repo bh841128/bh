@@ -92,6 +92,7 @@
             </table>
         </div>
         <div class="hospital-group-box" tag="jyxzbcs" style="display:none">
+        <div class="line-div"></div>
             <table class="control-table">
                 <tr>
                     <td>

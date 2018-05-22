@@ -67,8 +67,10 @@ body{
     min-height:650px;
 }
 
-.hospital-group-box{
+.hospital-group-box .line-div{
     border-top:solid 1px #ddd;
+    height:2px;
+    width:200px;
 }
 
 
