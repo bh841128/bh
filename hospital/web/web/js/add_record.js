@@ -38,7 +38,7 @@ function addPatient(){
 		}
 		else{
 			m_patient_id = 0;
-			initInputsByData({
+			initInputsByJson({
 				operation_before_info:{
 					"既往心脏病手术次数":"0"
 				}
