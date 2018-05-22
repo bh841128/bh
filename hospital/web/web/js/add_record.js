@@ -235,6 +235,9 @@ function addZhuyuanjilu(){
 			onZhuyuanjiluReturn();
 		})
 		initControlJwxzbch();
+		$("#jibenziliao-section [json-name],#zhuyuanjilu-section [json-name]").on( "focus", function() {
+			hideAllErrorMsgs();
+		});
 	}
 	this.showPage = function(zyjl_data, come_from){
 		if (typeof zyjl_data != "undefined" && zyjl_data){
@@ -408,9 +411,41 @@ function addZhuyuanjilu(){
 		}
 	}
 	//////////////////////////////////////////////////////////////////////////
+	function showInputValueInvalid(err_msg){
+		showErrorMsg($("#zhuyuanjilu-section .errormsg"), errormsg);
+	}
+	
+	function checkValidRiqi(data_json){
+		var arr_errmsgs = [];
+		if (data_json.hospitalization_in_time < 1000000){
+			arr_errmsgs.push("请输入入院日期");
+		}
+		if (data_json.hospitalization_out_time < 1000000){
+			arr_errmsgs.push("请输入出院日期");
+		}
+		if (data_json.operation_time < 1000000){
+			arr_errmsgs.push("请输入手术日期");
+		}
+		if (data_json.hospitalization_in_time > data_json.hospitalization_out_time){
+			arr_errmsgs.push("入院日期不能大于出院日期");
+		}
+		if (data_json.operation_time > data_json.hospitalization_out_time){
+			arr_errmsgs.push("手术日期不能大于出院日期");
+		}
+		if (data_json.operation_time < data_json.hospitalization_in_time){
+			arr_errmsgs.push("入院日期不能大于手术日期");
+		}
+		return arr_errmsgs;
+	}
+	
 	function checkValidZhuyuanjilu(){
 		var data_json = getAllInputDatas();
-		var i = 0;
+		var arr_errmsgs = checkValidRiqi(data_json);
+		if (arr_errmsgs.length > 0){
+			showInputValueInvalid(arr_errmsgs[0]);
+			showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-riqi", "tab-zyjl-riqi");
+			return false;
+		}
 		return false;
 	}
 }
