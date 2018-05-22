@@ -85,7 +85,6 @@ function select_modal(){
                 }
             }
         }
-        m_index_datas[i].is_data_selected = false;
     }
     function processData(selected_data_index){
         for (var i = 0; i < m_index_datas.length; i++){
