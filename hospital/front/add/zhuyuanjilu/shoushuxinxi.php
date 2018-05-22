@@ -205,7 +205,7 @@
                 </td>
             </tr>
         </table>
-        <table class="control-table padding-20">
+        <table class="control-table padding-20" tag="tingboye">
             <tr>
                 <td>
                     <div class="control-label" style="width:124px">停搏液类型：</div>

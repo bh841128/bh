@@ -373,30 +373,30 @@ function hospital(){
 		$("#tab-zyjl-shoushuxinxi input[name='yanchiguanxiong']").change(function(){
 			var rValue = getRadioValue($("#tab-zyjl-shoushuxinxi"), "yanchiguanxiong");
 			if (rValue == 1){
-				$("#tab-zyjl-shuhouxinxi [tag='yanchiguanxiong']").show();
+				$("#tab-zyjl-shoushuxinxi [tag='yanchiguanxiong']").show();
 			}
 			else{
-				$("#tab-zyjl-shuhouxinxi [tag='yanchiguanxiong']").hide();
+				$("#tab-zyjl-shoushuxinxi [tag='yanchiguanxiong']").hide();
 			}
 		})
 		//手术信息  体外循环情况
 		$("#tab-zyjl-shoushuxinxi input[name='tiwaixunhuan']").change(function(){
 			var rValue = getRadioValue($("#tab-zyjl-shoushuxinxi"), "tiwaixunhuan");
 			if (rValue == 1){
-				$("#tab-zyjl-shuhouxinxi [tag='tiwaixunhuan']").show();
+				$("#tab-zyjl-shoushuxinxi [tag='tiwaixunhuan']").show();
 			}
 			else{
-				$("#tab-zyjl-shuhouxinxi [tag='tiwaixunhuan']").hide();
+				$("#tab-zyjl-shoushuxinxi [tag='tiwaixunhuan']").hide();
 			}
 		})
 		//手术信息  停搏液
 		$("#tab-zyjl-shoushuxinxi input[name='tingboye']").change(function(){
 			var rValue = getRadioValue($("#tab-zyjl-shoushuxinxi"), "tingboye");
 			if (rValue == 1){
-				$("#tab-zyjl-shuhouxinxi [tag='tingboye']").show();
+				$("#tab-zyjl-shoushuxinxi [tag='tingboye']").show();
 			}
 			else{
-				$("#tab-zyjl-shuhouxinxi [tag='tingboye']").hide();
+				$("#tab-zyjl-shoushuxinxi [tag='tingboye']").hide();
 			}
 		})
 		
