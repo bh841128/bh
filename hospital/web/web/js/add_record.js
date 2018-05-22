@@ -167,10 +167,12 @@ function addPatient(){
 		checkValueValid(arr_errmsgs, data_json, "联系人电话-不能提供-原因",	"不能为空", "请填写 联系人电话不能提供的原因");
 		checkValueValid(arr_errmsgs, data_json, "联系人电话-不能提供-原因",	"长度范围", "联系人电话不能提供的原因 格式不正确，请重新填写", 2, 100);
 		}
-		if (data_json["联系人电话(号码二)"] != "" && !data_json["联系人电话(号码二)-不能提供"]){
+		if (!data_json["联系人电话(号码二)-不能提供"]){
+		checkValueValid(arr_errmsgs, data_json, "联系人电话(号码二)", "不能为空", "请填写 联系人电话(号码二)");
 		checkValueValid(arr_errmsgs, data_json, "联系人电话(号码二)",	"电话号码",	"联系人电话(号码二) 格式不正确，请重新填写");
 		}
-		if (data_json["联系人电话(号码三)"] != "" && !data_json["联系人电话(号码三)-不能提供"]){
+		if (!data_json["联系人电话(号码三)-不能提供"]){
+		checkValueValid(arr_errmsgs, data_json, "联系人电话(号码三)", "不能为空", "请填写 联系人电话(号码三)");
 		checkValueValid(arr_errmsgs, data_json, "联系人电话(号码三)",	"电话号码",	"联系人电话(号码三) 格式不正确，请重新填写");
 		}
 	
