@@ -412,9 +412,9 @@ function addZhuyuanjilu(){
 	}
 	//////////////////////////////////////////////////////////////////////////
 	function showInputValueInvalid(err_msg){
-		showErrorMsg($("#zhuyuanjilu-section .errormsg"), errormsg);
+		showErrorMsg($("#zhuyuanjilu-section .errormsg"), err_msg);
 	}
-	
+
 	function checkValidRiqi(data_json){
 		var arr_errmsgs = [];
 		if (data_json.hospitalization_in_time < 1000000){
