@@ -265,6 +265,10 @@ function addZhuyuanjilu(){
 			alert("上传成功");
 			gotoZyjlList();
 		}
+		/////校验参数合法性
+		if(!checkValidZhuyuanjilu()){
+			return false;
+		}
 		ajaxRemoteRequest("hospital/set-records-status",{"ids":""+m_zyjl_id,"status":2},onUploadZhuyuanjiluRet);
 	}
 
@@ -398,5 +402,9 @@ function addZhuyuanjilu(){
 		for (var i = 0; i < return_buttons.length; i++){
 			return_buttons.get(i).disabled = false;
 		}
+	}
+	//////////////////////////////////////////////////////////////////////////
+	function checkValidZhuyuanjilu(){
+		int i = 0;
 	}
 }
