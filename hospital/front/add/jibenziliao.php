@@ -167,6 +167,26 @@
                 <td>
                     <input type="text" class="form-control input-sm" placeholder="联系人电话" json-name="联系人电话(号码二)" value="">
                 </td>
+                <td style="padding-left:35px">
+                    <div class="checkbox">
+                        <lable>
+                            <input type="checkbox" value="1" tag='address-nodetail-checkbox'" json-name="联系人电话(号码二)-不能提供">不能提供</lable>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="control-label control-label-180">联系人电话(号码三)：</div>
+                </td>
+                <td>
+                    <input type="text" class="form-control input-sm" placeholder="联系人电话" json-name="联系人电话(号码三)" value="">
+                </td>
+                <td style="padding-left:35px">
+                    <div class="checkbox">
+                        <lable>
+                            <input type="checkbox" value="1" tag='address-nodetail-checkbox'" json-name="联系人电话(号码三)-不能提供">不能提供</lable>
+                    </div>
+                </td>
             </tr>
         </table>
     </div>
