@@ -244,6 +244,10 @@ function addZhuyuanjilu(){
 			m_zyjl_id = zyjl_data["id"];
 			initInputsByData(zyjl_data);
 		}
+		else{
+			m_zyjl_id = 0;
+			initInputsByData({});
+		}
 		if (typeof come_from == "undefined"){
 			m_come_from = "";
 		}
