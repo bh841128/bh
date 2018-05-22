@@ -38,11 +38,7 @@ function addPatient(){
 		}
 		else{
 			m_patient_id = 0;
-			initInputsByJson({
-				operation_before_info:{
-					"既往心脏病手术次数":"0"
-				}
-			});
+			initInputsByData({});
 			$("#nav-tab-zhuyuanjilu").get(0).disabled = true;
 		}
 		if (typeof patient_data != "undefined" && patient_data["status"] == 2){
@@ -250,7 +246,11 @@ function addZhuyuanjilu(){
 		}
 		else{
 			m_zyjl_id = 0;
-			initInputsByData({});
+			initInputsByJson({
+				operation_before_info:{
+					"既往心脏病手术次数":"0"
+				}
+			});
 		}
 		if (typeof come_from == "undefined"){
 			m_come_from = "";
