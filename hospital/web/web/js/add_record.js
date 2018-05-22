@@ -410,7 +410,7 @@ function addZhuyuanjilu(){
 	//////////////////////////////////////////////////////////////////////////
 	function checkValidZhuyuanjilu(){
 		var data_json = getAllInputDatas();
-		int i = 0;
+		var i = 0;
 		return false;
 	}
 }
