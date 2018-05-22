@@ -38,7 +38,11 @@ function addPatient(){
 		}
 		else{
 			m_patient_id = 0;
-			initInputsByData({});
+			initInputsByData({
+				operation_before_info:{
+					"既往心脏病手术次数":0
+				}
+			});
 			$("#nav-tab-zhuyuanjilu").get(0).disabled = true;
 		}
 		if (typeof patient_data != "undefined" && patient_data["status"] == 2){
