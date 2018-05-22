@@ -348,7 +348,7 @@ function hospital(){
 		});
 		$("#tab-zyjl-shoushuxinxi input[name='yanchiguanxiong']").change(function(){
 			var bYanchiguanxiong = getRadioValue($("#tab-zyjl-shoushuxinxi"), "yanchiguanxiong");
-			$("#tab-zyjl-shoushuxinxi [json-name='延迟关胸时间']").get(0).disabled = (bYanchiguanxiong?false:true);
+			$("#tab-zyjl-shoushuxinxi [json-name='延迟关胸时间']").get(0).disabled = (bYanchiguanxiong==1?false:true);
 		})
 		
 	}
