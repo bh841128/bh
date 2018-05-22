@@ -375,19 +375,33 @@ function addZhuyuanjilu(){
 		g_hospital.setGlobalData("zyjl_id",m_zyjl_id);
 	}
 
-	function initInputsByData(db_data){
-		//console.dir(db_data);
-		var data_json = getValuesByMapReverse(db_data, m_json_map);
-		data_json["入院日期"] = timestampToDateString(data_json["入院日期"]);
-		data_json["出院日期"] = timestampToDateString(data_json["出院日期"]);
-		data_json["手术日期"] = timestampToDateString(data_json["手术日期"]);
+	function initInputsByJson(data_json){
+		if (typeof data_json["入院日期"] =="undefined"){
+			data_json["入院日期"] = "";
+		}
+		data_json["入院日期"] = timestampToDateString(getJsongetJsonValue(data_json,"入院日期",''));
+		data_json["出院日期"] = timestampToDateString(getJsongetJsonValue(data_json,"出院日期",''));
+		data_json["手术日期"] = timestampToDateString(getJsongetJsonValue(data_json,"手术日期",''));
+		data_json.operation_before_info = getJsongetJsonValue(data_json,"operation_before_info",{});
+		data_json.operation_info = getJsongetJsonValue(data_json,"operation_info",{});
+		data_json.operation_after_info = getJsongetJsonValue(data_json,"operation_after_info",{});
+		data_json.hospitalization_out_info = getJsongetJsonValue(data_json,"hospitalization_out_info",{});
 		//console.dir(data_json);
 		var g_control_json = new control_json();
 		g_control_json.setJson2Control($("#tab-zyjl-riqi"), data_json);
-		g_control_json.setJson2Control($("#tab-zyjl-shuqianxinxi"), 	db_data.operation_before_info);
-		g_control_json.setJson2Control($("#tab-zyjl-shoushuxinxi"), 	db_data.operation_info);
-		g_control_json.setJson2Control($("#tab-zyjl-shuhouxinxi"), 		db_data.operation_after_info);
-		g_control_json.setJson2Control($("#tab-zyjl-chuyuanziliao"), 	db_data.hospitalization_out_info);
+		g_control_json.setJson2Control($("#tab-zyjl-shuqianxinxi"), 	data_json.operation_before_info);
+		g_control_json.setJson2Control($("#tab-zyjl-shoushuxinxi"), 	data_json.operation_info);
+		g_control_json.setJson2Control($("#tab-zyjl-shuhouxinxi"), 		data_json.operation_after_info);
+		g_control_json.setJson2Control($("#tab-zyjl-chuyuanziliao"), 	data_json.hospitalization_out_info);
+	}
+	function initInputsByData(db_data){
+		//console.dir(db_data);
+		var data_json = getValuesByMapReverse(db_data, m_json_map);
+		data_json.operation_before_info = db_data.operation_before_info;
+		data_json.operation_info = db_data.operation_info;
+		data_json.operation_after_info = db_data.operation_after_info;
+		data_json.hospitalization_out_info = db_data.hospitalization_out_info;
+		initInputsByJson(data_json);
 	}
 	///////////////////////////////////////////////////////
 	//既往心脏病手术次数
