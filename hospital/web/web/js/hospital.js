@@ -359,7 +359,6 @@ function hospital(){
 				$("#tab-zyjl-shuhouxinxi [tag='bYanchiguanxiong']").hide();
 			}
 		})
-		weishoushuqixueyezhipinshuru
 		
 	}
 	/////////////////////////////////////////初始化上传
