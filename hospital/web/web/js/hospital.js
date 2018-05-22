@@ -399,6 +399,21 @@ function hospital(){
 				$("#tab-zyjl-shoushuxinxi [tag='tingboye']").hide();
 			}
 		})
+		//手术信息  是否二次或多次体外循环
+		$("#tab-zyjl-shoushuxinxi input[name='ercihuoduocitiwaixunhuan']").change(function(){
+			var rValue = getRadioValue($("#tab-zyjl-shoushuxinxi"), "ercihuoduocitiwaixunhuan");
+			$("#tab-zyjl-shoushuxinxi [jon-name='是否二次或多次体外循环-原因']").get(0).disabled = (rValue==1?false:true);
+		})
+		//手术信息  深低温停循环
+		$("#tab-zyjl-shoushuxinxi input[name='shendiwentingxunhuan']").change(function(){
+			var rValue = getRadioValue($("#tab-zyjl-shoushuxinxi"), "shendiwentingxunhuan");
+			$("#tab-zyjl-shoushuxinxi [jon-name='深低温停循环时间']").get(0).disabled = (rValue==1?false:true);
+		})
+		//手术信息  单侧脑灌注
+		$("#tab-zyjl-shoushuxinxi input[name='dancenaoguanzhu']").change(function(){
+			var rValue = getRadioValue($("#tab-zyjl-shoushuxinxi"), "dancenaoguanzhu");
+			$("#tab-zyjl-shoushuxinxi [jon-name='单侧脑灌注']").get(0).disabled = (rValue==1?false:true);
+		})
 		
 	}
 	/////////////////////////////////////////初始化上传
