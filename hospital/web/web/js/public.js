@@ -689,10 +689,33 @@ function initSelectModal(){
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
+function isValidPhone(phone){
+	if (typeof data_json[key] == "undefined" || data_json[key] == "" || data_json[key] == null){
+		return false;
+	}
+	if(!/^(\(\d{3,4}\)|\d{3,4}-|\s)?\d{7,14}$/.test(phone) && !/^((1[3-8][0-9])+\d{8})$/.test(phone)){
+		return false;
+	}
+	return true;
+}
 //arr_errmsgs, data_json, "联系人姓名", "不能为空", "请填写 联系人姓名"
 function checkValueValid(arr_errmsgs, data_json, key, check_type, errmsg, param1, param2, param3){
 	if (check_type == "不能为空"){
 		if (typeof data_json[key] == "undefined" || data_json[key] == "" || data_json[key] == null){
+			arr_errmsgs.push(errmsg);
+		}
+		return;
+	}
+	if (check_type == "长度范围"){
+		var min_len = param1;
+		var max_len = param2;
+		if (data_json[key].length < min_len || data_json[key].length > max_len){
+			arr_errmsgs.push(errmsg);
+		}
+		return;
+	}
+	if (check_type == "电话号码"){
+		if (!isValidPhone(data_json[key])){
 			arr_errmsgs.push(errmsg);
 		}
 		return;
