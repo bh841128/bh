@@ -350,6 +350,16 @@ function hospital(){
 			var bYanchiguanxiong = getRadioValue($("#tab-zyjl-shoushuxinxi"), "yanchiguanxiong");
 			$("#tab-zyjl-shoushuxinxi [json-name='延迟关胸时间']").get(0).disabled = (bYanchiguanxiong==1?false:true);
 		})
+		$("#tab-zyjl-shuhouxinxi input[name='bYanchiguanxiong']").change(function(){
+			var rValue = getRadioValue($("#tab-zyjl-shuhouxinxi"), "weishoushuqixueyezhipinshuru");
+			if (rValue == 1){
+				$("#tab-zyjl-shuhouxinxi [tag='bYanchiguanxiong']").show();
+			}
+			else{
+				$("#tab-zyjl-shuhouxinxi [tag='bYanchiguanxiong']").hide();
+			}
+		})
+		weishoushuqixueyezhipinshuru
 		
 	}
 	/////////////////////////////////////////初始化上传

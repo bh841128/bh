@@ -84,63 +84,65 @@
                     <lable class="radio-inline">
                         <input type="radio" name="weishoushuqixueyezhipinshuru" value="1" checked json-name="围手术期血液制品输入（累计）">是</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="weishoushuqixueyezhipinshuru" value="2" json-name="围手术期血液制品输入（累计）">否</lable>
+                        <input type="radio" name="weishoushuqixueyezhipinshuru" value="0" json-name="围手术期血液制品输入（累计）">否</lable>
                 </td>
             </tr>
         </table>
-        <table class="control-table padding-20">
-            <tr>
-                <td>
-                    <div class="control-label" style="width:124px">红细胞：</div>
-                </td>
-                <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="" json-name="红细胞">
-                </td>
-                <td>
-                    <span>（单位）</span>
-                </td>
-                <td>
-                    <div class="control-label" style="width:124px">新鲜冰冻血浆：</div>
-                </td>
-                <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="新鲜冰冻血浆" json-name="新鲜冰冻血浆">
-                </td>
-                <td>
-                    <span>（毫升）</span>
-                </td>
-                <td>
-                    <div class="control-label" style="width:124px">血浆冷沉淀：</div>
-                </td>
-                <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="血浆冷沉淀" json-name="血浆冷沉淀">
-                </td>
-                <td>
-                    <span>（单位）</span>
-                </td>
-            </tr>
-        </table>
-        <table class="control-table padding-20">
-            <tr>
-                <td>
-                    <div class="control-label" style="width:124px">血小板：</div>
-                </td>
-                <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="血小板" json-name="血小板">
-                </td>
-                <td>
-                    <span>（单位）</span>
-                </td>
-                <td>
-                    <div class="control-label" style="width:124px">自体血：</div>
-                </td>
-                <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="自体血" json-name="自体血">
-                </td>
-                <td>
-                    <span>（毫升）</span>
-                </td>
-            </tr>
-        </table>
+        <div tag="weishoushuqixueyezhipinshuru">
+            <table class="control-table padding-20">
+                <tr>
+                    <td>
+                        <div class="control-label" style="width:124px">红细胞：</div>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control input-sm" style="width:100px" placeholder="" json-name="红细胞">
+                    </td>
+                    <td>
+                        <span>（单位）</span>
+                    </td>
+                    <td>
+                        <div class="control-label" style="width:124px">新鲜冰冻血浆：</div>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control input-sm" style="width:100px" placeholder="新鲜冰冻血浆" json-name="新鲜冰冻血浆">
+                    </td>
+                    <td>
+                        <span>（毫升）</span>
+                    </td>
+                    <td>
+                        <div class="control-label" style="width:124px">血浆冷沉淀：</div>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control input-sm" style="width:100px" placeholder="血浆冷沉淀" json-name="血浆冷沉淀">
+                    </td>
+                    <td>
+                        <span>（单位）</span>
+                    </td>
+                </tr>
+            </table>
+            <table class="control-table padding-20">
+                <tr>
+                    <td>
+                        <div class="control-label" style="width:124px">血小板：</div>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control input-sm" style="width:100px" placeholder="血小板" json-name="血小板">
+                    </td>
+                    <td>
+                        <span>（单位）</span>
+                    </td>
+                    <td>
+                        <div class="control-label" style="width:124px">自体血：</div>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control input-sm" style="width:100px" placeholder="自体血" json-name="自体血">
+                    </td>
+                    <td>
+                        <span>（毫升）</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
         <table class="control-table padding-20">
             <tr>
                 <td>
