@@ -295,7 +295,7 @@ function addZhuyuanjilu(){
 		$("#content-wrapper-add-zhuyuanjilu").hide();
 	}
 
-	function onZhuyuanjiluSave(){
+	function getAllInputDatas(){
 		var raw_json = {};
 		var g_control_json = new control_json();
 		raw_json = g_control_json.parseControlJson($("#tab-zyjl-riqi"));
@@ -331,6 +331,10 @@ function addZhuyuanjilu(){
 		var data_json_hospitalization_out_info = arrayToJson(raw_json_hospitalization_out_info);
 		data_json.hospitalization_out_info = $.toJSON(data_json_hospitalization_out_info);
 		//console.dir(data_json_hospitalization_out_info);
+		return data_json;
+	}
+	function onZhuyuanjiluSave(){
+		var data_json = getAllInputDatas();
 		////////////////////////////////////////////////
 		////检查参数合法性
 		////////////////////////////////////////////////
@@ -405,6 +409,7 @@ function addZhuyuanjilu(){
 	}
 	//////////////////////////////////////////////////////////////////////////
 	function checkValidZhuyuanjilu(){
+		var data_json = getAllInputDatas();
 		int i = 0;
 	}
 }
