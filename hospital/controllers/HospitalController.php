@@ -941,7 +941,10 @@ class HospitalController extends Controller
 		if(CUtil::is_json($record["msg"]["operation_before_info"])&&
 			CUtil::is_json($record["msg"]["operation_info"])&&
 			CUtil::is_json($record["msg"]["operation_after_info"])&&
-			CUtil::is_json($record["msg"]["hospitalization_out_info"])){
+			CUtil::is_json($record["msg"]["hospitalization_out_info"])
+			)
+		{
+				
 			$arrtemp1 = json_decode($record["msg"]["operation_before_info"],true); 
 			$arrtemp2 = json_decode($record["msg"]["operation_info"],true); 
 			$arrtemp3 = json_decode($record["msg"]["operation_after_info"],true); 
@@ -950,18 +953,21 @@ class HospitalController extends Controller
 			CUtil::logFile("".__file__ ." :".__line__."  ".count($arrtemp1)." ".count($arrtemp2)." ".count($arrtemp3)." ".count($arrtemp4)." ");
 			if(count($arrtemp1)<=1||count($arrtemp2)<=1||count($arrtemp3)<=1||count($arrtemp4)<=1||
 			$record["msg"]["hospitalization_in_time"]<=0||$record["msg"]["operation_time"]<=0||$record["msg"]["hospitalization_out_time"]<=0){
-				
-				$ret["ret"]=RECORDERR;
-				$ret["msg"]="RECORDERR";
-				CUtil::logFile("".__file__ ." :".__line__."===$username  "."RECORDERR====".print_r($record,true));
-				return json_encode($ret);
+				if($status==2){
+					$ret["ret"]=RECORDERR;
+					$ret["msg"]="RECORDERR";
+					CUtil::logFile("".__file__ ." :".__line__."===$username  "."RECORDERR====".print_r($record,true));
+					return json_encode($ret);
+				}
 			}
 		}
 		else{
-			$ret["ret"]=RECORDERR;
-            $ret["msg"]="RECORDERR";
-			CUtil::logFile("".__file__ ." :".__line__."===$username  "."RECORDERR ===".print_r($record,true));
-            return json_encode($ret);
+			if($status==2){
+				$ret["ret"]=RECORDERR;
+				$ret["msg"]="RECORDERR";
+				CUtil::logFile("".__file__ ." :".__line__."===$username  "."RECORDERR ===".print_r($record,true));
+				return json_encode($ret);
+			}
 		}
 		
 		
