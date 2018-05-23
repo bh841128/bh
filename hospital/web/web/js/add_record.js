@@ -340,7 +340,7 @@ function addZhuyuanjilu(){
 		var data_json = getAllInputDatas();
 		data_json.operation_before_info = $.toJSON(data_json.operation_before_info);
 		data_json.operation_info = $.toJSON(data_json.operation_info);
-		data_json.hospitalization_out_info = $.toJSON(ddata_json.hospitalization_out_info);
+		data_json.hospitalization_out_info = $.toJSON(data_json.hospitalization_out_info);
 		////////////////////////////////////////////////
 		////检查参数合法性
 		////////////////////////////////////////////////
