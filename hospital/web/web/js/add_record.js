@@ -464,7 +464,33 @@ function addZhuyuanjilu(){
 			if (operation_before_info["既往心脏病手术名称-不能提供-"+i] <= 0){
 				checkValueValid(arr_errmsgs, operation_before_info, "既往心脏病手术名称-"+i,		"不能为空",		"请填写 既往心脏病手术名称"+i);
 			}
-			
+		}
+		checkValueValid(arr_errmsgs, operation_before_info, "身高",		"不能为空",		"请填写 身高");
+		checkValueValid(arr_errmsgs, operation_before_info, "体重",		"不能为空",		"请填写 体重");
+		checkValueValid(arr_errmsgs, operation_before_info, "身高",		"不能为空",		"请填写 身高");
+		checkValueValid(arr_errmsgs, operation_before_info, "身高",		"不能为空",		"请填写 身高");
+		if (operation_before_info["术前血氧饱和度-不能提供"] > 0){
+			checkValueValid(arr_errmsgs, operation_before_info, "术前血氧饱和度-不能提供-原因",		"不能为空",		"请填写 术前血氧饱和度不能提供原因");
+		}
+		else{
+			checkValueValid(arr_errmsgs, operation_before_info, "术前血氧饱和度-不能提供-原因",		"不能为空",		"请填写 术前血氧饱和度不能提供原因");
+			checkValueValid(arr_errmsgs, operation_before_info, "术前血氧饱和度-右上肢",		"不能为空",		"请填写 术前血氧饱和度-右上肢");
+			checkValueValid(arr_errmsgs, operation_before_info, "术前血氧饱和度-左上肢",		"不能为空",		"请填写 术前血氧饱和度-左上肢");
+			checkValueValid(arr_errmsgs, operation_before_info, "术前血氧饱和度-右下肢",		"不能为空",		"请填写 术前血氧饱和度-右下肢");
+			checkValueValid(arr_errmsgs, operation_before_info, "术前血氧饱和度-左下肢",		"不能为空",		"请填写 术前血氧饱和度-左下肢");
+		}
+		if (operation_before_info["术后血氧饱和度-不能提供"] > 0){
+			checkValueValid(arr_errmsgs, operation_before_info, "术后血氧饱和度-不能提供-原因",		"不能为空",		"请填写 术后血氧饱和度不能提供原因");
+		}
+		else{
+			checkValueValid(arr_errmsgs, operation_before_info, "术后血氧饱和度-不能提供-原因",		"不能为空",		"请填写 术后血氧饱和度不能提供原因");
+			checkValueValid(arr_errmsgs, operation_before_info, "术后血氧饱和度-右上肢",		"不能为空",		"请填写 术后血氧饱和度-右上肢");
+			checkValueValid(arr_errmsgs, operation_before_info, "术后血氧饱和度-左上肢",		"不能为空",		"请填写 术后血氧饱和度-左上肢");
+			checkValueValid(arr_errmsgs, operation_before_info, "术后血氧饱和度-右下肢",		"不能为空",		"请填写 术后血氧饱和度-右下肢");
+			checkValueValid(arr_errmsgs, operation_before_info, "术后血氧饱和度-左下肢",		"不能为空",		"请填写 术后血氧饱和度-左下肢");
+		}
+		if (operation_before_info["专科检查-是否其他"] > 0){
+			checkValueValid(arr_errmsgs, operation_before_info, "专科检查-其他",		"不能为空",		"请填写 专科检查-其他");
 		}
 		return arr_errmsgs;
 	}
