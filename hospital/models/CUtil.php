@@ -13,21 +13,21 @@ class CUtil {
         switch ($type) {
             case "cookie":
                 if (isset($request->cookies[$name])) {
-                    $data = $request->cookies[$name]->value;
+                    $data = trim($request->cookies[$name]->value);
                 } else {
                     $data = $default;
                 }
                 break;
             case "get":
-                $data = $request->get($name, $default);
+                $data = trim($request->get($name, $default));
                 break;
             case "post":
-                $data = $request->post($name, $default);
+                $data = trim($request->post($name, $default));
                 break;
             default: //先获取post参数，如果为空，再获取get参数。
-                $data = $request->post($name, $default);
+                $data = trim($request->post($name, $default));
                 if (empty($data)) {
-                    $data = $request->get($name, $default);
+                    $data = trim($request->get($name, $default));
                 }
         }
         return $data;

@@ -137,7 +137,7 @@ status  1:正常 2:上传  3：删除
 		
 		if(array_key_exists("name",$filter)){
 			$sql=$sql." name like :name  and ";
-			$args[":name"]="%\"".$filter["name"]."\"%";
+			$args[":name"]="%".$filter["name"]."%";
 		}
 		
 		if(array_key_exists("end_time",$filter)){
