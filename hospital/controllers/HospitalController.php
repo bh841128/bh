@@ -942,12 +942,14 @@ class HospitalController extends Controller
 			CUtil::is_json($record["msg"]["operation_info"])&&
 			CUtil::is_json($record["msg"]["operation_after_info"])&&
 			CUtil::is_json($record["msg"]["hospitalization_out_info"])){
-			$arrtemp1 = json_decode($record["msg"]["operation_before_info"]); 
-			$arrtemp2 = json_decode($record["msg"]["operation_info"]); 
-			$arrtemp3 = json_decode($record["msg"]["operation_after_info"]); 
-			$arrtemp4 = json_decode($record["msg"]["hospitalization_out_info"]); 
-			//CUtil::logFile(print_r( json_decode($record["msg"]["operation_before_info"]),true)."  ".count($arrtemp1)." ".count($arrtemp2)." ".count($arrtemp3)." ".count($arrtemp4)." ");
-			if(count($arrtemp1)<=0||count($arrtemp2)<=0||count($arrtemp3)<=0||count($arrtemp4)<=0){
+			$arrtemp1 = json_decode($record["msg"]["operation_before_info"],true); 
+			$arrtemp2 = json_decode($record["msg"]["operation_info"],true); 
+			$arrtemp3 = json_decode($record["msg"]["operation_after_info"],true); 
+			$arrtemp4 = json_decode($record["msg"]["hospitalization_out_info"],true);
+			
+			CUtil::logFile("".__file__ ." :".__line__."  ".count($arrtemp1)." ".count($arrtemp2)." ".count($arrtemp3)." ".count($arrtemp4)." ");
+			if(count($arrtemp1)<=1||count($arrtemp2)<=1||count($arrtemp3)<=1||count($arrtemp4)<=1||
+			$record["msg"]["hospitalization_in_time"]<=0||$record["msg"]["operation_time"]<=0||$record["msg"]["hospitalization_out_time"]<=0){
 				
 				$ret["ret"]=RECORDERR;
 				$ret["msg"]="RECORDERR";
