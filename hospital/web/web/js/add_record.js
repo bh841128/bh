@@ -592,7 +592,7 @@ function addZhuyuanjilu(){
 	}
 	function checkValidZhuyuanjilu(){
 		var data_json = getAllInputDatas();
-		checkValidZhuyuanjiluInner(data_json);
+		return checkValidZhuyuanjiluInner(data_json);
 	}
 	function checkValidZhuyuanjiluInner(data_json){
 		var arr_errmsgs = checkValidRiqi(data_json);
