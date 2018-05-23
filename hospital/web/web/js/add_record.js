@@ -314,7 +314,6 @@ function addZhuyuanjilu(){
 		var raw_json = {};
 		var g_control_json = new control_json();
 		raw_json = g_control_json.parseControlJson($("#tab-zyjl-riqi"));
-		//console.dir(raw_json);
 		/////////////////////////////////////////////////
 		var data_json = getValuesByMap(raw_json, m_json_map);
 		data_json["patient_id"] = g_hospital.getGlobalData("patient_id");
@@ -322,34 +321,26 @@ function addZhuyuanjilu(){
 		data_json["hospitalization_out_time"] = strDateToTimestap(data_json["hospitalization_out_time"]);
 		data_json["operation_time"] = strDateToTimestap(data_json["operation_time"]);
 		
-		//console.dir(data_json);
 		var raw_json_operation_before_info = g_control_json.parseControlJson($("#tab-zyjl-shuqianxinxi"));
-		//console.dir(raw_json_operation_before_info);
-		var data_json_operation_before_info = arrayToJson(raw_json_operation_before_info);
-		data_json.operation_before_info = $.toJSON(data_json_operation_before_info);
-		//console.dir(data_json_operation_before_info);
+		data_json.operation_before_info = arrayToJson(raw_json_operation_before_info);
 
 		var raw_json_operation_info = g_control_json.parseControlJson($("#tab-zyjl-shoushuxinxi"));
-		//console.dir(raw_json_operation_info);
-		var data_json_operation_info = arrayToJson(raw_json_operation_info);
-		data_json.operation_info = $.toJSON(data_json_operation_info);
-		//console.dir(data_json_operation_info);
-
+		data_json.operation_info = arrayToJson(raw_json_operation_info);
+		
 		var raw_json_operation_after_info = g_control_json.parseControlJson($("#tab-zyjl-shuhouxinxi"));
-		//console.dir(raw_json_operation_after_info);
 		var data_json_operation_after_info = arrayToJson(raw_json_operation_after_info);
 		data_json.operation_after_info = $.toJSON(data_json_operation_after_info);
-		//console.dir(data_json_operation_after_info);
 
 		var raw_json_hospitalization_out_info = g_control_json.parseControlJson($("#tab-zyjl-chuyuanziliao"));
-		//console.dir(raw_json_hospitalization_out_info);
-		var data_json_hospitalization_out_info = arrayToJson(raw_json_hospitalization_out_info);
-		data_json.hospitalization_out_info = $.toJSON(data_json_hospitalization_out_info);
-		//console.dir(data_json_hospitalization_out_info);
+		data_json.hospitalization_out_info = arrayToJson(raw_json_hospitalization_out_info);
+		
 		return data_json;
 	}
 	function onZhuyuanjiluSave(){
 		var data_json = getAllInputDatas();
+		data_json.operation_before_info = $.toJSON(data_json.operation_before_info);
+		data_json.operation_info = $.toJSON(data_json.operation_info);
+		data_json.hospitalization_out_info = $.toJSON(ddata_json.hospitalization_out_info);
 		////////////////////////////////////////////////
 		////检查参数合法性
 		////////////////////////////////////////////////
