@@ -2,7 +2,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="width:700px;">
             <div class="modal-header" style="padding-top:5px;padding-bottom:5px">
-                    <h3 class="modal-title" style="text-align:left;margin-left:10px;"></h3>
+                    <div><input type="text" style="width:400px" >&nbsp;&nbsp;<button type="button" class="btn btn-primary" type="button_search">??</button></div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="right:5px;width:30px">
                     <span aria-hidden="true">&times;</span>
                 </button>
