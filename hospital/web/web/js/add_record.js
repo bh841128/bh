@@ -551,9 +551,8 @@ function addZhuyuanjilu(){
 	function checkValidShuhouxinxi(data_json){
 		var arr_errmsgs = [];
 		var data_inputs = data_json.operation_after_info;
-		if (data_inputs["术后住院时间"] == ""){
-			checkValueValid(arr_errmsgs, data_inputs, "术后住院时间",		"不能为空",		"请选择 术后住院时间");
-		}
+
+		checkValueValid(arr_errmsgs, data_inputs, "术后住院时间",		"不能为空",		"请填写 术后住院时间");
 		if (parseInt(data_inputs["当天进出监护室内"]) > 0){
 			checkValueValid(arr_errmsgs, data_inputs, "出监护室日期",		"不能为空",		"请填写 出监护室日期");
 			checkValueValid(arr_errmsgs, data_inputs, "术后监护室停留时间",		"不能为空",		"请填写 术后监护室停留时间");
