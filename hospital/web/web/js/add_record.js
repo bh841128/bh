@@ -606,6 +606,7 @@ function addZhuyuanjilu(){
 
 	}
 	function checkValidZhuyuanjilu(){
+		return true;
 		var data_json = getAllInputDatas();
 		return checkValidZhuyuanjiluInner(data_json);
 	}
