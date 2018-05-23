@@ -494,10 +494,10 @@ function addZhuyuanjilu(){
 		}
 		checkValueValid(arr_errmsgs, operation_before_info, "术前诊断",		"不能为空",		"请选择 术前诊断");
 		if (operation_before_info["专科检查-出生胎龄-不能提供"] <= 0){
-			checkValueValid(arr_errmsgs, operation_before_info, "出生胎龄",		"不能为空",		"请填写 出生胎龄");
+			checkValueValid(arr_errmsgs, operation_before_info, "专科检查-出生胎龄",		"不能为空",		"请填写 出生胎龄");
 		}
 		if (operation_before_info["专科检查-出生体重-不能提供"] <= 0){
-			checkValueValid(arr_errmsgs, operation_before_info, "出生体重",		"不能为空",		"请填写 出生体重");
+			checkValueValid(arr_errmsgs, operation_before_info, "专科检查-出生体重",		"不能为空",		"请填写 出生体重");
 		}
 		if (operation_before_info["专科检查-术前一般危险因素"] > 0){
 			checkValueValid(arr_errmsgs, operation_before_info, "术前一般危险因素",		"不能为空",		"请选择 术前一般危险因素");
