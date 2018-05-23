@@ -464,13 +464,13 @@ function addZhuyuanjilu(){
 		var arr_errmsgs = [];
 		var operation_before_info = operation_before_info.operation_before_info;
 		for (var i = 1; i <= operation_before_info["既往心脏病手术次数"]; i++){
-			if (operation_before_info["既往心脏病手术时间-不能提供-"+i]) <= 0){
+			if (operation_before_info["既往心脏病手术时间-不能提供-"+i] <= 0){
 				checkValueValid(arr_errmsgs, data_json, "既往心脏病手术时间-"+i,		"不能为空",		"请填写 既往心脏病手术时间"+i);
 			}
-			if (operation_before_info["既往心脏病手术医院-不能提供-"+i]) <= 0){
+			if (operation_before_info["既往心脏病手术医院-不能提供-"+i] <= 0){
 				checkValueValid(arr_errmsgs, data_json, "既往心脏病手术医院-"+i,		"不能为空",		"请填写 既往心脏病手术医院"+i);
 			}
-			if (operation_before_info["既往心脏病手术名称-不能提供-"+i]) <= 0){
+			if (operation_before_info["既往心脏病手术名称-不能提供-"+i] <= 0){
 				checkValueValid(arr_errmsgs, data_json, "既往心脏病手术名称-"+i,		"不能为空",		"请填写 既往心脏病手术名称"+i);
 			}
 			
