@@ -535,10 +535,10 @@ function addZhuyuanjilu(){
 		if (operation_dinfo["是否二次或多次体外循环"] > 0){
 			checkValueValid(arr_errmsgs, operation_dinfo, "是否二次或多次体外循环-原因",		"不能为空",		"请填写 二次或多次体外循环原因");
 		}
-		f (operation_dinfo["深低温停循环"] > 0){
+		if (operation_dinfo["深低温停循环"] > 0){
 			checkValueValid(arr_errmsgs, operation_dinfo, "深低温停循环时间",		"不能为空",		"请填写 深低温停循环时间");
 		}
-		f (operation_dinfo["单侧脑灌注"] > 0){
+		if (operation_dinfo["单侧脑灌注"] > 0){
 			checkValueValid(arr_errmsgs, operation_dinfo, "单侧脑灌注时间",		"不能为空",		"请填写 单侧脑灌注时间");
 		}
 		
