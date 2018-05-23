@@ -329,6 +329,13 @@ function getTrimValue(value){
 }
 ////////////////////////////////////////////////////////////////////
 function ajaxRemoteRequest(action, data, callback){
+	function callback_inner(rsp){
+		if (rsp.ret == 4){
+			gotoLoginPage();
+			return;
+		}
+		callback(rsp);
+	}
 	var http_protocol = window.location.protocol;
 	var http_host     = window.location.host;
 	var action_url = http_protocol+"//"+http_host;
@@ -342,7 +349,7 @@ function ajaxRemoteRequest(action, data, callback){
 		data: data,
 		dataType: "json",
 		success: function (rsp) {
-			callback(rsp);
+			callback_inner(rsp);
 		}
 	});
 }
