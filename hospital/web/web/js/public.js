@@ -358,6 +358,7 @@ function onLogin(username, password, callback){
 	}
 	//md5(md5($username)."".$password);
 	//var md5_pass = $.md5($.md5(username)+""+password);
+	password = $.md5(password);
 	ajaxRemoteRequest("hospital/loginin",{"username":username, "password":password},loginRet);
 }
 function checkLogin(callback){
@@ -381,6 +382,8 @@ function onLogout(){
 
 function onChangePassword(old_password, new_password, callback){
 	var username = g_global_data["username"];
+	new_password = $.md5(new_password);
+	old_password = $.md5(old_password);
 	ajaxRemoteRequest("hospital/modpwd",{username:username,newpassword:new_password,oldpassword:old_password},callback);
 }
 ////////////////////////////////////////////////////////
