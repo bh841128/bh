@@ -324,7 +324,7 @@ function getTrimInputValue(input_control){
 	return getTrimValue(value);
 }
 function getTrimValue(value){
-	value = value.replace(/^\s+|\s+$/);
+	value = value.replace(/^\s+|\s+$/,'');
 	return value;
 }
 ////////////////////////////////////////////////////////////////////
