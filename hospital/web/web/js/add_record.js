@@ -483,6 +483,6 @@ function addZhuyuanjilu(){
 			showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-riqi", "tab-zyjl-shuqianxinxi");
 			return false;
 		}
-		return false;
+		return true;
 	}
 }
