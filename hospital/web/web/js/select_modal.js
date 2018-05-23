@@ -120,6 +120,9 @@ function select_modal(){
     }
 
     function isDataFilterdOut(data){
+        if (m_filter_param == ""){
+            return false;
+        }
         if (data.key1.indexOf(m_filter_param) >= 0){
             return false;
         }
