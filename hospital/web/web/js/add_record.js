@@ -332,7 +332,7 @@ function addZhuyuanjilu(){
 		data_json.operation_info = arrayToJson(raw_json_operation_info);
 		
 		var raw_json_operation_after_info = g_control_json.parseControlJson($("#tab-zyjl-shuhouxinxi"));
-		var data_json_operation_after_info = arrayToJson(raw_json_operation_after_info);
+		data_json.operation_after_info = arrayToJson(raw_json_operation_after_info);
 
 		var raw_json_hospitalization_out_info = g_control_json.parseControlJson($("#tab-zyjl-chuyuanziliao"));
 		data_json.hospitalization_out_info = arrayToJson(raw_json_hospitalization_out_info);
