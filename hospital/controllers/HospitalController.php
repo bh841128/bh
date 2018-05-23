@@ -21,7 +21,7 @@ define("INSERTERR", 5);
 define("UPDATEERR", 6);
 define("PATINTIDERR", 7);
 define("RECORDERR", 8);
-
+define("SETSTATUS_PATIENTERR", 9);
 
 class HospitalController extends Controller
 {
@@ -906,6 +906,9 @@ class HospitalController extends Controller
 		$hospital_id=intval($ret["msg"]["hospital_id"]);
 		$manager_id=intval($ret["msg"]["id"]);
 		
+		
+		
+		
 		$argErr=false;
 		$ids=0;
 		$status=1;
@@ -937,37 +940,53 @@ class HospitalController extends Controller
 			CUtil::logFile("".__file__ ." :".__line__."===$username  "."no data====".print_r($ret,true));
             return json_encode($ret);
         }
+		if($status==2){
+			$patient=Patient4Hospital::getPatientById($record["msg"]["patient_id"],$hospital_id);
+			if($patient["ret"]!=0){
+				$ret["ret"]=SETSTATUS_PATIENTERR;
+				$ret["msg"]="SETSTATUS_PATIENTERR no data";
+				CUtil::logFile("".__file__ ." :".__line__."===$username  "."SETSTATUS_PATIENTERR no data====".print_r($patient,true));
+				return json_encode($ret);
+			}
+			if($patient["msg"]["status"]!=2){
+				$ret["ret"]=SETSTATUS_PATIENTERR;
+				$ret["msg"]="SETSTATUS_PATIENTERR status";
+				CUtil::logFile("".__file__ ." :".__line__."===$username  "."SETSTATUS_PATIENTERR status====".print_r($patient,true));
+				return json_encode($ret);
+			}
 		
-		if(CUtil::is_json($record["msg"]["operation_before_info"])&&
-			CUtil::is_json($record["msg"]["operation_info"])&&
-			CUtil::is_json($record["msg"]["operation_after_info"])&&
-			CUtil::is_json($record["msg"]["hospitalization_out_info"])
-			)
-		{
+			if(CUtil::is_json($record["msg"]["operation_before_info"])&&
+				CUtil::is_json($record["msg"]["operation_info"])&&
+				CUtil::is_json($record["msg"]["operation_after_info"])&&
+				CUtil::is_json($record["msg"]["hospitalization_out_info"])
+				)
+			{
+					
+				$arrtemp1 = json_decode($record["msg"]["operation_before_info"],true); 
+				$arrtemp2 = json_decode($record["msg"]["operation_info"],true); 
+				$arrtemp3 = json_decode($record["msg"]["operation_after_info"],true); 
+				$arrtemp4 = json_decode($record["msg"]["hospitalization_out_info"],true);
 				
-			$arrtemp1 = json_decode($record["msg"]["operation_before_info"],true); 
-			$arrtemp2 = json_decode($record["msg"]["operation_info"],true); 
-			$arrtemp3 = json_decode($record["msg"]["operation_after_info"],true); 
-			$arrtemp4 = json_decode($record["msg"]["hospitalization_out_info"],true);
-			
-			CUtil::logFile("".__file__ ." :".__line__."  ".count($arrtemp1)." ".count($arrtemp2)." ".count($arrtemp3)." ".count($arrtemp4)." ");
-			if(count($arrtemp1)<=1||count($arrtemp2)<=1||count($arrtemp3)<=1||count($arrtemp4)<=1||
-			$record["msg"]["hospitalization_in_time"]<=0||$record["msg"]["operation_time"]<=0||$record["msg"]["hospitalization_out_time"]<=0){
-				if($status==2){
+				CUtil::logFile("".__file__ ." :".__line__."  ".count($arrtemp1)." ".count($arrtemp2)." ".count($arrtemp3)." ".count($arrtemp4)." ");
+				if(count($arrtemp1)<=1||count($arrtemp2)<=1||count($arrtemp3)<=1||count($arrtemp4)<=1||
+				$record["msg"]["hospitalization_in_time"]<=0||$record["msg"]["operation_time"]<=0||$record["msg"]["hospitalization_out_time"]<=0){
+					
 					$ret["ret"]=RECORDERR;
 					$ret["msg"]="RECORDERR";
 					CUtil::logFile("".__file__ ." :".__line__."===$username  "."RECORDERR====".print_r($record,true));
 					return json_encode($ret);
+					
 				}
 			}
-		}
-		else{
-			if($status==2){
+			else{
+				
 				$ret["ret"]=RECORDERR;
 				$ret["msg"]="RECORDERR";
 				CUtil::logFile("".__file__ ." :".__line__."===$username  "."RECORDERR ===".print_r($record,true));
 				return json_encode($ret);
+				
 			}
+		
 		}
 		
 		
