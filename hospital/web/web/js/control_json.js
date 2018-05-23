@@ -66,7 +66,7 @@ function control_json(){
         if (value == null || value == ""){
             return value;
         }
-        if (value.match(/^[0-9]+$/)){
+        if (typeof value == "string" && value.match(/^[0-9]+$/)){
             value = parseInt(value);
         }
         
