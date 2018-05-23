@@ -31,35 +31,42 @@ function control_json(){
 
     /////////////////////////////////////////////////////////////////
     function getInputValue(control){
-        if (isSelectModal(control)){
-            return getSelectModalValue(control);
-        }
-        var tagName = control.prop('tagName');
-        if (tagName == "SELECT"){
-            return control.val();
-        }
-        if (tagName == "INPUT"){
-            var inputType = control.attr("type");
-            if (inputType == "text"){
+        function getInputValueInner(){
+            if (isSelectModal(control)){
+                return getSelectModalValue(control);
+            }
+            var tagName = control.prop('tagName');
+            if (tagName == "SELECT"){
                 return control.val();
             }
-            if (inputType == "radio"){
-                if(!control.get(0).checked){
-                    return null;
+            if (tagName == "INPUT"){
+                var inputType = control.attr("type");
+                if (inputType == "text"){
+                    return control.val();
+                }
+                if (inputType == "radio"){
+                    if(!control.get(0).checked){
+                        return null;
+                    }
+                    if (inputType == "checkbox"){
+                        return 1;
+                    }
+                    return control.get(0).value;
                 }
                 if (inputType == "checkbox"){
+                    if(!control.get(0).checked){
+                        return 0;
+                    }
                     return 1;
                 }
-                return control.get(0).value;
-            }
-            if (inputType == "checkbox"){
-                if(!control.get(0).checked){
-                    return 0;
-                }
-                return 1;
             }
         }
-        return null;
+        var value = getInputValueInner();
+        if (value.match(/^[0-9]+$/)){
+            value = parseInt(value);
+        }
+        
+        return value;
     }
     function setInputValue(control,value){
         if (isSelectModal(control)){
