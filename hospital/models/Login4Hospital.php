@@ -151,7 +151,7 @@ class Login4Hospital {
 		
 		$args=array(':username'=>$username,':pass'=>$pass);
 		//echo("$username  $password   $sql");
-		CUtil::logFile("$username  $password   $sql");
+		CUtil::logFile("$username  $password    $sql  $pass");
 		
 		try{
 		$connection = Yii::$app->db;
@@ -190,11 +190,14 @@ class Login4Hospital {
 				CUtil::logFile("===== ERR".$ret["msg"]);			
 				return $ret;
 			}
-			if(!empty($record)){//有就不创建新的skey
-				$ret["ret"]=0;
-				$ret["username"]=$username;	
-				$ret["skey"]=$record["skey"];				
-				return $ret;
+			if(!empty($record)){//有且和cookie一致就不创建新的skey
+				$skey_cookie = CUtil::getRequestParam('cookie', 'skey', '');
+				if($skey_cookie==$record["skey"]){//这种不重写cookie和数据库session
+					$ret["ret"]=0;
+					$ret["username"]=$username;	
+					$ret["skey"]=$record["skey"];				
+					return $ret;
+				}
 			}
 			
 			$ret["ret"]=0;
