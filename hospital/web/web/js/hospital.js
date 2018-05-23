@@ -468,6 +468,7 @@ function hospital(){
 	/////////////////////////////////////////初始化导出
 	function export_queryDefaultPage(page){
 		var query_params = g_patient_query.parseQueryParam($("#export_query_param_form"));
+		query_params.status = 2;
 		if (typeof page != "undefinedd"){
 			query_params.page = page;
 		}
