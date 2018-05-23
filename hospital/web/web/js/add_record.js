@@ -527,10 +527,11 @@ function addZhuyuanjilu(){
 			checkValueValid(arr_errmsgs, operation_dinfo, "体外循环时间",		"不能为空",		"请填写 体外循环时间");
 		}
 		if (operation_dinfo["主动脉阻断时间-不能提供"] > 0){
-			checkValueValid(arr_errmsgs, operation_dinfo, "主动脉阻断时间",		"不能为空",		"请填写 主动脉阻断时间");
+			checkValueValid(arr_errmsgs, operation_dinfo, "主动脉阻断时间-不能提供-原因",		"不能为空",		"请填写 主动脉阻断时间不能提供原因");
+			
 		}
 		else{
-			checkValueValid(arr_errmsgs, operation_dinfo, "主动脉阻断时间-不能提供-原因",		"不能为空",		"请填写 主动脉阻断时间不能提供原因");
+			checkValueValid(arr_errmsgs, operation_dinfo, "主动脉阻断时间",		"不能为空",		"请填写 主动脉阻断时间");
 		}
 		if (operation_dinfo["是否二次或多次体外循环"] > 0){
 			checkValueValid(arr_errmsgs, operation_dinfo, "是否二次或多次体外循环-原因",		"不能为空",		"请填写 二次或多次体外循环原因");
