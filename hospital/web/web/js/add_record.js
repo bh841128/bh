@@ -492,6 +492,27 @@ function addZhuyuanjilu(){
 		if (operation_before_info["专科检查-是否其他"] > 0){
 			checkValueValid(arr_errmsgs, operation_before_info, "专科检查-其他",		"不能为空",		"请填写 专科检查-其他");
 		}
+		checkValueValid(arr_errmsgs, operation_before_info, "术前诊断",		"不能为空",		"请选择 术前诊断");
+		if (operation_before_info["专科检查-出生胎龄-不能提供"] > 0){
+			checkValueValid(arr_errmsgs, operation_before_info, "出生胎龄-不能提供-原因",		"不能为空",		"请填写 出生胎龄不能提供原因");
+		}
+		else{
+			checkValueValid(arr_errmsgs, operation_before_info, "出生胎龄",		"不能为空",		"请填写 出生胎龄");
+		}
+		if (operation_before_info["专科检查-出生体重-不能提供"] > 0){
+			checkValueValid(arr_errmsgs, operation_before_info, "出生胎龄-出生体重-原因",		"不能为空",		"请填写 出生体重不能提供原因");
+		}
+		else{
+			checkValueValid(arr_errmsgs, operation_before_info, "出生体重",		"不能为空",		"请填写 出生体重");
+		}
+		if (operation_before_info["专科检查-术前一般危险因素"] > 0){
+			checkValueValid(arr_errmsgs, operation_before_info, "术前一般危险因素",		"不能为空",		"请选择 术前一般危险因素");
+		}
+		if (operation_before_info["专科检查-非心脏畸形"] > 0){
+			checkValueValid(arr_errmsgs, operation_before_info, "非心脏畸形",		"不能为空",		"请选择 非心脏畸形");
+		}
+		
+		
 		return arr_errmsgs;
 	}
 	
