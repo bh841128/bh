@@ -265,6 +265,10 @@ function addZhuyuanjilu(){
 
 	function onUploadZhuyuanjilu(){
 		function onUploadZhuyuanjiluRet(rsp){
+			if (rsp.ret == 9){
+				alert("请先上传患者基本资料");
+				return;
+			}
 			if (rsp.ret != 0){
 				alert("上传失败，请稍候再试");
 				return false;
@@ -354,7 +358,6 @@ function addZhuyuanjilu(){
 		}	
 	}
 	function onUpdateZhuyuanjiluRet(rsp){
-		console.dir(rsp);
 		if (rsp.ret != 0){
 			alert("更新数据失败，请稍后再试");
 			return;

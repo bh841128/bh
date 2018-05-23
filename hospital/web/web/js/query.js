@@ -479,6 +479,10 @@ function zhuyuanjilu_query(){
     }
     this.onOperationClick = function(operationType, dataId){
         function onOperationRet(rsp){
+            if (rsp.ret == 9){
+                alert("请先上传患者基本资料");
+                return;
+            }
             if (rsp.ret != 0){
                 alert("操作失败，请稍后再试");
                 return;
