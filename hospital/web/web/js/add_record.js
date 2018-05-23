@@ -575,7 +575,7 @@ function addZhuyuanjilu(){
 
 	function checkValidChuyuanziliao(data_json){
 		var arr_errmsgs = [];
-		var data_inputs = data_json.data_inputs;
+		var data_inputs = data_json.hospitalization_out_info;
 		if (data_inputs["出院时状态"] == 1){
 			checkValueValid(arr_errmsgs, data_inputs, "死亡日期",		"不能为空",		"请填写 死亡日期");
 		}
