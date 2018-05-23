@@ -548,9 +548,54 @@ function addZhuyuanjilu(){
 		
 		return arr_errmsgs;
 	}
+	function checkValidShuhouxinxi(data_json){
+		var arr_errmsgs = [];
+		var data_inputs = data_json.operation_after_info;
+		if (data_inputs["术后住院时间"] == ""){
+			checkValueValid(arr_errmsgs, data_inputs, "术后住院时间",		"不能为空",		"请选择 术后住院时间");
+		}
+		if (data_inputs["当天进出监护室内"] > 0){
+			checkValueValid(arr_errmsgs, data_inputs, "出监护室日期",		"不能为空",		"请填写 出监护室日期");
+			checkValueValid(arr_errmsgs, data_inputs, "术后监护室停留时间",		"不能为空",		"请填写 术后监护室停留时间");
+			checkValueValid(arr_errmsgs, data_inputs, "累计有创辅助通气时间",		"不能为空",		"请填写 累计有创辅助通气时间");
+		}
+
+		if (data_inputs["围手术期血液制品输入（累计）"] > 0){
+			checkValueValid(arr_errmsgs, data_inputs, "红细胞",		"不能为空",		"请填写 围手术期血液制品输入 红细胞");
+			checkValueValid(arr_errmsgs, data_inputs, "新鲜冰冻血浆",		"不能为空",		"请填写 围手术期血液制品输入 新鲜冰冻血浆");
+			checkValueValid(arr_errmsgs, data_inputs, "血浆冷沉淀",		"不能为空",		"请填写 围手术期血液制品输入 血浆冷沉淀");
+			checkValueValid(arr_errmsgs, data_inputs, "血小板",		"不能为空",		"请填写 围手术期血液制品输入 血小板");
+			checkValueValid(arr_errmsgs, data_inputs, "自体血",		"不能为空",		"请填写 围手术期血液制品输入 自体血");
+		}
+		if (data_inputs["是否术后并发症"] > 0){
+			checkValueValid(arr_errmsgs, data_inputs, "术后并发症",		"不能为空",		"请选择 术后并发症");
+		}
+		return arr_errmsgs;
+	}
+
+	function checkValidChuyuanziliao(data_json){
+		var arr_errmsgs = [];
+		var data_inputs = data_json.data_inputs;
+		if (data_inputs["出院时状态"] == 1){
+			checkValueValid(arr_errmsgs, data_inputs, "死亡日期",		"不能为空",		"请填写 死亡日期");
+		}
+		else if (data_inputs["出院时状态"] == 2){
+			checkValueValid(arr_errmsgs, data_inputs, "自动出院日期",		"不能为空",		"请填写 自动出院日期");
+		}
+		
+		checkValueValid(arr_errmsgs, data_inputs, "治疗费用",		"不能为空",		"请填写 治疗费用");
+
+		return arr_errmsgs;
+	}
 	
+	this.isZhuyuanjiluCanUpload = function(zyjl_id, callback){
+
+	}
 	function checkValidZhuyuanjilu(){
 		var data_json = getAllInputDatas();
+		checkValidZhuyuanjiluInner(data_json);
+	}
+	function checkValidZhuyuanjiluInner(data_json){
 		var arr_errmsgs = checkValidRiqi(data_json);
 		if (arr_errmsgs.length > 0){
 			showInputValueInvalid(arr_errmsgs[0]);
@@ -567,6 +612,18 @@ function addZhuyuanjilu(){
 		if (arr_errmsgs.length > 0){
 			showInputValueInvalid(arr_errmsgs[0]);
 			showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-shoushuxinxi", "tab-zyjl-shoushuxinxi");
+			return false;
+		}
+		var arr_errmsgs = checkValidShuhouxinxi(data_json);
+		if (arr_errmsgs.length > 0){
+			showInputValueInvalid(arr_errmsgs[0]);
+			showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-shuhouxinxi", "tab-zyjl-shuhouxinxi");
+			return false;
+		}
+		var arr_errmsgs = checkValidChuyuanziliao(data_json);
+		if (arr_errmsgs.length > 0){
+			showInputValueInvalid(arr_errmsgs[0]);
+			showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-chuyuanziliao", "tab-zyjl-chuyuanziliao");
 			return false;
 		}
 		return true;
