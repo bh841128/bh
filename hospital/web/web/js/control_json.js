@@ -60,8 +60,12 @@ function control_json(){
                     return 1;
                 }
             }
+            return null;
         }
         var value = getInputValueInner();
+        if (value == null || value == ""){
+            return value;
+        }
         if (value.match(/^[0-9]+$/)){
             value = parseInt(value);
         }
