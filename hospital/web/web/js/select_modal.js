@@ -29,6 +29,7 @@ function select_modal(){
         m_options.modal_container.find("button[tag='button_search']").each(function(){
             this.onclick = function(){
                 m_filter_param = m_options.modal_container.find("input[tag='input_search']").val();
+                m_filter_param = getTrimValue(m_filter_param);
                 fillTable();
             }
         });
