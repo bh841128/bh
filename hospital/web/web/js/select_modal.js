@@ -3,6 +3,7 @@ function select_modal(){
     var m_options = {};
     var m_records = [];
     var m_index_datas = [];
+    var m_filter_param = "";
     m_callback = null;
     m_control  = null;
     this.init = function(options){
@@ -11,6 +12,7 @@ function select_modal(){
         createDataIndex();
     }
     this.show_modal = function(control, selected_data_index, callback){
+        m_filter_param = "";
         m_callback = callback;
         m_control = control;
         processData(selected_data_index);
@@ -24,6 +26,10 @@ function select_modal(){
                 m_options.modal_container.modal("hide");
             }
         })
+        m_options.modal_container.find("button[tag='button_search']").each(function(){
+            m_filter_param = m_options.modal_container.find("input[tag='input_search']").val();
+            fillTable();
+        });
         m_options.modal_container.find(".modal-title").html(m_options.title);
         m_options.modal_container.modal({backdrop:false});
     }
@@ -110,11 +116,23 @@ function select_modal(){
         })
     }
 
+    function isDataFilterdOut(data){
+        if (data.key1.indexOf(m_filter_param) >= 0){
+            return false;
+        }
+        if (data.key2.indexOf(m_filter_param) >= 0){
+            return false;
+        }
+        return true;
+    }
     function getTableHtml(table_datas) {
         var table_html = '<table class="table table-bordered table-hover table-center table-query" style="text-align:left">';
         table_html += '<tbody>';
         for (var d = 0; d < table_datas.length; d++) {
             var data = table_datas[d];
+            if (isDataFilterdOut(data)){
+                continue;
+            }
             var record_html = '<tr>';
             record_html += '<td style="word-break: keep-all;white-space:nowrap;">' + data.key1 + '</td>';
             record_html += '<td>' + data.key2 + '</td>';

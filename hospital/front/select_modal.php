@@ -4,7 +4,7 @@
             <div class="modal-header" style="padding-top:5px;padding-bottom:5px">
             <form>
                 <div class="input-group mb-3" style="margin-left:10px;width:650px;">
-                    <input type="text" class="form-control" style="width:560px;" placeholder="搜索" aria-label="搜索" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" tag="input_search" style="width:560px;" placeholder="搜索" aria-label="搜索" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button" tag="button_search" style="width:60px;height:34px" >搜索</button>
                     </div>
