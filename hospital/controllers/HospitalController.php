@@ -944,12 +944,14 @@ class HospitalController extends Controller
 			$patient=Patient4Hospital::getPatientById($record["msg"]["patient_id"],$hospital_id);
 			if($patient["ret"]!=0){
 				$ret["ret"]=SETSTATUS_PATIENTERR;
+				$ret["patient_id"]=$record["msg"]["patient_id"];
 				$ret["msg"]="SETSTATUS_PATIENTERR no data";
 				CUtil::logFile("".__file__ ." :".__line__."===$username  "."SETSTATUS_PATIENTERR no data====".print_r($patient,true));
 				return json_encode($ret);
 			}
 			if($patient["msg"]["status"]!=2){
 				$ret["ret"]=SETSTATUS_PATIENTERR;
+				$ret["patient_id"]=$record["msg"]["patient_id"];
 				$ret["msg"]="SETSTATUS_PATIENTERR status";
 				CUtil::logFile("".__file__ ." :".__line__."===$username  "."SETSTATUS_PATIENTERR status====".print_r($patient,true));
 				return json_encode($ret);
