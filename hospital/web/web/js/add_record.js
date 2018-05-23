@@ -276,11 +276,17 @@ function addZhuyuanjilu(){
 			alert("上传成功");
 			gotoZyjlList();
 		}
+		function OnUploadSaveRet(rsp){
+			if (rsp.ret != 0){
+				return;
+			}
+			ajaxRemoteRequest("hospital/set-records-status",{"ids":""+m_zyjl_id,"status":2},onUploadZhuyuanjiluRet);
+		}
 		/////校验参数合法性
 		if(!checkValidZhuyuanjilu()){
 			return false;
 		}
-		ajaxRemoteRequest("hospital/set-records-status",{"ids":""+m_zyjl_id,"status":2},onUploadZhuyuanjiluRet);
+		onZhuyuanjiluSave(OnUploadSaveRet);
 	}
 
 	this.onAddZhuyuanjilu = function(){
@@ -339,7 +345,35 @@ function addZhuyuanjilu(){
 		
 		return data_json;
 	}
-	function onZhuyuanjiluSave(){
+	function onZhuyuanjiluSave(callback){
+		function onUpdateZhuyuanjiluRet(rsp){
+			if (rsp.ret != 0){
+				alert("更新数据失败，请稍后再试");
+				return;
+			}
+			if (typeof callback != "undefined"){
+				callback(rsp);
+				return;
+			}
+			alert("更新成功");
+		}
+	
+		function onAddZhuyuanjiluRet(rsp){
+			//console.dir(rsp);
+			if (rsp.ret != 0){
+				alert("添加数据失败，请稍后再试");
+				return;
+			}
+			
+			g_operation_type = 3;
+			m_zyjl_id = rsp.id;
+			g_hospital.setGlobalData("zyjl_id",m_zyjl_id);
+			if (typeof callback != "undefined"){
+				callback(rsp);
+				return;
+			}
+			alert("添加成功");
+		}
 		var data_json = getAllInputDatas();
 		data_json.operation_before_info = $.toJSON(data_json.operation_before_info);
 		data_json.operation_info = $.toJSON(data_json.operation_info);
@@ -356,25 +390,6 @@ function addZhuyuanjilu(){
 		else{
 			ajaxRemoteRequest("hospital/insert-record",data_json,onAddZhuyuanjiluRet);
 		}	
-	}
-	function onUpdateZhuyuanjiluRet(rsp){
-		if (rsp.ret != 0){
-			alert("更新数据失败，请稍后再试");
-			return;
-		}
-		alert("更新成功");
-	}
-
-	function onAddZhuyuanjiluRet(rsp){
-		//console.dir(rsp);
-		if (rsp.ret != 0){
-			alert("添加数据失败，请稍后再试");
-			return;
-		}
-		alert("添加成功");
-		g_operation_type = 3;
-		m_zyjl_id = rsp.id;
-		g_hospital.setGlobalData("zyjl_id",m_zyjl_id);
 	}
 
 	function initInputsByJson(data_json){
