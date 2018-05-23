@@ -13,6 +13,7 @@ function select_modal(){
     }
     this.show_modal = function(control, selected_data_index, callback){
         m_filter_param = "";
+        m_options.modal_container.find("input[tag='input_search']").val("")
         m_callback = callback;
         m_control = control;
         processData(selected_data_index);
