@@ -327,10 +327,7 @@ function hospital(){
 			var bChecked = getCheckboxChecked(this);
 			$("#tab-zyjl-shoushuxinxi textarea[tag='shoushuzhenduan']").get(0).disabled = (bChecked?true:false);
 		})
-		$("#tab-zyjl-shuhouxinxi input[name='shuhoubingfazheng-r']").change(function(){
-			var bChecked = getCheckboxChecked(this);
-			$("#tab-zyjl-shuhouxinxi textarea[tag='shuhoubingfazheng']").get(0).disabled = (bChecked?false:true);
-		})
+		
 		$("#tab-zyjl-chuyuanziliao input[name='chuyuanzhuangtai']").change(function(){
 			var chuyuanziliao_container = $("#tab-zyjl-chuyuanziliao")
 			var state = getRadioValue(chuyuanziliao_container, "chuyuanzhuangtai");
@@ -347,28 +344,6 @@ function hospital(){
 				chuyuanziliao_container.find("[tag='自动出院日期'],[tag='自动出院主要原因']").show();
 			}
 		});
-		$("#tab-zyjl-shoushuxinxi input[name='yanchiguanxiong']").change(function(){
-			var bYanchiguanxiong = getRadioValue($("#tab-zyjl-shoushuxinxi"), "yanchiguanxiong");
-			$("#tab-zyjl-shoushuxinxi [json-name='延迟关胸时间']").get(0).disabled = (bYanchiguanxiong==1?false:true);
-		})
-		$("#tab-zyjl-shuhouxinxi input[name='weishoushuqixueyezhipinshuru']").change(function(){
-			var rValue = getRadioValue($("#tab-zyjl-shuhouxinxi"), "weishoushuqixueyezhipinshuru");
-			if (rValue == 1){
-				$("#tab-zyjl-shuhouxinxi [tag='weishoushuqixueyezhipinshuru']").show();
-			}
-			else{
-				$("#tab-zyjl-shuhouxinxi [tag='weishoushuqixueyezhipinshuru']").hide();
-			}
-		})
-		$("#tab-zyjl-shuhouxinxi input[name='dangtianjinchujianhushinei']").change(function(){
-			var rValue = getRadioValue($("#tab-zyjl-shuhouxinxi"), "dangtianjinchujianhushinei");
-			if (rValue == 1){
-				$("#tab-zyjl-shuhouxinxi [tag='dangtianjinchujianhushinei']").show();
-			}
-			else{
-				$("#tab-zyjl-shuhouxinxi [tag='dangtianjinchujianhushinei']").hide();
-			}
-		})
 
 		//手术信息  延迟关胸
 		$("#tab-zyjl-shoushuxinxi input[name='yanchiguanxiong']").change(function(){
@@ -414,6 +389,45 @@ function hospital(){
 		$("#tab-zyjl-shoushuxinxi input[name='dancenaoguanzhu']").change(function(){
 			var rValue = getRadioValue($("#tab-zyjl-shoushuxinxi"), "dancenaoguanzhu");
 			$("#tab-zyjl-shoushuxinxi [json-name='单侧脑灌注时间']").get(0).disabled = (rValue==1?false:true);
+		})
+
+		//手术信息 延迟关胸
+		$("#tab-zyjl-shoushuxinxi input[name='yanchiguanxiong']").change(function(){
+			var bYanchiguanxiong = getRadioValue($("#tab-zyjl-shoushuxinxi"), "yanchiguanxiong");
+			$("#tab-zyjl-shoushuxinxi [json-name='延迟关胸时间']").get(0).disabled = (bYanchiguanxiong==1?false:true);
+		})
+
+
+		//术后信息 围手术期血液制品输入
+		$("#tab-zyjl-shuhouxinxi input[name='weishoushuqixueyezhipinshuru']").change(function(){
+			var rValue = getRadioValue($("#tab-zyjl-shuhouxinxi"), "weishoushuqixueyezhipinshuru");
+			if (rValue == 1){
+				$("#tab-zyjl-shuhouxinxi [tag='weishoushuqixueyezhipinshuru']").show();
+			}
+			else{
+				$("#tab-zyjl-shuhouxinxi [tag='weishoushuqixueyezhipinshuru']").hide();
+			}
+		})
+
+		//术后信息 当天进出监护室内
+		$("#tab-zyjl-shuhouxinxi input[name='dangtianjinchujianhushinei']").change(function(){
+			var rValue = getRadioValue($("#tab-zyjl-shuhouxinxi"), "dangtianjinchujianhushinei");
+			if (rValue == 1){
+				$("#tab-zyjl-shuhouxinxi [tag='dangtianjinchujianhushinei']").show();
+			}
+			else{
+				$("#tab-zyjl-shuhouxinxi [tag='dangtianjinchujianhushinei']").hide();
+			}
+		})
+		//术后信息 术后并发症
+		$("#tab-zyjl-shuhouxinxi input[name='shuhoubingfazheng-r']").change(function(){
+			var rValue = getRadioValue($("#tab-zyjl-shuhouxinxi"), "shuhoubingfazheng-r");
+			if (rValue == 1){
+				$("#tab-zyjl-shuhouxinxi textarea[tag='shuhoubingfazheng']").show();
+			}
+			else{
+				$("#tab-zyjl-shuhouxinxi textarea[tag='shuhoubingfazheng']").hide();
+			}
 		})
 		
 	}
