@@ -127,17 +127,17 @@ status  1:正常 2:上传  3：删除
 		
 		if(array_key_exists("relate_name",$filter)){
 			$sql=$sql." relate_text like :relate_name  and ";
-			$args[":relate_name"]="%".$filter["relate_name"]."%";
+			$args[":relate_name"]="%\"".$filter["relate_name"]."\"%";
 		}
 		
 		if(array_key_exists("relate_iphone",$filter)){
 			$sql=$sql." relate_text like :relate_iphone  and ";
-			$args[":relate_iphone"]="%".$filter["relate_iphone"]."%";
+			$args[":relate_iphone"]="%\"".$filter["relate_iphone"]."\"%";
 		}
 		
 		if(array_key_exists("name",$filter)){
 			$sql=$sql." name like :name  and ";
-			$args[":name"]="%".$filter["name"]."%";
+			$args[":name"]="%\"".$filter["name"]."\"%";
 		}
 		
 		if(array_key_exists("end_time",$filter)){
