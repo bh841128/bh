@@ -333,7 +333,6 @@ function addZhuyuanjilu(){
 		
 		var raw_json_operation_after_info = g_control_json.parseControlJson($("#tab-zyjl-shuhouxinxi"));
 		var data_json_operation_after_info = arrayToJson(raw_json_operation_after_info);
-		data_json.operation_after_info = $.toJSON(data_json_operation_after_info);
 
 		var raw_json_hospitalization_out_info = g_control_json.parseControlJson($("#tab-zyjl-chuyuanziliao"));
 		data_json.hospitalization_out_info = arrayToJson(raw_json_hospitalization_out_info);
@@ -344,6 +343,7 @@ function addZhuyuanjilu(){
 		var data_json = getAllInputDatas();
 		data_json.operation_before_info = $.toJSON(data_json.operation_before_info);
 		data_json.operation_info = $.toJSON(data_json.operation_info);
+		data_json.operation_after_info = $.toJSON(data_json_operation_after_info);
 		data_json.hospitalization_out_info = $.toJSON(data_json.hospitalization_out_info);
 		////////////////////////////////////////////////
 		////检查参数合法性
@@ -554,7 +554,7 @@ function addZhuyuanjilu(){
 		if (data_inputs["术后住院时间"] == ""){
 			checkValueValid(arr_errmsgs, data_inputs, "术后住院时间",		"不能为空",		"请选择 术后住院时间");
 		}
-		if (data_inputs["当天进出监护室内"] > 0){
+		if (parseInt(data_inputs["当天进出监护室内"]) > 0){
 			checkValueValid(arr_errmsgs, data_inputs, "出监护室日期",		"不能为空",		"请填写 出监护室日期");
 			checkValueValid(arr_errmsgs, data_inputs, "术后监护室停留时间",		"不能为空",		"请填写 术后监护室停留时间");
 			checkValueValid(arr_errmsgs, data_inputs, "累计有创辅助通气时间",		"不能为空",		"请填写 累计有创辅助通气时间");
