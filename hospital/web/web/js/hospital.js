@@ -177,8 +177,9 @@ function hospital(){
 				return;
 			}
 			zyjl_data = ret_info.data;
-			getPatientData(zyjl_data["patient_id"], onGetPatientDataRet);
-			
+			if (1 || come_from != ""){
+				getPatientData(zyjl_data["patient_id"], onGetPatientDataRet);
+			}
 		}
 		function onGetPatientDataRet(ret_info){
 			if (isNeedLogin(ret_info.ret)){
