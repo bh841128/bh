@@ -121,7 +121,7 @@ class Login4Hospital {
 		}catch(\Exception $ex){
 			$ret["ret"]=2;
 			$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
-			CUtil::logFile("===== ".$ret["msg"]);			
+			CUtil::logFile("===== ERR".$ret["msg"]);			
 			return $ret;
 		}
 		
@@ -175,6 +175,9 @@ class Login4Hospital {
 		if($records [0]["username"]==$username&&
 		  $records [0]["password"]== $pass)
 		{
+			
+			
+			
 			$ret["ret"]=0;
 			$ret["username"]=$username;
 			$ret["skey"]=$skey;
