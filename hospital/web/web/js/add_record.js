@@ -542,10 +542,6 @@ function addZhuyuanjilu(){
 			checkValueValid(arr_errmsgs, operation_dinfo, "单侧脑灌注时间",		"不能为空",		"请填写 单侧脑灌注时间");
 		}
 		
-		
-
-		
-		
 		return arr_errmsgs;
 	}
 	
@@ -560,13 +556,13 @@ function addZhuyuanjilu(){
 		var arr_errmsgs = checkValidShuqianxinxi(data_json);
 		if (arr_errmsgs.length > 0){
 			showInputValueInvalid(arr_errmsgs[0]);
-			showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-riqi", "tab-zyjl-shuqianxinxi");
+			showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-shuqianxinxi", "tab-zyjl-shuqianxinxi");
 			return false;
 		}
 		var arr_errmsgs = checkValidShoushuxinxi(data_json);
 		if (arr_errmsgs.length > 0){
 			showInputValueInvalid(arr_errmsgs[0]);
-			showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-riqi", "tab-zyjl-shoushuxinxi");
+			showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-shoushuxinxi", "tab-zyjl-shoushuxinxi");
 			return false;
 		}
 		return true;
