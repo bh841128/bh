@@ -193,7 +193,7 @@ function queryZhuyuanjilu(){
 	this.init = function(){
 		$('#nav-tab-zhuyuanjilu').on('shown.bs.tab', function (e) {
 			m_patient_id = g_hospital.getGlobalData("patient_id");
-			onQueryZhuyuanjilu();
+			onQueryZhuyuanjilu(m_patient_id);
 		});
 		var options = {
 			"show_fields":["序号","入院日期","出院日期","手术日期","上传时间", "状态"],
