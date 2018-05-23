@@ -27,7 +27,7 @@
                 <div class="control-label" style="width:70px;padding-left:5px;">联系人：</div>
             </td>
             <td>
-                <input type="text" class="form-control input-sm" style="width:150px" placeholder="" json-name="联系人" value="">
+                <input type="text" class="form-control input-sm" style="width:150px" placeholder="" json-name="联系人姓名" value="">
             </td>
         </tr>
     </table>
@@ -37,7 +37,7 @@
                 <div class="control-label" style="width:100px;padding-left:5px;">联系电话：</div>
             </td>
             <td>
-                <input type="text" class="form-control input-sm" style="width:120px" placeholder="" json-name="联系电话" value="">
+                <input type="text" class="form-control input-sm" style="width:120px" placeholder="" json-name="联系人电话" value="">
             </td>
             <td>
                 <div class="control-label" style="width:80px;padding-left:5px;">上传时间：</div>
