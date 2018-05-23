@@ -78,13 +78,13 @@ class HospitalController extends Controller
 
     public function actionModpwd()
     {
-        $username = CUtil::getRequestParam('request', 'username', '');
+        $username = CUtil::getRequestParam('cookie', 'username', '');
         $newpassword = CUtil::getRequestParam('request', 'newpassword', '');
         $oldpassword = CUtil::getRequestParam('request', 'oldpassword', '');
         
-        //echo("===$username  $skey    ");
+        CUtil::logFile("".__file__ ." :".__line__."===$username "."  $newpassword $oldpassword   ");
         $ret=Login4Hospital::modpassword($username,$oldpassword,$newpassword);
-        CUtil::logFile("not login====".print_r($ret,true));
+        CUtil::logFile("".__file__ ." :".__line__."===$username  ".print_r($ret,true));
         return json_encode($ret);
     }
 
@@ -121,7 +121,7 @@ class HospitalController extends Controller
 		
 		$ret=Login4Hospital::loginIn($username,$password);
 		
-		CUtil::logFile("not login====".print_r($ret,true));
+		CUtil::logFile("".__file__ ." :".__line__."===$username  "."not login====".print_r($ret,true));
 		
         return json_encode($ret);
     }
@@ -132,18 +132,18 @@ class HospitalController extends Controller
         $username = CUtil::getRequestParam('cookie', 'username', '');
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
         $ret=Login4Hospital::checkLogin($username,$skey);
-        CUtil::logFile("====".print_r($ret,true));
+        CUtil::logFile("".__file__ ." :".__line__."===$username  "."====".print_r($ret,true));
         if($ret["ret"]!=0){
             $ret["ret"]=NOLOGIN;
             $ret["msg"]="not login";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."not login====".print_r($ret,true));
             return json_encode($ret);
         }
         $ret=Login4Hospital::getManager($username);
          if($ret["ret"]!=0){
             $ret["ret"]=NODATA;
             $ret["msg"]="no data";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."getManager ERR====".print_r($ret,true));
             return json_encode($ret);
         }
 		$ret["msg"]["password"]="";
@@ -157,11 +157,11 @@ class HospitalController extends Controller
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
 		//登录
         $ret=Login4Hospital::checkLogin($username,$skey);
-        CUtil::logFile("====".print_r($ret,true));
+        CUtil::logFile("".__file__ ." :".__line__."===$username  "."====".print_r($ret,true));
         if($ret["ret"]!=0){
             $ret["ret"]=NOLOGIN;
             $ret["msg"]="not login";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."not login====".print_r($ret,true));
             return json_encode($ret);
         }
 		
@@ -170,7 +170,7 @@ class HospitalController extends Controller
          if($ret["ret"]!=0){
             $ret["ret"]=NOACCESS;
             $ret["msg"]="no ACCESS";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."getManager ERR====".print_r($ret,true));
             return json_encode($ret);
         }
 		
@@ -179,7 +179,7 @@ class HospitalController extends Controller
         if($ret["ret"]!=0){
             $ret["ret"]=NODATA;
             $ret["msg"]="no data";
-			CUtil::logFile("no data====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."no data====".print_r($ret,true));
             return json_encode($ret);
         }
         return json_encode($ret);
@@ -197,7 +197,7 @@ class HospitalController extends Controller
         if($ret["ret"]!=0){
             $ret["ret"]=NOLOGIN;
             $ret["msg"]="not login";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."not login====".print_r($ret,true));
             return json_encode($ret);
         }
 		//获取管理人员信息
@@ -205,14 +205,14 @@ class HospitalController extends Controller
          if($ret["ret"]!=0){
             $ret["ret"]=NOACCESS;
             $ret["msg"]="no ACCESS";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."ERR getManager====".print_r($ret,true));
             return json_encode($ret);
         }
 		
 		$idarray=explode(",",$ids);
         $ret=Patient4Hospital::setPatientStatusByIds($idarray,$ret["msg"]["hospital_id"],$status,$ret["msg"]["id"]);
         if($ret["ret"]!=0){
-            CUtil::logFile("setPatientStatusByIds err====".print_r($ret,true));
+            CUtil::logFile("".__file__ ." :".__line__."===$username  "."setPatientStatusByIds ERR====".print_r($ret,true));
             return json_encode($ret);
         }
         return json_encode($ret);
@@ -229,7 +229,7 @@ class HospitalController extends Controller
         if($ret["ret"]!=0){
             $ret["ret"]=NOLOGIN;
             $ret["msg"]="not login";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."not login====".print_r($ret,true));
             return json_encode($ret);
         }
 		//获取管理人员信息
@@ -237,7 +237,7 @@ class HospitalController extends Controller
          if($ret["ret"]!=0){
             $ret["ret"]=NOACCESS;
             $ret["msg"]="no ACCESS";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."getManager ERR====".print_r($ret,true));
             return json_encode($ret);
         }
 		
@@ -286,12 +286,12 @@ class HospitalController extends Controller
 		}
 		
 		
-		CUtil::logFile("$page,$hospital_id===$size=".print_r($filter,true));
+		CUtil::logFile("".__file__ ." :".__line__."===$username  "."$page,$hospital_id===$size=".print_r($filter,true));
         $ret=Patient4Hospital::getPatientList($page,$hospital_id,$filter,$size);
         if($ret["ret"]!=0){
             $ret["ret"]=NODATA;
             $ret["msg"]="no data";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."getPatientList ERR====".print_r($ret,true));
             return json_encode($ret);
         }
         $ret["page"]=$page;
@@ -309,7 +309,7 @@ class HospitalController extends Controller
         if($ret["ret"]!=0){
             $ret["ret"]=NOLOGIN;
             $ret["msg"]="not login";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."not login====".print_r($ret,true));
             return json_encode($ret);
         }
 		//获取管理人员信息
@@ -317,14 +317,14 @@ class HospitalController extends Controller
          if($ret["ret"]!=0){
             $ret["ret"]=NOACCESS;
             $ret["msg"]="no ACCESS";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."getManager ERR====".print_r($ret,true));
             return json_encode($ret);
         }
 		//:hospital_id,:medical_id,:name,:nation,:birthday,:province,:city,:distinct,:address,:reason,:isSupply,:relate_text,
 		//:status,:lastmod_manager_id,:sexy,:createtime,:uploadtime,:lastmodtime,:create_manager_id
 		$patientInfo=array();
 		$now=time(0);
-		CUtil::logFile("222222====".print_r($ret,true));
+		CUtil::logFile("".__file__ ." :".__line__."===$username  "."222222====".print_r($ret,true));
 		$patientInfo[":hospital_id"]=intval($ret["msg"]["hospital_id"]);
 		$patientInfo[":create_manager_id"]=intval($ret["msg"]["id"]);
 		$patientInfo[":lastmod_manager_id"]=intval($ret["msg"]["id"]);
@@ -419,15 +419,15 @@ class HospitalController extends Controller
 		if($argErr==true){
 			$ret["ret"]=ARGSERR;
             $ret["msg"]=$arrArgErr;
-			CUtil::logFile("ARGSERR====".print_r($arrArgErr,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."ARGSERR====".print_r($arrArgErr,true));
             return json_encode($ret);
 		}
-		CUtil::logFile("ARGS OK====".print_r($patientInfo,true));
+		CUtil::logFile("".__file__ ." :".__line__."===$username  "."ARGS OK====".print_r($patientInfo,true));
 		$ret=Patient4Hospital::insertPatientInfo($patientInfo);
 		if($ret["ret"]!=0){
             $ret["ret"]=INSERTERR;
             $ret["msg"]=$patientInfo;
-			CUtil::logFile("INSERTERR====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."INSERTERR====".print_r($ret,true));
             return json_encode($ret);
         }
 		return json_encode($ret);
@@ -443,7 +443,7 @@ class HospitalController extends Controller
         if($ret["ret"]!=0){
             $ret["ret"]=NOLOGIN;
             $ret["msg"]="not login";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."not login====".print_r($ret,true));
             return json_encode($ret);
         }
 		//获取管理人员信息
@@ -451,7 +451,7 @@ class HospitalController extends Controller
          if($ret["ret"]!=0){
             $ret["ret"]=NOACCESS;
             $ret["msg"]="no ACCESS";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."getManager ERR====".print_r($ret,true));
             return json_encode($ret);
         }
 		
@@ -460,7 +460,7 @@ class HospitalController extends Controller
 		
 		$result=Patient4Hospital::getPatientById($id,$ret["msg"]["hospital_id"]);
 		if($result["ret"]!=0){
-			CUtil::logFile("NODATA====".print_r($result,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."NODATA====".print_r($result,true));
             $result["ret"]=NODATA;
             $result["msg"]="NODATA";
             return json_encode($result);
@@ -551,15 +551,15 @@ class HospitalController extends Controller
 		if($argErr==true){
 			$ret["ret"]=ARGSERR;
             $ret["msg"]=$arrArgErr;
-			CUtil::logFile("ARGSERR====".print_r($arrArgErr,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."ARGSERR====".print_r($arrArgErr,true));
             return json_encode($ret);
 		}
-		CUtil::logFile("ARGS OK====".print_r($patientInfo,true));
+		CUtil::logFile("".__file__ ." :".__line__."===$username  "."ARGS OK====".print_r($patientInfo,true));
 		$ret=Patient4Hospital::updatePatientInfo($id,$patientInfo,$ret["msg"]["hospital_id"]);
 		if($ret["ret"]!=0){
             $ret["ret"]=UPDATEERR;
             $ret["msg"]=$patientInfo;
-			CUtil::logFile("UPDATEERR====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."UPDATEERR====".print_r($ret,true));
             return json_encode($ret);
         }
 		$name=trim(CUtil::getRequestParam('request', 'name', ""));
@@ -578,11 +578,11 @@ class HospitalController extends Controller
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
 		//登录
         $ret=Login4Hospital::checkLogin($username,$skey);
-        CUtil::logFile("====".print_r($ret,true));
+        CUtil::logFile("".__file__ ." :".__line__."===$username  "."====".print_r($ret,true));
         if($ret["ret"]!=0){
             $ret["ret"]=NOLOGIN;
             $ret["msg"]="not login";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."not login====".print_r($ret,true));
             return json_encode($ret);
         }
 		
@@ -591,7 +591,7 @@ class HospitalController extends Controller
          if($ret["ret"]!=0){
             $ret["ret"]=NOACCESS;
             $ret["msg"]="no ACCESS";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."getManager ERR====".print_r($ret,true));
             return json_encode($ret);
         }
 		
@@ -600,7 +600,7 @@ class HospitalController extends Controller
         if($ret["ret"]!=0){
             $ret["ret"]=NODATA;
             $ret["msg"]="no data";
-			CUtil::logFile("no data====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."no data====".print_r($ret,true));
             return json_encode($ret);
         }
         return json_encode($ret);
@@ -619,7 +619,7 @@ class HospitalController extends Controller
         if($ret["ret"]!=0){
             $ret["ret"]=NOLOGIN;
             $ret["msg"]="not login";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."not login====".print_r($ret,true));
             return json_encode($ret);
         }
 		//获取管理人员信息
@@ -627,7 +627,7 @@ class HospitalController extends Controller
          if($ret["ret"]!=0){
             $ret["ret"]=NOACCESS;
             $ret["msg"]="no ACCESS";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."getManager ERR====".print_r($ret,true));
             return json_encode($ret);
         }
 		//operation_before_info,operation_info,operation_after_info,hospitalization_out_info
@@ -667,7 +667,7 @@ class HospitalController extends Controller
 		}
         $ret=HospitalizedRecord::setRecordText($id,$arrText,$ret["msg"]["hospital_id"]);
         if($ret["ret"]!=0){
-            CUtil::logFile("setRecordText err====".print_r($ret,true));
+            CUtil::logFile("".__file__ ." :".__line__."===$username  "."setRecordText ERR====".print_r($ret,true));
             return json_encode($ret);
         }
         return json_encode($ret);
@@ -684,7 +684,7 @@ class HospitalController extends Controller
         if($ret["ret"]!=0){
             $ret["ret"]=NOLOGIN;
             $ret["msg"]="not login";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."not login====".print_r($ret,true));
             return json_encode($ret);
         }
 		//获取管理人员信息
@@ -692,7 +692,7 @@ class HospitalController extends Controller
          if($ret["ret"]!=0){
             $ret["ret"]=NOACCESS;
             $ret["msg"]="no ACCESS";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."getManager ERR====".print_r($ret,true));
             return json_encode($ret);
         }
 		
@@ -730,12 +730,12 @@ class HospitalController extends Controller
 			$filter["status"]=CUtil::getRequestParam('request', 'status', 0);
 		}
 		
-		CUtil::logFile("$page,$hospital_id===$size=".print_r($filter,true));
+		CUtil::logFile("".__file__ ." :".__line__."===$username  "."$page,$hospital_id===$size=".print_r($filter,true));
         $ret=HospitalizedRecord::getRecordList($page,$hospital_id,$filter,$size);
         if($ret["ret"]!=0){
             $ret["ret"]=NODATA;
             $ret["msg"]="no data";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."getRecordList ERR====".print_r($ret,true));
             return json_encode($ret);
         }
         $ret["page"]=$page;
@@ -754,7 +754,7 @@ class HospitalController extends Controller
         if($ret["ret"]!=0){
             $ret["ret"]=NOLOGIN;
             $ret["msg"]="not login";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."not login====".print_r($ret,true));
             return json_encode($ret);
         }
 		//获取管理人员信息
@@ -762,7 +762,7 @@ class HospitalController extends Controller
          if($ret["ret"]!=0){
             $ret["ret"]=NOACCESS;
             $ret["msg"]="no ACCESS";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."getManager ERR====".print_r($ret,true));
             return json_encode($ret);
         }
 		
@@ -775,7 +775,7 @@ class HospitalController extends Controller
 		else{
 			$ret["ret"]=ARGSERR;
             $ret["msg"]="no patient_id";
-			CUtil::logFile("ARGSERR no patient_id====".print_r($record,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."ARGSERR no patient_id====".print_r($record,true));
             return json_encode($ret);
 		}
 		
@@ -783,12 +783,12 @@ class HospitalController extends Controller
         if($result["ret"]!=0){
             $ret["ret"]=PATINTIDERR;
             $ret["msg"]=$result;
-			CUtil::logFile("getPatientById PATINTIDERR !!====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."getPatientById PATINTIDERR !!====".print_r($ret,true));
             return json_encode($ret);
         }
-		CUtil::logFile("ARGSERR no patient_id====".print_r($result,true));
+		CUtil::logFile("".__file__ ." :".__line__."===$username  "."ARGSERR no patient_id====".print_r($result,true));
 		$now=time(0);
-		CUtil::logFile("222222====".print_r($ret,true));
+		CUtil::logFile("".__file__ ." :".__line__."===$username  "."222222====".print_r($ret,true));
 		$record[":hospital_id"]=intval($ret["msg"]["hospital_id"]);
 		$record[":patient_id"]=intval($result["msg"]["id"]);
 		$record[":patient_name"]=$result["msg"]["name"];
@@ -817,17 +817,17 @@ class HospitalController extends Controller
 		if($argErr==true){
 			$ret["ret"]=ARGSERR;
             $ret["msg"]=$record;
-			CUtil::logFile("ARGSERR====".print_r($record,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."ARGSERR====".print_r($record,true));
             return json_encode($ret);
 		}
 		
 		
-		CUtil::logFile("ARGS OK====".print_r($record,true));
+		CUtil::logFile("".__file__ ." :".__line__."===$username  "."ARGS OK====".print_r($record,true));
 		$ret=HospitalizedRecord::insertRecordInfo($record);
 		if($ret["ret"]!=0){
             $ret["ret"]=INSERTERR;
             $ret["msg"]=$record;
-			CUtil::logFile("INSERTERR====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."INSERTERR====".print_r($ret,true));
             return json_encode($ret);
         }
 		return json_encode($ret);
@@ -843,7 +843,7 @@ class HospitalController extends Controller
         if($ret["ret"]!=0){
             $ret["ret"]=NOLOGIN;
             $ret["msg"]="not login";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."not login====".print_r($ret,true));
             return json_encode($ret);
         }
 		//获取管理人员信息
@@ -851,7 +851,7 @@ class HospitalController extends Controller
          if($ret["ret"]!=0){
             $ret["ret"]=NOACCESS;
             $ret["msg"]="no ACCESS";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."getManager ERR====".print_r($ret,true));
             return json_encode($ret);
         }
 		$argErr=false;
@@ -864,15 +864,15 @@ class HospitalController extends Controller
 		if($argErr==true){
 			$ret["ret"]=ARGSERR;
             $ret["msg"]="ARGSERR";
-			CUtil::logFile("ARGSERR====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."ARGSERR====".print_r($ret,true));
             return json_encode($ret);
 		}
-		CUtil::logFile("ARGS OK====".print_r($ret,true));
+		CUtil::logFile("".__file__ ." :".__line__."===$username  "."ARGS OK====".print_r($ret,true));
 		$ret=HospitalizedRecord::getRecordsTable($year);
 		if($ret["ret"]!=0){
             $ret["ret"]=INSERTERR;
             $ret["msg"]=$year;
-			CUtil::logFile("RecordsTable====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."RecordsTable ERR====".print_r($ret,true));
             return json_encode($ret);
         }
 		return json_encode($ret);
@@ -887,7 +887,7 @@ class HospitalController extends Controller
         if($ret["ret"]!=0){
             $ret["ret"]=NOLOGIN;
             $ret["msg"]="not login";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."not login====".print_r($ret,true));
             return json_encode($ret);
         }
 		//获取管理人员信息
@@ -895,7 +895,7 @@ class HospitalController extends Controller
          if($ret["ret"]!=0){
             $ret["ret"]=NOACCESS;
             $ret["msg"]="no ACCESS";
-			CUtil::logFile("not login==$username==".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."getManager ERR==$username==".print_r($ret,true));
             return json_encode($ret);
         }
 		$hospital_id=intval($ret["msg"]["hospital_id"]);
@@ -920,7 +920,7 @@ class HospitalController extends Controller
 		if($argErr==true){
 			$ret["ret"]=ARGSERR;
             $ret["msg"]="$ids $status";
-			CUtil::logFile("ARGSERR==$username==$ids $status");
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."ARGSERR==$username==$ids $status");
             return json_encode($ret);
 		}
 		
@@ -929,7 +929,7 @@ class HospitalController extends Controller
         if($record["ret"]!=0){
             $ret["ret"]=NODATA;
             $ret["msg"]="no data";
-			CUtil::logFile("no data=$username===".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."no data====".print_r($ret,true));
             return json_encode($ret);
         }
 		
@@ -946,14 +946,14 @@ class HospitalController extends Controller
 				
 				$ret["ret"]=RECORDERR;
 				$ret["msg"]="RECORDERR";
-				CUtil::logFile("no data=$username===".print_r($record,true));
+				CUtil::logFile("".__file__ ." :".__line__."===$username  "."RECORDERR====".print_r($record,true));
 				return json_encode($ret);
 			}
 		}
 		else{
 			$ret["ret"]=RECORDERR;
             $ret["msg"]="RECORDERR";
-			CUtil::logFile("no data=$username===".print_r($record,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."RECORDERR ===".print_r($record,true));
             return json_encode($ret);
 		}
 		
@@ -965,7 +965,7 @@ class HospitalController extends Controller
 		if($ret["ret"]!=0){
             $ret["ret"]=INSERTERR;
             
-			CUtil::logFile("RecordsTable====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."RecordsTable ERR====".print_r($ret,true));
             return json_encode($ret);
         }
 		return json_encode($ret);
@@ -982,11 +982,11 @@ class HospitalController extends Controller
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
 		//登录
         $ret=Login4Hospital::checkLogin($username,$skey);
-        CUtil::logFile("====".print_r($ret,true));
+       
         if($ret["ret"]!=0){
             $ret["ret"]=NOLOGIN;
             $ret["msg"]="not login";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."not login====".print_r($ret,true));
             return json_encode($ret);
         }
 		
@@ -995,7 +995,7 @@ class HospitalController extends Controller
          if($ret["ret"]!=0){
             $ret["ret"]=NOACCESS;
             $ret["msg"]="no ACCESS";
-			CUtil::logFile("not login====".print_r($ret,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."getManager ERR====".print_r($ret,true));
             return json_encode($ret);
         }
 		
@@ -1027,12 +1027,12 @@ class HospitalController extends Controller
 		
 		$filter["status"]=2;
 		
-		CUtil::logFile("$hospital_id===".print_r($filter,true));
+		CUtil::logFile("".__file__ ." :".__line__."===$username  "."$hospital_id===".print_r($filter,true));
         $records=HospitalizedRecord::getRecordList(0,$hospital_id,$filter,0);
         if($ret["ret"]!=0){
             $ret["ret"]=NODATA;
             $ret["msg"]=$records;
-			CUtil::logFile("not login====".print_r($records,true));
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."getRecordList ERR====".print_r($records,true));
             return json_encode($ret);
         }
 		//return json_encode($records);
@@ -1056,7 +1056,7 @@ class HospitalController extends Controller
            
 		}
        
-         CUtil::logFile(print_r($arrPatients,true));
+         CUtil::logFile("".__file__ ." :".__line__."===$username  ".print_r($arrPatients,true));
 
 /*
 arrPatients
@@ -1317,7 +1317,7 @@ arrPatients
 		
         $filename = '病例记录';  
       
-       CUtil::logFile(print_r($header,true));
+       CUtil::logFile("".__file__ ." :".__line__."===$username  ".print_r($header,true));
         $table=array();
         foreach ($records["msg"] as $key=>$value){   
             $ele=array();
@@ -1363,7 +1363,7 @@ arrPatients
 			
 			$table[]=$ele;
         }
-        CUtil::logFile("records::::::".print_r($table,true));
+        CUtil::logFile("".__file__ ." :".__line__."===$username  "."records::::::".print_r($table,true));
         $data=CUtil::createtable($table,$filename,$header); 
          exit($data);
 
