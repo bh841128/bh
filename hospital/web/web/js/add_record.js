@@ -473,7 +473,7 @@ function addZhuyuanjilu(){
 			checkValueValid(arr_errmsgs, operation_before_info, "术前血氧饱和度-不能提供-原因",		"不能为空",		"请填写 术前血氧饱和度不能提供原因");
 		}
 		else{
-			checkValueValid(arr_errmsgs, operation_before_info, "术前血氧饱和度-不能提供-原因",		"不能为空",		"请填写 术前血氧饱和度不能提供原因");
+			checkValueValid(arr_errmsgs, operation_before_info, "术前血氧饱和度",		"不能为空",		"请填写 术前血氧饱和度");
 			checkValueValid(arr_errmsgs, operation_before_info, "术前血氧饱和度-右上肢",		"不能为空",		"请填写 术前血氧饱和度-右上肢");
 			checkValueValid(arr_errmsgs, operation_before_info, "术前血氧饱和度-左上肢",		"不能为空",		"请填写 术前血氧饱和度-左上肢");
 			checkValueValid(arr_errmsgs, operation_before_info, "术前血氧饱和度-右下肢",		"不能为空",		"请填写 术前血氧饱和度-右下肢");
@@ -483,7 +483,7 @@ function addZhuyuanjilu(){
 			checkValueValid(arr_errmsgs, operation_before_info, "术后血氧饱和度-不能提供-原因",		"不能为空",		"请填写 术后血氧饱和度不能提供原因");
 		}
 		else{
-			checkValueValid(arr_errmsgs, operation_before_info, "术后血氧饱和度-不能提供-原因",		"不能为空",		"请填写 术后血氧饱和度不能提供原因");
+			checkValueValid(arr_errmsgs, operation_before_info, "术后血氧饱和度",		"不能为空",		"请填写 术后血氧饱和度");
 			checkValueValid(arr_errmsgs, operation_before_info, "术后血氧饱和度-右上肢",		"不能为空",		"请填写 术后血氧饱和度-右上肢");
 			checkValueValid(arr_errmsgs, operation_before_info, "术后血氧饱和度-左上肢",		"不能为空",		"请填写 术后血氧饱和度-左上肢");
 			checkValueValid(arr_errmsgs, operation_before_info, "术后血氧饱和度-右下肢",		"不能为空",		"请填写 术后血氧饱和度-右下肢");
