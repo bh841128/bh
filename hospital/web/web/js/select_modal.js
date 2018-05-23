@@ -10,6 +10,10 @@ function select_modal(){
         m_options = options;
         m_records = m_options.data_source;
         createDataIndex();
+        m_options.modal_container.find("button[tag='button_search']").each(function(){
+            m_filter_param = m_options.modal_container.find("input[tag='input_search']").val();
+            fillTable();
+        });
     }
     this.show_modal = function(control, selected_data_index, callback){
         m_filter_param = "";
@@ -26,10 +30,7 @@ function select_modal(){
                 m_options.modal_container.modal("hide");
             }
         })
-        m_options.modal_container.find("button[tag='button_search']").each(function(){
-            m_filter_param = m_options.modal_container.find("input[tag='input_search']").val();
-            fillTable();
-        });
+        
         m_options.modal_container.find(".modal-title").html(m_options.title);
         m_options.modal_container.modal({backdrop:false});
     }
