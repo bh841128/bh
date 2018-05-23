@@ -7,7 +7,7 @@ use app\models\CError;
 use app\models\CUtil;
 use app\models\Hospital;
 
-
+define("TIMEOUT", 172800);
 class Login4Hospital {
 	
 	 static public function getPass4S($username,$password)
@@ -110,7 +110,7 @@ class Login4Hospital {
 		   "msg"=>""
 		);
 		$now=time(0);
-		$sql = "select * from session where username=:username  and skey=:skey and time+172800>:now";
+		$sql = "select * from session where username=:username  and skey=:skey and time+".TIMEOUT.">:now";
 		$args=array(':username'=>$username,':skey'=>$skey,":now"=>$now);
 		CUtil::logFile("$username  $skey   $now   $sql");
 		
@@ -175,8 +175,27 @@ class Login4Hospital {
 		if($records [0]["username"]==$username&&
 		  $records [0]["password"]== $pass)
 		{
+			$now=time(0);
+			$sql = "select * from session where username=:username and time+".TIMEOUT.">:now";
+			$args=array(':username'=>$username,":now"=>$now);
+			CUtil::logFile("$username     $now   $sql");
 			
-			
+			try{
+			$connection = Yii::$app->db;
+			$command = $connection->createCommand($sql,$args);
+			$record = $command->queryOne();
+			}catch(\Exception $ex){
+				$ret["ret"]=2;
+				$ret["msg"]=$ex->getCode()."  ".$ex->getMessage();;		
+				CUtil::logFile("===== ERR".$ret["msg"]);			
+				return $ret;
+			}
+			if(!empty($record)){//有就不创建新的skey
+				$ret["ret"]=0;
+				$ret["username"]=$username;	
+				$ret["skey"]=$record["skey"];				
+				return $ret;
+			}
 			
 			$ret["ret"]=0;
 			$ret["username"]=$username;
@@ -197,8 +216,8 @@ class Login4Hospital {
 			if($count==0){
 				CUtil::logFile("insert session err!! $sql  ".print_r($args,true));
 			}
-			CUtil::setCookie("username",$username);
-			CUtil::setCookie("skey",$skey);
+			CUtil::setCookie("username",$username,TIMEOUT);
+			CUtil::setCookie("skey",$skey,TIMEOUT);
 		}
 		else {
 			$ret["ret"]=2;
