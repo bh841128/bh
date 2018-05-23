@@ -806,13 +806,15 @@ class HospitalController extends Controller
 		if(CUtil::getRequestParam('request', 'operation_time', 0)!=0){
 			$record["operation_time"]=CUtil::getRequestParam('request', 'operation_time', 0);
 		}else{
-			$argErr=true;
+			$record["operation_time"]=0;
+			//$argErr=true;
 		}
 		
 		if(CUtil::getRequestParam('request', 'hospitalization_out_time', 0)!=0){
 			$record["hospitalization_out_time"]=CUtil::getRequestParam('request', 'hospitalization_out_time', 0);
 		}else{
-			$argErr=true;
+			$record["hospitalization_out_time"]=0;
+			//$argErr=true;
 		}
 		if($argErr==true){
 			$ret["ret"]=ARGSERR;
