@@ -509,6 +509,11 @@ function addZhuyuanjilu(){
 		
 		return arr_errmsgs;
 	}
+	function checkValidShoushuxinxi(data_json){
+		var arr_errmsgs = [];
+		var operation_before_info = data_json.operation_before_info;
+		return arr_errmsgs;
+	}
 	
 	function checkValidZhuyuanjilu(){
 		var data_json = getAllInputDatas();
@@ -522,6 +527,12 @@ function addZhuyuanjilu(){
 		if (arr_errmsgs.length > 0){
 			showInputValueInvalid(arr_errmsgs[0]);
 			showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-riqi", "tab-zyjl-shuqianxinxi");
+			return false;
+		}
+		var arr_errmsgs = checkValidShoushuxinxi(data_json);
+		if (arr_errmsgs.length > 0){
+			showInputValueInvalid(arr_errmsgs[0]);
+			showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-riqi", "tab-zyjl-shoushuxinxi");
 			return false;
 		}
 		return true;
