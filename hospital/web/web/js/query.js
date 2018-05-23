@@ -465,7 +465,7 @@ function zhuyuanjilu_query(){
     }
     var map_query_param = [
     ]
-    this.m_query_data_api = "hospital/get-record-list";
+    this.m_query_data_api = "hospital/get-record";
     this.preProcessData = function(rawDatas) {
     }
     this.transData = function(table_datas) {
