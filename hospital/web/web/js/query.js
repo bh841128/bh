@@ -522,7 +522,6 @@ function zhuyuanjilu_query(){
         m_patient_query.onOperationClick = m_this.onOperationClick;
     }
     this.queryData = function (query_param){
-        query_param.patient_id = m_options.patient_id;
         query_param.size = m_options.page_size;
         m_query_param = query_param;
         return m_patient_query.queryData(query_param);
