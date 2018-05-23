@@ -263,8 +263,7 @@ class HospitalController extends Controller
 		if(CUtil::getRequestParam('request', 'relate_name', "")!=""){
 			$filter["relate_name"]=CUtil::getRequestParam('request', 'relate_name', "");
 		}
-		if(CUtil::getRequestParam('request', 'relate_iphone', "")!=""&&
-		    CUtil::checkMobile(CUtil::getRequestParam('request', 'relate_iphone', ""))){
+		if(CUtil::getRequestParam('request', 'relate_iphone', "")!=""){
 			$filter["relate_iphone"]=CUtil::getRequestParam('request', 'relate_iphone', "");
 		}
 		
