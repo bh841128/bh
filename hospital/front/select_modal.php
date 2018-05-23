@@ -2,8 +2,12 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="width:700px;">
             <div class="modal-header" style="padding-top:5px;padding-bottom:5px">
-                    <table><tr><td><input type="text" class="form-control input-sm" style="width:400px" >&nbsp;&nbsp;</td>
-                    <td><button type="button" class="btn btn-primary" style="height:30px;margin:0px;" type="button_search">搜索</button></td></tr></table>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="搜索" aria-label="搜索" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" tag="button_search">搜索</button>
+                    </div>
+                </div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="right:5px;width:30px">
                     <span aria-hidden="true">&times;</span>
                 </button>
