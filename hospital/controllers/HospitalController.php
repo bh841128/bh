@@ -706,6 +706,10 @@ class HospitalController extends Controller
 		if(CUtil::getRequestParam('request', 'patient_name', "")!=""){
 			$filter["patient_name"]=CUtil::getRequestParam('request', 'patient_name', "");
 		}
+		if(CUtil::getRequestParam('request', 'patient_id', "")!=0){
+			$filter["patient_id"]=CUtil::getRequestParam('request', 'patient_id', 0);
+		}
+		
 		if(CUtil::getRequestParam('request', 'medical_id', "")!=""){
 			$filter["medical_id"]=CUtil::getRequestParam('request', 'medical_id', "");
 		}
