@@ -3,7 +3,7 @@
         <div class="modal-content" style="width:700px;">
             <div class="modal-header" style="padding-top:5px;padding-bottom:5px">
             <form>
-                <div class="input-group mb-3" style="width:>
+                <div class="input-group mb-3" style="width:600px">
                     <input type="text" class="form-control" placeholder="搜索" aria-label="搜索" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="button" tag="button_search">搜索</button>
