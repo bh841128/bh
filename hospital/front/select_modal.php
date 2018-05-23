@@ -6,7 +6,7 @@
                 <div class="input-group mb-3" style="width:600px">
                     <input type="text" class="form-control" style="width:535px;" placeholder="搜索" aria-label="搜索" aria-describedby="basic-addon2">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" tag="button_search" style="width:60px;height:35px" >搜索</button>
+                        <button class="btn btn-outline-primary" type="button" tag="button_search" style="width:60px;height:35px" >搜索</button>
                     </div>
                 </div>
                 </form>
