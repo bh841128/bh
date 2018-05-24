@@ -196,117 +196,119 @@
                 </td>
             </tr>
         </table>
-        <table class="control-table padding-20" tag="tiwaixunhuan">
-            <tr>
-                <td>
-                    <div class="control-label" style="width:124px">是否计划：</div>
-                </td>
-                <td>
-                    <lable class="radio-inline">
-                        <input type="radio" name="shifoujihua" value="1" checked json-name="是否计划">是-术前计划</lable>
-                    <lable class="radio-inline">
-                        <input type="radio" name="shifoujihua" value="0" json-name="是否计划">否-术中由非体外转为体外</lable>
-                </td>
-            </tr>
-        </table>
-        <table class="control-table padding-20">
-            <tr>
-                <td>
-                    <div class="control-label" style="width:124px">停搏液：</div>
-                </td>
-                <td>
-                    <lable class="radio-inline">
-                        <input type="radio" name="tingboye" value="1" checked json-name="停搏液">是</lable>
-                    <lable class="radio-inline">
-                        <input type="radio" name="tingboye" value="0" json-name="停搏液">否</lable>
-                </td>
-            </tr>
-        </table>
-        <table class="control-table padding-20" tag="tingboye">
-            <tr>
-                <td>
-                    <div class="control-label" style="width:124px">停搏液类型：</div>
-                </td>
-                <td>
-                    <lable class="radio-inline">
-                        <input type="radio" name="tingboyeleixing" value="1" checked json-name="停搏液类型">含血</lable>
-                    <lable class="radio-inline">
-                        <input type="radio" name="tingboyeleixing" value="0" json-name="停搏液类型">晶体</lable>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="control-label" style="width:124px">停搏液温度：</div>
-                </td>
-                <td>
-                    <lable class="radio-inline">
-                        <input type="radio" name="tingboyewendu" value="1" checked json-name="停搏液温度">温</lable>
-                    <lable class="radio-inline">
-                        <input type="radio" name="tingboyewendu" value="0" json-name="停搏液温度">冷</lable>
-                </td>
-            </tr>
-        </table>
-        <table class="control-table padding-20">
-            <tr>
-                <td>
-                    <div class="control-label" style="width:124px">体外循环时间：</div>
-                </td>
-                <td>
-                    <input type="text" class="form-control input-sm" style="width:100px" placeholder="体外循环时间" json-name="体外循环时间">
-                </td>
-                <td>
-                    <span>（分钟）</span>
-                </td>
-            </tr>
-        </table>
-        <table class="control-table padding-20">
-            <tr>
-                <td>
-                    <div class="control-label" style="width:150px">主动脉阻断时间：</div>
-                </td>
-                <td>
-                    <input type="text" class="form-control input-sm" style="width:120px" placeholder="主动脉阻断时间" json-name="主动脉阻断时间">
-                </td>
-                <td>
-                    <span>（分钟）</span>
-                </td>
-                <td style="padding-left:35px">
-                    <div class="checkbox">
-                        <lable>
-                            <input type="checkbox" tag="address-nodetail-checkbox" json-name="主动脉阻断时间-不能提供">不能提供</lable>
-                    </div>
-                </td>
-                <td style="padding-left:15px">
-                    <input type="text" class="form-control input-sm" style="width:400px" placeholder="输入原因" init_disabled="1" disabled json-name="主动脉阻断时间-不能提供-原因">
-                </td>
-            </tr>
-        </table>
-        <table class="control-table padding-20">
-            <tr>
-                <td>
-                    <div class="control-label" style="width:200px">是否二次或多次体外循环：</div>
-                </td>
-                <td>
-                    <lable class="radio-inline">
-                        <input type="radio" name="ercihuoduocitiwaixunhuan" value="1" checked json-name="是否二次或多次体外循环">是</lable>
-                    <lable class="radio-inline">
-                        <input type="radio" name="ercihuoduocitiwaixunhuan" value="2" json-name="是否二次或多次体外循环">否</lable>
-                </td>
-                <td>
-                    <div class="control-label" style="width:80px">原因：</div>
-                </td>
-                <td>
-                    <div class="input-group">
-                        <select class="form-control input-sm" style="width:300px" json-name="是否二次或多次体外循环-原因">
-                            <option value=""></option>
-                            <option value="残余畸形">残余畸形</option>
-                            <option value="增加循环辅助时间">增加循环辅助时间</option>
-                            <option value="出血">出血</option>
-                        </select>
-                    </div>
-                </td>
-            </tr>
-        </table>
+        <div tag="tiwaixunhuan">
+            <table class="control-table padding-20">
+                <tr>
+                    <td>
+                        <div class="control-label" style="width:124px">是否计划：</div>
+                    </td>
+                    <td>
+                        <lable class="radio-inline">
+                            <input type="radio" name="shifoujihua" value="1" checked json-name="是否计划">是-术前计划</lable>
+                        <lable class="radio-inline">
+                            <input type="radio" name="shifoujihua" value="0" json-name="是否计划">否-术中由非体外转为体外</lable>
+                    </td>
+                </tr>
+            </table>
+            <table class="control-table padding-20">
+                <tr>
+                    <td>
+                        <div class="control-label" style="width:124px">停搏液：</div>
+                    </td>
+                    <td>
+                        <lable class="radio-inline">
+                            <input type="radio" name="tingboye" value="1" checked json-name="停搏液">是</lable>
+                        <lable class="radio-inline">
+                            <input type="radio" name="tingboye" value="0" json-name="停搏液">否</lable>
+                    </td>
+                </tr>
+            </table>
+            <table class="control-table padding-20" tag="tingboye">
+                <tr>
+                    <td>
+                        <div class="control-label" style="width:124px">停搏液类型：</div>
+                    </td>
+                    <td>
+                        <lable class="radio-inline">
+                            <input type="radio" name="tingboyeleixing" value="1" checked json-name="停搏液类型">含血</lable>
+                        <lable class="radio-inline">
+                            <input type="radio" name="tingboyeleixing" value="0" json-name="停搏液类型">晶体</lable>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="control-label" style="width:124px">停搏液温度：</div>
+                    </td>
+                    <td>
+                        <lable class="radio-inline">
+                            <input type="radio" name="tingboyewendu" value="1" checked json-name="停搏液温度">温</lable>
+                        <lable class="radio-inline">
+                            <input type="radio" name="tingboyewendu" value="0" json-name="停搏液温度">冷</lable>
+                    </td>
+                </tr>
+            </table>
+            <table class="control-table padding-20">
+                <tr>
+                    <td>
+                        <div class="control-label" style="width:124px">体外循环时间：</div>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control input-sm" style="width:100px" placeholder="体外循环时间" json-name="体外循环时间">
+                    </td>
+                    <td>
+                        <span>（分钟）</span>
+                    </td>
+                </tr>
+            </table>
+            <table class="control-table padding-20">
+                <tr>
+                    <td>
+                        <div class="control-label" style="width:150px">主动脉阻断时间：</div>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control input-sm" style="width:120px" placeholder="主动脉阻断时间" json-name="主动脉阻断时间">
+                    </td>
+                    <td>
+                        <span>（分钟）</span>
+                    </td>
+                    <td style="padding-left:35px">
+                        <div class="checkbox">
+                            <lable>
+                                <input type="checkbox" tag="address-nodetail-checkbox" json-name="主动脉阻断时间-不能提供">不能提供</lable>
+                        </div>
+                    </td>
+                    <td style="padding-left:15px">
+                        <input type="text" class="form-control input-sm" style="width:400px" placeholder="输入原因" init_disabled="1" disabled json-name="主动脉阻断时间-不能提供-原因">
+                    </td>
+                </tr>
+            </table>
+            <table class="control-table padding-20">
+                <tr>
+                    <td>
+                        <div class="control-label" style="width:200px">是否二次或多次体外循环：</div>
+                    </td>
+                    <td>
+                        <lable class="radio-inline">
+                            <input type="radio" name="ercihuoduocitiwaixunhuan" value="1" checked json-name="是否二次或多次体外循环">是</lable>
+                        <lable class="radio-inline">
+                            <input type="radio" name="ercihuoduocitiwaixunhuan" value="2" json-name="是否二次或多次体外循环">否</lable>
+                    </td>
+                    <td>
+                        <div class="control-label" style="width:80px">原因：</div>
+                    </td>
+                    <td>
+                        <div class="input-group">
+                            <select class="form-control input-sm" style="width:300px" json-name="是否二次或多次体外循环-原因">
+                                <option value=""></option>
+                                <option value="残余畸形">残余畸形</option>
+                                <option value="增加循环辅助时间">增加循环辅助时间</option>
+                                <option value="出血">出血</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
         <table class="control-table padding-20">
             <tr>
                 <td>
