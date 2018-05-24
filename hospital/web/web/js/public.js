@@ -735,3 +735,13 @@ function setAllControlDisabled(container, bDisabled){
 		this.disabled = bDisabled;
 	});
 }
+/////////////////////////////////////////////////////////////////
+function showModalConfirm(title, msg, callback){
+	$("#id_login_pop_frame [tag='title']").html(title);
+	$("#id_login_pop_frame [tag='msg']").html(msg);
+	$("#id_login_pop_frame [tag='button_ok']").get(0).onclick = function(){
+		callback('ok');
+		$("#id_login_pop_frame").modal("hide");
+	}
+	$("#id_login_pop_frame").modal();
+}

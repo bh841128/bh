@@ -53,7 +53,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="width:335px;">
             <div class="modal-header">
-                    <h5 class="modal-title" style="text-align:center">登录</h5>
+                <h5 class="modal-title" style="text-align:center">登录</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="right:5px;width:30px">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -88,4 +88,24 @@
             </div>
         </div>
     </div>
+</div>
+
+<div id="confirm_modal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" tag="title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p tag="msg"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" tag="button_ok" class="btn btn-primary">确定</button>
+        <button type="button" tag="button_cancel" class="btn btn-secondary" data-dismiss="modal">取消</button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -138,15 +138,15 @@ function hospital(){
 			//////////////////
 			m_this.setGlobalData("current_page", page_name);
 			if (isCurrentPageEdit()){
-
+				init_leave_page("确认离开吗？请确认信息已经保存");
 			}
 			else{
-				
+				init_leave_page(null);
 			}
 		}
 		
 		if (isCurrentPageEdit()){
-
+			showModalConfirm("确认离开吗","确认离开吗？请确认信息已经保存",gotoPageOther);
 		}
 	}
 	//////////////////////////////////////////////全局数据管理
