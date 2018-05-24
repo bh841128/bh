@@ -930,11 +930,11 @@ function addZhuyuanjilu(){
 		}
 
 		if (data_inputs["围手术期血液制品输入（累计）"] > 0){
-			checkValueValid(arr_errmsgs, data_inputs, "红细胞",		"不能为空",		"请填写 围手术期血液制品输入 红细胞");
-			checkValueValid(arr_errmsgs, data_inputs, "新鲜冰冻血浆",		"不能为空",		"请填写 围手术期血液制品输入 新鲜冰冻血浆");
-			checkValueValid(arr_errmsgs, data_inputs, "血浆冷沉淀",		"不能为空",		"请填写 围手术期血液制品输入 血浆冷沉淀");
-			checkValueValid(arr_errmsgs, data_inputs, "血小板",		"不能为空",		"请填写 围手术期血液制品输入 血小板");
-			checkValueValid(arr_errmsgs, data_inputs, "自体血",		"不能为空",		"请填写 围手术期血液制品输入 自体血");
+			//checkValueValid(arr_errmsgs, data_inputs, "红细胞",		"不能为空",		"请填写 围手术期血液制品输入 红细胞");
+			//checkValueValid(arr_errmsgs, data_inputs, "新鲜冰冻血浆",		"不能为空",		"请填写 围手术期血液制品输入 新鲜冰冻血浆");
+			//checkValueValid(arr_errmsgs, data_inputs, "血浆冷沉淀",		"不能为空",		"请填写 围手术期血液制品输入 血浆冷沉淀");
+			//checkValueValid(arr_errmsgs, data_inputs, "血小板",		"不能为空",		"请填写 围手术期血液制品输入 血小板");
+			//checkValueValid(arr_errmsgs, data_inputs, "自体血",		"不能为空",		"请填写 围手术期血液制品输入 自体血");
 		}
 		if (data_inputs["是否术后并发症"] > 0){
 			checkValueValid(arr_errmsgs, data_inputs, "术后并发症",		"不能为空",		"请选择 术后并发症");
