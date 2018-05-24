@@ -246,7 +246,7 @@ function addZhuyuanjilu(){
 		});
 	}
 	this.showPage = function(zyjl_data, come_from){
-		$("#tab-zhuyuanjilu [init_disabled]").each(function(){
+		$("#zhuyuanjilu-section [init_disabled]").each(function(){
 			this.disabled = true;
 		})
 		if (typeof zyjl_data != "undefined" && zyjl_data){
@@ -269,7 +269,7 @@ function addZhuyuanjilu(){
 		}
 		else{
 			setJibenZiliaoState(false);
-			$("#tab-zhuyuanjilu [init_disabled]").each(function(){
+			$("#zhuyuanjilu-section [init_disabled]").each(function(){
 				this.disabled = true;
 			})
 		}
