@@ -737,11 +737,11 @@ function setAllControlDisabled(container, bDisabled){
 }
 /////////////////////////////////////////////////////////////////
 function showModalConfirm(title, msg, callback){
-	$("#id_login_pop_frame [tag='title']").html(title);
-	$("#id_login_pop_frame [tag='msg']").html(msg);
-	$("#id_login_pop_frame [tag='button_ok']").get(0).onclick = function(){
+	$("#confirm_modal [tag='title']").html(title);
+	$("#confirm_modal [tag='msg']").html(msg);
+	$("#confirm_modal [tag='button_ok']").get(0).onclick = function(){
 		callback('ok');
-		$("#id_login_pop_frame").modal("hide");
+		$("#confirm_modal").modal("hide");
 	}
-	$("#id_login_pop_frame").modal();
+	$("#confirm_modal").modal();
 }
