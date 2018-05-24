@@ -148,6 +148,9 @@ function hospital(){
 		if (isCurrentPageEdit()){
 			showModalConfirm("确认离开吗","确认离开吗？请确认信息已经保存",gotoPageOther);
 		}
+		else{
+			gotoPageOther();
+		}
 	}
 	//////////////////////////////////////////////全局数据管理
 	this.setGlobalData = function(key, data){
