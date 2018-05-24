@@ -42,7 +42,6 @@ function hospital(){
 		initExport();
 		initReport();
 		init_select_modals();
-		init_leave_page();
 	}
 	//////////////////////////////////////////////页面跳转管理
 	this.gotoPage = function(page_name, data, come_from,data2){
@@ -125,23 +124,30 @@ function hospital(){
 				return;
 			}
 		}
-		
-		var current_page = m_this.getGlobalData("current_page");
-		if (current_page == "新增资料" || current_page == "新增住院记录"){
-			//确认是否离开页面
-		}
-		///设置左侧sidebar高亮
-		setSitebarHightlight(page_name);
-		///设置顶部面包屑
-		setBreadcrumb(page_name);
-		///设置当前站点
-		m_this.setGlobalData("currentSite", page_name);
+		function gotoPageOther(){
+			///设置左侧sidebar高亮
+			setSitebarHightlight(page_name);
+			///设置顶部面包屑
+			setBreadcrumb(page_name);
+			///设置当前站点
+			m_this.setGlobalData("currentSite", page_name);
 
-		beforeShowDstPage(page_name);
-		///显示隐藏相关页面
-		showDstPage(page_name);
-		//////////////////
-		m_this.setGlobalData("current_page", current_page);
+			beforeShowDstPage(page_name);
+			///显示隐藏相关页面
+			showDstPage(page_name);
+			//////////////////
+			m_this.setGlobalData("current_page", page_name);
+			if (isCurrentPageEdit()){
+
+			}
+			else{
+				
+			}
+		}
+		
+		if (isCurrentPageEdit()){
+
+		}
 	}
 	//////////////////////////////////////////////全局数据管理
 	this.setGlobalData = function(key, data){
@@ -561,21 +567,20 @@ function hospital(){
 		g_report.init();
 	}
 	////////////////////////////////////////初始化离开事件，提示保存
-	function init_leave_page(){
-		var msg = null;
-		if (isCurrentPageEdit()){
-			msg = "系统可能不会保存您所做的更改。";
-		}
+	function init_leave_page(msg){
 		window.onbeforeunload=function(){
 			return msg;
 		}
 	}
 	function isCurrentPageEdit(){
 		var current_page = m_this.getGlobalData("current_page");
-		if (current_page != "新增资料"){
-			return false;
+		if (current_page == "新增资料"){
+			return g_addPatient.isEditingMode();
 		}
-		return true;
+		if (current_page == "新增住院记录" || current_page == "编辑住院记录"){
+			return g_addZhuyuanjilu.isEditingMode();
+		}
+		return false;
 	}
 	/////////////////////////////////////////////////////////////////////////////////
 	function init_select_modals(){

@@ -1,5 +1,6 @@
 function addPatient(){
 	var m_patient_id = 0;
+	var m_editing_mode = false;
 	var m_this = this;
 	var m_json_map = [
 		{"name":"病案号","field":"medical_id"},
@@ -30,7 +31,11 @@ function addPatient(){
 			hideAllErrorMsgs();
 		});
 	}
+	this.isEditingMode = function(){
+		return m_editing_mode;
+	}
 	this.initData = function(patient_data){
+		m_editing_mode = true;
 		$("#tab-jibenziliao [init_disabled]").each(function(){
 			this.disabled = true;
 		})
@@ -45,6 +50,7 @@ function addPatient(){
 			$("#nav-tab-zhuyuanjilu").get(0).disabled = true;
 		}
 		if (typeof patient_data != "undefined" && patient_data["status"] == 2){
+			m_editing_mode = false;
 			setJibenZiliaoState(true);
 		}
 		else{
@@ -225,6 +231,7 @@ function queryZhuyuanjilu(){
 function addZhuyuanjilu(){
 	var m_zyjl_id = 0;
 	var m_come_from = "";
+	var m_editing_mode = false;
 	var m_json_map = [
 		{"name":"入院日期","field":"hospitalization_in_time"},
 		{"name":"出院日期","field":"hospitalization_out_time"},
@@ -245,7 +252,11 @@ function addZhuyuanjilu(){
 			hideAllErrorMsgs();
 		});
 	}
+	this.isEditingMode = function(){
+		return m_editing_mode;
+	}
 	this.showPage = function(zyjl_data, come_from){
+		m_editing_mode = true;
 		$("#zhuyuanjilu-section [init_disabled]").each(function(){
 			this.disabled = true;
 		})
@@ -265,6 +276,7 @@ function addZhuyuanjilu(){
 		}
 		g_hospital.setGlobalData("zyjl_id",m_zyjl_id);
 		if (typeof zyjl_data != "undefined" && zyjl_data && zyjl_data["status"] == 2){
+			m_editing_mode = false;
 			setJibenZiliaoState(true);
 		}
 		else{
