@@ -137,12 +137,6 @@ function hospital(){
 			showDstPage(page_name);
 			//////////////////
 			m_this.setGlobalData("current_page", page_name);
-			if (isCurrentPageEdit()){
-				init_leave_page("确认离开吗？请确认信息已经保存");
-			}
-			else{
-				init_leave_page(null);
-			}
 		}
 		
 		if (isCurrentPageEdit()){
@@ -573,11 +567,6 @@ function hospital(){
 		g_report.init();
 	}
 	////////////////////////////////////////初始化离开事件，提示保存
-	function init_leave_page(msg){
-		window.onbeforeunload=function(){
-			return msg;
-		}
-	}
 	function isCurrentPageEdit(){
 		var current_page = m_this.getGlobalData("current_page");
 		if (current_page == "新增资料"){

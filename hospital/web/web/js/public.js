@@ -745,3 +745,9 @@ function showModalConfirm(title, msg, callback){
 	}
 	$("#confirm_modal").modal();
 }
+
+function init_leave_page(msg){
+	window.onbeforeunload=function(){
+		return msg;
+	}
+}
