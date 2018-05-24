@@ -151,11 +151,11 @@
             <td style="padding-left:35px">
                 <div class="checkbox">
                     <lable>
-                        <input type="checkbox" value="1" tag='address-nodetail-checkbox'" json-name="联系人电话-不能提供">不能提供</lable>
+                        <input type="checkbox" value="1" json-name="联系人电话-不能提供">不能提供</lable>
                 </div>
             </td>
             <td style="padding-left:15px">
-                <input type="text" class="form-control input-sm" style="width:200px" placeholder="原因" tag="address-nodetail-yuanyi" disabled json-name="联系人电话-不能提供-原因">
+                <input type="text" class="form-control input-sm" init_disabled="1" disabled style="width:200px" placeholder="原因" disabled json-name="联系人电话-不能提供-原因">
             </td>
             </tr>
         </table>
@@ -170,7 +170,7 @@
                 <td style="padding-left:35px">
                     <div class="checkbox">
                         <lable>
-                            <input type="checkbox" value="1" tag='address-nodetail-checkbox'" json-name="联系人电话(号码二)-不能提供">不能提供</lable>
+                            <input type="checkbox" value="1" json-name="联系人电话(号码二)-不能提供">不能提供</lable>
                     </div>
                 </td>
             </tr>
@@ -184,7 +184,7 @@
                 <td style="padding-left:35px">
                     <div class="checkbox">
                         <lable>
-                            <input type="checkbox" value="1" tag='address-nodetail-checkbox'" json-name="联系人电话(号码三)-不能提供">不能提供</lable>
+                            <input type="checkbox" value="1" json-name="联系人电话(号码三)-不能提供">不能提供</lable>
                     </div>
                 </td>
             </tr>
