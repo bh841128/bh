@@ -54,6 +54,9 @@ function addPatient(){
 		m_this.initData(patient_data);
 	}
 	this.showPageZyjlList = function(patient_data){
+		$("#tab-zyjl-chuyuanziliao [init_disabled]").each(function(){
+			this.disabled = true;
+		})
 		m_this.showPage(patient_data);
 		g_queryZhuyuanjilu.showPage(m_patient_id);
 	}
