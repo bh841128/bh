@@ -516,8 +516,11 @@ function zhuyuanjilu_query(){
             }
             ajaxRemoteRequest("hospital/set-records-status", {"ids":zyjl_id+"","status":2}, onOperationRet);
         }
-        if (operationType == "删除"){
+        function onDeleteConfirm(){
             ajaxRemoteRequest("hospital/set-records-status", {"ids":dataId+"","status":3}, onOperationRet);
+        }
+        if (operationType == "删除"){
+            showModalConfirm("确认删除吗","删除后信息将不可恢复",onDeleteConfirm);
             return;
         }
         if (operationType == "上传"){
