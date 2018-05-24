@@ -31,6 +31,9 @@ function addPatient(){
 		});
 	}
 	this.initData = function(patient_data){
+		$("#tab-jibenziliao [init_disabled]").each(function(){
+			this.disabled = true;
+		})
 		if (typeof patient_data != "undefined"){
 			m_patient_id = patient_data["id"];
 			initInputsByData(patient_data);
@@ -243,6 +246,9 @@ function addZhuyuanjilu(){
 		});
 	}
 	this.showPage = function(zyjl_data, come_from){
+		$("#tab-zhuyuanjilu [init_disabled]").each(function(){
+			this.disabled = true;
+		})
 		if (typeof zyjl_data != "undefined" && zyjl_data){
 			m_zyjl_id = zyjl_data["id"];
 			initInputsByData(zyjl_data);
