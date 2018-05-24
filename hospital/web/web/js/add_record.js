@@ -392,6 +392,12 @@ function addZhuyuanjilu(){
 				$("#tab-zyjl-shoushuxinxi [tag='tingboye']").hide();
 			}
 		})
+		//手术信息  主动脉阻断时间
+		$("#tab-zyjl-shoushuxinxi input[json-name='主动脉阻断时间-不能提供']").change(function(){
+			var bChecked = getCheckboxChecked(this);
+			$("#tab-zyjl-shoushuxinxi [json-name='主动脉阻断时间-不能提供-原因']").get(0).disabled = (bChecked?false:true);
+		})
+
 		//手术信息  是否二次或多次体外循环
 		$("#tab-zyjl-shoushuxinxi input[name='ercihuoduocitiwaixunhuan']").change(function(){
 			var rValue = getRadioValue($("#tab-zyjl-shoushuxinxi"), "ercihuoduocitiwaixunhuan");
@@ -895,7 +901,6 @@ function addZhuyuanjilu(){
 			checkValueValid(arr_errmsgs, data_inputs, "体外循环时间",		"不能为空",		"请填写 体外循环时间");
 			if (data_inputs["主动脉阻断时间-不能提供"] > 0){
 				checkValueValid(arr_errmsgs, data_inputs, "主动脉阻断时间-不能提供-原因",		"不能为空",		"请填写 主动脉阻断时间不能提供原因");
-				
 			}
 			else{
 				checkValueValid(arr_errmsgs, data_inputs, "主动脉阻断时间",		"不能为空",		"请填写 主动脉阻断时间");
