@@ -51,10 +51,13 @@ function addPatient(){
 		hideAllErrorMsgs();
 	}
 	this.showPage = function(patient_data){
+		$("#tab-jibenziliao [init_disabled]").each(function(){
+			this.disabled = true;
+		})
 		m_this.initData(patient_data);
 	}
 	this.showPageZyjlList = function(patient_data){
-		$("#tab-zyjl-chuyuanziliao [init_disabled]").each(function(){
+		$("#tab-zhuyuanjilu [init_disabled]").each(function(){
 			this.disabled = true;
 		})
 		m_this.showPage(patient_data);
