@@ -340,22 +340,22 @@ function hospital(){
 			var bChecked = getCheckboxChecked(this);
 			if (bChecked){
 				$("#tab-zyjl-shuqianxinxi [json-name='术前血氧饱和度-不能提供-原因']").get(0).disabled = false;
-				$("#tab-zyjl-shuqianxinxi [tag='术前血氧饱和度").show();
+				$("#tab-zyjl-shuqianxinxi [tag='术前血氧饱和度").hide();
 			}
 			else{
 				$("#tab-zyjl-shuqianxinxi [json-name='术前血氧饱和度-不能提供-原因']").get(0).disabled = true;
-				$("#tab-zyjl-shuqianxinxi [tag='术前血氧饱和度").hide();
+				$("#tab-zyjl-shuqianxinxi [tag='术前血氧饱和度").show();
 			}
 		})
 		$("#tab-zyjl-shuqianxinxi input[json-name='术后血氧饱和度-不能提供']").change(function(){
 			var bChecked = getCheckboxChecked(this);
 			if (bChecked){
 				$("#tab-zyjl-shuqianxinxi [json-name='术后血氧饱和度-不能提供-原因']").get(0).disabled = false;
-				$("#tab-zyjl-shuqianxinxi [tag='术后血氧饱和度").show();
+				$("#tab-zyjl-shuqianxinxi [tag='术后血氧饱和度").hide();
 			}
 			else{
 				$("#tab-zyjl-shuqianxinxi [json-name='术后血氧饱和度-不能提供-原因']").get(0).disabled = true;
-				$("#tab-zyjl-shuqianxinxi [tag='术后血氧饱和度").hide();
+				$("#tab-zyjl-shuqianxinxi [tag='术后血氧饱和度").show();
 			}
 		})
 
