@@ -41,9 +41,9 @@
 <div class="form-horizontal">
     <div style="text-align:right;margin-top:10px;">
             <a class="btn btn-primary" style="width:100px;border-radius:20px;" href="#" target="_blank" tag="export">
-                    <span class="glyphicon glyphicon-export"></span>导出</button>&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                    <span class="glyphicon glyphicon-export"></span>&nbsp;导出</button>&nbsp;&nbsp;&nbsp;&nbsp;</a>
         <button type="button" class="btn btn-primary" style="width:100px;border-radius:20px;" tag="query">
-            <span class="glyphicon glyphicon-search"></span>查询</button>
+            <span class="glyphicon glyphicon-search"></span>&nbsp;查询</button>
     </div>
 </div>
 <div class="box-body table-responsive" id="export-query-patient-table-wrapper">
