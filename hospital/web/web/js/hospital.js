@@ -25,10 +25,11 @@ function hospital(){
 		//这是左侧sidebar点击事件
 		var side_bar = m_this.m_page_struct.elements["side_bar"];
 		side_bar.find(".tree-btn[tag]").click(function(){
-			if ($(this).hasClass("active")){
+			var tag = $(this).attr("tag");
+			if (tag != "index" && $(this).hasClass("active")){
 				return;
 			}
-			var tag = $(this).attr("tag");
+			
 			m_this.gotoPage(tag);
 		});
 
