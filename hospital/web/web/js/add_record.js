@@ -403,6 +403,11 @@ function addZhuyuanjilu(){
 			alert("添加成功");
 		}
 		var data_json = getAllInputDatas();
+		if (data_json.hospitalization_in_time < 1000000){
+			showInputValueInvalid("请输入入院日期");
+			showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-riqi", "tab-zyjl-riqi");
+			return false;
+		}
 		data_json.operation_before_info = $.toJSON(data_json.operation_before_info);
 		data_json.operation_info = $.toJSON(data_json.operation_info);
 		data_json.operation_after_info = $.toJSON(data_json.operation_after_info);
@@ -474,7 +479,7 @@ function addZhuyuanjilu(){
 		showErrorMsg($("#zhuyuanjilu-section .errormsg"), err_msg);
 	}
 
-	function checkValidRiqi(data_json){return [];
+	function checkValidRiqi(data_json){
 		var arr_errmsgs = [];
 		if (data_json.hospitalization_in_time < 1000000){
 			arr_errmsgs.push("请输入入院日期");
