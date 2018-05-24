@@ -143,7 +143,7 @@
             <tr>
             <td>
                 <div class="control-label control-label-180">
-                    <span class="">*&nbsp;</span>联系电话：</div>
+                    <span class="">&nbsp;</span>联系电话：</div>
             </td>
             <td>
                 <input type="text" class="form-control input-sm" placeholder="联系人电话" json-name="联系人电话" value="96325">
