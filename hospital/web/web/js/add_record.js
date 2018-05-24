@@ -125,7 +125,7 @@ function addPatient(){
 			data_json_lianxiren["联系人电话"] = "";
 		}
 		else{
-			data_json_lianxiren["联系人电话"] = "联系人电话-不能提供-原因";
+			data_json_lianxiren["联系人电话-不能提供-原因"] = "";
 		}
 		if (data_json_lianxiren["联系人电话(号码二)-不能提供"]){
 			data_json_lianxiren["联系人电话(号码二)"] = "";
