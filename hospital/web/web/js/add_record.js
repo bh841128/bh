@@ -43,10 +43,10 @@ function addPatient(){
 		$("#jibenziliao-section [json-name='详细地址-不能提供']").change(function(){
 			var bChecked = getCheckboxChecked(this);
 			if (bChecked){
-				$("#jibenziliao-section [json-name='详细地址']").get(0).disabled = false;
+				$("#jibenziliao-section [json-name='详细地址-不能提供-原因']").get(0).disabled = false;
 			}
 			else{
-				$("#jibenziliao-section [json-name='详细地址']").get(0).disabled = true;
+				$("#jibenziliao-section [json-name='详细地址-不能提供-原因']").get(0).disabled = true;
 			}
 		})
 		$("#jibenziliao-section [json-name='联系人电话-不能提供']").change(function(){
