@@ -40,8 +40,10 @@ require_once(__DIR__."/../config/front_config.php");
                     </div>
                 </div>
             </div>
-        <div>
-
+        </div>
+        <div class="wrapper" style="width:1200px;margin-left:auto;margin-right:auto">
+            <?php require(WEB_PAGE_PATH."footer.php"); ?>
+        </div>
     </div>
     <?php require(WEB_PAGE_PATH."js.php"); ?>
     <script src="/web/js/login.js"></script>
