@@ -309,15 +309,16 @@ function addZhuyuanjilu(){
 			init_leave_page("确认离开吗？请确认信息已经保存");
 		});
 		////////////////////////////////////////////控件联动逻辑
-		////非心脏畸形
-		$("#tab-zyjl-shuqianxinxi input[name='feixinzangjixing']").change(function(){
-			var bHas = getRadioValue($("#tab-zyjl-shuqianxinxi"), "feixinzangjixing");
-			$("#tab-zyjl-shuqianxinxi textarea[tag='feixinzangjixing']").get(0).disabled = (bHas==0?true:false);
-		})
-		/////术前一般危险因素
-		$("#tab-zyjl-shuqianxinxi input[name='shuqianyibanweixianyinsu']").change(function(){
-			var bHas = getRadioValue($("#tab-zyjl-shuqianxinxi"), "shuqianyibanweixianyinsu");
-			$("#tab-zyjl-shuqianxinxi textarea[tag='shuqianyibanweixianyinsu']").get(0).disabled = (bHas==0?true:false);
+		///////////////////////////术前信息
+		//////术后血氧饱和度
+		$("#tab-zyjl-shuqianxinxi input[json-name='专科检查-是否其他']").change(function(){
+			var bChecked = getCheckboxChecked(this);
+			if (bChecked){
+				$("#tab-zyjl-shuqianxinxi [json-name='专科检查-其他']").get(0).disabled = false;
+			}
+			else{
+				$("#tab-zyjl-shuqianxinxi [json-name='专科检查-其他']").get(0).disabled = true;
+			}
 		})
 		//////术前血氧饱和度
 		$("#tab-zyjl-shuqianxinxi [json-name='术前血氧饱和度-不能提供']").change(function(){
@@ -342,6 +343,16 @@ function addZhuyuanjilu(){
 				$("#tab-zyjl-shuqianxinxi [json-name='术后血氧饱和度-不能提供-原因']").get(0).disabled = true;
 				$("#tab-zyjl-shuqianxinxi [tag='术后血氧饱和度").show();
 			}
+		})
+		/////术前一般危险因素
+		$("#tab-zyjl-shuqianxinxi input[name='shuqianyibanweixianyinsu']").change(function(){
+			var bHas = getRadioValue($("#tab-zyjl-shuqianxinxi"), "shuqianyibanweixianyinsu");
+			$("#tab-zyjl-shuqianxinxi textarea[tag='shuqianyibanweixianyinsu']").get(0).disabled = (bHas==0?true:false);
+		})
+		////非心脏畸形
+		$("#tab-zyjl-shuqianxinxi input[name='feixinzangjixing']").change(function(){
+			var bHas = getRadioValue($("#tab-zyjl-shuqianxinxi"), "feixinzangjixing");
+			$("#tab-zyjl-shuqianxinxi textarea[tag='feixinzangjixing']").get(0).disabled = (bHas==0?true:false);
 		})
 
 		////////////////////////////////////////////手术信息
