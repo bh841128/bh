@@ -477,7 +477,7 @@ function hospital(){
 	}
 	function initUpload(){
 		var options = {
-            "show_fields":["序号","姓名","病案号","手术日期", "上传时间"],
+            "show_fields":["序号","姓名","病案号","手术日期", "上传时间", "状态"],
             "operations":"详情,编辑,上传,删除",
             "table_wrapper":$("#upload-query-patient-table-wrapper"),
             "page_nav_wrapper":$("#upload-query-patient-page-nav"),
