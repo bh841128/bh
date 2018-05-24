@@ -581,7 +581,7 @@ function addZhuyuanjilu(){
 		data_json.hospitalization_out_info = arrayToJson(raw_json_hospitalization_out_info);
 		
 		////去掉一些无用字段
-		var data_inputs = data_json.raw_json_operation_before_info;
+		var data_inputs = data_json.operation_before_info;
 		for (var i = data_inputs["既往心脏病手术次数"]+1; i <= 4; i++){
 			if (data_inputs["既往心脏病手术时间-不能提供-"+i] > 0){
 				data_inputs["既往心脏病手术时间-"+i] = "";
