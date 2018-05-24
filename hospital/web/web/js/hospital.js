@@ -326,6 +326,7 @@ function hospital(){
 		//添加住院记录
 		g_addZhuyuanjilu = new addZhuyuanjilu();
 		g_addZhuyuanjilu.init();
+		//术前
 		$("#tab-zyjl-shuqianxinxi input[name='feixinzangjixing']").change(function(){
 			var bHas = getRadioValue($("#tab-zyjl-shuqianxinxi"), "feixinzangjixing");
 			$("#tab-zyjl-shuqianxinxi textarea[tag='feixinzangjixing']").get(0).disabled = (bHas==0?true:false);
@@ -337,6 +338,29 @@ function hospital(){
 		$("#tab-zyjl-shoushuxinxi input[json-name='与术前诊断一致']").change(function(){
 			var bChecked = getCheckboxChecked(this);
 			$("#tab-zyjl-shoushuxinxi textarea[tag='shoushuzhenduan']").get(0).disabled = (bChecked?true:false);
+		})
+
+		$("#tab-zyjl-shoushuxinxi input[json-name='术前血氧饱和度-不能提供']").change(function(){
+			var bChecked = getCheckboxChecked(this);
+			if (bChecked){
+				$("#tab-zyjl-shoushuxinxi input[json-name='术前血氧饱和度-不能提供-原因']").get(0).disabled = false;
+				$("#tab-zyjl-shoushuxinxi input[tag='术前血氧饱和度").show();
+			}
+			else{
+				$("#tab-zyjl-shoushuxinxi input[json-name='术前血氧饱和度-不能提供-原因']").get(0).disabled = true;
+				$("#tab-zyjl-shoushuxinxi input[tag='术前血氧饱和度").hide();
+			}
+		})
+		$("#tab-zyjl-shoushuxinxi input[json-name='术后血氧饱和度-不能提供']").change(function(){
+			var bChecked = getCheckboxChecked(this);
+			if (bChecked){
+				$("#tab-zyjl-shoushuxinxi input[json-name='术后血氧饱和度-不能提供-原因']").get(0).disabled = false;
+				$("#tab-zyjl-shoushuxinxi input[tag='术后血氧饱和度").show();
+			}
+			else{
+				$("#tab-zyjl-shoushuxinxi input[json-name='术后血氧饱和度-不能提供-原因']").get(0).disabled = true;
+				$("#tab-zyjl-shoushuxinxi input[tag='术后血氧饱和度").hide();
+			}
 		})
 		
 		$("#tab-zyjl-chuyuanziliao input[name='chuyuanzhuangtai']").change(function(){
@@ -355,7 +379,7 @@ function hospital(){
 				chuyuanziliao_container.find("[tag='自动出院日期'],[tag='自动出院主要原因']").show();
 			}
 		});
-
+		
 		//手术信息  延迟关胸
 		$("#tab-zyjl-shoushuxinxi input[name='yanchiguanxiong']").change(function(){
 			var rValue = getRadioValue($("#tab-zyjl-shoushuxinxi"), "yanchiguanxiong");

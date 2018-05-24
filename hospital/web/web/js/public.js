@@ -728,20 +728,6 @@ function checkValueValid(arr_errmsgs, data_json, key, check_type, errmsg, param1
 //////////////////////////////////////////////////////////////
 function setAllControlDisabled(container, bDisabled){
 	container.find("[json-name],button").each(function(){
-		if (bDisabled){
-			//需要保存状态
-			var last_disabled = (this.disabled?"disabled":"enabled");
-			$(this).attr("last_disabled", last_disabled);
-		}
-		else{
-			var last_disabled = $(this).attr("last_disabled");
-			if (last_disabled == "disabled"){
-				return;
-			}
-		}
 		this.disabled = bDisabled;
 	});
-	//container.find("button").each(function(){
-	//	this.disabled = bDisabled;
-	//});
 }

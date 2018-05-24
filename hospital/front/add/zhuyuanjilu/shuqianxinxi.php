@@ -316,15 +316,15 @@
                 <td style="padding-left:35px">
                     <div class="checkbox">
                         <lable>
-                            <input type="checkbox" tag="address-nodetail-checkbox" json-name="术前血氧饱和度-不能提供">不能提供</lable>
+                            <input type="checkbox" json-name="术前血氧饱和度-不能提供">不能提供</lable>
                     </div>
                 </td>
                 <td style="padding-left:15px">
-                    <input type="text" class="form-control input-sm" style="width:400px" placeholder="输入原因" tag="address-nodetail-yuanyi" disabled json-name="术前血氧饱和度-不能提供-原因">
+                    <input type="text" class="form-control input-sm" style="width:400px" placeholder="输入原因" init_disabled="1" disabled json-name="术前血氧饱和度-不能提供-原因">
                 </td>
             </tr>
         </table>
-        <table class="control-table padding-10">
+        <table class="control-table padding-10" tag="术前血氧饱和度">
             <tr>
                 <td>
                     <div class="control-label control-label-150">右上肢：</div>
@@ -375,15 +375,15 @@
                 <td style="padding-left:35px">
                     <div class="checkbox">
                         <lable>
-                            <input type="checkbox" tag="address-nodetail-checkbox" json-name="术后血氧饱和度-不能提供">不能提供</lable>
+                            <input type="checkbox" json-name="术后血氧饱和度-不能提供">不能提供</lable>
                     </div>
                 </td>
                 <td style="padding-left:15px">
-                    <input type="text" class="form-control input-sm" tag="address-nodetail-yuanyi" disabled style="width:400px" placeholder="输入原因" json-name="术后血氧饱和度-不能提供-原因">
+                    <input type="text" class="form-control input-sm" init_disabled="1" disabled style="width:400px" placeholder="输入原因" json-name="术后血氧饱和度-不能提供-原因">
                 </td>
             </tr>
         </table>
-        <table class="control-table padding-10">
+        <table class="control-table padding-10" tag="术后血氧饱和度">
             <tr>
                 <td>
                     <div class="control-label control-label-150">右上肢：</div>
