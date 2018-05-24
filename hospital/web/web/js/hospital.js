@@ -336,29 +336,29 @@ function hospital(){
 			var bHas = getRadioValue($("#tab-zyjl-shuqianxinxi"), "shuqianyibanweixianyinsu");
 			$("#tab-zyjl-shuqianxinxi textarea[tag='shuqianyibanweixianyinsu']").get(0).disabled = (bHas==0?true:false);
 		})
-		$("#tab-zyjl-shuqianxinxi input[json-name='术前血氧饱和度-不能提供']").change(function(){
+		$("#tab-zyjl-shuqianxinxi [json-name='术前血氧饱和度-不能提供']").change(function(){
 			var bChecked = getCheckboxChecked(this);
 			if (bChecked){
-				$("#tab-zyjl-shuqianxinxi input[json-name='术前血氧饱和度-不能提供-原因']").get(0).disabled = false;
-				$("#tab-zyjl-shuqianxinxi input[tag='术前血氧饱和度").show();
+				$("#tab-zyjl-shuqianxinxi [json-name='术前血氧饱和度-不能提供-原因']").get(0).disabled = false;
+				$("#tab-zyjl-shuqianxinxi [tag='术前血氧饱和度").show();
 			}
 			else{
-				$("#tab-zyjl-shuqianxinxi input[json-name='术前血氧饱和度-不能提供-原因']").get(0).disabled = true;
-				$("#tab-zyjl-shuqianxinxi input[tag='术前血氧饱和度").hide();
+				$("#tab-zyjl-shuqianxinxi [json-name='术前血氧饱和度-不能提供-原因']").get(0).disabled = true;
+				$("#tab-zyjl-shuqianxinxi [tag='术前血氧饱和度").hide();
 			}
 		})
 		$("#tab-zyjl-shuqianxinxi input[json-name='术后血氧饱和度-不能提供']").change(function(){
 			var bChecked = getCheckboxChecked(this);
 			if (bChecked){
-				$("#tab-zyjl-shuqianxinxi input[json-name='术后血氧饱和度-不能提供-原因']").get(0).disabled = false;
-				$("#tab-zyjl-shuqianxinxi input[tag='术后血氧饱和度").show();
+				$("#tab-zyjl-shuqianxinxi [json-name='术后血氧饱和度-不能提供-原因']").get(0).disabled = false;
+				$("#tab-zyjl-shuqianxinxi [tag='术后血氧饱和度").show();
 			}
 			else{
-				$("#tab-zyjl-shuqianxinxi input[json-name='术后血氧饱和度-不能提供-原因']").get(0).disabled = true;
-				$("#tab-zyjl-shuqianxinxi input[tag='术后血氧饱和度").hide();
+				$("#tab-zyjl-shuqianxinxi [json-name='术后血氧饱和度-不能提供-原因']").get(0).disabled = true;
+				$("#tab-zyjl-shuqianxinxi [tag='术后血氧饱和度").hide();
 			}
 		})
-		
+
 		$("#tab-zyjl-shoushuxinxi input[json-name='与术前诊断一致']").change(function(){
 			var bChecked = getCheckboxChecked(this);
 			$("#tab-zyjl-shoushuxinxi textarea[tag='shoushuzhenduan']").get(0).disabled = (bChecked?true:false);
