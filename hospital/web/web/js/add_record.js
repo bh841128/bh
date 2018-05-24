@@ -86,15 +86,33 @@ function addPatient(){
 		var g_control_json = new control_json();
 		raw_json["患者基本资料"] = g_control_json.parseControlJson($("#huanzhe-jibenziliao"));
 		raw_json["联系人基本资料"] = g_control_json.parseControlJson($("#lianxiren-jibenziliao"));
-		//console.dir(raw_json);
 		/////////////////////////////////////////////////
-		
 		var data_json = getValuesByMap(raw_json["患者基本资料"], m_json_map);
 		data_json["isSupply"] = data_json["isNotSupply"]?0:1;
 		delete data_json["isNotSupply"];
 		var data_json_lianxiren = arrayToJson(raw_json["联系人基本资料"]);
-		data_json["relate_text"] = $.toJSON(data_json_lianxiren);
-		//console.dir(data_json);
+		/////去掉无用字段
+		if (data_json["isSupply"]){
+			data_json["reason"] = "";
+		}
+		else{
+			data_json["province"] = "";
+			data_json["city"] = "";
+			data_json["district"] = "";
+			data_json["address"] = "";
+		}
+		if (data_json_lianxiren["联系人电话-不能提供"]){
+			data_json_lianxiren["联系人电话"] = "";
+		}
+		else{
+			data_json_lianxiren["联系人电话"] = "联系人电话-不能提供-原因";
+		}
+		if (data_json_lianxiren["联系人电话(号码二)-不能提供"]){
+			data_json_lianxiren["联系人电话(号码二)"] = "";
+		}
+		if (data_json_lianxiren["联系人电话(号码三)-不能提供"]){
+			data_json_lianxiren["联系人电话(号码三)"] = "";
+		}
 		////////////////////////////////////////////////
 		////检查参数合法性
 		if (!checkHuanzheInputValid(raw_json["患者基本资料"])){
@@ -104,6 +122,7 @@ function addPatient(){
 			return false;
 		}
 		////////////////////////////////////////////////
+		data_json["relate_text"] = $.toJSON(data_json_lianxiren);
 		//发送插入请求
 		if (m_patient_id > 0){
 			data_json["id"] = m_patient_id;
