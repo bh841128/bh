@@ -35,6 +35,7 @@
     </div>
     <div class="form-group" id="jyxzbcs-wraper">
         <div class="hospital-group-box" tag="jyxzbcs" style="display:none">
+            <h5 class="modal-title" style="text-align:left">既往心脏病手术一</h5>
             <table class="control-table">
                 <tr>
                     <td>
