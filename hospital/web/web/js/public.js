@@ -48,7 +48,7 @@ function initAsideMenu(){
 		var page = $(this).attr("page");
 		var isActive = $(this).hasClass("active");
 		this.onclick = function(){
-			if (isActive){
+			if (isActive && page != "index"){
 				return;
 			}
 			gotoPage(page);
