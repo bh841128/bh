@@ -46,20 +46,17 @@ function addPatient(){
 		}
 		else{
 			setJibenZiliaoState(false);
+			$("#tab-jibenziliao [init_disabled]").each(function(){
+				this.disabled = true;
+			})
 		}
 		g_hospital.setGlobalData("patient_id", m_patient_id);
 		hideAllErrorMsgs();
 	}
 	this.showPage = function(patient_data){
-		$("#tab-jibenziliao [init_disabled]").each(function(){
-			this.disabled = true;
-		})
 		m_this.initData(patient_data);
 	}
 	this.showPageZyjlList = function(patient_data){
-		$("#tab-zhuyuanjilu [init_disabled]").each(function(){
-			this.disabled = true;
-		})
 		m_this.showPage(patient_data);
 		g_queryZhuyuanjilu.showPage(m_patient_id);
 	}
@@ -266,6 +263,9 @@ function addZhuyuanjilu(){
 		}
 		else{
 			setJibenZiliaoState(false);
+			$("#tab-zhuyuanjilu [init_disabled]").each(function(){
+				this.disabled = true;
+			})
 		}
 	}
 
