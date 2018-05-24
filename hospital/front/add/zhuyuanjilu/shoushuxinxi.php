@@ -33,9 +33,7 @@
                     <div class="control-label control-label-120" style="width:120px">其他：</div>
                 </td>
                 <td>
-                    <td>
-                        <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="" json-name="手术诊断-其他"></textarea>
-                    </td>
+                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="" json-name="手术诊断-其他"></textarea>
                 </td>
             <tr>
             </tr>
@@ -57,9 +55,7 @@
                     <div class="control-label control-label-120" style="width:120px">其他：</div>
                 </td>
                 <td>
-                    <td>
-                        <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="" json-name="主要手术名称-其他"></textarea>
-                    </td>
+                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="" json-name="主要手术名称-其他"></textarea>
                 </td>
             <tr>
         </table>
