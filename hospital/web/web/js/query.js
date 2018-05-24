@@ -466,6 +466,10 @@ function zhuyuanjilu_query(){
         "状态": "status"
     }
     var map_query_param = [
+        {"name":"姓名","field":"name"},
+        {"name":"病案号","field":"medical_id"},
+        {"name":"上传时间-开始","field":"start_time"},
+        {"name":"上传时间-结束","field":"end_time"}
     ]
     this.m_query_data_api = "hospital/get-record-list";
     this.preProcessData = function(rawDatas) {
