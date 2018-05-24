@@ -343,6 +343,17 @@ function addZhuyuanjilu(){
 		var raw_json_hospitalization_out_info = g_control_json.parseControlJson($("#tab-zyjl-chuyuanziliao"));
 		data_json.hospitalization_out_info = arrayToJson(raw_json_hospitalization_out_info);
 		
+		////去掉一些无用字段
+		var data_inputs = data_json.hospitalization_out_info;
+		if (data_inputs["出院时状态"] == 0){
+			data_inputs["死亡日期"] = "";
+			data_inputs["死亡主要原因"] = "";
+			data_inputs["自动出院日期"] = "";
+			data_inputs["自动出院日期"] = "";
+		}
+		else if (data_inputs["出院时状态"] == 2){
+			checkValueValid(arr_errmsgs, data_inputs, "自动出院日期",		"不能为空",		"请填写 自动出院日期");
+		}
 		return data_json;
 	}
 	function onZhuyuanjiluSave(callback){
@@ -380,7 +391,6 @@ function addZhuyuanjilu(){
 		data_json.operation_after_info = $.toJSON(data_json.operation_after_info);
 		data_json.hospitalization_out_info = $.toJSON(data_json.hospitalization_out_info);
 		////////////////////////////////////////////////
-		////检查参数合法性
 		////////////////////////////////////////////////
 		//发送插入请求
 		if (m_zyjl_id > 0){
