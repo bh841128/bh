@@ -27,7 +27,7 @@
                 </td>
             </tr>
         </table>
-        <table class="control-table padding-20" tag="死亡日期">
+        <table class="control-table padding-20" tag="死亡日期" style="display:none">
             <tr>
                 <td>
                     <div class="control-label" style="width:124px">死亡日期：</div>
@@ -42,7 +42,7 @@
                 </td>
             </tr>
         </table>
-        <table class="control-table padding-20" tag="死亡主要原因">
+        <table class="control-table padding-20" tag="死亡主要原因" style="display:none">
             <tr>
                 <td>
                     <div class="control-label" style="width:124px">死亡主要原因：</div>
@@ -62,7 +62,7 @@
                 </td>
             </tr>
         </table>
-        <table class="control-table padding-20" tag="自动出院日期">
+        <table class="control-table padding-20" tag="自动出院日期" style="display:none">
             <tr>
                 <td>
                     <div class="control-label" style="width:124px">自动出院日期：</div>
@@ -77,7 +77,7 @@
                 </td>
             </tr>
         </table>
-        <table class="control-table padding-20" tag="自动出院主要原因">
+        <table class="control-table padding-20" tag="自动出院主要原因" style="display:none">
             <tr>
                 <td>
                     <div class="control-label" style="width:124px">自动出院原因：</div>
