@@ -11,7 +11,7 @@
                 <div class="control-label" style="width:70px;padding-left:5px;">病案号：</div>
             </td>
             <td>
-                <input type="text" class="form-control input-sm" style="width:100px" placeholder="" json-name="病案号">
+                <input type="text" class="form-control input-sm" style="width:100px" placeholder="" json-name="病案号" json_type="string">
             </td>
             <td>
                 <div class="control-label" style="width:80px;padding-left:5px;">上传时间：</div>
