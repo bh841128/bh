@@ -473,18 +473,18 @@ function hospital(){
 		if (typeof page != "undefinedd"){
 			query_params.page = page;
 		}
-		g_patient_query_upload.queryData(query_params);
+		g_query_upload.queryData(query_params);
 	}
 	function initUpload(){
 		var options = {
-            "show_fields":["序号","病案号","姓名","性别", "出生日期", "联系人", "联系电话", "医院", "上传时间", "状态"],
-            "operations":"详情,编辑,上传,删除,新增住院记录",
+            "show_fields":["序号","姓名","病案号","手术日期", "上传时间"],
+            "operations":"详情,编辑,上传,删除",
             "table_wrapper":$("#upload-query-patient-table-wrapper"),
             "page_nav_wrapper":$("#upload-query-patient-page-nav"),
 			"come_from":"上传资料"
         }
-        g_patient_query_upload = new patient_query();
-		g_patient_query_upload.init(options);
+        g_query_upload = new zhuyuanjilu_query();
+		g_query_upload.init(options);
         $("#upload-query-patient-param-wrapper button[tag='not_upload']").click(function(){
             upload_queryDefaultPage(1,1);
 		})
