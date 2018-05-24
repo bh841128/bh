@@ -31,7 +31,7 @@ function addPatient(){
 			hideAllErrorMsgs();
 		});
 		$("#jibenziliao-section [json-name]").on( "change", function() {
-			m_editing_mode = false;
+			m_editing_mode = true;
 		});
 	}
 	this.isEditingMode = function(){
@@ -257,7 +257,7 @@ function addZhuyuanjilu(){
 		});
 
 		$("#zhuyuanjilu-section [json-name]").on( "change", function() {
-			m_editing_mode = false;
+			m_editing_mode = true;
 		});
 	}
 	this.isEditingMode = function(){
