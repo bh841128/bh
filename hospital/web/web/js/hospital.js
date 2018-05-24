@@ -41,6 +41,7 @@ function hospital(){
 		initExport();
 		initReport();
 		init_select_modals();
+		init_leave_page();
 	}
 	//////////////////////////////////////////////页面跳转管理
 	this.gotoPage = function(page_name, data, come_from,data2){
@@ -558,6 +559,12 @@ function hospital(){
 		g_report = new report();
 		g_report.init();
 	}
+	////////////////////////////////////////初始化离开事件，提示保存
+	function init_leave_page(){
+		window.onbeforeunload=function(){
+			return "你确定要离开吗";
+		}
+	}
 	/////////////////////////////////////////////////////////////////////////////////
 	function init_select_modals(){
 		g_xianxinbingbingzhong_select_modal = new select_modal();
@@ -594,9 +601,6 @@ function hospital(){
 			"title":"术后并发症"
 		});
 
-		
-
-		
 		initSelectModal();
 	}
 }
