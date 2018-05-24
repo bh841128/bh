@@ -562,11 +562,12 @@ function hospital(){
 	}
 	////////////////////////////////////////初始化离开事件，提示保存
 	function init_leave_page(){
+		var msg = null;
+		if (isCurrentPageEdit()){
+			msg = "系统可能不会保存您所做的更改。";
+		}
 		window.onbeforeunload=function(){
-			if (!isCurrentPageEdit()){
-				return null;
-			}
-			return "你确定要离开吗";
+			return msg;
 		}
 	}
 	function isCurrentPageEdit(){
