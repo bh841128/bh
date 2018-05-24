@@ -196,7 +196,7 @@
                 </td>
             </tr>
         </table>
-        <div tag="tiwaixunhuan">
+        <div tag="tiwaixunhuan" style="margin-left:70px">
             <table class="control-table padding-20">
                 <tr>
                     <td>
