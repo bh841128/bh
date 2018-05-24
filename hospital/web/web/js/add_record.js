@@ -582,6 +582,17 @@ function addZhuyuanjilu(){
 		
 		////去掉一些无用字段
 		var data_inputs = data_json.raw_json_operation_before_info;
+		for (var i = data_inputs["既往心脏病手术次数"]+1; i <= 4; i++){
+			if (data_inputs["既往心脏病手术时间-不能提供-"+i] > 0){
+				data_inputs["既往心脏病手术时间-"+i] = "";
+			}
+			if (data_inputs["既往心脏病手术医院-不能提供-"+i] > 0){
+				data_inputs["既往心脏病手术医院-"+i] = "";
+			}
+			if (data_inputs["既往心脏病手术名称-不能提供-"+i] > 0){
+				data_inputs["既往心脏病手术名称-"+i] = "";
+			}
+		}
 		if (data_inputs["术前血氧饱和度-不能提供"] == 0){
 			data_inputs["术前血氧饱和度-不能提供-原因"] = "";
 		}
@@ -813,57 +824,57 @@ function addZhuyuanjilu(){
 	}
 	function checkValidShuqianxinxi(data_json){
 		var arr_errmsgs = [];
-		var operation_before_info = data_json.operation_before_info;
-		for (var i = 1; i <= operation_before_info["既往心脏病手术次数"]; i++){
-			if (operation_before_info["既往心脏病手术时间-不能提供-"+i] <= 0){
-				checkValueValid(arr_errmsgs, operation_before_info, "既往心脏病手术时间-"+i,		"不能为空",		"请填写 既往心脏病手术时间"+i);
+		var data_inputs = data_json.operation_before_info;
+		for (var i = 1; i <= data_inputs["既往心脏病手术次数"]; i++){
+			if (data_inputs["既往心脏病手术时间-不能提供-"+i] <= 0){
+				checkValueValid(arr_errmsgs, data_inputs, "既往心脏病手术时间-"+i,		"不能为空",		"请填写 既往心脏病手术时间"+i);
 			}
-			if (operation_before_info["既往心脏病手术医院-不能提供-"+i] <= 0){
-				checkValueValid(arr_errmsgs, operation_before_info, "既往心脏病手术医院-"+i,		"不能为空",		"请填写 既往心脏病手术医院"+i);
+			if (data_inputs["既往心脏病手术医院-不能提供-"+i] <= 0){
+				checkValueValid(arr_errmsgs, data_inputs, "既往心脏病手术医院-"+i,		"不能为空",		"请填写 既往心脏病手术医院"+i);
 			}
-			if (operation_before_info["既往心脏病手术名称-不能提供-"+i] <= 0){
-				checkValueValid(arr_errmsgs, operation_before_info, "既往心脏病手术名称-"+i,		"不能为空",		"请填写 既往心脏病手术名称"+i);
+			if (data_inputs["既往心脏病手术名称-不能提供-"+i] <= 0){
+				checkValueValid(arr_errmsgs, data_inputs, "既往心脏病手术名称-"+i,		"不能为空",		"请填写 既往心脏病手术名称"+i);
 			}
 		}
-		checkValueValid(arr_errmsgs, operation_before_info, "身高",		"不能为空",		"请填写 身高");
-		checkValueValid(arr_errmsgs, operation_before_info, "体重",		"不能为空",		"请填写 体重");
-		checkValueValid(arr_errmsgs, operation_before_info, "身高",		"不能为空",		"请填写 身高");
-		checkValueValid(arr_errmsgs, operation_before_info, "身高",		"不能为空",		"请填写 身高");
-		if (operation_before_info["术前血氧饱和度-不能提供"] > 0){
-			checkValueValid(arr_errmsgs, operation_before_info, "术前血氧饱和度-不能提供-原因",		"不能为空",		"请填写 术前血氧饱和度不能提供原因");
+		checkValueValid(arr_errmsgs, data_inputs, "身高",		"不能为空",		"请填写 身高");
+		checkValueValid(arr_errmsgs, data_inputs, "体重",		"不能为空",		"请填写 体重");
+		checkValueValid(arr_errmsgs, data_inputs, "身高",		"不能为空",		"请填写 身高");
+		checkValueValid(arr_errmsgs, data_inputs, "身高",		"不能为空",		"请填写 身高");
+		if (data_inputs["术前血氧饱和度-不能提供"] > 0){
+			checkValueValid(arr_errmsgs, data_inputs, "术前血氧饱和度-不能提供-原因",		"不能为空",		"请填写 术前血氧饱和度不能提供原因");
 		}
 		else{
-			checkValueValid(arr_errmsgs, operation_before_info, "术前血氧饱和度",		"不能为空",		"请填写 术前血氧饱和度");
-			checkValueValid(arr_errmsgs, operation_before_info, "术前血氧饱和度-右上肢",		"不能为空",		"请填写 术前血氧饱和度-右上肢");
-			checkValueValid(arr_errmsgs, operation_before_info, "术前血氧饱和度-左上肢",		"不能为空",		"请填写 术前血氧饱和度-左上肢");
-			checkValueValid(arr_errmsgs, operation_before_info, "术前血氧饱和度-右下肢",		"不能为空",		"请填写 术前血氧饱和度-右下肢");
-			checkValueValid(arr_errmsgs, operation_before_info, "术前血氧饱和度-左下肢",		"不能为空",		"请填写 术前血氧饱和度-左下肢");
+			checkValueValid(arr_errmsgs, data_inputs, "术前血氧饱和度",		"不能为空",		"请填写 术前血氧饱和度");
+			checkValueValid(arr_errmsgs, data_inputs, "术前血氧饱和度-右上肢",		"不能为空",		"请填写 术前血氧饱和度-右上肢");
+			checkValueValid(arr_errmsgs, data_inputs, "术前血氧饱和度-左上肢",		"不能为空",		"请填写 术前血氧饱和度-左上肢");
+			checkValueValid(arr_errmsgs, data_inputs, "术前血氧饱和度-右下肢",		"不能为空",		"请填写 术前血氧饱和度-右下肢");
+			checkValueValid(arr_errmsgs, data_inputs, "术前血氧饱和度-左下肢",		"不能为空",		"请填写 术前血氧饱和度-左下肢");
 		}
-		if (operation_before_info["术后血氧饱和度-不能提供"] > 0){
-			checkValueValid(arr_errmsgs, operation_before_info, "术后血氧饱和度-不能提供-原因",		"不能为空",		"请填写 术后血氧饱和度不能提供原因");
+		if (data_inputs["术后血氧饱和度-不能提供"] > 0){
+			checkValueValid(arr_errmsgs, data_inputs, "术后血氧饱和度-不能提供-原因",		"不能为空",		"请填写 术后血氧饱和度不能提供原因");
 		}
 		else{
-			checkValueValid(arr_errmsgs, operation_before_info, "术后血氧饱和度",		"不能为空",		"请填写 术后血氧饱和度");
-			checkValueValid(arr_errmsgs, operation_before_info, "术后血氧饱和度-右上肢",		"不能为空",		"请填写 术后血氧饱和度-右上肢");
-			checkValueValid(arr_errmsgs, operation_before_info, "术后血氧饱和度-左上肢",		"不能为空",		"请填写 术后血氧饱和度-左上肢");
-			checkValueValid(arr_errmsgs, operation_before_info, "术后血氧饱和度-右下肢",		"不能为空",		"请填写 术后血氧饱和度-右下肢");
-			checkValueValid(arr_errmsgs, operation_before_info, "术后血氧饱和度-左下肢",		"不能为空",		"请填写 术后血氧饱和度-左下肢");
+			checkValueValid(arr_errmsgs, data_inputs, "术后血氧饱和度",		"不能为空",		"请填写 术后血氧饱和度");
+			checkValueValid(arr_errmsgs, data_inputs, "术后血氧饱和度-右上肢",		"不能为空",		"请填写 术后血氧饱和度-右上肢");
+			checkValueValid(arr_errmsgs, data_inputs, "术后血氧饱和度-左上肢",		"不能为空",		"请填写 术后血氧饱和度-左上肢");
+			checkValueValid(arr_errmsgs, data_inputs, "术后血氧饱和度-右下肢",		"不能为空",		"请填写 术后血氧饱和度-右下肢");
+			checkValueValid(arr_errmsgs, data_inputs, "术后血氧饱和度-左下肢",		"不能为空",		"请填写 术后血氧饱和度-左下肢");
 		}
-		if (operation_before_info["专科检查-是否其他"] > 0){
-			checkValueValid(arr_errmsgs, operation_before_info, "专科检查-其他",		"不能为空",		"请填写 专科检查-其他");
+		if (data_inputs["专科检查-是否其他"] > 0){
+			checkValueValid(arr_errmsgs, data_inputs, "专科检查-其他",		"不能为空",		"请填写 专科检查-其他");
 		}
-		checkValueValid(arr_errmsgs, operation_before_info, "术前诊断",		"不能为空",		"请选择 术前诊断");
-		if (operation_before_info["专科检查-出生胎龄-不能提供"] <= 0){
-			checkValueValid(arr_errmsgs, operation_before_info, "专科检查-出生胎龄",		"不能为空",		"请填写 出生胎龄");
+		checkValueValid(arr_errmsgs, data_inputs, "术前诊断",		"不能为空",		"请选择 术前诊断");
+		if (data_inputs["专科检查-出生胎龄-不能提供"] <= 0){
+			checkValueValid(arr_errmsgs, data_inputs, "专科检查-出生胎龄",		"不能为空",		"请填写 出生胎龄");
 		}
-		if (operation_before_info["专科检查-出生体重-不能提供"] <= 0){
-			checkValueValid(arr_errmsgs, operation_before_info, "专科检查-出生体重",		"不能为空",		"请填写 出生体重");
+		if (data_inputs["专科检查-出生体重-不能提供"] <= 0){
+			checkValueValid(arr_errmsgs, data_inputs, "专科检查-出生体重",		"不能为空",		"请填写 出生体重");
 		}
-		if (operation_before_info["专科检查-术前一般危险因素"] > 0){
-			checkValueValid(arr_errmsgs, operation_before_info, "术前一般危险因素",		"不能为空",		"请选择 术前一般危险因素");
+		if (data_inputs["专科检查-术前一般危险因素"] > 0){
+			checkValueValid(arr_errmsgs, data_inputs, "术前一般危险因素",		"不能为空",		"请选择 术前一般危险因素");
 		}
-		if (operation_before_info["专科检查-非心脏畸形"] > 0){
-			checkValueValid(arr_errmsgs, operation_before_info, "非心脏畸形",		"不能为空",		"请选择 非心脏畸形");
+		if (data_inputs["专科检查-非心脏畸形"] > 0){
+			checkValueValid(arr_errmsgs, data_inputs, "非心脏畸形",		"不能为空",		"请选择 非心脏畸形");
 		}
 		
 		
