@@ -522,7 +522,7 @@ function hospital(){
 		if (typeof page != "undefinedd"){
 			query_params.page = page;
 		}
-		g_patient_query_export.queryData(query_params);
+		g_query_export.queryData(query_params);
 	}
 	function initExport(){
 		function getExportLink(){
