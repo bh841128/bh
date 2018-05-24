@@ -5,7 +5,7 @@
                 <div class="control-label" style="width:80px">姓名：</div>
             </td>
             <td>
-                <input type="text" class="form-control input-sm" style="width:100px" placeholder="" json-name="姓名">
+                <input type="text" class="form-control input-sm" style="width:100px" placeholder="" json-name="患者姓名">
             </td>
             <td>
                 <div class="control-label" style="width:70px;padding-left:5px;">病案号：</div>
