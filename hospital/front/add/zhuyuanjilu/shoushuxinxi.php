@@ -260,7 +260,7 @@
                     </div>
                 </td>
                 <td style="padding-left:15px">
-                    <input type="text" class="form-control input-sm" style="width:400px" placeholder="输入原因" tag="address-nodetail-yuanyi" disabled json-name="主动脉阻断时间-不能提供-原因">
+                    <input type="text" class="form-control input-sm" style="width:400px" placeholder="输入原因" init_disabled="1" disabled json-name="主动脉阻断时间-不能提供-原因">
                 </td>
             </tr>
         </table>

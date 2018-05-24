@@ -470,7 +470,7 @@
                     </div>
                 </td>
                 <td style="padding-left:15px">
-                    <input type="text" class="form-control input-sm" tag="address-nodetail-yuanyi" disabled style="width:400px" placeholder="其他" json-name="专科检查-其他">
+                    <input type="text" class="form-control input-sm" init_disabled="1" disabled style="width:400px" placeholder="其他" json-name="专科检查-其他">
                 </td>
             </tr>
         </table>
