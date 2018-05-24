@@ -97,7 +97,7 @@
                         <div class="control-label" style="width:124px">红细胞：</div>
                     </td>
                     <td>
-                        <input type="text" class="form-control input-sm" style="width:100px" placeholder="" json-name="红细胞">
+                        <input type="text" class="form-control input-sm" style="width:100px" placeholder="红细胞" json-name="红细胞">
                     </td>
                     <td>
                         <span>（单位）</span>
