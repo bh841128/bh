@@ -223,7 +223,7 @@
                     </td>
                 </tr>
             </table>
-            <table class="control-table padding-20" tag="tingboye" style="padding-left:10px">
+            <table class="control-table padding-20" tag="tingboye" style="margin-left:50px">
                 <tr>
                     <td>
                         <div class="control-label control-label-180">停搏液类型：</div>
