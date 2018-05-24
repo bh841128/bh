@@ -480,6 +480,9 @@ function hospital(){
 	}
 	/////////////////////////////////////////初始化上传
 	function upload_queryDefaultPage(status, page){
+		if (typeof status == "undefined"){
+			status = 1;
+		}
 		var query_params = {status:status};
 		if (typeof page != "undefinedd"){
 			query_params.page = page;

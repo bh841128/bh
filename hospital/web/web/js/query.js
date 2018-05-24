@@ -554,6 +554,9 @@ function zhuyuanjilu_query(){
         m_query_param = query_param;
         return m_patient_query.queryData(query_param);
     }
+    this.getCurrentParam = function(){
+        return m_query_param;
+    }
     /////////////////////////////////////////////////////
     function getStatusName(status) {
         var status_map = [
