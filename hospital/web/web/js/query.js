@@ -21,6 +21,7 @@ function patient_query() {
     }
     this.map_query_param = [
         {"name":"姓名","field":"name"},
+        {"患者姓名": "patient_name"},
         {"name":"病案号","field":"medical_id"},
         {"name":"性别","field":"sexy"},
         {"name":"联系人姓名","field":"relate_name"},
