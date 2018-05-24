@@ -86,7 +86,7 @@
                 <div class="control-label control-label-100"></div>
             </td>
             <td style="padding-left:5px">
-                <input type="text" class="form-control input-sm" style="width:475px" placeholder="详细地址" tag="address-xiangxidizhi" json-name="详细地址" value="地瓜山">
+                <input type="text" class="form-control input-sm" style="width:475px" placeholder="详细地址" disabled init_disabled="1" tag="address-xiangxidizhi" json-name="详细地址" value="地瓜山">
             </td>
             <td style="padding-left:35px">
                 <div class="checkbox">
