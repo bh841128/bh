@@ -548,7 +548,7 @@
                     <lable class="radio-inline">
                         <input type="radio" name="shuqianyibanweixianyinsu" value="1" json-name="专科检查-术前一般危险因素" checked>有</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="shuqianyibanweixianyinsu" value="2" json-name="专科检查-术前一般危险因素">无</lable>
+                        <input type="radio" name="shuqianyibanweixianyinsu" value="0" json-name="专科检查-术前一般危险因素">无</lable>
                 </td>
             </tr>
             <tr>
@@ -565,7 +565,7 @@
                     <lable class="radio-inline">
                         <input type="radio" name="feixinzangjixing" value="1" json-name="专科检查-非心脏畸形" checked>有</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="feixinzangjixing" value="2" json-name="专科检查-非心脏畸形">无</lable>
+                        <input type="radio" name="feixinzangjixing" value="0" json-name="专科检查-非心脏畸形">无</lable>
                 </td>
             </tr>
             <tr>
