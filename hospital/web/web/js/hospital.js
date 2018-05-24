@@ -26,7 +26,7 @@ function hospital(){
 		var side_bar = m_this.m_page_struct.elements["side_bar"];
 		side_bar.find(".tree-btn[tag]").click(function(){
 			var tag = $(this).attr("tag");
-			if (tag != "index" && $(this).hasClass("active")){
+			if (tag != "新增资料" && $(this).hasClass("active")){
 				return;
 			}
 			
