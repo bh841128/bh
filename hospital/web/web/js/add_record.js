@@ -33,6 +33,9 @@ function addPatient(){
 		$("#jibenziliao-section [json-name]").change(function() {
 			m_editing_mode = true;
 		});
+		$("#jibenziliao-section input[json-name]").on("input", (function() {
+			m_editing_mode = true;
+		});
 	}
 	this.isEditingMode = function(){
 		return m_editing_mode;
