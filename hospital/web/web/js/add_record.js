@@ -164,6 +164,9 @@ function addPatient(){
 		m_patient_id = rsp.id;
 		g_hospital.setGlobalData("patient_id", m_patient_id);
 		$("#nav-tab-zhuyuanjilu").get(0).disabled = false;
+
+		m_editing_mode = false;
+		init_leave_page(null);
 	}
 	function onUpdatePatientRet(rsp){
 		//console.dir(rsp);
@@ -172,6 +175,8 @@ function addPatient(){
 			return;
 		}
 		alert("更新成功");
+		m_editing_mode = false;
+		init_leave_page(null);
 	}
 	function setJibenZiliaoState(bSisabled){
 		setAllControlDisabled($("#tab-jibenziliao"),bSisabled);
@@ -711,6 +716,8 @@ function addZhuyuanjilu(){
 				return;
 			}
 			alert("更新成功");
+			m_editing_mode = false;
+			init_leave_page(null);
 		}
 	
 		function onAddZhuyuanjiluRet(rsp){
@@ -728,6 +735,8 @@ function addZhuyuanjilu(){
 				return;
 			}
 			alert("添加成功");
+			m_editing_mode = false;
+			init_leave_page(null);
 		}
 		var data_json = getAllInputDatas();
 		if (data_json.hospitalization_in_time < 1000000){
