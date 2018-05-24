@@ -472,7 +472,7 @@ function addZhuyuanjilu(){
 	///////////////////////////////////////////////////////
 	//既往心脏病手术次数
 	function initControlJwxzbch(){
-		$("#jyxzbcs-radio-wraper input[name='zyjl-jiwangxinzangbingcishu']").off('change').on("change", function(){
+		$("#jyxzbcs-radio-wraper input[name='zyjl-jiwangxinzangbingcishu']").change(function(){
 			var value = getRadioValue($("#jyxzbcs-radio-wraper"), 'zyjl-jiwangxinzangbingcishu');
 			var i = 0;
 			$("#jyxzbcs-wraper [tag='jyxzbcs']").each(function(){
