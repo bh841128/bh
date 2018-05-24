@@ -476,6 +476,7 @@ function zhuyuanjilu_query(){
         {"name":"上传时间-结束","field":"end_time"}
     ]
     this.m_query_data_api = "hospital/get-record-list";
+    this.parseQueryParam = m_patient_query.parseQueryParam;
     this.preProcessData = function(rawDatas) {
     }
     this.transData = function(table_datas) {
