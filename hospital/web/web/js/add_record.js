@@ -30,7 +30,7 @@ function addPatient(){
 		$("#jibenziliao-section [json-name],#zhuyuanjilu-section [json-name]").on( "focus", function() {
 			hideAllErrorMsgs();
 		});
-		$("#jibenziliao-section [json-name]").on( "change", function() {
+		$("#jibenziliao-section [json-name]").change(function() {
 			m_editing_mode = true;
 		});
 	}
@@ -256,7 +256,7 @@ function addZhuyuanjilu(){
 			hideAllErrorMsgs();
 		});
 
-		$("#zhuyuanjilu-section [json-name]").on( "change", function() {
+		$("#zhuyuanjilu-section [json-name]").change(function() {
 			m_editing_mode = true;
 		});
 	}
