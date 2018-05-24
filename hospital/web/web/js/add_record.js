@@ -615,22 +615,6 @@ function addZhuyuanjilu(){
 			data_inputs["非心脏畸形"] = "";
 		}
 
-		var data_inputs = data_json.hospitalization_out_info;
-		if (data_inputs["出院时状态"] == 0){
-			data_inputs["死亡日期"] = "";
-			data_inputs["死亡主要原因"] = "";
-			data_inputs["自动出院日期"] = "";
-			data_inputs["自动出院主要原因"] = "";
-		}
-		else if (data_inputs["出院时状态"] == 1){
-			data_inputs["自动出院日期"] = "";
-			data_inputs["自动出院主要原因"] = "";
-		}
-		else if (data_inputs["出院时状态"] == 2){
-			data_inputs["死亡日期"] = "";
-			data_inputs["死亡主要原因"] = "";
-		}
-
 		var data_inputs = data_json.operation_info;
 		if (data_inputs["体外循环"] == 0){
 			data_inputs["是否计划"] = "";
@@ -665,7 +649,38 @@ function addZhuyuanjilu(){
 		if (data_inputs["单侧脑灌注"] == 0){
 			data_inputs["单侧脑灌注时间"] = "";
 		}
-		
+
+		var data_inputs = data_json.operation_after_info;
+		if (data_inputs["当天进出监护室内"] == 0){
+			data_inputs["出监护室日期"] = "";
+			data_inputs["术后监护室停留时间"] = "";
+		}
+		if (data_inputs["围手术期血液制品输入（累计）"] == 0){
+			data_inputs["红细胞"] = "";
+			data_inputs["新鲜冰冻血浆"] = "";
+			data_inputs["血浆冷沉淀"] = "";
+			data_inputs["血小板"] = "";
+			data_inputs["自体血"] = "";
+		}
+		if (data_inputs["是否术后并发症"] == 0){
+			data_inputs["术后并发症"] = "";
+		}
+
+		var data_inputs = data_json.hospitalization_out_info;
+		if (data_inputs["出院时状态"] == 0){
+			data_inputs["死亡日期"] = "";
+			data_inputs["死亡主要原因"] = "";
+			data_inputs["自动出院日期"] = "";
+			data_inputs["自动出院主要原因"] = "";
+		}
+		else if (data_inputs["出院时状态"] == 1){
+			data_inputs["自动出院日期"] = "";
+			data_inputs["自动出院主要原因"] = "";
+		}
+		else if (data_inputs["出院时状态"] == 2){
+			data_inputs["死亡日期"] = "";
+			data_inputs["死亡主要原因"] = "";
+		}
 		return data_json;
 	}
 	function onZhuyuanjiluSave(callback){

@@ -38,7 +38,7 @@
                 </td>
             </tr>
         </table>
-        <div tag="dangtianjinchujianhushinei">
+        <div tag="dangtianjinchujianhushinei" style="padding-left:40px">
             <table class="control-table padding-20">
                 <tr>
                     <td>
