@@ -137,6 +137,7 @@ function hospital(){
 			showDstPage(page_name);
 			//////////////////
 			m_this.setGlobalData("current_page", page_name);
+			init_leave_page(null);
 		}
 		
 		if (isCurrentPageEdit()){
