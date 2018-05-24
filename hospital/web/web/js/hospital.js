@@ -574,7 +574,7 @@ function hospital(){
 		if (current_page != "新增资料"){
 			return false;
 		}
-		return truel
+		return true;
 	}
 	/////////////////////////////////////////////////////////////////////////////////
 	function init_select_modals(){
