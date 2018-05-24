@@ -630,6 +630,42 @@ function addZhuyuanjilu(){
 			data_inputs["死亡日期"] = "";
 			data_inputs["死亡主要原因"] = "";
 		}
+
+		var data_inputs = data_json.operation_info;
+		if (data_inputs["体外循环"] == 0){
+			data_inputs["是否计划"] = "";
+			data_inputs["停搏液"] = "";
+			data_inputs["停搏液类型"] = "";
+			data_inputs["停搏液温度"] = "";
+			data_inputs["体外循环时间"] = "";
+			data_inputs["主动脉阻断时间"] = "";
+			data_inputs["主动脉阻断时间-不能提供"] = "";
+			data_inputs["主动脉阻断时间-不能提供-原因"] = "";
+			data_inputs["是否二次或多次体外循环"] = "";
+			data_inputs["是否二次或多次体外循环-原因"] = "";
+		}
+		else {
+			if (data_inputs["停搏液"] == 0){
+				data_inputs["停搏液类型"] = "";
+				data_inputs["停搏液温度"] = "";
+			}
+			if (data_inputs["主动脉阻断时间-不能提供"] == 0){
+				data_inputs["主动脉阻断时间-不能提供-原因"] = "";
+			}
+			else{
+				data_inputs["主动脉阻断时间"] = "";
+			}
+			if (data_inputs["是否二次或多次体外循环"] == 0){
+				data_inputs["是否二次或多次体外循环-原因"] = "";
+			}
+		}
+		if (data_inputs["深低温停循环"] == 0){
+			data_inputs["深低温停循环时间"] = "";
+		}
+		if (data_inputs["单侧脑灌注"] == 0){
+			data_inputs["单侧脑灌注时间"] = "";
+		}
+		
 		return data_json;
 	}
 	function onZhuyuanjiluSave(callback){
