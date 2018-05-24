@@ -1,5 +1,6 @@
 function hospital(){
 	var m_this = this;
+	var m_editing = false;
 	this.m_page_struct = {
 		elements : {
 			"side_bar":$("#main-sidebar"),
@@ -562,8 +563,18 @@ function hospital(){
 	////////////////////////////////////////初始化离开事件，提示保存
 	function init_leave_page(){
 		window.onbeforeunload=function(){
+			if (!isCurrentPageEdit()){
+				return null;
+			}
 			return "你确定要离开吗";
 		}
+	}
+	function isCurrentPageEdit(){
+		var current_page = m_this.getGlobalData("current_page");
+		if (current_page != "新增资料"){
+			return false;
+		}
+		return truel
 	}
 	/////////////////////////////////////////////////////////////////////////////////
 	function init_select_modals(){
