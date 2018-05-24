@@ -28,6 +28,17 @@
                     </div>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <div class="control-label control-label-120" style="width:120px">其他：</div>
+                </td>
+                <td>
+                    <td>
+                        <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="" json-name="手术诊断-其他"></textarea>
+                    </td>
+                </td>
+            <tr>
+            </tr>
         </table>
         <table class="control-table  padding-20">
             <tr>
@@ -41,6 +52,16 @@
                     </div>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <div class="control-label control-label-120" style="width:120px">其他：</div>
+                </td>
+                <td>
+                    <td>
+                        <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="" json-name="主要手术名称-其他"></textarea>
+                    </td>
+                </td>
+            <tr>
         </table>
         <table class="control-table padding-20">
             <tr>
