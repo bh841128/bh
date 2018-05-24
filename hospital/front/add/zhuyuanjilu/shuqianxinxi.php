@@ -93,8 +93,7 @@
             </table>
         </div>
         <div class="hospital-group-box" tag="jyxzbcs" style="display:none">
-            <div class="line-div"></div>
-            <h5 class="modal-title" style="text-align:left;font-weight:bold">既往心脏病手术一</h5>
+            <h5 class="modal-title" style="text-align:left;font-weight:bold">既往心脏病手术二</h5>
             <table class="control-table">
                 <tr>
                     <td>
@@ -152,7 +151,7 @@
             </table>
         </div>
         <div class="hospital-group-box" tag="jyxzbcs" style="display:none">
-            <div class="line-div"></div>
+            <h5 class="modal-title" style="text-align:left;font-weight:bold">既往心脏病手术三</h5>
             <table class="control-table">
                 <tr>
                     <td>
@@ -210,7 +209,7 @@
             </table>
         </div>
         <div class="hospital-group-box" tag="jyxzbcs" style="display:none">
-            <div class="line-div"></div>
+            <h5 class="modal-title" style="text-align:left;font-weight:bold">既往心脏病手术四</h5>
             <table class="control-table">
                 <tr>
                     <td>
