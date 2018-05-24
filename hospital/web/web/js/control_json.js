@@ -68,7 +68,7 @@ function control_json(){
         }
         if (typeof value == "string" && value.match(/^[0-9]+$/)){
             var json_type = control.attr("json_type");
-            if (json_type && json_type != "string")){
+            if (json_type && json_type != "string"){
                 value = parseInt(value);
             }
             
