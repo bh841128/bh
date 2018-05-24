@@ -581,6 +581,40 @@ function addZhuyuanjilu(){
 		data_json.hospitalization_out_info = arrayToJson(raw_json_hospitalization_out_info);
 		
 		////去掉一些无用字段
+		var data_inputs = data_json.raw_json_operation_before_info;
+		if (data_inputs["术前血氧饱和度-不能提供"] == 0){
+			data_inputs["术前血氧饱和度-不能提供-原因"] = "";
+		}
+		else{
+			data_inputs["术前血氧饱和度"] = "";
+			data_inputs["术前血氧饱和度-右上肢"] = "";
+			data_inputs["术前血氧饱和度-左上肢"] = "";
+			data_inputs["术前血氧饱和度-右下肢"] = "";
+			data_inputs["术前血氧饱和度-左下肢"] = "";
+		}
+		if (data_inputs["术后血氧饱和度-不能提供"] == 0){
+			data_inputs["术后血氧饱和度-不能提供-原因"] = "";
+		}
+		else{
+			data_inputs["术后血氧饱和度"] = "";
+			data_inputs["术后血氧饱和度-右上肢"] = "";
+			data_inputs["术后血氧饱和度-左上肢"] = "";
+			data_inputs["术后血氧饱和度-右下肢"] = "";
+			data_inputs["术后血氧饱和度-左下肢"] = "";
+		}
+		if (data_inputs["专科检查-是否其他"] == 0){
+			data_inputs["专科检查-其他"] = "";
+		}
+		if (data_inputs["专科检查-出生胎龄-不能提供"]){
+			data_inputs["专科检查-出生胎龄"] = "";
+		}
+		if (data_inputs["专科检查-术前一般危险因素"] == 0){
+			data_inputs["术前一般危险因素"] = "";
+		}
+		if (data_inputs["专科检查-非心脏畸形"] == 0){
+			data_inputs["非心脏畸形"] = "";
+		}
+
 		var data_inputs = data_json.hospitalization_out_info;
 		if (data_inputs["出院时状态"] == 0){
 			data_inputs["死亡日期"] = "";
