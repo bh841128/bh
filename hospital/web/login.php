@@ -23,6 +23,7 @@ require_once(__DIR__."/../config/front_config.php");
             </nav>
         </header>
     </div>
+    <div style="text-align:center;background-color:rgb(140,200,234)">
     <div class="wrapper" style="width:1200px;margin-left:auto;margin-right:auto">
         <div style="background-color:rgb(140,200,234);height:600px;text-align:center;">
             <div class="login-wrapper">
@@ -37,15 +38,16 @@ require_once(__DIR__."/../config/front_config.php");
                 </div>
             </div>
         </div>
-
+        </div>
+        <div class="wrapper" style="width:1200px;margin-left:auto;margin-right:auto">
         <?php require(WEB_PAGE_PATH."footer.php"); ?>
         <?php require(WEB_PAGE_PATH."js.php"); ?>
-        <script src="/web/js/login.js"></script>
+    </div>
+    <script src="/web/js/login.js"></script>
         <script type="text/javascript">
             var g_userLogin = new userLogin();
             g_userLogin.init();
         </script>
-    </div>
 </body>
 
 </html>
