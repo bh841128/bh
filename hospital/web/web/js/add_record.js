@@ -879,36 +879,36 @@ function addZhuyuanjilu(){
 	}
 	function checkValidShoushuxinxi(data_json){
 		var arr_errmsgs = [];
-		var operation_dinfo = data_json.operation_info;
-		if (operation_dinfo["与术前诊断一致"] <= 0){
-			checkValueValid(arr_errmsgs, operation_dinfo, "手术诊断",		"不能为空",		"请选择 手术诊断");
+		var data_inputs = data_json.operation_info;
+		if (data_inputs["与术前诊断一致"] <= 0){
+			checkValueValid(arr_errmsgs, data_inputs, "手术诊断",		"不能为空",		"请选择 手术诊断");
 		}
-		checkValueValid(arr_errmsgs, operation_dinfo, "主要手术名称",		"不能为空",		"请选择 主要手术名称");
-		checkValueValid(arr_errmsgs, operation_dinfo, "手术医生",		"不能为空",		"请填写 手术医生");
-		checkValueValid(arr_errmsgs, operation_dinfo, "手术用时",		"不能为空",		"请填写 手术用时");
-		checkValueValid(arr_errmsgs, operation_dinfo, "手术年龄",		"不能为空",		"请填写 手术年龄");
-		checkValueValid(arr_errmsgs, operation_dinfo, "手术路径",		"不能为空",		"请选择 手术路径");
-		if (operation_dinfo["延迟关胸"] > 0){
-			checkValueValid(arr_errmsgs, operation_dinfo, "延迟关胸时间",		"不能为空",		"请填写 延迟关胸时间");
+		checkValueValid(arr_errmsgs, data_inputs, "主要手术名称",		"不能为空",		"请选择 主要手术名称");
+		checkValueValid(arr_errmsgs, data_inputs, "手术医生",		"不能为空",		"请填写 手术医生");
+		checkValueValid(arr_errmsgs, data_inputs, "手术用时",		"不能为空",		"请填写 手术用时");
+		checkValueValid(arr_errmsgs, data_inputs, "手术年龄",		"不能为空",		"请填写 手术年龄");
+		checkValueValid(arr_errmsgs, data_inputs, "手术路径",		"不能为空",		"请选择 手术路径");
+		if (data_inputs["延迟关胸"] > 0){
+			checkValueValid(arr_errmsgs, data_inputs, "延迟关胸时间",		"不能为空",		"请填写 延迟关胸时间");
 		}
-		if (operation_dinfo["体外循环"] > 0){
-			checkValueValid(arr_errmsgs, operation_dinfo, "体外循环时间",		"不能为空",		"请填写 体外循环时间");
-			if (operation_dinfo["主动脉阻断时间-不能提供"] > 0){
-				checkValueValid(arr_errmsgs, operation_dinfo, "主动脉阻断时间-不能提供-原因",		"不能为空",		"请填写 主动脉阻断时间不能提供原因");
+		if (data_inputs["体外循环"] > 0){
+			checkValueValid(arr_errmsgs, data_inputs, "体外循环时间",		"不能为空",		"请填写 体外循环时间");
+			if (data_inputs["主动脉阻断时间-不能提供"] > 0){
+				checkValueValid(arr_errmsgs, data_inputs, "主动脉阻断时间-不能提供-原因",		"不能为空",		"请填写 主动脉阻断时间不能提供原因");
 				
 			}
 			else{
-				checkValueValid(arr_errmsgs, operation_dinfo, "主动脉阻断时间",		"不能为空",		"请填写 主动脉阻断时间");
+				checkValueValid(arr_errmsgs, data_inputs, "主动脉阻断时间",		"不能为空",		"请填写 主动脉阻断时间");
 			}
-			if (operation_dinfo["是否二次或多次体外循环"] > 0){
-				checkValueValid(arr_errmsgs, operation_dinfo, "是否二次或多次体外循环-原因",		"不能为空",		"请填写 二次或多次体外循环原因");
+			if (data_inputs["是否二次或多次体外循环"] > 0){
+				checkValueValid(arr_errmsgs, data_inputs, "是否二次或多次体外循环-原因",		"不能为空",		"请填写 二次或多次体外循环原因");
 			}
 		}
-		if (operation_dinfo["深低温停循环"] > 0){
-			checkValueValid(arr_errmsgs, operation_dinfo, "深低温停循环时间",		"不能为空",		"请填写 深低温停循环时间");
+		if (data_inputs["深低温停循环"] > 0){
+			checkValueValid(arr_errmsgs, data_inputs, "深低温停循环时间",		"不能为空",		"请填写 深低温停循环时间");
 		}
-		if (operation_dinfo["单侧脑灌注"] > 0){
-			checkValueValid(arr_errmsgs, operation_dinfo, "单侧脑灌注时间",		"不能为空",		"请填写 单侧脑灌注时间");
+		if (data_inputs["单侧脑灌注"] > 0){
+			checkValueValid(arr_errmsgs, data_inputs, "单侧脑灌注时间",		"不能为空",		"请填写 单侧脑灌注时间");
 		}
 		
 		return arr_errmsgs;
