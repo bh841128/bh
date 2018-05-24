@@ -526,7 +526,7 @@ function hospital(){
 	}
 	function initExport(){
 		function getExportLink(){
-			var query_params = g_patient_query.parseQueryParam($("#export_query_param_form"));
+			var query_params = g_query_export.parseQueryParam($("#export_query_param_form"));
 			query_params.page = 1;
 			query_params.size = 1000;
 			var arrUrlParams = [];
@@ -536,14 +536,14 @@ function hospital(){
 			return "http://112.74.105.107/hospital/download?"+arrUrlParams.join("&");
 		}
 		var options = {
-            "show_fields":["序号","病案号","姓名","性别", "出生日期", "联系人", "联系电话", "医院", "上传时间", "状态"],
+            "show_fields":["序号","姓名","病案号","手术日期", "上传时间"],
             "operations":"",
             "table_wrapper":$("#export-query-patient-table-wrapper"),
             "page_nav_wrapper":$("#export-query-patient-page-nav"),
 			"come_from":"数据导出"
         }
-        g_patient_query_export = new patient_query();
-		g_patient_query_export.init(options);
+        g_query_export = new zhuyuanjilu_query();
+		g_query_export.init(options);
 		$("#content-wrapper-export-export input[tag='datetimepicker']").val("");
         $("#content-wrapper-export-export button[tag='query']").click(function(){
             export_queryDefaultPage(1);

@@ -457,6 +457,8 @@ function zhuyuanjilu_query(){
     var m_patient_query = new patient_query();
     var map_showname_name = {
         "序号": "id",
+        "病案号": "medical_id",
+        "姓名": "patient_name",
         "入院日期": "hospitalization_in_time",
         "出院日期": "hospitalization_out_time",
         "手术日期": "operation_time",
