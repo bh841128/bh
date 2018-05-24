@@ -93,7 +93,7 @@ class CUtil {
 			$strexport.="\r";   
 	  
 		}    
-		$strexport=iconv('UTF-8',"GB2312//IGNORE",$strexport); 
+	//	$strexport=iconv('UTF-8',"GB2312//IGNORE",$strexport); 
 		//exit($strexport);		
 		return $strexport;     
 	}   
