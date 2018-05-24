@@ -285,7 +285,7 @@
             <table class="control-table padding-20">
                 <tr>
                     <td>
-                        <div class="control-label control-label-180">是否二次或多次体外循环：</div>
+                        <div class="control-label control-label-180" style="padding-left:0px">是否二次或多次体外循环：</div>
                     </td>
                     <td>
                         <lable class="radio-inline">
