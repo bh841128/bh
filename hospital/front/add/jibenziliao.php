@@ -86,7 +86,7 @@
                 <div class="control-label control-label-100"></div>
             </td>
             <td style="padding-left:5px">
-                <input type="text" class="form-control input-sm" style="width:475px" placeholder="详细地址" disabled init_disabled="1" tag="address-xiangxidizhi" json-name="详细地址" value="地瓜山">
+                <input type="text" class="form-control input-sm" style="width:475px" placeholder="详细地址"tag="address-xiangxidizhi" json-name="详细地址" value="地瓜山">
             </td>
             <td style="padding-left:35px">
                 <div class="checkbox">
@@ -95,7 +95,7 @@
                 </div>
             </td>
             <td style="padding-left:15px">
-                <input type="text" class="form-control input-sm" style="width:200px" placeholder="原因" tag="address-nodetail-yuanyi" disabled json-name="详细地址-不能提供-原因">
+                <input type="text" class="form-control input-sm" style="width:200px" placeholder="原因" tag="address-nodetail-yuanyi"  disabled init_disabled="1" json-name="详细地址-不能提供-原因">
             </td>
             </tr>
         </table>
