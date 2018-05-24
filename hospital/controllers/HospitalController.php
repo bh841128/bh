@@ -940,6 +940,8 @@ class HospitalController extends Controller
 			CUtil::logFile("".__file__ ." :".__line__."===$username  "."no data====".print_r($ret,true));
             return json_encode($ret);
         }
+		$needSetPatient=false;
+		$patient=array();
 		if($status==2){
 			$patient=Patient4Hospital::getPatientById($record["msg"]["patient_id"],$hospital_id);
 			if($patient["ret"]!=0){
@@ -949,13 +951,17 @@ class HospitalController extends Controller
 				CUtil::logFile("".__file__ ." :".__line__."===$username  "."SETSTATUS_PATIENTERR no data====".print_r($patient,true));
 				return json_encode($ret);
 			}
-			if($patient["msg"]["status"]!=2){
-				$ret["ret"]=SETSTATUS_PATIENTERR;
+			if($patient["msg"]["status"]==1){
+				$needSetPatient=true;
+				/*$ret["ret"]=SETSTATUS_PATIENTERR;
 				$ret["patient_id"]=$record["msg"]["patient_id"];
 				$ret["msg"]="SETSTATUS_PATIENTERR status";
 				CUtil::logFile("".__file__ ." :".__line__."===$username  "."SETSTATUS_PATIENTERR status====".print_r($patient,true));
-				return json_encode($ret);
+				return json_encode($ret);*/
 			}
+			
+				
+			
 		
 			if(CUtil::is_json($record["msg"]["operation_before_info"])&&
 				CUtil::is_json($record["msg"]["operation_info"])&&
@@ -1002,6 +1008,13 @@ class HospitalController extends Controller
 			CUtil::logFile("".__file__ ." :".__line__."===$username  "."RecordsTable ERR====".print_r($ret,true));
             return json_encode($ret);
         }
+		if($needSetPatient&&$status==2){
+			$ids=array($record["msg"]["patient_id"]);
+			$fuck=Patient4Hospital::setPatientStatusByIds($ids,$hospital_id,$status,$manager_id);
+			CUtil::logFile("".__file__ ." :".__line__."===$username  "."RecordsTable ERR====".print_r($fuck,true));
+		}
+		
+		
 		return json_encode($ret);
 		
 		
