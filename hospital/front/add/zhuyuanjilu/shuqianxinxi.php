@@ -488,6 +488,14 @@
                     <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="术前诊断" json-name="术前诊断"></textarea>
                 </td>
             </tr>
+            <tr>
+                <td style="vertical-align:top">
+                    <div class="control-label control-label-150">其他术前诊断：</div>
+                </td>
+                <td>
+                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="其他术前诊断" json-name="其他术前诊断"></textarea>
+                </td>
+            </tr>
         </table>
         <table class="control-table padding-10">
             <tr>
