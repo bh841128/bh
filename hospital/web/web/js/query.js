@@ -129,8 +129,7 @@ function patient_query() {
     }
     this.queryData = function (query_param) {
         function queryDataRet(rsp) {
-            
-            console.dir(rsp);
+            //console.dir(rsp);
             if (rsp.ret != 0 && rsp.ret != 2) {
                 alert("拉取数据错误，请稍候重试");
                 return;
@@ -197,7 +196,7 @@ function patient_query() {
         if (typeof query_json["end_time"] != "undefined"){
             query_json["end_time"] = strDateToTimestap(query_json["end_time"]);
         }
-        console.dir(query_json);
+        //console.dir(query_json);
         return query_json;
     }
     ////////////////////////////////////////////////////////////////////////////////////////////
@@ -356,7 +355,7 @@ function patient_query() {
         m_this.preProcessData(data.records);
         var table_datas = getTableShowData(data.records, options.show_fields);
         m_this.transData(table_datas);
-        console.dir(table_datas);
+        //console.dir(table_datas);
         var table_html = getTableHtml(table_datas, options);
         options.table_wrapper.html(table_html);
         if (options.page_nav_wrapper) {

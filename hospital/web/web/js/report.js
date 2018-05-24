@@ -94,7 +94,7 @@ function report(){
             }
             report_data.push(report_record);
         }
-        console.dir(report_data);
+        //console.dir(report_data);
         $("#report-sub-title").html("总量："+total_num);
         initBar(report_data, keys);
         if (hospital_id > 0){
