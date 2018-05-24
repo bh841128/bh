@@ -416,6 +416,9 @@ function patient_query() {
             if (status == "已删除"){
                 continue;
             }
+            if (status != "已上传" && (operation == "详情")){
+                continue;
+            }
             var html = '<button type="button" class="btn btn-link" data-id="' + data["id"] + '" operation-type="' + operation + '">' + operation + '</button>';
             arrHtmls.push(html);
         }
