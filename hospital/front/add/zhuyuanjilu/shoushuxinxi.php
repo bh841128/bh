@@ -196,11 +196,11 @@
                 </td>
             </tr>
         </table>
-        <div tag="tiwaixunhuan" style="margin-left:70px">
+        <div tag="tiwaixunhuan" style="margin-left:10px">
             <table class="control-table padding-20">
                 <tr>
                     <td>
-                        <div class="control-label" style="width:124px">是否计划：</div>
+                        <div class="control-label control-label-180">是否计划：</div>
                     </td>
                     <td>
                         <lable class="radio-inline">
@@ -213,7 +213,7 @@
             <table class="control-table padding-20">
                 <tr>
                     <td>
-                        <div class="control-label" style="width:124px">停搏液：</div>
+                        <div class="control-label control-label-180">停搏液：</div>
                     </td>
                     <td>
                         <lable class="radio-inline">
@@ -223,10 +223,10 @@
                     </td>
                 </tr>
             </table>
-            <table class="control-table padding-20" tag="tingboye">
+            <table class="control-table padding-20" tag="tingboye" style="padding-left:10px">
                 <tr>
                     <td>
-                        <div class="control-label" style="width:124px">停搏液类型：</div>
+                        <div class="control-label control-label-180">停搏液类型：</div>
                     </td>
                     <td>
                         <lable class="radio-inline">
@@ -237,7 +237,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <div class="control-label" style="width:124px">停搏液温度：</div>
+                        <div class="control-label control-label-180">停搏液温度：</div>
                     </td>
                     <td>
                         <lable class="radio-inline">
@@ -250,7 +250,7 @@
             <table class="control-table padding-20">
                 <tr>
                     <td>
-                        <div class="control-label" style="width:124px">体外循环时间：</div>
+                        <div class="control-label control-label-180">体外循环时间：</div>
                     </td>
                     <td>
                         <input type="text" class="form-control input-sm" style="width:100px" placeholder="体外循环时间" json-name="体外循环时间">
@@ -263,7 +263,7 @@
             <table class="control-table padding-20">
                 <tr>
                     <td>
-                        <div class="control-label" style="width:150px">主动脉阻断时间：</div>
+                        <div class="control-label control-label-180">主动脉阻断时间：</div>
                     </td>
                     <td>
                         <input type="text" class="form-control input-sm" style="width:120px" placeholder="主动脉阻断时间" json-name="主动脉阻断时间">
@@ -285,7 +285,7 @@
             <table class="control-table padding-20">
                 <tr>
                     <td>
-                        <div class="control-label" style="width:200px">是否二次或多次体外循环：</div>
+                        <div class="control-label control-label-180">是否二次或多次体外循环：</div>
                     </td>
                     <td>
                         <lable class="radio-inline">

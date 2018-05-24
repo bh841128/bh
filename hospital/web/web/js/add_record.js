@@ -838,8 +838,6 @@ function addZhuyuanjilu(){
 		}
 		checkValueValid(arr_errmsgs, data_inputs, "身高",		"不能为空",		"请填写 身高");
 		checkValueValid(arr_errmsgs, data_inputs, "体重",		"不能为空",		"请填写 体重");
-		checkValueValid(arr_errmsgs, data_inputs, "身高",		"不能为空",		"请填写 身高");
-		checkValueValid(arr_errmsgs, data_inputs, "身高",		"不能为空",		"请填写 身高");
 		if (data_inputs["术前血氧饱和度-不能提供"] > 0){
 			checkValueValid(arr_errmsgs, data_inputs, "术前血氧饱和度-不能提供-原因",		"不能为空",		"请填写 术前血氧饱和度不能提供原因");
 		}
@@ -876,7 +874,6 @@ function addZhuyuanjilu(){
 		if (data_inputs["专科检查-非心脏畸形"] > 0){
 			checkValueValid(arr_errmsgs, data_inputs, "非心脏畸形",		"不能为空",		"请选择 非心脏畸形");
 		}
-		
 		
 		return arr_errmsgs;
 	}
