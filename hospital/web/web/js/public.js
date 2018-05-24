@@ -455,7 +455,11 @@ function getJsonValue(json, name, default_value){
 }
 /////////////////////////////////////////////////////////////////////
 function strDateToTimestap(sDate){
-	return parseInt(Date.parse(sDate)/1000);
+	var t = parseInt(Date.parse(sDate)/1000);
+	if (isNaN(t)){
+		t = 0;
+	}
+	return t;
 }
 function timestampToString(timestamp){
 	if (timestamp <= 0 || timestamp == ""){
