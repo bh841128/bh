@@ -349,7 +349,7 @@ function addZhuyuanjilu(){
 			data_inputs["死亡日期"] = "";
 			data_inputs["死亡主要原因"] = "";
 			data_inputs["自动出院日期"] = "";
-			data_inputs["自动出院日期"] = "";
+			data_inputs["自动出院原因"] = "";
 		}
 		else if (data_inputs["出院时状态"] == 2){
 			checkValueValid(arr_errmsgs, data_inputs, "自动出院日期",		"不能为空",		"请填写 自动出院日期");
