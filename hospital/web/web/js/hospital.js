@@ -255,7 +255,7 @@ function hospital(){
 			}
 			if (rsp.ret != 0){
 				ret_info.ret = rsp.ret;
-				ret_info.msg = rsp.msg;				
+				ret_info.msg = rsp.msg;
 				callback(ret_info);
 				return;
 			}
@@ -268,6 +268,17 @@ function hospital(){
 			callback(ret_info);
 		}
 		ajaxRemoteRequest("hospital/get-record",{id:zyjl_id},onGetZyjlRet);
+	}
+	this.checkZhuyuanjiluCanUpload = function(zyjl_id, callback){
+		function onGetZhuyuanjiluRet(ret_info){
+			if (ret_info["ret"] != 0){
+				alert("拉取数据失败，请稍候再试");
+				return;
+			}
+			var canUpload = g_addZhuyuanjilu.isZhuyuanjiluCanUpload(ret_info.data);
+			callback(zyjl_id, canUpload);
+		}
+		getZhuyuanjiluData(zyjl_id, onGetZhuyuanjiluRet)
 	}
 	////////////////////////////////////////////
 	function findPageInfo(page_configs, page_name){

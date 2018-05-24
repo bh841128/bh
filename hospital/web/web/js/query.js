@@ -495,12 +495,19 @@ function zhuyuanjilu_query(){
                 return;
             }
         }
+        function onZyjlUploadRet(zyjl_id, can_upload){
+            if (!can_upload){
+                alert("住院记录部分信息不完善，请完善后再上传");
+                return false;
+            }
+            ajaxRemoteRequest("hospital/set-records-status", {"ids":zyjl_id+"","status":2}, onOperationRet);
+        }
         if (operationType == "删除"){
             ajaxRemoteRequest("hospital/set-records-status", {"ids":dataId+"","status":3}, onOperationRet);
             return;
         }
         if (operationType == "上传"){
-            ajaxRemoteRequest("hospital/set-records-status", {"ids":dataId+"","status":2}, onOperationRet);
+            g_hospital.checkZhuyuanjiluCanUpload(dataId, onZyjlUploadRet);
             return;
         }
         if (operationType == "编辑" || operationType == "详情"){
