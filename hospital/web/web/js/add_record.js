@@ -66,10 +66,10 @@ function addPatient(){
 	this.initData = function(patient_data){
 		if (typeof patient_data != "undefined" && patient_data["status"] == 2){
 			m_editing_mode = false;
-			setJibenZiliaoState(true);
+			setControlDisabledState(true);
 		}
 		else{
-			setJibenZiliaoState(false);
+			setControlDisabledState(false);
 		}
 		$("#tab-jibenziliao [init_disabled]").each(function(){
 			this.disabled = true;
@@ -176,7 +176,7 @@ function addPatient(){
 		m_editing_mode = false;
 		init_leave_page(null);
 	}
-	function setJibenZiliaoState(bSisabled){
+	function setControlDisabledState(bSisabled){
 		setAllControlDisabled($("#tab-jibenziliao"),bSisabled);
 	}
 	/////////////////////////////////////////////////////////////////////
@@ -486,6 +486,12 @@ function addZhuyuanjilu(){
 		return m_editing_mode;
 	}
 	this.showPage = function(zyjl_data, come_from){
+		if (typeof zyjl_data != "undefined" && zyjl_data && zyjl_data["status"] == 2){
+			setControlDisabledState(true);
+		}
+		else{
+			setControlDisabledState(false);
+		}
 		$("#zhuyuanjilu-section [init_disabled]").each(function(){
 			this.disabled = true;
 		})
@@ -504,12 +510,7 @@ function addZhuyuanjilu(){
 			m_come_from = come_from;
 		}
 		g_hospital.setGlobalData("zyjl_id",m_zyjl_id);
-		if (typeof zyjl_data != "undefined" && zyjl_data && zyjl_data["status"] == 2){
-			setJibenZiliaoState(true);
-		}
-		else{
-			setJibenZiliaoState(false);
-		}
+		
 		m_editing_mode = false;
 		init_leave_page(null);
 	}
@@ -864,7 +865,7 @@ function addZhuyuanjilu(){
 		})
 	}
 	/////////////////////////////////
-	function setJibenZiliaoState(bSisabled){
+	function setControlDisabledState(bSisabled){
 		setAllControlDisabled($("#content-wrapper-add-zhuyuanjilu"),bSisabled);
 		var return_buttons = $("#content-wrapper-add-zhuyuanjilu button[tag='zyjl-return']");
 		for (var i = 0; i < return_buttons.length; i++){
