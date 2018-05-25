@@ -292,7 +292,8 @@ function addZhuyuanjilu(){
 	];
 	this.init = function(){
 		$("#content-wrapper-add-zhuyuanjilu button[tag='zyjl-save']").click(function(){
-			onZhuyuanjiluSave();
+			var save_need_check = $(this).attr("save-need-check");
+			onZhuyuanjiluSave(null, save_need_check);
 		})
 		$("#content-wrapper-add-zhuyuanjilu button[tag='zyjl-upload']").click(function(){
 			onUploadZhuyuanjilu();
@@ -313,6 +314,12 @@ function addZhuyuanjilu(){
 			m_editing_mode = true;
 			init_leave_page("确认离开吗？请确认信息已经保存");
 		});
+		/////////////////////////////////保存时需要校验的信息
+		$("#tab-zyjl-riqi button[tag='zyjl-save']").attr("save-need-check","");
+		$("#tab-zyjl-shuqianxinxi button[tag='zyjl-save']").attr("save-need-check","2");
+		$("#tab-zyjl-shoushuxinxi button[tag='zyjl-save']").attr("save-need-check","2,3");
+		$("#tab-zyjl-shuhouxinxi button[tag='zyjl-save']").attr("save-need-check","2,3,4");
+		$("#tab-zyjl-chuyuanziliao button[tag='zyjl-save']").attr("save-need-check","1,2,3,4,5");
 		////////////////////////////////////////////控件联动逻辑
 		///////////////////////////术前信息
 		//////术后血氧饱和度
@@ -534,7 +541,7 @@ function addZhuyuanjilu(){
 		if(!checkValidZhuyuanjilu()){
 			return false;
 		}
-		onZhuyuanjiluSave(OnUploadSaveRet);
+		onZhuyuanjiluSave(OnUploadSaveRet,"1,2,3,4,5");
 	}
 
 	this.onAddZhuyuanjilu = function(){
@@ -705,13 +712,13 @@ function addZhuyuanjilu(){
 		}
 		return data_json;
 	}
-	function onZhuyuanjiluSave(callback){
+	function onZhuyuanjiluSave(callback, save_need_check){
 		function onUpdateZhuyuanjiluRet(rsp){
 			if (rsp.ret != 0){
 				alert("更新数据失败，请稍后再试");
 				return;
 			}
-			if (typeof callback != "undefined"){
+			if (typeof callback != "undefined" && callback){
 				callback(rsp);
 				return;
 			}
@@ -739,11 +746,48 @@ function addZhuyuanjilu(){
 			init_leave_page(null);
 		}
 		var data_json = getAllInputDatas();
+		//////////////////////////////////////
+		//校验参数合法性 1 日期 2 术前信息 3 手术信息 4 术后信息 5 出院资料
 		if (data_json.hospitalization_in_time < 1000000){
 			showInputValueInvalid("请输入入院日期");
 			showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-riqi", "tab-zyjl-riqi");
 			return false;
 		}
+		var arr_need_check = save_need_check.split(",");
+		for ($i = 0; i < arr_need_check; i++){
+			var check_step = arr_need_check[i];
+			var arr_errmsgs = [];
+			if (check_step == 1){
+				arr_errmsgs = checkValidRiqi(data_json);
+			}
+			else if (check_step == 2){
+				arr_errmsgs = checkValidShuqianxinxi(data_json);
+			}
+			else if (check_step == 3){
+				if (data_json.operation_time < 1000000){
+					showInputValueInvalid("请输入手术日期");
+					showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-riqi", "tab-zyjl-riqi");
+					return false;
+				}
+				arr_errmsgs = checkValidShoushuxinxi(data_json);
+			}
+			else if (check_step == 4){
+				arr_errmsgs = checkValidShuhouxinxi(data_json);
+			}
+			else if (check_step == 5){
+				if (data_json.hospitalization_out_time < 1000000){
+					showInputValueInvalid("请输入出院日期");
+					showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-riqi", "tab-zyjl-riqi");
+					return false;
+				}
+				arr_errmsgs = checkValidChuyuanziliao(data_json);
+			}
+
+			if (arr_errmsgs.length > 0){
+				return false;
+			}
+		}
+		//////////////////////////////////////////////////////////////////////
 		data_json.operation_before_info = $.toJSON(data_json.operation_before_info);
 		data_json.operation_info = $.toJSON(data_json.operation_info);
 		data_json.operation_after_info = $.toJSON(data_json.operation_after_info);
