@@ -57,13 +57,59 @@ class CUtil {
      }
 	 
 	 static public function createtable($list,$filename,$header){    
-		header("Content-type:application/vnd.ms-excel");    
+		header("Content-type:application/vnd.ms-excel;charset=utf-8");    
 		header("Content-Disposition:filename=".$filename.".xls"); 
 		$header1=array();
+		
 		//CUtil::logFile("bbbb".print_r($header,true));
 		foreach ($header as $k=>$v){
 			$header1[]=$k;
 		}
+		$strexport='<html xmlns:x="urn:schemas-microsoft-com:office:excel"><body><table>';
+		
+		$strexport.="<tr>";
+		foreach($header1 as $value){
+			$strexport.="<td x:str>";
+			$strexport.=$value;
+			$strexport.="</td>";
+		}
+		$strexport.="</tr>";
+		
+		foreach ($list as $row){
+			$strexport.="<tr>";
+            //CUtil::logFile(",,,,,,,,,,".print_r($row,true));			
+			foreach($header as $key=>$value){
+                if(array_key_exists($value,$row)){
+					$temp=$row[$value];
+					$str="";
+					if(is_array($temp)){
+						foreach($temp as $k=>$v) {
+							foreach($v as $k1=>$v1){
+								$str=$str.$v1.";";
+							}
+						}
+ 
+					}else{
+						$str=$row[$value];
+					}
+					$strexport.="<td style=\"vnd.ms-excel.numberformat:@\">";
+					$strexport.=$str;
+					$strexport.="</td>";
+				}
+				else{
+					$strexport.="<td x:str>";
+					$strexport.=$str;
+					$strexport.="</td>";
+				}				 
+					    
+			}  
+			$strexport.="</tr>"; 
+	  
+		}
+		
+		/*
+		
+		
 		//CUtil::logFile("aaaaa".print_r($header1,true));
 		$teble_header = implode("\t",$header1);  
 		$strexport = $teble_header."\r";  
@@ -83,7 +129,7 @@ class CUtil {
 					}else{
 						$str=$row[$value];
 					}
-					$strexport.=$str."\t"; 
+					$strexport.=("  ".$str)."\t"; 
 				}
 				else{
 					$strexport.="\t"; 
@@ -92,8 +138,8 @@ class CUtil {
 			}  
 			$strexport.="\r";   
 	  
-		}    
-		$strexport=iconv('UTF-8',"GBK//IGNORE",$strexport); 
+		} */   
+		//$strexport=iconv('UTF-8',"GBK//IGNORE",$strexport); 
 		//exit($strexport);		
 		return $strexport;     
 	}   
