@@ -512,9 +512,6 @@ function addZhuyuanjilu(){
 		}
 		else{
 			setJibenZiliaoState(false);
-			$("#zhuyuanjilu-section [init_disabled]").each(function(){
-				this.disabled = true;
-			})
 		}
 		m_editing_mode = false;
 		init_leave_page(null);
