@@ -291,7 +291,7 @@
                         <lable class="radio-inline">
                             <input type="radio" name="ercihuoduocitiwaixunhuan" value="1" checked json-name="是否二次或多次体外循环">是</lable>
                         <lable class="radio-inline">
-                            <input type="radio" name="ercihuoduocitiwaixunhuan" value="2" json-name="是否二次或多次体外循环">否</lable>
+                            <input type="radio" name="ercihuoduocitiwaixunhuan" value="0" json-name="是否二次或多次体外循环">否</lable>
                     </td>
                     <td>
                         <div class="control-label" style="width:80px">原因：</div>
@@ -318,7 +318,7 @@
                     <lable class="radio-inline">
                         <input type="radio" name="shendiwentingxunhuan" value="1" checked json-name="深低温停循环">是</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="shendiwentingxunhuan" value="2" json-name="深低温停循环">否</lable>
+                        <input type="radio" name="shendiwentingxunhuan" value="0" json-name="深低温停循环">否</lable>
                 </td>
                 <td>
                     <div class="control-label" style="width:160px">深低温停循环时间：</div>
@@ -338,7 +338,7 @@
                     <lable class="radio-inline">
                         <input type="radio" name="dancenaoguanzhu" value="1" checked json-name="单侧脑灌注">是</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="dancenaoguanzhu" value="2" json-name="单侧脑灌注">否</lable>
+                        <input type="radio" name="dancenaoguanzhu" value="0" json-name="单侧脑灌注">否</lable>
                 </td>
                 <td>
                     <div class="control-label" style="width:160px">单侧脑灌注时间：</div>
