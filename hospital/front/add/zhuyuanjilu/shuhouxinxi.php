@@ -72,7 +72,7 @@
                         <input type="text" class="form-control input-sm" style="width:120px" placeholder="累计有创辅助通气时间" json-name="累计有创辅助通气时间">
                     </td>
                     <td>
-                        <span>（天）</span>
+                        <span>（小时）</span>
                     </td>
                 </tr>
             </table>
