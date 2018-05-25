@@ -81,7 +81,7 @@ function addPatient(){
 		}
 		else{
 			m_patient_id = 0;
-			initInputsByData({});
+			initInputsByDefaultData();
 			$("#nav-tab-zhuyuanjilu").get(0).disabled = true;
 		}
 		g_hospital.setGlobalData("patient_id", m_patient_id);
@@ -192,6 +192,25 @@ function addPatient(){
 		var g_control_json = new control_json();
 		g_control_json.setJson2Control($("#huanzhe-jibenziliao"), data_json);
 		g_control_json.setJson2Control($("#lianxiren-jibenziliao"), db_data.relate_text);
+	}
+	function initInputsByDefaultData(){
+		var data_json_default = {
+			"民族":"汉族",
+			"出生日期":"",
+			"省份":"",
+			"城市":"",
+			"区县":"",
+			"详细地址-不能提供":0
+		}
+		var data_json_lianxiren_default = {
+			"与患者关系":"父亲",
+			"联系人电话-不能提供":0,
+			"联系人电话(号码二)-不能提供":0,
+			"联系人电话(号码三)-不能提供":0
+		}
+		var g_control_json = new control_json();
+		g_control_json.setJson2Control($("#huanzhe-jibenziliao"), data_json_default);
+		g_control_json.setJson2Control($("#lianxiren-jibenziliao"), data_json_lianxiren_default);
 	}
 	////////////////////////////////////////////////////////////////////////
 	function checkHuanzheInputValid(raw_json){
