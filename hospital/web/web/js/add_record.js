@@ -754,7 +754,7 @@ function addZhuyuanjilu(){
 			return false;
 		}
 		var arr_need_check = save_need_check.split(",");
-		for ($i = 0; i < arr_need_check; i++){
+		for (var i = 0; i < arr_need_check; i++){
 			var check_step = arr_need_check[i];
 			var arr_errmsgs = [];
 			if (check_step == 1){
