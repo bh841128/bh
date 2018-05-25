@@ -207,7 +207,7 @@ function selectSelectByValue(control_select, value){
 	var selectedIndex = 0;
 	control_select.find("option").each(function(){
 		if ($(this).val() == value){
-			this.selectedIndex = selectedIndex;
+			control_select.selectedIndex = selectedIndex;
 		}
 		selectedIndex++;
 	})
