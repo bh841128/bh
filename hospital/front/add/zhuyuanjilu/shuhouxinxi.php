@@ -157,16 +157,18 @@
                         <input type="radio" name="shuhoubingfazheng-r" value="0" json-name="是否术后并发症">否</lable>
                 </td>
             </tr>
+        </table>
+        <table tag="shuhoubingfazheng">
             <tr>
                 <td></td>
                 <td>
-                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="术后并发症" json-name="术后并发症" tag="shuhoubingfazheng"></textarea>
+                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="术后并发症" json-name="术后并发症"></textarea>
                 </td>
             </tr>
             <tr>
-                <td>其他：</td>
+                <td><div class="control-label" style="width:124px">其他：</div></td>
                 <td>
-                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="术后并发症-其他" json-name="术后并发症-其他" tag="shuhoubingfazheng"></textarea>
+                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="术后并发症-其他" json-name="术后并发症-其他"></textarea>
                 </td>
             </tr>
         </table>
