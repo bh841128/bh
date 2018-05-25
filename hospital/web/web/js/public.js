@@ -204,10 +204,12 @@ function clearSelectOptions(controls){
 }
 
 function selectSelectByValue(control_select, value){
+	var selectedIndex = 0;
 	control_select.find("option").each(function(){
 		if ($(this).val() == value){
-			$(this).attr("selected", "selected");
+			this.selectedIndex = selectedIndex;
 		}
+		selectedIndex++;
 	})
 }
 
