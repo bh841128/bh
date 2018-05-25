@@ -406,6 +406,10 @@ body{
     margin-top:5px!important;
 }
 
+.main-container .content-header{
+    padding-top:0px;
+}
+
 .errormsg .msg-error b {
     position: absolute;
     top: 50%;
