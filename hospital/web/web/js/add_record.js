@@ -83,9 +83,6 @@ function addPatient(){
 		}
 		else{
 			setJibenZiliaoState(false);
-			$("#tab-jibenziliao [init_disabled]").each(function(){
-				this.disabled = true;
-			})
 		}
 		g_hospital.setGlobalData("patient_id", m_patient_id);
 		hideAllErrorMsgs();
