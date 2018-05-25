@@ -1,4 +1,4 @@
-<div class="hospital-footer">
+<!-- <div class="hospital-footer">
     <footer>
         <div class="copyright">
             <p>京公网安备：110102000065号 工信部ICP备案号码：京ICP备12002951</p>
@@ -7,4 +7,4 @@
             </p>
         </div>
     </footer>
-</div>
+</div> -->

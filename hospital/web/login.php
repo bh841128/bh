@@ -11,15 +11,9 @@ require_once(__DIR__."/../config/front_config.php");
     <div class="container-fluid  login-top-wrapper">
         <header class="main-header">
             <nav class="navbar navbar-static-top" role="navigation" style="margin-left:0px;margin-bottom:0px;">
-                <a href="#" class="logo" style="width:500px">
+                <a href="#" class="logo" style="width:500px" onclick="return false">
                     <img src="/web/img/top-banner.png" />
                 </a>
-                <div class="navbar-custom-menu login">
-                    <ul class="nav navbar-nav">
-                        <li style="margin-right:30px"><button type="button" class="btn btn-primary">中文版</button><li>
-                        <li><button type="button" class="btn btn-primary">英文版</button><li>
-                    </ul>
-                </div>
             </nav>
         </header>
     </div>
