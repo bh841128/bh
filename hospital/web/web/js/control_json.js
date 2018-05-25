@@ -68,7 +68,7 @@ function control_json(){
             return value;
         }
         var json_type = control.attr("json_type");
-        if (json_type && json_type != "number_int"){
+        if (json_type && json_type == "number_int"){
             value = parseInt(value);
         }
         
