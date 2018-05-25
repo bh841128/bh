@@ -362,7 +362,7 @@ function addZhuyuanjilu(){
 		/////术前一般危险因素
 		$("#tab-zyjl-shuqianxinxi input[json-name='专科检查-术前一般危险因素']").change(function(){
 			var bHas = getRadioValue($("#tab-zyjl-shuqianxinxi"), "shuqianyibanweixianyinsu");
-			if (bHas){
+			if (bHas == 1){
 				$("#tab-zyjl-shuqianxinxi [tag='术前一般危险因素").show();
 			}
 			else{
@@ -372,7 +372,7 @@ function addZhuyuanjilu(){
 		////非心脏畸形
 		$("#tab-zyjl-shuqianxinxi input[json-name='专科检查-非心脏畸形']").change(function(){
 			var bHas = getRadioValue($("#tab-zyjl-shuqianxinxi"), "feixinzangjixing");
-			if (bHas){
+			if (bHas == 1){
 				$("#tab-zyjl-shuqianxinxi [tag='非心脏畸形").show();
 			}
 			else{

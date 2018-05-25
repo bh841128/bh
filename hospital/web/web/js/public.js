@@ -235,7 +235,11 @@ function getAddressJsonByName(json, name){
 }
 /////////////////////////////////////////////////////
 function getRadioValue(selector, radioName){
-	return selector.find("input[name='"+radioName+"']:checked").val();
+	var value = selector.find("input[name='"+radioName+"']:checked").val();
+	if (value.match(/^[1-9][0-9]*$/) || value == ""){
+		value = parseInt(value);
+	}
+	return value;
 }
 
 function setRadioCheckedByName(radioName, valeChecked){

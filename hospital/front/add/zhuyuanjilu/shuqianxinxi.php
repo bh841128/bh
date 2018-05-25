@@ -561,7 +561,7 @@
                 </td>
             </tr>
         </table>
-        <table class="control-table padding-10" tag="术前一般危险因素">
+        <table class="control-table padding-10" style="margin-left:40px" tag="术前一般危险因素">
             <tr>
                 <td></td>
                 <td>
@@ -588,7 +588,7 @@
                 </td>
             </tr>
         </table>
-        <table class="control-table padding-10" tag="非心脏畸形">
+        <table class="control-table padding-10" style="margin-left:40px" tag="非心脏畸形">
             <tr>
                 <td></td>
                 <td>
