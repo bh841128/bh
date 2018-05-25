@@ -998,7 +998,9 @@ function addZhuyuanjilu(){
 		if (data_inputs["与术前诊断一致"] <= 0 && data_inputs["手术诊断-其他"] == ""){
 			checkValueValid(arr_errmsgs, data_inputs, "手术诊断",		"不能为空",		"请选择 手术诊断");
 		}
-		checkValueValid(arr_errmsgs, data_inputs, "主要手术名称",		"不能为空",		"请选择 主要手术名称");
+		if (data_inputs["主要手术名称-其他"] == ""){
+			checkValueValid(arr_errmsgs, data_inputs, "主要手术名称",		"不能为空",		"请选择 主要手术名称");
+		}
 		checkValueValid(arr_errmsgs, data_inputs, "手术医生",		"不能为空",		"请填写 手术医生");
 		checkValueValid(arr_errmsgs, data_inputs, "手术用时",		"不能为空",		"请填写 手术用时");
 		checkValueValid(arr_errmsgs, data_inputs, "手术年龄",		"不能为空",		"请填写 手术年龄");
