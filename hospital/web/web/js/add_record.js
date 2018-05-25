@@ -603,6 +603,12 @@ function addZhuyuanjilu(){
 		initInputsByJson({
 			operation_before_info:{
 				"既往心脏病手术次数":"0"
+			},
+			operation_info:{
+			},
+			operation_after_info:{
+			},
+			hospitalization_out_info:{
 			}
 		});
 	}
