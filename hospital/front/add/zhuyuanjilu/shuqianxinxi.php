@@ -560,12 +560,22 @@
                         <input type="radio" name="shuqianyibanweixianyinsu" value="0" json-name="专科检查-术前一般危险因素">无</lable>
                 </td>
             </tr>
+        </table>
+        <table class="control-table padding-10" tag="术前一般危险因素">
             <tr>
                 <td></td>
                 <td>
-                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="术前一般危险因素" json-name="术前一般危险因素" tag="shuqianyibanweixianyinsu"></textarea>
+                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="术前一般危险因素" json-name="术前一般危险因素"></textarea>
                 </td>
             </tr>
+            <tr>
+                <td><div class="control-label" style="width:124px">其他：</div></td>
+                <td>
+                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="术前一般危险因素-其他" json-name="术前一般危险因素-其他"></textarea>
+                </td>
+            </tr>
+        </table>
+        <table class="control-table padding-10">
             <tr>
                 <td>
                     <div class="control-label control-label-180">非心脏畸形：</div>
@@ -577,10 +587,18 @@
                         <input type="radio" name="feixinzangjixing" value="0" json-name="专科检查-非心脏畸形">无</lable>
                 </td>
             </tr>
+        </table>
+        <table class="control-table padding-10" tag="非心脏畸形">
             <tr>
                 <td></td>
                 <td>
-                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="非心脏畸形" json-name="非心脏畸形" tag="feixinzangjixing"></textarea>
+                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="非心脏畸形" json-name="非心脏畸形"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td><div class="control-label" style="width:124px">其他：</div></td>
+                <td>
+                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="非心脏畸形-其他" json-name="非心脏畸形-其他"></textarea>
                 </td>
             </tr>
         </table>

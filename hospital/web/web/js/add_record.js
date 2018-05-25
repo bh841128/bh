@@ -360,14 +360,24 @@ function addZhuyuanjilu(){
 			}
 		})
 		/////术前一般危险因素
-		$("#tab-zyjl-shuqianxinxi input[name='shuqianyibanweixianyinsu']").change(function(){
+		$("#tab-zyjl-shuqianxinxi input[json-name='专科检查-术前一般危险因素']").change(function(){
 			var bHas = getRadioValue($("#tab-zyjl-shuqianxinxi"), "shuqianyibanweixianyinsu");
-			$("#tab-zyjl-shuqianxinxi textarea[tag='shuqianyibanweixianyinsu']").get(0).disabled = (bHas==0?true:false);
+			if (bHas){
+				$("#tab-zyjl-shuqianxinxi [tag='术前一般危险因素").show();
+			}
+			else{
+				$("#tab-zyjl-shuqianxinxi [tag='术前一般危险因素").hide();
+			}
 		})
 		////非心脏畸形
-		$("#tab-zyjl-shuqianxinxi input[name='feixinzangjixing']").change(function(){
+		$("#tab-zyjl-shuqianxinxi input[json-name='专科检查-非心脏畸形']").change(function(){
 			var bHas = getRadioValue($("#tab-zyjl-shuqianxinxi"), "feixinzangjixing");
-			$("#tab-zyjl-shuqianxinxi textarea[tag='feixinzangjixing']").get(0).disabled = (bHas==0?true:false);
+			if (bHas){
+				$("#tab-zyjl-shuqianxinxi [tag='非心脏畸形").show();
+			}
+			else{
+				$("#tab-zyjl-shuqianxinxi [tag='非心脏畸形").hide();
+			}
 		})
 
 		////////////////////////////////////////////手术信息
