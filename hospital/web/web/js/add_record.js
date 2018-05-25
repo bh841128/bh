@@ -195,6 +195,7 @@ function addPatient(){
 	}
 	function initInputsByDefaultData(){
 		var data_json_default = {
+			"性别":1,
 			"民族":"汉族",
 			"出生日期":"",
 			"省份":"",
