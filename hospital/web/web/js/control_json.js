@@ -61,7 +61,7 @@ function control_json(){
                     return 1;
                 }
             }
-            return null;
+            return control.val();
         }
         var value = getInputValueInner();
         if (value == null || value == ""){
