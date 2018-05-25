@@ -28,14 +28,17 @@
             <?php require(WEB_PAGE_PATH."add/zhuyuanjilu/save_upload.php"); ?>
         </div>
         <div class="tab-pane form-step fade" id="tab-zyjl-shoushuxinxi" role="tabpanel" aria-labelledby="nav-tab-zyjl-shoushuxinxi">
+            <div class="form-group errormsg active"><div class="msg-wrap"><div class="msg-error"><b></b></div></div></div>
             <?php require(WEB_PAGE_PATH."add/zhuyuanjilu/shoushuxinxi.php"); ?>
             <?php require(WEB_PAGE_PATH."add/zhuyuanjilu/save_upload.php"); ?>
         </div>
         <div class="tab-pane form-step fade" id="tab-zyjl-shuhouxinxi" role="tabpanel" aria-labelledby="nav-tab-zyjl-shuhouxinxi">
+            <div class="form-group errormsg active"><div class="msg-wrap"><div class="msg-error"><b></b></div></div></div>
             <?php require(WEB_PAGE_PATH."add/zhuyuanjilu/shuhouxinxi.php"); ?>
             <?php require(WEB_PAGE_PATH."add/zhuyuanjilu/save_upload.php"); ?>
         </div>
         <div class="tab-pane form-step fade" id="tab-zyjl-chuyuanziliao" role="tabpanel" aria-labelledby="nav-tab-zyjl-chuyuanziliao">
+            <div class="form-group errormsg active"><div class="msg-wrap"><div class="msg-error"><b></b></div></div></div>
             <?php require(WEB_PAGE_PATH."add/zhuyuanjilu/chuyuanziliao.php"); ?>
             <?php require(WEB_PAGE_PATH."add/zhuyuanjilu/save_upload.php"); ?>
         </div>
