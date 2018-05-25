@@ -759,9 +759,20 @@ function addZhuyuanjilu(){
 			var arr_errmsgs = [];
 			if (check_step == 1){
 				arr_errmsgs = checkValidRiqi(data_json);
+				if (arr_errmsgs.length > 0){
+					showInputValueInvalid(arr_errmsgs[0]);
+					showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-riqi", "tab-zyjl-riqi");
+					return false;
+				}
 			}
 			else if (check_step == 2){
 				arr_errmsgs = checkValidShuqianxinxi(data_json);
+				if (arr_errmsgs.length > 0){
+					showInputValueInvalid(arr_errmsgs[0]);
+					showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-shuqianxinxi", "tab-zyjl-shuqianxinxi");
+					return false;
+				}
+				return false;
 			}
 			else if (check_step == 3){
 				if (data_json.operation_time < 1000000){
@@ -770,9 +781,20 @@ function addZhuyuanjilu(){
 					return false;
 				}
 				arr_errmsgs = checkValidShoushuxinxi(data_json);
+				if (arr_errmsgs.length > 0){
+					showInputValueInvalid(arr_errmsgs[0]);
+					showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-shoushuxinxi", "tab-zyjl-shoushuxinxi");
+					return false;
+				}
+				return false;
 			}
 			else if (check_step == 4){
 				arr_errmsgs = checkValidShuhouxinxi(data_json);
+				if (arr_errmsgs.length > 0){
+					showInputValueInvalid(arr_errmsgs[0]);
+					showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-shuhouxinxi", "tab-zyjl-shuhouxinxi");
+					return false;
+				}
 			}
 			else if (check_step == 5){
 				if (data_json.hospitalization_out_time < 1000000){
@@ -781,10 +803,11 @@ function addZhuyuanjilu(){
 					return false;
 				}
 				arr_errmsgs = checkValidChuyuanziliao(data_json);
-			}
-
-			if (arr_errmsgs.length > 0){
-				return false;
+				if (arr_errmsgs.length > 0){
+					showInputValueInvalid(arr_errmsgs[0]);
+					showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-chuyuanziliao", "tab-zyjl-chuyuanziliao");
+					return false;
+				}
 			}
 		}
 		//////////////////////////////////////////////////////////////////////
