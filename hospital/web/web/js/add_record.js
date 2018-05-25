@@ -993,10 +993,10 @@ function addZhuyuanjilu(){
 		if (data_inputs["专科检查-出生体重-不能提供"] <= 0){
 			checkValueValid(arr_errmsgs, data_inputs, "专科检查-出生体重",		"不能为空",		"请填写 出生体重");
 		}
-		if (data_inputs["专科检查-术前一般危险因素"] > 0){
+		if (data_inputs["专科检查-术前一般危险因素"] > 0 && data_inputs["术前一般危险因素-其他"] == ""){
 			checkValueValid(arr_errmsgs, data_inputs, "术前一般危险因素",		"不能为空",		"请选择 术前一般危险因素");
 		}
-		if (data_inputs["专科检查-非心脏畸形"] > 0){
+		if (data_inputs["专科检查-非心脏畸形"] > 0 && data_inputs["非心脏畸形-其他"] == ""){
 			checkValueValid(arr_errmsgs, data_inputs, "非心脏畸形",		"不能为空",		"请选择 非心脏畸形");
 		}
 		
