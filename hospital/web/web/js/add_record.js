@@ -685,12 +685,18 @@ function addZhuyuanjilu(){
 		}
 		if (data_inputs["专科检查-术前一般危险因素"] == 0){
 			data_inputs["术前一般危险因素"] = "";
+			data_inputs["术前一般危险因素-其他"] = "";
 		}
 		if (data_inputs["专科检查-非心脏畸形"] == 0){
 			data_inputs["非心脏畸形"] = "";
+			data_inputs["非心脏畸形-其他"] = "";
 		}
 
 		var data_inputs = data_json.operation_info;
+		if (data_inputs["与术前诊断一致"] == 1){
+			data_inputs["手术诊断"] = "";
+			data_inputs["手术诊断-其他"] = "";
+		}
 		if (data_inputs["体外循环"] == 0){
 			data_inputs["是否计划"] = "";
 			data_inputs["停搏液"] = "";
@@ -739,6 +745,7 @@ function addZhuyuanjilu(){
 		}
 		if (data_inputs["是否术后并发症"] == 0){
 			data_inputs["术后并发症"] = "";
+			data_inputs["术后并发症-其他"] = "";
 		}
 
 		var data_inputs = data_json.hospitalization_out_info;
