@@ -64,6 +64,13 @@ function addPatient(){
 		return m_editing_mode;
 	}
 	this.initData = function(patient_data){
+		if (typeof patient_data != "undefined" && patient_data["status"] == 2){
+			m_editing_mode = false;
+			setJibenZiliaoState(true);
+		}
+		else{
+			setJibenZiliaoState(false);
+		}
 		$("#tab-jibenziliao [init_disabled]").each(function(){
 			this.disabled = true;
 		})
@@ -76,13 +83,6 @@ function addPatient(){
 			m_patient_id = 0;
 			initInputsByData({});
 			$("#nav-tab-zhuyuanjilu").get(0).disabled = true;
-		}
-		if (typeof patient_data != "undefined" && patient_data["status"] == 2){
-			m_editing_mode = false;
-			setJibenZiliaoState(true);
-		}
-		else{
-			setJibenZiliaoState(false);
 		}
 		g_hospital.setGlobalData("patient_id", m_patient_id);
 		hideAllErrorMsgs();
