@@ -986,7 +986,9 @@ function addZhuyuanjilu(){
 		if (data_inputs["专科检查-是否其他"] > 0){
 			checkValueValid(arr_errmsgs, data_inputs, "专科检查-其他",		"不能为空",		"请填写 专科检查-其他");
 		}
-		checkValueValid(arr_errmsgs, data_inputs, "术前诊断",		"不能为空",		"请选择 术前诊断");
+		if (data_inputs["其他术前诊断"] == ""){
+			checkValueValid(arr_errmsgs, data_inputs, "术前诊断",		"不能为空",		"请选择 术前诊断");
+		}
 		if (data_inputs["专科检查-出生胎龄-不能提供"] <= 0){
 			checkValueValid(arr_errmsgs, data_inputs, "专科检查-出生胎龄",		"不能为空",		"请填写 出生胎龄");
 		}
