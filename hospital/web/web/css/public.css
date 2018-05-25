@@ -399,7 +399,7 @@ body{
     padding: 3px 10px 3px 40px;
     line-height: 15px;
     height: auto;
-    
+    width:600px;
 }
 
 .errormsg .msg-error b {
@@ -415,10 +415,10 @@ body{
 }
 .errormsg{
     text-align:left;
-    visibility: hidden
+    display:none;
 }
 .errormsg.error_active{
-    visibility:visible;
+    display:block;
 }
 
 .top-hr{
