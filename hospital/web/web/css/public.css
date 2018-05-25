@@ -403,7 +403,7 @@ body{
 }
 
 .main-container>.tab-content{
-    margin-top:5px;
+    margin-top:5px;!important;
 }
 
 .errormsg .msg-error b {
