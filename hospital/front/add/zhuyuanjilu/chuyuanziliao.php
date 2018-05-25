@@ -19,11 +19,11 @@
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="chuyuanzhuangtai" value="0" checked json-name="出院时状态">存活</lable>
+                        <input type="radio" name="chuyuanzhuangtai" value="存活" checked json-name="出院时状态">存活</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="chuyuanzhuangtai" value="1" json-name="出院时状态">死亡</lable>
+                        <input type="radio" name="chuyuanzhuangtai" value="死亡" json-name="出院时状态">死亡</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="chuyuanzhuangtai" value="2" json-name="出院时状态">自动出院</lable>
+                        <input type="radio" name="chuyuanzhuangtai" value="自动出院" json-name="出院时状态">自动出院</lable>
                 </td>
             </tr>
         </table>

@@ -482,11 +482,11 @@ function addZhuyuanjilu(){
 		$("#tab-zyjl-chuyuanziliao input[name='chuyuanzhuangtai']").change(function(){
 			var chuyuanziliao_container = $("#tab-zyjl-chuyuanziliao")
 			var state = getRadioValue(chuyuanziliao_container, "chuyuanzhuangtai");
-			if (state == 0){
+			if (state == "存活"){
 				chuyuanziliao_container.find("[tag='死亡日期'],[tag='死亡主要原因']").hide();
 				chuyuanziliao_container.find("[tag='自动出院日期'],[tag='自动出院主要原因']").hide();
 			}
-			else if(state == 1){
+			else if(state == "死亡"){
 				chuyuanziliao_container.find("[tag='死亡日期'],[tag='死亡主要原因']").show();
 				chuyuanziliao_container.find("[tag='自动出院日期'],[tag='自动出院主要原因']").hide();
 			}

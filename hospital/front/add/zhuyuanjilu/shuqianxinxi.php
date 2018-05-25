@@ -540,13 +540,13 @@
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="chanqianmingquezhenduan" value="1" json-name="专科检查-产前明确诊断" checked>是</lable>
+                        <input type="radio" name="chanqianmingquezhenduan" value="是" json-name="专科检查-产前明确诊断" checked>是</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="chanqianmingquezhenduan" value="2" json-name="专科检查-产前明确诊断">是，仅知道患有先心病</lable>
+                        <input type="radio" name="chanqianmingquezhenduan" value="是，仅知道患有先心病" json-name="专科检查-产前明确诊断">是，仅知道患有先心病</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="chanqianmingquezhenduan" value="3" json-name="专科检查-产前明确诊断">否</lable>
+                        <input type="radio" name="chanqianmingquezhenduan" value="否" json-name="专科检查-产前明确诊断">否</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="chanqianmingquezhenduan" value="4" json-name="专科检查-产前明确诊断">不能提供</lable>
+                        <input type="radio" name="chanqianmingquezhenduan" value="不能提供" json-name="专科检查-产前明确诊断">不能提供</lable>
                 </td>
             </tr>
             <tr>
