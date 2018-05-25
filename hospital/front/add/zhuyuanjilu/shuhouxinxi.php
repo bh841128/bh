@@ -163,6 +163,12 @@
                     <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="术后并发症" json-name="术后并发症" tag="shuhoubingfazheng"></textarea>
                 </td>
             </tr>
+            <tr>
+                <td>其他：</td>
+                <td>
+                    <textarea class="form-control input-sm" style="width:400px" rows="5" placeholder="术后并发症-其他" json-name="术后并发症-其他" tag="shuhoubingfazheng"></textarea>
+                </td>
+            </tr>
         </table>
     </div>
 </div>

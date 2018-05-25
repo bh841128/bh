@@ -1048,7 +1048,9 @@ function addZhuyuanjilu(){
 			//checkValueValid(arr_errmsgs, data_inputs, "自体血",		"不能为空",		"请填写 围手术期血液制品输入 自体血");
 		}
 		if (data_inputs["是否术后并发症"] > 0){
-			checkValueValid(arr_errmsgs, data_inputs, "术后并发症",		"不能为空",		"请选择 术后并发症");
+			if (data_inputs["术后并发症-其他"] == ""){
+				checkValueValid(arr_errmsgs, data_inputs, "术后并发症",		"不能为空",		"请选择 术后并发症");
+			}
 		}
 		return arr_errmsgs;
 	}
