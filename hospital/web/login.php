@@ -19,7 +19,7 @@ require_once(__DIR__."/../config/front_config.php");
     </div>
     <div style="text-align:center">
         <div style="text-align:center;background-color:rgb(140,200,234)">
-            <div class="wrapper" style="width:1200px;margin-left:auto;margin-right:auto">
+            <div class="wrapper" style="width:1200px;margin-left:auto;margin-right:auto;margin-top:30px;">
                 <div style="background-color:rgb(140,200,234);text-align:center;">
                     <div class="login-wrapper">
                         <div class="login-wrapper2">
