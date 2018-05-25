@@ -39,12 +39,18 @@ require_once(__DIR__."/../config/front_config.php");
             <?php require(WEB_PAGE_PATH."footer.php"); ?>
         </div>
     </div>
-    <?php require(WEB_PAGE_PATH."js.php"); ?>
+    <script src="/web/lib/jquery.min.js"></script>
+    <script src="/web/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/web/lib/jquery.placeholder.js"></script>
+    <script src="/web/lib/jquery.json.js"></script>
+    <script src="/web/lib/jquery.md5.js"></script>
+    <script src="/web/js/public.js"></script>
     <script src="/web/js/login.js"></script>
-        <script type="text/javascript">
-            var g_userLogin = new userLogin();
-            g_userLogin.init();
-        </script>
+
+    <script type="text/javascript">
+        var g_userLogin = new userLogin();
+        g_userLogin.init();
+    </script>
 </body>
 
 </html>
