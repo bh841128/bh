@@ -820,7 +820,6 @@ function addZhuyuanjilu(){
 				arr_errmsgs = checkValidRiqi(data_json);
 				if (arr_errmsgs.length > 0){
 					showInputValueInvalid(arr_errmsgs[0]);
-					$("#msg-error-zhuyuanjilu").removeClass("error_active");
 					showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-riqi", "tab-zyjl-riqi");
 					return false;
 				}
@@ -836,7 +835,6 @@ function addZhuyuanjilu(){
 			else if (check_step == 3){
 				if (data_json.operation_time < 1000000){
 					showInputValueInvalid("请输入手术日期");
-					$("#msg-error-zhuyuanjilu").removeClass("error_active");
 					showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-riqi", "tab-zyjl-riqi");
 					return false;
 				}
@@ -858,7 +856,6 @@ function addZhuyuanjilu(){
 			else if (check_step == 5){
 				if (data_json.hospitalization_out_time < 1000000){
 					showInputValueInvalid("请输入出院日期");
-					$("#msg-error-zhuyuanjilu").removeClass("error_active");
 					showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-riqi", "tab-zyjl-riqi");
 					return false;
 				}
@@ -1104,7 +1101,6 @@ function addZhuyuanjilu(){
 		var arr_errmsgs = checkValidRiqi(data_json);
 		if (arr_errmsgs.length > 0){
 			showInputValueInvalid(arr_errmsgs[0]);
-			$("#msg-error-zhuyuanjilu").removeClass("error_active");
 			showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-riqi", "tab-zyjl-riqi");
 			return false;
 		}

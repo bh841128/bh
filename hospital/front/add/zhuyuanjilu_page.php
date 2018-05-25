@@ -18,12 +18,12 @@
         </li>
     </ul>
     <div class="tab-content" style="margin-top:20px">
-        <div class="form-group errormsg active"><div class="msg-wrap"><div class="msg-error" id="msg-error-zhuyuanjilu"><b></b></div></div></div>
         <div class="tab-pane form-step fade active in" id="tab-zyjl-riqi" role="tabpanel" aria-labelledby="nav-tab-zyjl-riqi">
             <?php require(WEB_PAGE_PATH."add/zhuyuanjilu/riqi.php"); ?>
             <?php require(WEB_PAGE_PATH."add/zhuyuanjilu/save_upload.php"); ?>
         </div>
         <div class="tab-pane form-step fade" id="tab-zyjl-shuqianxinxi" role="tabpanel" aria-labelledby="nav-tab-zyjl-shuqianxinxi">
+            <div class="form-group errormsg active"><div class="msg-wrap"><div class="msg-error"><b></b></div></div></div>
             <?php require(WEB_PAGE_PATH."add/zhuyuanjilu/shuqianxinxi.php"); ?>
             <?php require(WEB_PAGE_PATH."add/zhuyuanjilu/save_upload.php"); ?>
         </div>
