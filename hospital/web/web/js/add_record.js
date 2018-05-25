@@ -774,7 +774,6 @@ function addZhuyuanjilu(){
 					showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-shuqianxinxi", "tab-zyjl-shuqianxinxi");
 					return false;
 				}
-				return false;
 			}
 			else if (check_step == 3){
 				if (data_json.operation_time < 1000000){
@@ -788,7 +787,6 @@ function addZhuyuanjilu(){
 					showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-shoushuxinxi", "tab-zyjl-shoushuxinxi");
 					return false;
 				}
-				return false;
 			}
 			else if (check_step == 4){
 				arr_errmsgs = checkValidShuhouxinxi(data_json);
