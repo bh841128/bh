@@ -158,7 +158,7 @@
                 </td>
             </tr>
         </table>
-        <table tag="shuhoubingfazheng">
+        <table class="control-table padding-20" tag="shuhoubingfazheng">
             <tr>
                 <td></td>
                 <td>

@@ -461,10 +461,10 @@ function addZhuyuanjilu(){
 		$("#tab-zyjl-shuhouxinxi input[name='shuhoubingfazheng-r']").change(function(){
 			var rValue = getRadioValue($("#tab-zyjl-shuhouxinxi"), "shuhoubingfazheng-r");
 			if (rValue == 1){
-				$("#tab-zyjl-shuhouxinxi textarea[tag='shuhoubingfazheng']").show();
+				$("#tab-zyjl-shuhouxinxi [tag='shuhoubingfazheng']").show();
 			}
 			else{
-				$("#tab-zyjl-shuhouxinxi textarea[tag='shuhoubingfazheng']").hide();
+				$("#tab-zyjl-shuhouxinxi [tag='shuhoubingfazheng']").hide();
 			}
 		})
 
