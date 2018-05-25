@@ -1075,7 +1075,7 @@ class HospitalController extends Controller
 		$filter["status"]=2;
 		
 		CUtil::logFile("".__file__ ." :".__line__."===$username  "."$hospital_id===".print_r($filter,true));
-        $records=HospitalizedRecord::getRecordList(0,$hospital_id,$filter,0);
+        $records=HospitalizedRecord::getRecordList(0,$hospital_id,$filter,100000);
         if($ret["ret"]!=0){
             $ret["ret"]=NODATA;
             $ret["msg"]=$records;
