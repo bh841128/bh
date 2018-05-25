@@ -18,7 +18,7 @@
         </li>
     </ul>
     <div class="tab-content" style="margin-top:20px">
-        <div class="tab-pane form-step fade active in" id="tab-zyjl-riqi" role="tabpanel" aria-labelledby="nav-tab-zyjl-riqi">
+        <div class="tab-pane form-step fade active in" id="tab-zyjl-riqi" role="tabpanel" aria-labelledby="nav-tab-zyjl-riqi" style="padding-top:20px">
             <?php require(WEB_PAGE_PATH."add/zhuyuanjilu/riqi.php"); ?>
             <?php require(WEB_PAGE_PATH."add/zhuyuanjilu/save_upload.php"); ?>
         </div>

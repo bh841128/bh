@@ -7,7 +7,7 @@
             <a class="nav-item nav-link" id="nav-tab-zhuyuanjilu" data-toggle="tab" href="#tab-zhuyuanjilu" role="tab" aria-selected="true">住院记录</a>
         </li>
     </ul>
-    <div class="tab-content">
+    <div class="tab-content" style="padding-top:20px">
         <div class="tab-pane form-step fade active in" id="tab-jibenziliao" role="tabpanel" aria-labelledby="nav-tab-jibenziliao">
             <?php require(WEB_PAGE_PATH."add/jibenziliao.php"); ?>
         </div>
