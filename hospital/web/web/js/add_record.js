@@ -153,6 +153,10 @@ function addPatient(){
 	}
 	function onAddPatientRet(rsp){
 		//console.dir(rsp);
+		if (rsp.ret == 5){
+			alert("病案号重复，请检查");
+			return;
+		}
 		if (rsp.ret != 0){
 			alert("添加数据失败，请稍后再试");
 			return;
