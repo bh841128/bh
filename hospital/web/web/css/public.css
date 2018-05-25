@@ -402,6 +402,10 @@ body{
     width:600px;
 }
 
+.main-container>.tab-content{
+    margin-top:5px;
+}
+
 .errormsg .msg-error b {
     position: absolute;
     top: 50%;
@@ -415,10 +419,14 @@ body{
 }
 .errormsg{
     text-align:left;
-    display:none;
+    visibility: hidden;
 }
 .errormsg.error_active{
-    display:block;
+    visibility:visible;
+}
+.form-group.errormsg{
+    margin-top:0px;
+    margin-bottom:0px;
 }
 
 .top-hr{
