@@ -749,17 +749,17 @@ function addZhuyuanjilu(){
 		}
 
 		var data_inputs = data_json.hospitalization_out_info;
-		if (data_inputs["出院时状态"] == 0){
+		if (data_inputs["出院时状态"] == "存活"){
 			data_inputs["死亡日期"] = "";
 			data_inputs["死亡主要原因"] = "";
 			data_inputs["自动出院日期"] = "";
 			data_inputs["自动出院主要原因"] = "";
 		}
-		else if (data_inputs["出院时状态"] == 1){
+		else if (data_inputs["出院时状态"] == "死亡"){
 			data_inputs["自动出院日期"] = "";
 			data_inputs["自动出院主要原因"] = "";
 		}
-		else if (data_inputs["出院时状态"] == 2){
+		else if (data_inputs["出院时状态"] == "自动出院"){
 			data_inputs["死亡日期"] = "";
 			data_inputs["死亡主要原因"] = "";
 		}
