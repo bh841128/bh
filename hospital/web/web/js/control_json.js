@@ -48,10 +48,11 @@ function control_json(){
                     if(!control.get(0).checked){
                         return null;
                     }
-                    if (inputType == "checkbox"){
-                        return 1;
+                    var value = control.get(0).value;
+                    if (value.match(/^[1-9][0-9]*$/) || value=="0"){
+                        return parseInt(value);
                     }
-                    return control.get(0).value;
+                    return value;
                 }
                 if (inputType == "checkbox"){
                     if(!control.get(0).checked){
@@ -66,12 +67,9 @@ function control_json(){
         if (value == null || value == ""){
             return value;
         }
-        if (typeof value == "string" && value.match(/^[0-9]+$/)){
-            var json_type = control.attr("json_type");
-            if (json_type && json_type != "string"){
-                value = parseInt(value);
-            }
-            
+        var json_type = control.attr("json_type");
+        if (json_type && json_type != "number_int"){
+            value = parseInt(value);
         }
         
         return value;
