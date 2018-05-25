@@ -92,7 +92,7 @@ class CUtil {
 					}else{
 						$str=$row[$value];
 					}
-					$strexport.="<td x:str>";
+					$strexport.="<td style=\"vnd.ms-excel.numberformat:@\">";
 					$strexport.=$str;
 					$strexport.="</td>";
 				}
