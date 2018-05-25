@@ -518,7 +518,43 @@ function addZhuyuanjilu(){
 		m_editing_mode = false;
 		init_leave_page(null);
 	}
+	this.isZhuyuanjiluCanUpload = function(db_data){
+		var data_json = getValuesByMapReverse(db_data, m_json_map);
+		data_json.operation_before_info = db_data.operation_before_info;
+		data_json.operation_info = db_data.operation_info;
+		data_json.operation_after_info = db_data.operation_after_info;
+		data_json.hospitalization_out_info = db_data.hospitalization_out_info;
 
+		data_json["入院日期"] = timestampToDateString(getJsonValue(data_json,"入院日期",''));
+		data_json["出院日期"] = timestampToDateString(getJsonValue(data_json,"出院日期",''));
+		data_json["手术日期"] = timestampToDateString(getJsonValue(data_json,"手术日期",''));
+		data_json.operation_before_info = getJsonValue(data_json,"operation_before_info",{});
+		data_json.operation_info = getJsonValue(data_json,"operation_info",{});
+		data_json.operation_after_info = getJsonValue(data_json,"operation_after_info",{});
+		data_json.hospitalization_out_info = getJsonValue(data_json,"hospitalization_out_info",{});
+		var arr_errmsgs = checkValidRiqi(data_json);
+		if (arr_errmsgs.length > 0){
+			return false;
+		}
+		var arr_errmsgs = checkValidShuqianxinxi(data_json);
+		if (arr_errmsgs.length > 0){
+			return false;
+		}
+		var arr_errmsgs = checkValidShoushuxinxi(data_json);
+		if (arr_errmsgs.length > 0){
+			return false;
+		}
+		var arr_errmsgs = checkValidShuhouxinxi(data_json);
+		if (arr_errmsgs.length > 0){
+			return false;
+		}
+		var arr_errmsgs = checkValidChuyuanziliao(data_json);
+		if (arr_errmsgs.length > 0){
+			return false;
+		}
+		return true;
+	}
+	///////////////////////////////////////////////////////
 	function onUploadZhuyuanjilu(){
 		function onUploadZhuyuanjiluRet(rsp){
 			if (rsp.ret == 9){
@@ -561,7 +597,6 @@ function addZhuyuanjilu(){
 		});
 	}
 	
-		
 	function onZhuyuanjiluReturn(){
 		if (m_come_from == ""){
 			gotoZyjlList();
@@ -880,7 +915,6 @@ function addZhuyuanjilu(){
 	function showInputValueInvalid(err_msg){
 		showErrorMsg($("#zhuyuanjilu-section .errormsg"), err_msg);
 	}
-
 	function checkValidRiqi(data_json){
 		var arr_errmsgs = [];
 		if (data_json.hospitalization_in_time < 1000000){
@@ -961,7 +995,7 @@ function addZhuyuanjilu(){
 	function checkValidShoushuxinxi(data_json){
 		var arr_errmsgs = [];
 		var data_inputs = data_json.operation_info;
-		if (data_inputs["与术前诊断一致"] <= 0){
+		if (data_inputs["与术前诊断一致"] <= 0 && data_inputs["手术诊断-其他"] == ""){
 			checkValueValid(arr_errmsgs, data_inputs, "手术诊断",		"不能为空",		"请选择 手术诊断");
 		}
 		checkValueValid(arr_errmsgs, data_inputs, "主要手术名称",		"不能为空",		"请选择 主要手术名称");
@@ -1016,7 +1050,6 @@ function addZhuyuanjilu(){
 		}
 		return arr_errmsgs;
 	}
-
 	function checkValidChuyuanziliao(data_json){
 		var arr_errmsgs = [];
 		var data_inputs = data_json.hospitalization_out_info;
@@ -1030,43 +1063,6 @@ function addZhuyuanjilu(){
 		checkValueValid(arr_errmsgs, data_inputs, "治疗费用",		"不能为空",		"请填写 治疗费用");
 
 		return arr_errmsgs;
-	}
-	
-	this.isZhuyuanjiluCanUpload = function(db_data){
-		var data_json = getValuesByMapReverse(db_data, m_json_map);
-		data_json.operation_before_info = db_data.operation_before_info;
-		data_json.operation_info = db_data.operation_info;
-		data_json.operation_after_info = db_data.operation_after_info;
-		data_json.hospitalization_out_info = db_data.hospitalization_out_info;
-
-		data_json["入院日期"] = timestampToDateString(getJsonValue(data_json,"入院日期",''));
-		data_json["出院日期"] = timestampToDateString(getJsonValue(data_json,"出院日期",''));
-		data_json["手术日期"] = timestampToDateString(getJsonValue(data_json,"手术日期",''));
-		data_json.operation_before_info = getJsonValue(data_json,"operation_before_info",{});
-		data_json.operation_info = getJsonValue(data_json,"operation_info",{});
-		data_json.operation_after_info = getJsonValue(data_json,"operation_after_info",{});
-		data_json.hospitalization_out_info = getJsonValue(data_json,"hospitalization_out_info",{});
-		var arr_errmsgs = checkValidRiqi(data_json);
-		if (arr_errmsgs.length > 0){
-			return false;
-		}
-		var arr_errmsgs = checkValidShuqianxinxi(data_json);
-		if (arr_errmsgs.length > 0){
-			return false;
-		}
-		var arr_errmsgs = checkValidShoushuxinxi(data_json);
-		if (arr_errmsgs.length > 0){
-			return false;
-		}
-		var arr_errmsgs = checkValidShuhouxinxi(data_json);
-		if (arr_errmsgs.length > 0){
-			return false;
-		}
-		var arr_errmsgs = checkValidChuyuanziliao(data_json);
-		if (arr_errmsgs.length > 0){
-			return false;
-		}
-		return true;
 	}
 	function checkValidZhuyuanjilu(){
 		var data_json = getAllInputDatas();
