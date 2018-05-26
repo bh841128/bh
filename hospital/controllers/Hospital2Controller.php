@@ -140,9 +140,9 @@ class Hospital2Controller extends Controller
         $header_config = [
 
         ];
-        $header='{"????":"????"}';
+        $header='{"医院名称":"医院名称"}';
         $header = json_decode($header, true);
-        $data=self::createtable([], '????', $header); 
+        $data=self::createtable([], '住院记录', $header); 
         exit($data);
         $ret = [
             "records"=>$records,
