@@ -65,16 +65,66 @@ class HospitalController extends Controller
         return true;
     }
 
-    public function actionGetPatientAndZhuyuanjilu(){
-        if (!$this->checkLogin()){
-            return ["ret"=>1, "msg"=>"need login"];
+    function actionExportExcel(){
+        $username = CUtil::getRequestParam('cookie', 'username', '');
+        $id = CUtil::getRequestParam('request', 'id', 0);
+        $skey = CUtil::getRequestParam('cookie', 'skey', '');
+        $ret=Login4Hospital::checkLogin($username,$skey);
+       
+        if($ret["ret"]!=0){
+            $ret["ret"]=NOLOGIN;
+            $ret["msg"]="not login";
+            return json_encode($ret);
         }
-        $patient_id = CUtil::getRequestParam('cookie', 'patient_id', 0);
-        $zyjl_id = CUtil::getRequestParam('cookie', 'zyjl', 0);
-        if ($patient_id == 0 || $zyjl_id){
-            return ["ret"=>99, "msg"=>"param error"];
+		
+		$ret=Login4Hospital::getManager($username);
+         if($ret["ret"]!=0){
+            $ret["ret"]=NOACCESS;
+            $ret["msg"]="no ACCESS";
+            return json_encode($ret);
         }
-        $ret = Hospital::getPatientAndZhuyuanjilu($patient_id, $zyjl_id);
-        return json_encode($ret);
+		
+		$hospital_id = $ret["msg"]["hospital_id"];
+		$filter=array();
+		if(CUtil::getRequestParam('request', 'patient_name', "")!=""){
+			$filter["patient_name"]=CUtil::getRequestParam('request', 'patient_name', "");
+		}
+		if(CUtil::getRequestParam('request', 'medical_id', "")!=""){
+			$filter["medical_id"]=CUtil::getRequestParam('request', 'medical_id', "");
+		}
+		
+		if(CUtil::getRequestParam('request', 'start_time', 0)!=0){
+			$filter["start_time"]=CUtil::getRequestParam('request', 'start_time', 0);
+		}
+		
+		if(CUtil::getRequestParam('request', 'end_time', 0)!=0){
+			$filter["end_time"]=CUtil::getRequestParam('request', 'end_time', 0);
+		}
+		
+		$filter["status"]=2;
+        $records = HospitalizedRecord::getRecordList(0,$hospital_id,$filter,100000);
+        if($ret["ret"]!=0){
+            $ret["ret"]=NODATA;
+            $ret["msg"]=$records;
+            return json_encode($ret);
+        }
+		
+		$obj_patients=array();
+		$table=array();
+		foreach ($records["msg"] as $key=>$value){   
+            if(array_key_exists($value["patient_id"],$obj_patients)){
+                continue;
+            }
+            $ret=Patient4Hospital::getPatientById($value["patient_id"],$value["hospital_id"]);
+            if($ret["ret"]!=0){
+                continue;
+            }
+			$obj_patients[$value["patient_id"]]=$ret["msg"];
+            $obj_patients[$value["patient_id"]]["hospital_name"]=Hospital::getHospitalById($obj_patients[$value["patient_id"]]["hospital_id"])["name"];
+        }
+        exportExcel($obj_patients, $records);
+    }
+    function exportExcel($obj_patients, $records){
+
     }
 }
