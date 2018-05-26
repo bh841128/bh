@@ -270,7 +270,6 @@ class Hospital2Controller extends Controller
     static public function getDataValue($record, $excel_field, $data_source){
         if (is_string($data_source)){
             $value = self::getValueByJsonPath($record, $data_source);;
-            echo $data_source."  ".$value.PHP_EOL;
             return $value;
         }
         return "";
@@ -288,8 +287,8 @@ class Hospital2Controller extends Controller
         return $tmp_record;
     }
     static public function createtable($list,$filename,$excel_headers){    
-        //header("Content-type:application/vnd.ms-excel;charset=utf-8");
-		//header("Content-Disposition:filename=".$filename.".xls");
+        header("Content-type:application/vnd.ms-excel;charset=utf-8");
+		header("Content-Disposition:filename=".$filename.".xls");
 		$strexport='<html xmlns:x="urn:schemas-microsoft-com:office:excel"><body><table>';
 		$strexport.="<tr>";
 		foreach($excel_headers as $value){
