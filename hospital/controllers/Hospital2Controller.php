@@ -270,7 +270,7 @@ class Hospital2Controller extends Controller
     static public function getDataValue($record, $excel_field, $data_source){
         if (is_string($data_source)){
             $value = self::getValueByJsonPath($record, $data_source);;
-            echo $data_source."  ".$value.PP_EOL;
+            echo $data_source."  ".$value.PHP_EOL;
             return $value;
         }
         return "";
