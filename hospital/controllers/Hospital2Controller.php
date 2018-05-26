@@ -119,10 +119,11 @@ class Hospital2Controller extends Controller
             $ret["msg"]=$records;
             return json_encode($ret);
         }
+        $records = $records["msg"];
 		
 		$obj_patients=array();
 		$table=array();
-		foreach ($records["msg"] as $key=>$value){   
+		foreach ($records as $key=>$value){   
             if(array_key_exists($value["patient_id"],$obj_patients)){
                 continue;
             }
