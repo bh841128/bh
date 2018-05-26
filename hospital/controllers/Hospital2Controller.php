@@ -128,19 +128,19 @@ class Hospital2Controller extends Controller
     public static function exportExcel($obj_patients, $records){
         $excel_header_config = [
             "医院名称"      =>  "患者资料.hospital_name",
-            "上传时间"      =>["format_date", "住院记录.uploadtime"],
-            "病案号"        =>"患者资料.medical_id",
-            "姓名"          =>"患者资料.姓名",
-            "性别"          =>["format_xingbie", "患者资料.sexy"],
-            "民族"          =>"患者资料.nation",
-            "出生日期"      =>"患者资料.birthday",
-            "省"            =>"患者资料.province",
-            "市"            =>"患者资料.city",
-            "县"            =>"患者资料.district",
-            "地址"          =>"患者资料.address",
-            "联系人姓名"    =>"联系人资料.联系人姓名",
-            "与患者关系"    =>"联系人资料.与患者关系",
-            "联系人电话"    =>"联系人资料.联系人电话",
+            "上传时间"      =>  ["format_date", "住院记录.uploadtime"],
+            "病案号"        =>  "患者资料.medical_id",
+            "姓名"          =>  "患者资料.name",
+            "性别"          =>  ["format_xingbie", "患者资料.sexy"],
+            "民族"          =>  "患者资料.nation",
+            "出生日期"      =>  "患者资料.birthday",
+            "省"            =>  "患者资料.province",
+            "市"            =>  "患者资料.city",
+            "县"            =>  "患者资料.district",
+            "地址"          =>  "患者资料.address",
+            "联系人姓名"     =>  "联系人资料.联系人姓名",
+            "与患者关系"     =>  "联系人资料.与患者关系",
+            "联系人电话"     =>  "联系人资料.联系人电话",
             "其他联系电话（号码二）" =>"联系人资料.其他联系电话（号码二）",
             "其他联系电话（号码三）" =>"联系人资料.其他联系电话（号码三）",
             "入院日期"              =>["format_date", "住院记录.hospitalization_in_time"],
@@ -272,7 +272,24 @@ class Hospital2Controller extends Controller
             $value = self::getValueByJsonPath($record, $data_source);;
             return $value;
         }
+        $func_name   = $data_source[0];
+        if (!method_exists(__CLASS__, $func_name)){
+            return "";
+        }
+        $value = self::$func_name($record, $excel_field, $data_source[1]);
         return "";
+    }
+    static public function format_date($record, $excel_field, $data_source){
+        $value = self::getDataValue($record, $excel_field, $data_source);
+        if ($value == ""){
+            return "";
+        }
+        $value = intval($value);
+        $date = date("Y-m-d", $value);
+        if ($date < "1900-01-01"){
+            return "";
+        }
+        return $date;
     }
     static public function getValueByJsonPath($record, $json_path){
         $arrPaths = explode(".", $json_path);
