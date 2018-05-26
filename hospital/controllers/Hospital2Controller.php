@@ -67,7 +67,7 @@ class Hospital2Controller extends Controller
     function checkLogin(){
         $username = CUtil::getRequestParam('cookie', 'username', '');
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
-		//登录
+		//鐧诲綍
         $ret=Login4Hospital::checkLogin($username,$skey);
         if ($ret["ret"] != 0){
             return false;
@@ -140,9 +140,9 @@ class Hospital2Controller extends Controller
         $header_config = [
 
         ];
-        $header='{"医院名称":"医院名称"}';
+        $header='{"鍖婚櫌鍚嶇О":"鍖婚櫌鍚嶇О"}';
         $header = json_decode($header, true);
-        $data=self::createtable([], '住院记录', $header); 
+        $data=self::createtable([], '浣忛櫌璁板綍', $header); 
         exit($data);
         $ret = [
             "records"=>$records,
@@ -151,7 +151,7 @@ class Hospital2Controller extends Controller
         return json_encode($ret);
     }
     static public function createtable($list,$filename,$header){    
-		header("Content-type:application/vnd.ms-excel;charset=utf-8");    
+        header("Content-type:application/vnd.ms-excel;charset=utf-8");    
 		header("Content-Disposition:filename=".$filename.".xls"); 
 		$header1=array();
 		foreach ($header as $k=>$v){
