@@ -281,7 +281,7 @@ class Hospital2Controller extends Controller
             }
             if (preg_match('/    /',$data_source)){
                 $post_fix    = preg_replace('/.*    /','',$data_source);
-                $head += "($post_fix)";
+                $head .= "($post_fix)";
             }
             $excel_headers[] = $head;
         }
