@@ -204,9 +204,9 @@
                     </td>
                     <td>
                         <lable class="radio-inline">
-                            <input type="radio" name="shifoujihua" value="1" checked json-name="是否计划">是-术前计划</lable>
+                            <input type="radio" name="shifoujihua" value="是-术前计划" checked json-name="是否计划">是-术前计划</lable>
                         <lable class="radio-inline">
-                            <input type="radio" name="shifoujihua" value="0" json-name="是否计划">否-术中由非体外转为体外</lable>
+                            <input type="radio" name="shifoujihua" value="否-术中由非体外转为体外" json-name="是否计划">否-术中由非体外转为体外</lable>
                     </td>
                 </tr>
             </table>
@@ -230,9 +230,9 @@
                     </td>
                     <td>
                         <lable class="radio-inline">
-                            <input type="radio" name="tingboyeleixing" value="1" checked json-name="停搏液类型">含血</lable>
+                            <input type="radio" name="tingboyeleixing" value="含血" checked json-name="停搏液类型">含血</lable>
                         <lable class="radio-inline">
-                            <input type="radio" name="tingboyeleixing" value="0" json-name="停搏液类型">晶体</lable>
+                            <input type="radio" name="tingboyeleixing" value="晶体" json-name="停搏液类型">晶体</lable>
                     </td>
                 </tr>
                 <tr>
@@ -241,9 +241,9 @@
                     </td>
                     <td>
                         <lable class="radio-inline">
-                            <input type="radio" name="tingboyewendu" value="1" checked json-name="停搏液温度">温</lable>
+                            <input type="radio" name="tingboyewendu" value="温" checked json-name="停搏液温度">温</lable>
                         <lable class="radio-inline">
-                            <input type="radio" name="tingboyewendu" value="0" json-name="停搏液温度">冷</lable>
+                            <input type="radio" name="tingboyewendu" value="冷" json-name="停搏液温度">冷</lable>
                     </td>
                 </tr>
             </table>
