@@ -223,6 +223,7 @@ function addPatient(){
 		checkValueValid(arr_errmsgs, data_json, "姓名",			"长度范围", 	"患者姓名 格式不正确，请重新填写", 2, 10);
 		checkValueValid(arr_errmsgs, data_json, "民族",			"不能为空", 	"请选择 民族");
 		checkValueValid(arr_errmsgs, data_json, "出生日期",		"不能为空", 	"请选择 出生日期");
+		checkValueValid(arr_errmsgs, data_json, "出生日期",		"日期", 	"出生日期 格式不正确，请重新填写");
 		if(!data_json["详细地址-不能提供"]){
 		checkValueValid(arr_errmsgs, data_json, "省份",		"不能为空", 	"请选择 省份");
 		checkValueValid(arr_errmsgs, data_json, "城市",		"不能为空", 	"请选择 城市");

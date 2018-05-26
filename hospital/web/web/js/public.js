@@ -711,6 +711,24 @@ function isValidPhone(phone){
 	}
 	return true;
 }
+function isValidRiqi(data){
+	if (typeof data == "undefined" || data == "" || data == null){
+		return false;
+	}
+	if (!data.match(/^[1-2][0-9]{3}\-[0-9]{2}-[0-9]{2}$/)){
+		return false;
+	}
+	return true;
+}
+function isValidRiqiShijian(data){
+	if (typeof data == "undefined" || data == "" || data == null){
+		return false;
+	}
+	if (!data.match(/^[1-2][0-9]{3}\-[0-9]{2}\-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$/)){
+		return false;
+	}
+	return true;
+}
 //arr_errmsgs, data_json, "联系人姓名", "不能为空", "请填写 联系人姓名"
 function checkValueValid(arr_errmsgs, data_json, key, check_type, errmsg, param1, param2, param3){
 	if (check_type == "不能为空"){
@@ -729,6 +747,12 @@ function checkValueValid(arr_errmsgs, data_json, key, check_type, errmsg, param1
 	}
 	if (check_type == "电话号码"){
 		if (!isValidPhone(data_json[key])){
+			arr_errmsgs.push(errmsg);
+		}
+		return;
+	}
+	if (check_type == "日期"){
+		if (!isValidRiqi(data_json[key])){
 			arr_errmsgs.push(errmsg);
 		}
 		return;
