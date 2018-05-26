@@ -249,7 +249,7 @@ class Hospital2Controller extends Controller
             "出院备注"=>"",
         ];
         $excel_headers=array_keys($excel_header_config);
-        $data=self::createtable([], '住院记录', $header); 
+        $data=self::createtable([], '住院记录', $excel_headers); 
         exit($data);
         $ret = [
             "records"=>$records,
