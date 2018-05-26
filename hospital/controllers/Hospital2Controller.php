@@ -239,7 +239,7 @@ class Hospital2Controller extends Controller
         ];
         $excel_values = [];
 
-        header("Content-type:text/html;charset=utf-8");
+        //header("Content-type:text/html;charset=utf-8");
         for ($i = 0; $i < count($records); $i++){
             $record = $records[$i];
             $data = [];
@@ -257,7 +257,6 @@ class Hospital2Controller extends Controller
             unset($data["住院记录"]["hospitalization_out_info"]);
             
             $excel_row = [];
-            echo json_encode($data,true);
             foreach($excel_header_config as $excel_field => $data_source){
                 $excel_row[$excel_field] = self::getDataValue($data, $excel_field, $data_source);
             }
@@ -265,8 +264,6 @@ class Hospital2Controller extends Controller
             $excel_values[] = $excel_row;
         }
         $excel_headers=array_keys($excel_header_config);
-
-        
         $data=self::createtable($excel_values, '住院记录', $excel_headers); 
         exit($data);
     }
