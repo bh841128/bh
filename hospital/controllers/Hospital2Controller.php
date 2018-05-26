@@ -285,7 +285,6 @@ class Hospital2Controller extends Controller
             }
             $excel_headers[] = $head;
         }
-        $excel_headers=array_keys($excel_header_config);
         $data=self::createtable($excel_values, '住院记录', $excel_headers); 
         exit($data);
     }
