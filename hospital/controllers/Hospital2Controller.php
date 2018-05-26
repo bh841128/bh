@@ -291,6 +291,15 @@ class Hospital2Controller extends Controller
         }
         return $date;
     }
+    static public function format_xingbie($record, $excel_field, $data_source){
+        $value = self::getDataValue($record, $excel_field, $data_source);
+        if ($value == ""){
+            return "";
+        }
+        $value = intval($value);
+        return $value==1?"男":"女";
+    }
+    //////////////////////////////////////////////////////////
     static public function getValueByJsonPath($record, $json_path){
         $arrPaths = explode(".", $json_path);
         $tmp_record = $record;
@@ -303,9 +312,10 @@ class Hospital2Controller extends Controller
         }
         return $tmp_record;
     }
+    
     static public function createtable($list,$filename,$excel_headers){    
-        //header("Content-type:application/vnd.ms-excel;charset=utf-8");
-		//header("Content-Disposition:filename=".$filename.".xls");
+        header("Content-type:application/vnd.ms-excel;charset=utf-8");
+		header("Content-Disposition:filename=".$filename.".xls");
 		$strexport='<html xmlns:x="urn:schemas-microsoft-com:office:excel"><body><table>';
 		$strexport.="<tr>";
 		foreach($excel_headers as $value){
