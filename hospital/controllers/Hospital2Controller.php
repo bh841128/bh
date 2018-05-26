@@ -257,6 +257,8 @@ class Hospital2Controller extends Controller
             $excel_values[] = $excel_row;
         }
         $excel_headers=array_keys($excel_header_config);
+
+        header("Content-type:text/html;charset=utf-8");
         $data=self::createtable($excel_values, '住院记录', $excel_headers); 
         exit($data);
     }
@@ -267,6 +269,7 @@ class Hospital2Controller extends Controller
         return "";
     }
     static public function getValueByJsonPath($record, $json_path){
+        
         echo $json_path.PHP_EOL;
         print_r($record);
         $arrPaths = explode(".", $json_path);
@@ -282,8 +285,7 @@ class Hospital2Controller extends Controller
     }
     static public function createtable($list,$filename,$excel_headers){    
         //header("Content-type:application/vnd.ms-excel;charset=utf-8");
-        header("Content-type:text/html;charset=utf-8");
-		header("Content-Disposition:filename=".$filename.".xls");
+		//header("Content-Disposition:filename=".$filename.".xls");
 		$strexport='<html xmlns:x="urn:schemas-microsoft-com:office:excel"><body><table>';
 		print_r($list);
 		$strexport.="<tr>";
