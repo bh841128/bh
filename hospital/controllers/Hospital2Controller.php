@@ -260,6 +260,24 @@ class Hospital2Controller extends Controller
         $data=self::createtable([], '住院记录', $excel_headers); 
         exit($data);
     }
+    static public function getDataValue($record, $excel_field, $data_source){
+        if (is_string($data_source)){
+            return getValueByJsonPath($record, $data_source);
+        }
+        return "";
+    }
+    static public function getValueByJsonPath($record, $json_path){
+        $arrPaths = explode(".", $json_path);
+        $tmp_record = $record;
+        for ($i = 0; $i < count($arrPaths); $i++){
+            $field = $arrPaths[$i];
+            if ($field == "" || empty($tmp_record[$field])){
+                return "";
+            }
+            $tmp_record = $tmp_record[$field];
+        }
+        return $tmp_record;
+    }
     static public function createtable($list,$filename,$excel_headers){    
         header("Content-type:application/vnd.ms-excel;charset=utf-8");    
 		header("Content-Disposition:filename=".$filename.".xls"); 
