@@ -140,7 +140,8 @@ class Hospital2Controller extends Controller
         $header_config = [
 
         ];
-        $data=CUtil::createtable([],'????',["??1","??2"]); 
+        $header=["????"=>"????","????"=>"????"];
+        $data=CUtil::createtable([],'????',$header); 
         exit($data);
         $ret = [
             "records"=>$records,
