@@ -94,13 +94,13 @@
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="shoushuzhuangtai" value="1" checked json-name="手术状态">择期手术</lable>
+                        <input type="radio" name="shoushuzhuangtai" value="择期手术" checked json-name="手术状态">择期手术</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="shoushuzhuangtai" value="2" json-name="手术状态">急诊手术</lable>
+                        <input type="radio" name="shoushuzhuangtai" value="急诊手术" json-name="手术状态">急诊手术</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="shoushuzhuangtai" value="3" json-name="手术状态">限期手术</lable>
+                        <input type="radio" name="shoushuzhuangtai" value="限期手术" json-name="手术状态">限期手术</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="shoushuzhuangtai" value="4" json-name="手术状态">抢救</lable>
+                        <input type="radio" name="shoushuzhuangtai" value="抢救" json-name="手术状态">抢救</lable>
                 </td>
             </tr>
             <tr>
@@ -109,11 +109,11 @@
                 </td>
                 <td>
                     <lable class="radio-inline">
-                        <input type="radio" name="shoushufangshi" value="1" checked json-name="手术方式">经外途径介入</lable>
+                        <input type="radio" name="shoushufangshi" value="经外途径介入" checked json-name="手术方式">经外途径介入</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="shoushufangshi" value="2" json-name="手术方式">直视</lable>
+                        <input type="radio" name="shoushufangshi" value="直视" json-name="手术方式">直视</lable>
                     <lable class="radio-inline">
-                        <input type="radio" name="shoushufangshi" value="3" json-name="手术方式">杂交（镶嵌）</lable>
+                        <input type="radio" name="shoushufangshi" value="杂交（镶嵌）" json-name="手术方式">杂交（镶嵌）</lable>
                 </td>
             </tr>
         </table>
