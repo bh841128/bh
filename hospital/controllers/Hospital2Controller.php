@@ -134,7 +134,7 @@ class Hospital2Controller extends Controller
 			$obj_patients[$value["patient_id"]]=$ret["msg"];
             $obj_patients[$value["patient_id"]]["hospital_name"]=Hospital::getHospitalById($obj_patients[$value["patient_id"]]["hospital_id"])["name"];
         }
-        self::exportExcel($obj_patients, $records);
+        return self::exportExcel($obj_patients, $records);
     }
     public static function exportExcel($obj_patients, $records){
         $ret = [
