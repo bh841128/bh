@@ -13,6 +13,16 @@ use app\models\HospitalizedRecord;
 use app\models\Hospital;
 use yii\log\Logger;
 
+define("NOLOGIN", 1);
+define("NODATA", 2);
+define("NOACCESS", 3);
+define("ARGSERR", 4);
+define("INSERTERR", 5);
+define("UPDATEERR", 6);
+define("PATINTIDERR", 7);
+define("RECORDERR", 8);
+define("SETSTATUS_PATIENTERR", 9);
+
 class HospitalController extends Controller
 {
     public function behaviors()
