@@ -285,7 +285,8 @@ class Hospital2Controller extends Controller
             }
             $excel_headers[] = $head;
         }
-        $data=self::createtable($excel_values, '住院记录', $excel_headers); 
+        $excel_fields = array_keys($excel_header_config);
+        $data=self::createtable($excel_values, '住院记录', $excel_fields, $excel_headers); 
         exit($data);
     }
     static public function getDataValue($record, $excel_field, $data_source){
@@ -363,7 +364,7 @@ class Hospital2Controller extends Controller
         return $tmp_record;
     }
     
-    static public function createtable($list,$filename,$excel_headers){    
+    static public function createtable($list,$filename,$excel_fields, $excel_headers){    
         header("Content-type:application/vnd.ms-excel;charset=utf-8");
 		header("Content-Disposition:filename=".$filename.".xls");
 		$strexport='<html xmlns:x="urn:schemas-microsoft-com:office:excel"><body><table>';
@@ -377,7 +378,7 @@ class Hospital2Controller extends Controller
 		
 		foreach ($list as $row){
 			$strexport.="<tr>";	
-			foreach($excel_headers as $value){
+			foreach($excel_fields as $value){
                 if(array_key_exists($value,$row)){
 					$temp=$row[$value];
 					$str="";
