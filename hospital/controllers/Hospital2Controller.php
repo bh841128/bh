@@ -267,6 +267,8 @@ class Hospital2Controller extends Controller
         return "";
     }
     static public function getValueByJsonPath($record, $json_path){
+        echo $json_path.PHP_EOL;
+        print_r($record);
         $arrPaths = explode(".", $json_path);
         $tmp_record = $record;
         for ($i = 0; $i < count($arrPaths); $i++){
