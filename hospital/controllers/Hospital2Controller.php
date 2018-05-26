@@ -273,10 +273,12 @@ class Hospital2Controller extends Controller
             return $value;
         }
         $func_name   = $data_source[0];
+        echo "__CLASS__, $func_name".PHP_EOL;
         if (!method_exists(__CLASS__, $func_name)){
             return "";
         }
         $value = self::$func_name($record, $excel_field, $data_source[1]);
+        echo "__CLASS__, $func_name {$data_source[1]} $value".PHP_EOL;
         return "";
     }
     static public function format_date($record, $excel_field, $data_source){
@@ -304,8 +306,8 @@ class Hospital2Controller extends Controller
         return $tmp_record;
     }
     static public function createtable($list,$filename,$excel_headers){    
-        header("Content-type:application/vnd.ms-excel;charset=utf-8");
-		header("Content-Disposition:filename=".$filename.".xls");
+        //header("Content-type:application/vnd.ms-excel;charset=utf-8");
+		//header("Content-Disposition:filename=".$filename.".xls");
 		$strexport='<html xmlns:x="urn:schemas-microsoft-com:office:excel"><body><table>';
 		$strexport.="<tr>";
 		foreach($excel_headers as $value){
