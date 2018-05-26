@@ -244,7 +244,7 @@ class Hospital2Controller extends Controller
             $record = $records[$i];
             $data = [];
             $data["患者资料"] = $obj_patients[$record["patient_id"]];
-            $data["患者资料"] = json_decode($data["患者资料"]["relate_text"], true);
+            $data["联系人资料"] = json_decode($data["患者资料"]["relate_text"], true);
             $data["住院记录"] = $record;
             $data["住院记录"]["术前信息"] = json_decode($data["住院记录"]["operation_before_info"], true);
             $data["住院记录"]["手术信息"] = json_decode($data["住院记录"]["operation_info"], true);
