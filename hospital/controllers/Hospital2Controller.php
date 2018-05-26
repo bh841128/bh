@@ -137,6 +137,11 @@ class Hospital2Controller extends Controller
         return self::exportExcel($obj_patients, $records);
     }
     public static function exportExcel($obj_patients, $records){
+        $header_config = [
+
+        ];
+        $data=CUtil::createtable([],'????',["??1","??2"]); 
+        exit($data);
         $ret = [
             "records"=>$records,
             "patients"=>$obj_patients,
