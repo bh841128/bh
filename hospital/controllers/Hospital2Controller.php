@@ -136,6 +136,7 @@ class Hospital2Controller extends Controller
         self::exportExcel($obj_patients, $records);
     }
     public static function exportExcel($obj_patients, $records){
+        header("Content-Type: text/html; charset=utf-8");
         print_r($records);
         print_r($obj_patients);
     }
