@@ -795,14 +795,14 @@ function addZhuyuanjilu(){
 	function onZhuyuanjiluSave(callback, save_need_check){
 		function onUpdateZhuyuanjiluRet(rsp){
 			if (rsp.ret != 0){
-				alert("更新数据失败，请稍后再试");
+				alert("保存数据失败，请稍后再试");
 				return;
 			}
 			if (typeof callback != "undefined" && callback){
 				callback(rsp);
 				return;
 			}
-			alert("更新成功");
+			alert("保存成功");
 			m_editing_mode = false;
 			init_leave_page(null);
 		}
@@ -817,13 +817,11 @@ function addZhuyuanjilu(){
 			g_operation_type = 3;
 			m_zyjl_id = rsp.id;
 			g_hospital.setGlobalData("zyjl_id",m_zyjl_id);
-			if (typeof callback != "undefined" && callback){
-				callback(rsp);
-				return;
-			}
-			alert("添加成功");
 			m_editing_mode = false;
 			init_leave_page(null);
+
+			data_json["id"] = m_zyjl_id;
+			ajaxRemoteRequest("hospital/set-record-text",data_json,onUpdateZhuyuanjiluRet);
 		}
 		var data_json = getAllInputDatas();
 		//////////////////////////////////////

@@ -64,6 +64,7 @@ class Hospital2Controller extends Controller
         return parent::beforeAction($action);
     }
 
+    ///////////////////////////////////////////////////////////////////////
     function actionExportExcel(){
         $username = CUtil::getRequestParam('cookie', 'username', '');
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
@@ -246,9 +247,8 @@ class Hospital2Controller extends Controller
             "治疗费用"=>"住院记录.出院资料.治疗费用    元",
             "出院备注"=>"住院记录.出院资料.出院备注",
         ];
-        $excel_values = [];
 
-        //header("Content-type:text/html;charset=utf-8");
+        $excel_values = [];
         for ($i = 0; $i < count($records); $i++){
             $record = $records[$i];
             $data = [];
@@ -418,5 +418,6 @@ class Hospital2Controller extends Controller
 	  
 		}	
 		return $strexport;     
-	}   
+    }
+    ///////////////////////////////////////////////////////////////////////
 }
