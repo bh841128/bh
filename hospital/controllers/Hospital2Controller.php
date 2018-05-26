@@ -142,7 +142,7 @@ class Hospital2Controller extends Controller
         ];
         $header='{"????":"????","????":"????"}';
         $header = json_decode($header, true);
-        $data=CUtil::createtable([],'????',$header); 
+        $data=self::createtable([],'????',$header); 
         exit($data);
         $ret = [
             "records"=>$records,
@@ -150,4 +150,53 @@ class Hospital2Controller extends Controller
         ];
         return json_encode($ret);
     }
+    static public function createtable($list,$filename,$header){    
+		header("Content-type:application/vnd.ms-excel;charset=utf-8");    
+		header("Content-Disposition:filename=".$filename.".xls"); 
+		$header1=array();
+		foreach ($header as $k=>$v){
+			$header1[]=$k;
+		}
+		$strexport='<html xmlns:x="urn:schemas-microsoft-com:office:excel"><body><table>';
+		
+		$strexport.="<tr>";
+		foreach($header1 as $value){
+			$strexport.="<td x:str>";
+			$strexport.=$value;
+			$strexport.="</td>";
+		}
+		$strexport.="</tr>";
+		
+		foreach ($list as $row){
+			$strexport.="<tr>";	
+			foreach($header as $key=>$value){
+                if(array_key_exists($value,$row)){
+					$temp=$row[$value];
+					$str="";
+					if(is_array($temp)){
+						foreach($temp as $k=>$v) {
+							foreach($v as $k1=>$v1){
+								$str=$str.$v1.";";
+							}
+						}
+ 
+					}else{
+						$str=$row[$value];
+					}
+					$strexport.="<td style=\"vnd.ms-excel.numberformat:@\">";
+					$strexport.=$str;
+					$strexport.="</td>";
+				}
+				else{
+					$strexport.="<td x:str>";
+					$strexport.=$str;
+					$strexport.="</td>";
+				}				 
+					    
+			}  
+			$strexport.="</tr>"; 
+	  
+		}	
+		return $strexport;     
+	}   
 }
