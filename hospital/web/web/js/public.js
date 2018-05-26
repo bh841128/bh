@@ -336,7 +336,7 @@ function getTrimValue(value){
 ////////////////////////////////////////////////////////////////////
 function ajaxRemoteRequest(action, data, callback){
 	function callback_inner(rsp){
-		if (rsp.ret == 1){
+		if (rsp.ret == 1 && rsp.msg.match(/not login/)){
 			gotoLoginPage();
 			return;
 		}
