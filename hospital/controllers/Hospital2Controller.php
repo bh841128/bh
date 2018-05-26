@@ -19,7 +19,7 @@ define("NOACCESS", 3);
 define("ARGSERR", 4);
 define("INSERTERR", 5);
 define("UPDATEERR", 6);
-define("PATINTIDERR", 7);
+define("PATINTIDERR", 7); 
 define("RECORDERR", 8);
 define("SETSTATUS_PATIENTERR", 9);
 
@@ -67,7 +67,7 @@ class Hospital2Controller extends Controller
     function checkLogin(){
         $username = CUtil::getRequestParam('cookie', 'username', '');
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
-		//ç™»å½•
+		//µÇÂ¼
         $ret=Login4Hospital::checkLogin($username,$skey);
         if ($ret["ret"] != 0){
             return false;
@@ -140,9 +140,9 @@ class Hospital2Controller extends Controller
         $header_config = [
 
         ];
-        $header='{"????":"????","????":"????"}';
+        $header='{"????":"????"}';
         $header = json_decode($header, true);
-        $data=self::createtable([],'????',$header); 
+        $data=self::createtable([], '????', $header); 
         exit($data);
         $ret = [
             "records"=>$records,
