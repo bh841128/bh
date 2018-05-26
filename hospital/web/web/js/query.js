@@ -25,7 +25,7 @@ function patient_query() {
         {"name":"病案号","field":"medical_id"},
         {"name":"性别","field":"sexy"},
         {"name":"联系人姓名","field":"relate_name"},
-        {"name":"联系电话","field":"relate_iphone"},
+        {"name":"联系人电话","field":"relate_iphone"},
         {"name":"上传时间-开始","field":"start_time"},
         {"name":"上传时间-结束","field":"end_time"},
         {"name":"状态","field":"status"}
