@@ -283,7 +283,7 @@ class Hospital2Controller extends Controller
         header("Content-type:text/html;charset=utf-8");
 		header("Content-Disposition:filename=".$filename.".xls");
 		$strexport='<html xmlns:x="urn:schemas-microsoft-com:office:excel"><body><table>';
-		
+		print_r($list);
 		$strexport.="<tr>";
 		foreach($excel_headers as $value){
 			$strexport.="<td x:str>";
