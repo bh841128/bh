@@ -65,7 +65,6 @@ class Hospital2Controller extends Controller
     }
 
     function actionExportExcel(){
-        /*
         $username = CUtil::getRequestParam('cookie', 'username', '');
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
         $ret=Login4Hospital::checkLogin($username,$skey);
@@ -74,8 +73,7 @@ class Hospital2Controller extends Controller
             $ret["ret"]=NOLOGIN;
             $ret["msg"]="not login";
             return json_encode($ret);
-        }*/
-        $username = "chaos";
+        }
 		
 		$ret=Login4Hospital::getManager($username);
          if($ret["ret"]!=0){
