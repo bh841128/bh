@@ -64,17 +64,6 @@ class Hospital2Controller extends Controller
         return parent::beforeAction($action);
     }
 
-    function checkLogin(){
-        $username = CUtil::getRequestParam('cookie', 'username', '');
-        $skey = CUtil::getRequestParam('cookie', 'skey', '');
-		//登录
-        $ret=Login4Hospital::checkLogin($username,$skey);
-        if ($ret["ret"] != 0){
-            return false;
-        }
-        return true;
-    }
-
     function actionExportExcel(){
         /*
         $username = CUtil::getRequestParam('cookie', 'username', '');
@@ -138,25 +127,25 @@ class Hospital2Controller extends Controller
     }
     public static function exportExcel($obj_patients, $records){
         $excel_header_config = [
-            "医院名称"=>"",
-            "上传时间"=>"",
-            "病案号"=>"",
-            "姓名"=>"",
-            "性别"=>"",
-            "民族"=>"",
-            "出生日期"=>"",
-            "省"=>"",
-            "市"=>"",
-            "县"=>"",
-            "地址"=>"",
-            "联系人姓名"=>"",
-            "与患者关系"=>"",
-            "联系人电话"=>"",
-            "其他联系电话（号码二）"=>"",
-            "其他联系电话（号码三）"=>"",
-            "入院日期"=>"",
-            "出院日期"=>"",
-            "手术日期"=>"",
+            "医院名称"      =>  "患者资料.hospital_name",
+            "上传时间"      =>["format_date", "住院记录.uploadtime"],
+            "病案号"        =>"患者资料.medical_id",
+            "姓名"          =>"患者资料.姓名",
+            "性别"          =>["format_xingbie", "患者资料.sexy"],
+            "民族"          =>"患者资料.nation",
+            "出生日期"      =>"患者资料.birthday",
+            "省"            =>"患者资料.province",
+            "市"            =>"患者资料.city",
+            "县"            =>"患者资料.district",
+            "地址"          =>"患者资料.address",
+            "联系人姓名"    =>"联系人资料.联系人姓名",
+            "与患者关系"    =>"联系人资料.与患者关系",
+            "联系人电话"    =>"联系人资料.联系人电话",
+            "其他联系电话（号码二）" =>"联系人资料.其他联系电话（号码二）",
+            "其他联系电话（号码三）" =>"联系人资料.其他联系电话（号码三）",
+            "入院日期"              =>["format_date", "住院记录.hospitalization_in_time"],
+            "出院日期"              =>["format_date", "住院记录.hospitalization_out_time"],
+            "手术日期"              =>["format_date", "住院记录.operation_time"],
             "既往先心病手术次数"=>"",
             "第一次既往先心病手术时间"=>"",
             "第一次既往先心病手术医院"=>"",
@@ -248,14 +237,27 @@ class Hospital2Controller extends Controller
             "治疗费用"=>"",
             "出院备注"=>"",
         ];
+        $excel_values = [];
+        for ($i = 0; $i < count($records); $i++){
+            $record = $records[$i];
+            $data = [];
+            $data["患者资料"] = $obj_patients[$record["patient_id"]];
+            $data["患者资料"] = json_decode($data["患者资料"]["relate_text"], true);
+            $data["住院记录"] = $record;
+            $data["住院记录"]["术前信息"] = json_decode($data["住院记录"]["operation_before_info"], true);
+            $data["住院记录"]["手术信息"] = json_decode($data["住院记录"]["operation_info"], true);
+            $data["住院记录"]["术后信息"] = json_decode($data["住院记录"]["operation_after_info"], true);
+            $data["住院记录"]["出院资料"] = json_decode($data["住院记录"]["hospitalization_out_info"], true);
+            
+            
+            $excel_row = [];
+
+
+            $excel_values[] = $excel_row;
+        }
         $excel_headers=array_keys($excel_header_config);
         $data=self::createtable([], '住院记录', $excel_headers); 
         exit($data);
-        $ret = [
-            "records"=>$records,
-            "patients"=>$obj_patients,
-        ];
-        return json_encode($ret);
     }
     static public function createtable($list,$filename,$excel_headers){    
         header("Content-type:application/vnd.ms-excel;charset=utf-8");    
