@@ -76,7 +76,12 @@ class Hospital2Controller extends Controller
     }
 
     function actionExportExcel(){
-        Yii::$app->response->headers->set("Content-Type","text/html; charset=utf-8");
+        try{
+            header("Content-Type: text/html; charset=utf-8");
+        }
+        catch(Exception $e){
+
+        }
         /*
         $username = CUtil::getRequestParam('cookie', 'username', '');
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
