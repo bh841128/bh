@@ -212,6 +212,7 @@ class HospitalController extends Controller
 		$idarray=explode(",",$ids);
         $ret=Patient4Hospital::setPatientStatusByIds($idarray,$ret["msg"]["hospital_id"],$status,$ret["msg"]["id"]);
         if($ret["ret"]!=0){
+        	$ret["ret"]=UPDATEERR;
             CUtil::logFile("".__file__ ." :".__line__."===$username  "."setPatientStatusByIds ERR====".print_r($ret,true));
             return json_encode($ret);
         }
