@@ -262,7 +262,7 @@ class Hospital2Controller extends Controller
     }
     static public function getDataValue($record, $excel_field, $data_source){
         if (is_string($data_source)){
-            return getValueByJsonPath($record, $data_source);
+            return self::getValueByJsonPath($record, $data_source);
         }
         return "";
     }
