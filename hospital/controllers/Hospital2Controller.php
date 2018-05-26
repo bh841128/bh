@@ -76,12 +76,6 @@ class Hospital2Controller extends Controller
     }
 
     function actionExportExcel(){
-        try{
-            header("Content-Type: text/html; charset=utf-8");
-        }
-        catch(Exception $e){
-
-        }
         /*
         $username = CUtil::getRequestParam('cookie', 'username', '');
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
