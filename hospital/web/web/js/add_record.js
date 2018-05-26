@@ -817,7 +817,7 @@ function addZhuyuanjilu(){
 			g_operation_type = 3;
 			m_zyjl_id = rsp.id;
 			g_hospital.setGlobalData("zyjl_id",m_zyjl_id);
-			if (typeof callback != "undefined"){
+			if (typeof callback != "undefined" && callback){
 				callback(rsp);
 				return;
 			}
