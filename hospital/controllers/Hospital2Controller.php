@@ -125,6 +125,7 @@ class HospitalController extends Controller
         exportExcel($obj_patients, $records);
     }
     function exportExcel($obj_patients, $records){
-
+        print_r($records);
+        print_r($obj_patients);
     }
 }
