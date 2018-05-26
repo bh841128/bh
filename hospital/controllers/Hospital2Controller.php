@@ -238,6 +238,8 @@ class Hospital2Controller extends Controller
             "出院备注"=>"",
         ];
         $excel_values = [];
+
+        header("Content-type:text/html;charset=utf-8");
         for ($i = 0; $i < count($records); $i++){
             $record = $records[$i];
             $data = [];
@@ -250,6 +252,7 @@ class Hospital2Controller extends Controller
             $data["住院记录"]["出院资料"] = json_decode($data["住院记录"]["hospitalization_out_info"], true);
             
             $excel_row = [];
+            print_r($data);
             foreach($excel_header_config as $excel_field => $data_source){
                 $excel_row[$excel_field] = self::getDataValue($data, $excel_field, $data_source);
             }
@@ -258,13 +261,15 @@ class Hospital2Controller extends Controller
         }
         $excel_headers=array_keys($excel_header_config);
 
-        header("Content-type:text/html;charset=utf-8");
+        
         $data=self::createtable($excel_values, '住院记录', $excel_headers); 
         exit($data);
     }
     static public function getDataValue($record, $excel_field, $data_source){
         if (is_string($data_source)){
-            return self::getValueByJsonPath($record, $data_source);
+            $value = self::getValueByJsonPath($record, $data_source);;
+            echo $data_source."  ".$value.PP_EOL;
+            return $value;
         }
         return "";
     }
@@ -284,7 +289,6 @@ class Hospital2Controller extends Controller
         //header("Content-type:application/vnd.ms-excel;charset=utf-8");
 		//header("Content-Disposition:filename=".$filename.".xls");
 		$strexport='<html xmlns:x="urn:schemas-microsoft-com:office:excel"><body><table>';
-		print_r($list);
 		$strexport.="<tr>";
 		foreach($excel_headers as $value){
 			$strexport.="<td x:str>";
