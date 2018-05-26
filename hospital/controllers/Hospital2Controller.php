@@ -250,6 +250,10 @@ class Hospital2Controller extends Controller
             $data["住院记录"]["手术信息"] = json_decode($data["住院记录"]["operation_info"], true);
             $data["住院记录"]["术后信息"] = json_decode($data["住院记录"]["operation_after_info"], true);
             $data["住院记录"]["出院资料"] = json_decode($data["住院记录"]["hospitalization_out_info"], true);
+            unset($data["住院记录"]["operation_before_info"]);
+            unset($data["住院记录"]["operation_info"]);
+            unset($data["住院记录"]["operation_after_info"]);
+            unset($data["住院记录"]["hospitalization_out_info"]);
             
             $excel_row = [];
             echo json_encode($data,true);
