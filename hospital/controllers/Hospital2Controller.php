@@ -273,16 +273,17 @@ class Hospital2Controller extends Controller
             return $value;
         }
         $func_name   = $data_source[0];
-        echo "__CLASS__, $func_name".PHP_EOL;
+        echo __CLASS__." $func_name".PHP_EOL;
         if (!method_exists(__CLASS__, $func_name)){
             return "";
         }
         $value = self::$func_name($record, $excel_field, $data_source[1]);
-        echo "__CLASS__, $func_name {$data_source[1]} $value".PHP_EOL;
+        echo __CLASS__." $func_name {$data_source[1]} $value".PHP_EOL;
         return "";
     }
     static public function format_date($record, $excel_field, $data_source){
         $value = self::getDataValue($record, $excel_field, $data_source);
+        echo "$excel_field, $data_source $value".PHP_EOL;
         if ($value == ""){
             return "";
         }
