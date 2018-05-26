@@ -129,7 +129,7 @@ class Hospital2Controller extends Controller
         $excel_header_config = [
             //基本资料
             "医院名称"      =>  "患者资料.hospital_name",
-            "上传时间"      =>  ["format_date", "住院记录.uploadtime"],
+            "上传时间"      =>  ["format_date_time", "住院记录.uploadtime"],
             "病案号"        =>  "患者资料.medical_id",
             "姓名"          =>  "患者资料.name",
             "性别"          =>  ["format_xingbie", "患者资料.sexy"],
@@ -312,6 +312,18 @@ class Hospital2Controller extends Controller
         $value = intval($value);
         $date = date("Y-m-d", $value);
         if ($date < "1900-01-01"){
+            return "";
+        }
+        return $date;
+    }
+    static public function format_date_time($record, $excel_field, $data_source){
+        $value = self::getDataValue($record, $excel_field, $data_source);
+        if ($value == ""){
+            return "";
+        }
+        $value = intval($value);
+        $date = date("Y-m-d H:i:s", $value);
+        if ($date < "1900-01-01 00:00:00"){
             return "";
         }
         return $date;
