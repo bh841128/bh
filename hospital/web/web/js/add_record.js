@@ -596,6 +596,7 @@ function addZhuyuanjilu(){
 				return false;
 			}
 			alert("上传成功");
+			init_leave_page(null);
 			gotoZyjlList();
 		}
 		function OnUploadSaveRet(rsp){
