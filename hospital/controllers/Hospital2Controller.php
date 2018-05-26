@@ -23,7 +23,7 @@ define("PATINTIDERR", 7);
 define("RECORDERR", 8);
 define("SETSTATUS_PATIENTERR", 9);
 
-class HospitalController extends Controller
+class Hospital2Controller extends Controller
 {
     public function behaviors()
     {
