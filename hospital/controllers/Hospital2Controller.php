@@ -252,7 +252,7 @@ class Hospital2Controller extends Controller
             $data["住院记录"]["出院资料"] = json_decode($data["住院记录"]["hospitalization_out_info"], true);
             
             $excel_row = [];
-            print_r($data);
+            echo json_encode($data,true);
             foreach($excel_header_config as $excel_field => $data_source){
                 $excel_row[$excel_field] = self::getDataValue($data, $excel_field, $data_source);
             }
