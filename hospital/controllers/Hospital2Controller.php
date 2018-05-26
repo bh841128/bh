@@ -76,7 +76,6 @@ class Hospital2Controller extends Controller
     }
 
     function actionExportExcel(){
-        header("Content-Type: text/html; charset=utf-8");
         /*
         $username = CUtil::getRequestParam('cookie', 'username', '');
         $skey = CUtil::getRequestParam('cookie', 'skey', '');
@@ -138,7 +137,10 @@ class Hospital2Controller extends Controller
         self::exportExcel($obj_patients, $records);
     }
     public static function exportExcel($obj_patients, $records){
-        print_r($records);
-        print_r($obj_patients);
+        $ret = [
+            "records"=>$records,
+            "patients"=>$obj_patients,
+        ];
+        return json_encode($ret);
     }
 }
