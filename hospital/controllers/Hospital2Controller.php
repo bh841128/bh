@@ -276,6 +276,9 @@ class Hospital2Controller extends Controller
         $excel_headers = [];
         foreach($excel_header_config as $field => $data_source){
             $head = $field;
+            if (is_array($data_source)){
+                $data_source = $data_source[1];
+            }
             if (preg_match('/    /',$data_source)){
                 $post_fix    = preg_replace('/.*    /','',$data_source);
                 $head += "($post_fix)";
