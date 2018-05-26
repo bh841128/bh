@@ -127,6 +127,7 @@ class Hospital2Controller extends Controller
     }
     public static function exportExcel($obj_patients, $records){
         $excel_header_config = [
+            //基本资料
             "医院名称"      =>  "患者资料.hospital_name",
             "上传时间"      =>  ["format_date", "住院记录.uploadtime"],
             "病案号"        =>  "患者资料.medical_id",
@@ -143,9 +144,13 @@ class Hospital2Controller extends Controller
             "联系人电话"     =>  "联系人资料.联系人电话",
             "其他联系电话（号码二）" =>"联系人资料.其他联系电话（号码二）",
             "其他联系电话（号码三）" =>"联系人资料.其他联系电话（号码三）",
+
+            //入院 收入 出院日期
             "入院日期"              =>["format_date", "住院记录.hospitalization_in_time"],
             "出院日期"              =>["format_date", "住院记录.hospitalization_out_time"],
             "手术日期"              =>["format_date", "住院记录.operation_time"],
+
+            //术前信息
             "既往先心病手术次数"=>"住院记录.术前信息.既往心脏病手术次数",
             "第一次既往先心病手术时间"=>"住院记录.术前信息.既往心脏病手术时间-1",
             "第一次既往先心病手术医院"=>"住院记录.术前信息.既往心脏病手术医院-1",
@@ -163,8 +168,8 @@ class Hospital2Controller extends Controller
             "第四次既往先心病手术医院"=>"住院记录.术前信息.既往心脏病手术医院-4",
             "第四次既往先心病手术名称"=>"住院记录.术前信息.既往心脏病手术名称-4",
             "第四次其他"=>"",
-            "身高"=>"住院记录.术前信息.身高",
-            "体重"=>"住院记录.术前信息.体重",
+            "身高"=>"住院记录.术前信息.身高    厘米",
+            "体重"=>"住院记录.术前信息.体重    千克",
             "术前血氧饱和度"=>"住院记录.术前信息.术前血氧饱和度",
             "术前右上肢血氧饱和度"=>"住院记录.术前信息.术前血氧饱和度-右上肢",
             "术前右下肢血氧饱和度"=>"住院记录.术前信息.术前血氧饱和度-右下肢",
@@ -178,45 +183,46 @@ class Hospital2Controller extends Controller
             "专科检查-MRI"=>["has_not","住院记录.术前信息.专科检查-MRI"],
             "专科检查-心导管"=>["has_not","住院记录.术前信息.专科检查-心导管"],
             "专科检查-造影"=>["has_not","住院记录.术前信息.专科检查-造影"],
-            "专科检查-其他"=>"住院记录.术前信息.专科检查-其他",
-            "术前诊断"=>"",
-            "术前诊断-其他"=>"",
-            "出生时胎龄"=>"",
-            "出生体重"=>"",
-            "产前明确诊断"=>"",
-            "术前一般危险因素"=>"",
-            "术前一般危险因素-其他"=>"",
-            "非心脏畸形"=>"",
-            "非心脏畸形-其他"=>"",
-            "与术前诊断一致"=>"",
-            "手术诊断"=>"",
-            "手术诊断-其他"=>"",
-            "主要手术名称"=>"",
-            "主要手术名称-其他"=>"",
-            "手术医生"=>"",
-            "手术用时"=>"",
-            "手术年龄"=>"",
-            "手术状态"=>"",
-            "手术方式"=>"",
-            "手术路径"=>"",
-            "手术路径-其他"=>"",
-            "延迟关胸"=>"",
-            "延迟关胸时间"=>"",
-            "体外循环"=>"",
-            "是否计划"=>"",
-            "停搏液"=>"",
-            "停搏液类型"=>"",
-            "体外循环时间"=>"",
-            "主动脉阻断时间"=>"",
-            "二次或多次体外循环"=>"",
-            "残余畸形"=>"",
-            "增加循环辅助时间"=>"",
-            "出血"=>"",
-            "二次或多次体外循环-其他"=>"",
-            "深低温停循环"=>"",
-            "深低温停循环时间"=>"",
-            "单侧脑灌注"=>"",
-            "单侧脑灌注时间"=>"",
+            "其他专科检查"=>"住院记录.术前信息.专科检查-其他",
+            "术前诊断"=>["format_2level_data", "住院记录.术前信息.术前诊断"],
+            "其他术前诊断"=>"住院记录.术前信息.术前诊断-其他",
+            "出生时胎龄"=>"住院记录.术前信息.专科检查-出生胎龄    周",
+            "出生体重"=>"住院记录.术前信息.专科检查-出生体重    千克",
+            "产前明确诊断"=>"住院记录.术前信息.专科检查-产前明确诊断",
+            "术前一般危险因素"=>["format_2level_data", "住院记录.术前信息.术前一般危险因素"],
+            "其他术前一般危险因素"=>"住院记录.术前信息.术前一般危险因素-其他",
+            "非心脏畸形"=>["format_2level_data", "住院记录.术前信息.非心脏畸形"],
+            "其他非心脏畸形"=>"住院记录.术前信息.非心脏畸形-其他",
+
+            //手术信息
+            "手术诊断"=>["format_2level_data", "住院记录.手术信息.手术诊断"],
+            //"与术前诊断一致"=>"",
+            "其他手术诊断"=>"住院记录.手术信息.手术诊断-其他",
+            "主要手术名称"=>["format_2level_data", "住院记录.手术信息.主要手术名称"],
+            "其他主要手术名称"=>"住院记录.手术信息.主要手术名称-其他",
+            "手术医生"=>"住院记录.手术信息.手术医生",
+            "手术用时"=>"住院记录.手术信息.手术用时    分钟",
+            "手术年龄"=>"住院记录.手术信息.手术年龄    岁/月",
+            "手术状态"=>"住院记录.手术信息.手术状态",
+            "手术方式"=>"住院记录.手术信息.手术方式",
+            "手术路径"=>"住院记录.手术信息.手术路径",
+            "其他手术路径"=>"住院记录.手术信息.手术路径-其他",
+            "延迟关胸"=>["yes_no","住院记录.手术信息.延迟关胸"],
+            "延迟关胸时间"=>"住院记录.手术信息.延迟关胸时间    天",
+            "体外循环"=>["yes_no","住院记录.手术信息.体外循环"],
+            "体外循环是否计划"=>"住院记录.手术信息.是否计划",
+            "停搏液"=>["yes_no","住院记录.手术信息.停搏液"],
+            "停搏液类型"=>"住院记录.手术信息.停搏液类型",
+            "体外循环时间"=>"住院记录.手术信息.体外循环时间",
+            "主动脉阻断时间"=>"住院记录.手术信息.主动脉阻断时间",
+            "二次或多次体外循环"=>["special_field","住院记录.手术信息.是否二次或多次体外循环"],
+            "深低温停循环"=>["yes_no","住院记录.手术信息.深低温停循环"],
+            "深低温停循环时间"=>"住院记录.手术信息.深低温停循环时间    分钟",
+            "单侧脑灌注"=>["yes_no","住院记录.手术信息.单侧脑灌注"],
+            "单侧脑灌注时间"=>"住院记录.手术信息.单侧脑灌注时间    分钟",
+
+
+            //术后信息
             "术后住院时间"=>"",
             "术后监护室停留时间"=>"",
             "出监护室日期"=>"",
@@ -229,6 +235,8 @@ class Hospital2Controller extends Controller
             "自体血"=>"",
             "术后并发症"=>"",
             "术后并发症-其他"=>"",
+
+            //出院资料
             "出院时状态"=>"",
             "自动出院日期"=>"",
             "自动出院主要原因"=>"",
@@ -265,12 +273,23 @@ class Hospital2Controller extends Controller
             
             $excel_values[] = $excel_row;
         }
+        $excel_headers = [];
+        foreach($excel_header_config as $field => $data_source){
+            $head = $field;
+            if (preg_match('/    /',$data_source)){
+                $post_fix    = preg_replace('/.*    /','',$data_source);
+                $head += "($post_fix)";
+            }
+            $excel_headers[] = $head;
+        }
         $excel_headers=array_keys($excel_header_config);
         $data=self::createtable($excel_values, '住院记录', $excel_headers); 
         exit($data);
     }
     static public function getDataValue($record, $excel_field, $data_source){
         if (is_string($data_source)){
+            $data_source = preg_replace('/    .*/','',$data_source);
+            
             $value = self::getValueByJsonPath($record, $data_source);;
             return $value;
         }
@@ -308,6 +327,25 @@ class Hospital2Controller extends Controller
         }
         $value = intval($value);
         return $value==0?"无":"有";
+    }
+    static public function yes_no($record, $excel_field, $data_source){
+        $value = self::getDataValue($record, $excel_field, $data_source);
+        if (empty($value)){
+            return "否";
+        }
+        $value = intval($value);
+        return $value==0?"否":"是";
+    }
+    static public function format_2level_data($record, $excel_field, $data_source){
+        $datas = self::getDataValue($record, $excel_field, $data_source);
+        if (empty($datas)){
+            return "";
+        }
+        $values = [];
+        for ($i = 0; $i < count($datas); $i++){
+            $values[] = $datas[$i]["key1"]." ".$datas[$i]["key2"];
+        }
+        return join(",",$values);
     }
     //////////////////////////////////////////////////////////
     static public function getValueByJsonPath($record, $json_path){
