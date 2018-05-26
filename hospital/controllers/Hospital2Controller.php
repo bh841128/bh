@@ -251,7 +251,7 @@ class Hospital2Controller extends Controller
             
             $excel_row = [];
             foreach($excel_header_config as $excel_field => $data_source){
-                $excel_row[$excel_field] = self::getDataValue($record, $excel_field, $data_source);
+                $excel_row[$excel_field] = self::getDataValue($data, $excel_field, $data_source);
             }
             
             $excel_values[] = $excel_row;
