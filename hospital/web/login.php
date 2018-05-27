@@ -25,7 +25,7 @@ require_once(__DIR__."/../config/front_config.php");
                         <div class="login-wrapper2">
                             <div class="login-wrapper3">
                                 <div class="form-group" style="margin-bottom:30px"><h2 style="color:rgb(85,173,220);">欢迎登录</h2></div>
-                                <div class="form-group errormsg"><div class="msg-wrap"><div class="msg-error" style="width:274px"><b></b>请输入验证码</div></div></div>
+                                <div class="form-group errormsg"><div class="msg-wrap"><div class="msg-error" style="width:300px"><b></b>请输入验证码</div></div></div>
                                 <div class="form-group"><input class="form-control" type="text" name="login_name" value="chaos" placeholder="请输入用户名" tooltip_msg="用户名不能为空"></div>
                                 <div class="form-group" style="margin-bottom:50px;"><input class="form-control" type="password" value="fff" name="login_password" placeholder="请输入密码" tooltip_msg="密码不能为空"/></div>
                                 <div class="form-group" style="margin-bottom:50px;"><button type="button" class="btn btn-primary" tag="login_button">登录</button></div>
