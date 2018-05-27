@@ -671,6 +671,7 @@ function addZhuyuanjilu(){
 		
 		////去掉一些无用字段
 		var data_inputs = data_json.operation_before_info;
+		//术前信息
 		for (var i = data_inputs["既往心脏病手术次数"]+1; i <= 4; i++){
 			if (data_inputs["既往心脏病手术时间-不能提供-"+i] > 0){
 				data_inputs["既往心脏病手术时间-"+i] = "";
@@ -717,10 +718,14 @@ function addZhuyuanjilu(){
 			data_inputs["非心脏畸形-其他"] = "";
 		}
 
+		//手术信息
 		var data_inputs = data_json.operation_info;
 		if (data_inputs["与术前诊断一致"] == 1){
 			data_inputs["手术诊断"] = "";
 			data_inputs["手术诊断-其他"] = "";
+		}
+		if (data_inputs["延迟关胸"] == 0){
+			data_inputs["延迟关胸时间"] = "";
 		}
 		if (data_inputs["体外循环"] == 0){
 			data_inputs["是否计划"] = "";
@@ -756,6 +761,7 @@ function addZhuyuanjilu(){
 			data_inputs["单侧脑灌注时间"] = "";
 		}
 
+		//术后信息
 		var data_inputs = data_json.operation_after_info;
 		if (data_inputs["当天进出监护室内"] == 0){
 			data_inputs["出监护室日期"] = "";
@@ -773,6 +779,7 @@ function addZhuyuanjilu(){
 			data_inputs["术后并发症-其他"] = "";
 		}
 
+		//出院资料
 		var data_inputs = data_json.hospitalization_out_info;
 		if (data_inputs["出院时状态"] == "存活"){
 			data_inputs["死亡日期"] = "";
