@@ -12,11 +12,12 @@ if ($ret_check_login["ret"] != 0){
     header("Location: https://xxb-china.xiaoyusan.com/login.php");
     exit;
 }
-$all_hospitals = app\models\Hospital::getAllHospitals();
+
 $user_name = $ret_check_login["data"]["user_name"];
 $hospital_name = $ret_check_login["data"]["hospital_name"];
 $hospital_id = $ret_check_login["data"]["hospital_id"];
 require_once(__DIR__."/../config/front_config.php");
+$all_hospitals = app\models\Hospital::getAllHospitals();
 ?>
 <!DOCTYPE html>
 <html>
