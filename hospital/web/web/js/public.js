@@ -346,7 +346,7 @@ function ajaxRemoteRequest(action, data, callback){
 	var http_host     = window.location.host;
 	var action_url = http_protocol+"//"+http_host;
 
-	action_url = "http://112.74.105.107"
+	action_url = window.location.origin;
 	action_url += "/" + action;
 	$.ajax({
 		url: action_url,
