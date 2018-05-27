@@ -672,7 +672,7 @@ function addZhuyuanjilu(){
 		////去掉一些无用字段
 		var data_inputs = data_json.operation_before_info;
 		//术前信息
-		for (var i = data_inputs["既往心脏病手术次数"]+1; i <= 4; i++){
+		for (var i = 1; i <= data_inputs["既往心脏病手术次数"]; i++){
 			if (data_inputs["既往心脏病手术时间-不能提供-"+i] > 0){
 				data_inputs["既往心脏病手术时间-"+i] = "";
 			}
@@ -682,6 +682,14 @@ function addZhuyuanjilu(){
 			if (data_inputs["既往心脏病手术名称-不能提供-"+i] > 0){
 				data_inputs["既往心脏病手术名称-"+i] = "";
 			}
+		}
+		for (var i = data_inputs["既往心脏病手术次数"]+1; i <= 4; i++){
+			data_inputs["既往心脏病手术时间-不能提供-"+i] = 0;
+			data_inputs["既往心脏病手术时间-"+i] = "";
+			data_inputs["既往心脏病手术医院-不能提供-"+i] = 0;
+			data_inputs["既往心脏病手术医院-"+i] = "";
+			data_inputs["既往心脏病手术名称-不能提供-"+i] = 0;
+			data_inputs["既往心脏病手术名称-"+i] = "";
 		}
 		if (data_inputs["术前血氧饱和度-不能提供"] == 0){
 			data_inputs["术前血氧饱和度-不能提供-原因"] = "";

@@ -265,6 +265,7 @@ class Hospital2Controller extends Controller
             unset($data["住院记录"]["operation_info"]);
             unset($data["住院记录"]["operation_after_info"]);
             unset($data["住院记录"]["hospitalization_out_info"]);
+            self::preProcessData($data);
             
             $excel_row = [];
             foreach($excel_header_config as $excel_field => $data_source){
@@ -288,6 +289,141 @@ class Hospital2Controller extends Controller
         $excel_fields = array_keys($excel_header_config);
         $data=self::createtable($excel_values, '住院记录', $excel_fields, $excel_headers); 
         exit($data);
+    }
+    static public function preProcessData(&$record){
+        $data_inputs = &$record["住院记录"]["术前信息"];
+        //术前信息
+        for ($i = 1; $i <= $data_inputs["既往心脏病手术次数"]; $i++){
+            if ($data_inputs["既往心脏病手术时间-不能提供-"+$i] > 0){
+                $data_inputs["既往心脏病手术时间-"+$i] = "";
+            }
+            if ($data_inputs["既往心脏病手术医院-不能提供-"+$i] > 0){
+                $data_inputs["既往心脏病手术医院-"+$i] = "";
+            }
+            if ($data_inputs["既往心脏病手术名称-不能提供-"+$i] > 0){
+                $data_inputs["既往心脏病手术名称-"+$i] = "";
+            }
+        }
+        for ($i = $data_inputs["既往心脏病手术次数"]+1; $i <= 4; $i++){
+            $data_inputs["既往心脏病手术时间-不能提供-"+$i] = "";
+            $data_inputs["既往心脏病手术时间-"+$i] = "";
+            $data_inputs["既往心脏病手术医院-不能提供-"+$i] = "";
+            $data_inputs["既往心脏病手术医院-"+$i] = "";
+            $data_inputs["既往心脏病手术名称-不能提供-"+$i] = "";
+            $data_inputs["既往心脏病手术名称-"+$i] = "";
+        }
+        if ($data_inputs["术前血氧饱和度-不能提供"] == 0){
+            $data_inputs["术前血氧饱和度-不能提供-原因"] = "";
+        }
+        else{
+            $data_inputs["术前血氧饱和度"] = "";
+            $data_inputs["术前血氧饱和度-右上肢"] = "";
+            $data_inputs["术前血氧饱和度-左上肢"] = "";
+            $data_inputs["术前血氧饱和度-右下肢"] = "";
+            $data_inputs["术前血氧饱和度-左下肢"] = "";
+        }
+        if ($data_inputs["术后血氧饱和度-不能提供"] == 0){
+            $data_inputs["术后血氧饱和度-不能提供-原因"] = "";
+        }
+        else{
+            $data_inputs["术后血氧饱和度"] = "";
+            $data_inputs["术后血氧饱和度-右上肢"] = "";
+            $data_inputs["术后血氧饱和度-左上肢"] = "";
+            $data_inputs["术后血氧饱和度-右下肢"] = "";
+            $data_inputs["术后血氧饱和度-左下肢"] = "";
+        }
+        if ($data_inputs["专科检查-是否其他"] == 0){
+            $data_inputs["专科检查-其他"] = "";
+        }
+        if ($data_inputs["专科检查-出生胎龄-不能提供"]){
+            $data_inputs["专科检查-出生胎龄"] = "";
+        }
+        if ($data_inputs["专科检查-术前一般危险因素"] == 0){
+            $data_inputs["术前一般危险因素"] = "";
+            $data_inputs["术前一般危险因素-其他"] = "";
+        }
+        if ($data_inputs["专科检查-非心脏畸形"] == 0){
+            $data_inputs["非心脏畸形"] = "";
+            $data_inputs["非心脏畸形-其他"] = "";
+        }
+
+        //手术信息
+        $data_inputs = &$record["住院记录"]["手术信息"];
+        if ($data_inputs["与术前诊断一致"] == 1){
+            $data_inputs["手术诊断"] = "";
+            $data_inputs["手术诊断-其他"] = "";
+        }
+        if ($data_inputs["延迟关胸"] == 0){
+            $data_inputs["延迟关胸时间"] = "";
+        }
+        if ($data_inputs["体外循环"] == 0){
+            $data_inputs["是否计划"] = "";
+            $data_inputs["停搏液"] = "";
+            $data_inputs["停搏液类型"] = "";
+            $data_inputs["停搏液温度"] = "";
+            $data_inputs["体外循环时间"] = "";
+            $data_inputs["主动脉阻断时间"] = "";
+            $data_inputs["主动脉阻断时间-不能提供"] = "";
+            $data_inputs["主动脉阻断时间-不能提供-原因"] = "";
+            $data_inputs["是否二次或多次体外循环"] = "";
+            $data_inputs["是否二次或多次体外循环-原因"] = "";
+        }
+        else {
+            if ($data_inputs["停搏液"] == 0){
+                $data_inputs["停搏液类型"] = "";
+                $data_inputs["停搏液温度"] = "";
+            }
+            if ($data_inputs["主动脉阻断时间-不能提供"] == 0){
+                $data_inputs["主动脉阻断时间-不能提供-原因"] = "";
+            }
+            else{
+                $data_inputs["主动脉阻断时间"] = "";
+            }
+            if ($data_inputs["是否二次或多次体外循环"] == 0){
+                $data_inputs["是否二次或多次体外循环-原因"] = "";
+            }
+        }
+        if ($data_inputs["深低温停循环"] == 0){
+            $data_inputs["深低温停循环时间"] = "";
+        }
+        if ($data_inputs["单侧脑灌注"] == 0){
+            $data_inputs["单侧脑灌注时间"] = "";
+        }
+
+        //术后信息
+        $data_inputs = &$record["住院记录"]["术后信息"];
+        if ($data_inputs["当天进出监护室内"] == 0){
+            $data_inputs["出监护室日期"] = "";
+            $data_inputs["术后监护室停留时间"] = "";
+        }
+        if ($data_inputs["围手术期血液制品输入（累计）"] == 0){
+            $data_inputs["红细胞"] = "";
+            $data_inputs["新鲜冰冻血浆"] = "";
+            $data_inputs["血浆冷沉淀"] = "";
+            $data_inputs["血小板"] = "";
+            $data_inputs["自体血"] = "";
+        }
+        if ($data_inputs["是否术后并发症"] == 0){
+            $data_inputs["术后并发症"] = "";
+            $data_inputs["术后并发症-其他"] = "";
+        }
+
+        //出院资料
+        $data_inputs = &$record["住院记录"]["出院资料"];
+        if ($data_inputs["出院时状态"] == "存活"){
+            $data_inputs["死亡日期"] = "";
+            $data_inputs["死亡主要原因"] = "";
+            $data_inputs["自动出院日期"] = "";
+            $data_inputs["自动出院主要原因"] = "";
+        }
+        else if ($data_inputs["出院时状态"] == "死亡"){
+            $data_inputs["自动出院日期"] = "";
+            $data_inputs["自动出院主要原因"] = "";
+        }
+        else if ($data_inputs["出院时状态"] == "自动出院"){
+            $data_inputs["死亡日期"] = "";
+            $data_inputs["死亡主要原因"] = "";
+        }
     }
     static public function getDataValue($record, $excel_field, $data_source){
         if (is_string($data_source)){
@@ -345,6 +481,9 @@ class Hospital2Controller extends Controller
     }
     static public function yes_no($record, $excel_field, $data_source){
         $value = self::getDataValue($record, $excel_field, $data_source);
+        if ($value == ""){
+            return "";
+        }
         if (empty($value)){
             return "否";
         }
