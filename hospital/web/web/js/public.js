@@ -532,7 +532,8 @@ function getHospitals(){
 		{ "name": "河南省人民医院", "id": "7" },
 		{ "name": "广州市妇女儿童医疗中心", "id": "8" },
 		{ "name": "中国人民解放军第四军医大学第一附属医院", "id": "9" },
-		{ "name": "中国人民解放军第三军医大学", "id": "10" }
+		{ "name": "中国人民解放军第三军医大学", "id": "10" },
+		{ "name": "测试医院", "id": "11" }
 	];
 }
 function getHospitalName(hospital_id) {
