@@ -67,7 +67,7 @@ $all_hospitals = app\models\Hospital::getAllHospitals();
     echo "g_user_name='$user_name';".PHP_EOL;
     echo "g_hospital_name='$hospital_name';".PHP_EOL;
     echo "g_hospital_id='$hospital_id';".PHP_EOL;
-    echo "g_all_hospitals=".json_encode($all_hospitals).";";
+    echo "g_all_hospitals=".json_encode($all_hospitals).";\n";
 ?>
         var g_hospital = new hospital();
         g_hospital.init();
