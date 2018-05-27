@@ -17,7 +17,6 @@ $user_name = $ret_check_login["data"]["user_name"];
 $hospital_name = $ret_check_login["data"]["hospital_name"];
 $hospital_id = $ret_check_login["data"]["hospital_id"];
 require_once(__DIR__."/../config/front_config.php");
-$all_hospitals = app\models\Hospital::getAllHospitals();
 ?>
 <!DOCTYPE html>
 <html>
@@ -63,11 +62,10 @@ $all_hospitals = app\models\Hospital::getAllHospitals();
     <?php require(WEB_PAGE_PATH."js.php"); ?>
     <script type="text/javascript">
 <?php
-    
     echo "g_user_name='$user_name';".PHP_EOL;
     echo "g_hospital_name='$hospital_name';".PHP_EOL;
     echo "g_hospital_id='$hospital_id';".PHP_EOL;
-    echo "g_all_hospitals=".json_encode($all_hospitals).";";
+    echo "g_all_hospitals=".json_encode(app\models\Hospital::getAllHospitals()).";";
 ?>
         var g_hospital = new hospital();
         g_hospital.init();
