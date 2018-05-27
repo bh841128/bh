@@ -633,6 +633,7 @@ function addZhuyuanjilu(){
 			hospitalization_out_info:{
 			}
 		});
+		m_zyjl_id = 0;
 	}
 	
 	function onZhuyuanjiluReturn(){
