@@ -403,7 +403,7 @@ function hospital(){
 			for (var x in query_params){
 				arrUrlParams.push(x+'='+encodeURIComponent(query_params[x]));
 			}
-			return "http://112.74.105.107/hospital2/export-excel?"+arrUrlParams.join("&");
+			return window.location.origin+"/hospital2/export-excel?"+arrUrlParams.join("&");
 		}
 		var options = {
             "show_fields":["序号","姓名","病案号","手术日期", "上传时间"],
