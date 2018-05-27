@@ -9,7 +9,7 @@ $application = new yii\web\Application($config);
 
 $ret_check_login = app\models\Hospital::checkLogin();
 if ($ret_check_login["ret"] != 0){
-    header("Location: http://112.74.105.107/login.php");
+    header("Location: https://xxb-china.xiaoyusan.com/login.php");
     exit;
 }
 $user_name = $ret_check_login["data"]["user_name"];
