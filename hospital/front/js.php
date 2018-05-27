@@ -10,7 +10,7 @@
 <script src="/web/lib/adminlte/js/morris.min.js"></script>
 
 <script src="/web/js/public.js"></script>
-<script src="/web/js/address.js"></script>
+<script src="/web/js/shengshi.js"></script>
 <script src="/web/js/control_json.js"></script>
 <script src="/web/js/data/data.js"></script>
 <script src="/web/js/select_modal.js"></script>
