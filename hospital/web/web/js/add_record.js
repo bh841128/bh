@@ -615,6 +615,8 @@ function addZhuyuanjilu(){
 
 	this.onAddZhuyuanjilu = function(){
 		this.showPage(null, "");
+		$("#content-wrapper-add-jibenziliao").hide();
+		$("#content-wrapper-add-zhuyuanjilu").show();
 	}
 	function initInputsByDefault(){
 		initInputsByJson({
