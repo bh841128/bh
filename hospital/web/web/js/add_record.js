@@ -614,12 +614,7 @@ function addZhuyuanjilu(){
 	}
 
 	this.onAddZhuyuanjilu = function(){
-		setAllControlDisabled($("#content-wrapper-add-zhuyuanjilu"), false);
-		showNavTab("zhuyuanjilu-section", "nav-tab-zyjl-riqi", "tab-zyjl-riqi");
-		initInputsByDefault();
-		$("#content-wrapper-add-jibenziliao").hide();
-		$("#content-wrapper-add-zhuyuanjilu").show();
-		m_come_from = "";
+		this.showPage(null, "");
 	}
 	function initInputsByDefault(){
 		initInputsByJson({
@@ -633,7 +628,6 @@ function addZhuyuanjilu(){
 			hospitalization_out_info:{
 			}
 		});
-		m_zyjl_id = 0;
 	}
 	
 	function onZhuyuanjiluReturn(){
