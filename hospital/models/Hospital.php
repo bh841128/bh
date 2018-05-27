@@ -45,6 +45,10 @@ class Hospital
 		return false;
 	}
 
+	public static function getAllHospitals(){
+		return self::$m_hospitals;
+	}
+
 	public static function checkLogin(){
 		$ret_client = ["ret"=>0, "msg"=>"OK", "data"=>""];
 		$username = CUtil::getRequestParam('cookie', 'username', '');
