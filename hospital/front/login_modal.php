@@ -81,7 +81,7 @@
                                 <input type="password" class="form-control input-sm" placeholder="密码" tag="password" required>
                             </td>
                         </tr>
-                        <tr><td><div class="msg-wrap errormsg"><div class="msg-error"><b></b></div></div></td></tr>
+                        <tr><td><div class="msg-wrap errormsg"><div class="msg-error" style="width:300px"><b></b></div></div></td></tr>
                         <tr><td style="text-align:center"><button type="button" class="btn btn-primary" tag="ok" style="width:100px;">登录</button></td></tr>
                     </table>
                 </div>
