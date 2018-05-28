@@ -40,7 +40,7 @@
                                 <input type="password" class="form-control input-sm" placeholder="再次输入新密码" tag="new_password_again" required autocomplete="off">
                             </td>
                         </tr>
-                        <tr><td><div class="msg-wrap errormsg"><div class="msg-error" style="width:330px"><b></b></div></div></td></tr>
+                        <tr><td><div class="msg-wrap errormsg"><div class="msg-error" style="width:300px"><b></b></div></div></td></tr>
                         <tr><td style="text-align:center"><button type="button" class="btn btn-primary" tag="ok" style="width:100px;">保存</button></td></tr>
                     </table>
                 </div>
