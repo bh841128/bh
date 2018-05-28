@@ -17,7 +17,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="password" class="form-control input-sm" placeholder="原始密码" tag="old_password" required>
+                                <input type="password" class="form-control input-sm" placeholder="原始密码" tag="old_password" required autocomplete="off">
                             </td>
                         </tr>
                         <tr>
@@ -27,7 +27,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="password" class="form-control input-sm" placeholder="新密码" tag="new_password" required>
+                                <input type="password" class="form-control input-sm" placeholder="新密码" tag="new_password" required autocomplete="off">
                             </td>
                         </tr>
                         <tr>
@@ -37,7 +37,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="password" class="form-control input-sm" placeholder="再次输入新密码" tag="new_password_again" required>
+                                <input type="password" class="form-control input-sm" placeholder="再次输入新密码" tag="new_password_again" required autocomplete="off">
                             </td>
                         </tr>
                         <tr><td><div class="msg-wrap errormsg"><div class="msg-error" style="width:330px"><b></b></div></div></td></tr>
